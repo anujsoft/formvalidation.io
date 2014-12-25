@@ -1,0 +1,26 @@
+<section>
+    <h3 id="form-verbose">verbose: Boolean</h3>
+
+    <p>Whether to be verbose when validating a field or not.</p>
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Value</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>true <label class="label label-default">default</label></td>
+                <td>When a field has multiple validators, all of them will be checked respectively. If errors occur in multiple validators, all of them will be displayed to the user</td>
+            </tr>
+            <tr>
+                <td>false</td>
+                <td>when a field has multiple validators, validation for this field will be terminated upon the first encountered error. Thus, only the very first error message related to this field will be displayed to the user</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>It's also possible to set verbose option for each field. Look at the <a href="#field-verbose">field verbose</a> section.</p>
+</section>

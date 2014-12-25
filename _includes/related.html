@@ -1,0 +1,13 @@
+{% if page.related %}
+<section>
+    <h2>Related validators</h2>
+
+    <p>The following validators might be useful to you:</p>
+
+    <ul class="list-group">
+        {% for v in page.related %}
+        <li class="list-group-item"><a href="/validators/{{ v }}/">{{ v }}</a></li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}

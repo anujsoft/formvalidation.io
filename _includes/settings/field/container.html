@@ -1,0 +1,60 @@
+<section>
+    <h3 id="field-container">container: String</h3>
+
+    <p>Indicate where the error messages are shown.</p>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Value</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CSS selector</td>
+                <td>Error messages are placed in element defined by this CSS selector</td>
+            </tr>
+            <tr>
+                <td><code>tooltip</code></td>
+                <td>Error messages are placed inside a <a href="http://getbootstrap.com/javascript/#tooltips">Bootstrap tooltip</a>.</td>
+            </tr>
+            <tr>
+                <td><code>popover</code></td>
+                <td>Error messages are placed inside a <a href="http://getbootstrap.com/javascript/#popovers">Bootstrap popover</a>.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4 id="field-container-example">Example</h4>
+    <p>The following form illustrates an usage of the <code>container</code> option. The error messages are shown in the element defined by a CSS selector.</p>
+
+    <div class="doc-demo">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#field-container-form-tab" data-toggle="tab">Try it</a></li>
+            <li><a href="#field-container-html-tab" data-toggle="tab">HTML</a></li>
+            <li><a href="#field-container-js-tab" data-toggle="tab">JS</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="field-container-form-tab">
+            {% include settings/field/container-example.html %}
+            </div>
+
+            <div class="tab-pane" id="field-container-html-tab">
+{% highlight html %}
+{% include settings/field/container-example.html %}
+{% endhighlight %}
+            </div>
+
+            <div class="tab-pane" id="field-container-js-tab">
+{% highlight javascript %}
+{% include settings/field/container-example.js %}
+{% endhighlight %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+{% include settings/field/container-example.js %}
+</script>

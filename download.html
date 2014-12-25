@@ -1,0 +1,153 @@
+---
+layout: default
+title: Download
+permalink: /download/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Download</h1>
+        <p><strong><span id="downloadCounter">92,000+</span></strong> downloads so far! It is right choice, absolutely!</p>
+
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>The latest version, <a href="/news/v0.5.3-released/">v{{ site.current_version }}</a>, is released on {{ site.released_date }}.</p>
+
+                <section>
+                    <h2>Commercial license</h2>
+                    <p>For commercial projects, you must purchase commercial license. For more details about license, please see the <a href="/license/">license</a> page.</p>
+
+                    <div class="row text-center">
+                        <div class="col-md-4 col-md-offset-2">
+                            <div class="doc-plan">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <p>Developer commercial license</p>
+                                        <span>{{ site.license.developer.price }}</span>
+                                    </div>
+                                    <div class="list-group">
+                                        <div class="list-group-item">For individual developers</div>
+                                        <div class="list-group-item">Each individual developer needs to purchase a separate license</div>
+                                        <div class="list-group-item">Free lifetime upgrade</div>
+                                        <div class="list-group-item">
+                                            <p><strong>Buy with Paypal</strong></p>
+                                            <a href="{{ site.license.developer.sellfy_url }}" id="{{ site.license.developer.sellfy_id }}" class="doc-sellfy-button" title="Buy BootstrapValidator developer commercial license with Paypal"><span>{{ site.license.developer.price }}</span></a>
+                                        </div>
+                                        <div class="list-group-item">
+                                            <p><strong>Buy with Credit Card</strong></p>
+                                            <a href="{{ site.license.developer.gumroad_url }}" class="doc-gumroad-button" title="Buy BootstrapValidator developer commercial license with Credit Card"><span></span>Buy now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="doc-plan">
+                                <div class="panel panel-success">
+                                    <div class="panel-heading">
+                                        <p>Organization commercial license</p>
+                                        <span>{{ site.license.organization.price }}</span>
+                                    </div>
+                                    <div class="list-group">
+                                        <div class="list-group-item">For an organization with a team of developers</div>
+                                        <div class="list-group-item">Covers all developers working within the organization</div>
+                                        <div class="list-group-item">Free lifetime upgrade</div>
+                                        <div class="list-group-item">
+                                            <p><strong>Buy with Paypal</strong></p>
+                                            <a href="{{ site.license.organization.sellfy_url }}" id="{{ site.license.organization.sellfy_id }}" class="doc-sellfy-button" title="Buy BootstrapValidator organization commercial license with Paypal"><span>{{ site.license.organization.price }}</span></a>
+                                        </div>
+                                        <div class="list-group-item">
+                                            <p><strong>Buy with Credit Card</strong></p>
+                                            <a href="{{ site.license.organization.gumroad_url }}" class="doc-gumroad-button" title="Buy BootstrapValidator organization commercial license with Credit Card"><span></span>Buy now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-center">
+                        All transactions are processed on <a href="https://sellfy.com/nghuuphuoc/">Sellfy</a> and <a href="https://gumroad.com/nghuuphuoc/">GumRoad</a> through an <strong>encrypted HTTP Secure</strong> connection
+                    </p>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Non-commercial license</h2>
+
+                    <div class="row text-center">
+                        <div class="col-md-4 col-md-offset-4">
+                            <div class="doc-plan">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">Free</div>
+                                    <div class="list-group">
+                                        <div class="list-group-item">
+                                            For anyone who want to try it before buying
+                                        </div>
+                                        <div class="list-group-item">
+                                            For <strong>non-commercial projects</strong> under the terms of the <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/">Creative Commons BY-NC-ND 3.0</a> license
+                                        </div>
+                                        <div class="list-group-item">
+                                            <a href="{{ site.download.dist }}" class="btn" data-toggle="tooltip" data-title="By clicking this button, you agree to the BootstrapValidator license agreement" data-placement="bottom">Try v{{ site.current_version }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="doc-alert doc-alert-warning">
+                        If you are paid to do your job, and part of your job is implementing BootstrapValidator, a commercial license is required.
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Installing with Bower</h2>
+
+                    <p>You can get the latest release by using <a href="http://bower.io">Bower</a>:</p>
+
+{% highlight bash %}
+$ bower install bootstrapvalidator
+{% endhighlight %}
+
+                    <p>It's also possible to get the latest developing code from the <a href="{{ site.repository.source }}">master</a> branch:</p>
+
+{% highlight bash %}
+$ bower install bootstrapvalidator#master
+{% endhighlight %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>CDN</h2>
+                    <p>You also can use the minified version hosted on the following CDN:</p>
+
+                    <h3>cdnjs</h3>
+                    <p>BootstrapValidator is available on <a href="https://cdnjs.com/libraries/jquery.bootstrapvalidator">cdnjs</a>:</p>
+{% highlight html %}
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+{% endhighlight %}
+
+                    <h3>jsDelivr</h3>
+                    <p>BootstrapValidator is available on <a href="http://www.jsdelivr.com/#!jquery.bootstrapvalidator">jsDelivr</a>:</p>
+{% highlight html %}
+<link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+{% endhighlight %}
+
+                    <p>BootstrapValidator also can be found on the official <a href="{{ site.jquery_plugin_url }}">jQuery plugins page</a>.</p>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

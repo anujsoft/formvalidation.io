@@ -1,0 +1,38 @@
+---
+layout: post
+title: BootstrapValidator v0.4.1 Released
+date: 2014-04-12 10:00:00 +0700
+author: nghuuphuoc
+---
+
+<p>From this version, the plugin is <a href="http://plugins.jquery.com/bootstrapValidator/">available</a> on <a href="http://plugins.jquery.com/">jQuery plugins site</a>.</p>
+
+<h3>Improvements</h3>
+<ul class="doc-list">
+    <li><a href="{{ site.repository.source }}/issues/106">#106</a>: Prevent the <a href="/api/#validate"><code>validate()</code> method</a> from submit the form automatically. So we can call <a href="/api/#validate"><code>validate()</code> method</a> to validate the form</li>
+    <li><a href="{{ site.repository.source }}/issues/131">#131</a>: Doesn't trigger validation on the first focus</li>
+    <li><a href="{{ site.repository.source }}/issues/145">#145</a>: The row state is now only marked as success if all fields on it are valid</li>
+    <li><a href="{{ site.repository.source }}/issues/157">#157</a>: Added support for element outside of form using the <a href="/settings/#field-selector"><code>selector</code> option</a></li>
+    <li><a href="{{ site.repository.source }}/issues/159">#159</a>, <a href="{{ site.repository.source }}/pull/163">#163</a>: User doesn't need to submit the form twice when remote validator complete, thanks to <a href="https://github.com/jswale">@jswale</a></li>
+    <li><a href="{{ site.repository.source }}/issues/166">#166</a>, <a href="{{ site.repository.source }}/pull/167">#167</a>: The <a href="/validators/phone/">phone validator</a> now also checks the length of US phone number, thanks to <a href="https://github.com/gercheq">@gercheq</a></li>
+</ul>
+
+<h3>Bug fixes</h3>
+<ul class="doc-list">
+    <li><a href="{{ site.repository.source }}/issues/144">#144</a>, <a href="{{ site.repository.source }}/issues/158">#158</a>: Fixed an issue that the <a href="/settings/#form-submit-handler">custom submit handler</a> is not fired from the second time</li>
+    <li><a href="{{ site.repository.source }}/pull/162">#162</a>: Fix errors in IE 8, thanks to <a href="https://github.com/adgrafik">@adgrafik</a></li>
+</ul>
+
+<h3>Contributors</h3>
+<p>Thank to the contributors:</p>
+<ul class="doc-list">
+    <li><a href="https://github.com/adgrafik">@adgrafik</a></li>
+    <li><a href="https://github.com/gercheq">@gercheq</a></li>
+    <li><a href="https://github.com/jswale">@jswale</a></li>
+</ul>
+
+<h3>Download</h3>
+<div>
+    <a class="btn btn-primary" href="{{ site.repository.source }}/releases/download/v0.4.1/bootstrapvalidator-dist-0.4.1.zip">bootstrapvalidator-dist-0.4.1.zip</a>
+    <a class="btn btn-default" href="{{ site.repository.source }}/archive/v0.4.1.zip">v0.4.1 Source Code</a>
+</div>

@@ -1,0 +1,63 @@
+---
+layout: default
+title: Complex form
+permalink: /examples/complex-form/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Complex form</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>In <a href="/getting-started/#writing-form">most cases</a>, the form is structured by pair of label and field which are placed inside a <code>.form-group</code> element.</p>
+                <p>In fact, you might use more complex forms such as</p>
+                <ul class="doc-list">
+                    <li>There are many fields in the same row</li>
+                    <li>Using another element that differs than <code>class=".form-group"</code> to place the fields.</li>
+                </ul>
+                <p>Fortunately, with the <a href="/settings/#form-group">group</a> option, you can create any custom form as you would.</p>
+
+                <div class="doc-alert doc-alert-info">
+                    <p>If there are more than one fields in the same row and the group option isn't used, the row might have the success color even if it contains at least one invalid field.</p>
+                    <p>Defining the group option for all fields in row also fix this issue.</p>
+                </div>
+
+                <div class="doc-demo">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#group-form-tab" data-toggle="tab">Try it</a></li>
+                        <li><a href="#group-html-tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#group-js-tab" data-toggle="tab">JS</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="group-form-tab">
+                        {% include examples/complex-form/example.html %}
+                        </div>
+
+                        <div class="tab-pane" id="group-html-tab">
+{% highlight html %}
+{% include examples/complex-form/example.html %}
+{% endhighlight %}
+                        </div>
+
+                        <div class="tab-pane" id="group-js-tab">
+{% highlight javascript %}
+{% include examples/complex-form/example.js %}
+{% endhighlight %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include examples/complex-form/example.js %}
+</script>

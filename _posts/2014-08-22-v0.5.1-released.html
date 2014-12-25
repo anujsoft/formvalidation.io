@@ -1,0 +1,102 @@
+---
+layout: post
+title: BootstrapValidator v0.5.1 Released
+date: 2014-08-22 17:00:00 +0700
+author: nghuuphuoc
+---
+
+<h3>New features</h3>
+<ul class="doc-list">
+    <li><a href="{{ site.repository.source }}/issues/218">#218</a>, <a href="{{ site.repository.source }}/pull/531">#531</a>: Add meid validator, thanks to <a href="https://github.com/troymccabe">@troymccabe</a></li>
+    <li><a href="{{ site.repository.source }}/issues/267">#267</a>, <a href="{{ site.repository.source }}/pull/532">#532</a>: Add imo validator, thanks to <a href="https://github.com/troymccabe">@troymccabe</a></li>
+    <li><a href="{{ site.repository.source }}/pull/510">#510</a>, <a href="{{ site.repository.source }}/pull/646">#646</a>: Add French <a href="/validators/phone/">phone number</a> validator, thanks to <a href="https://github.com/dlucazeau">@dlucazeau</a></li>
+    <li><a href="{{ site.repository.source }}/pull/536">#536</a>: Add Spanish <a href="/validators/phone/">phone number</a> validator, thanks to <a href="https://github.com/vadail">@vadail</a></li>
+    <li><a href="{{ site.repository.source }}/pull/519">#519</a>: Add Iceland <a href="/validators/vat/">VAT</a> number validator, thanks to <a href="https://github.com/evilchili">@evilchili</a></li>
+    <li><a href="{{ site.repository.source }}/issues/620">#620</a>, <a href="{{ site.repository.source }}/pull/621">#621</a>: Add Pakistan <a href="/validators/phone/">phone number</a> validator, thanks to <a href="https://github.com/abuzer">@abuzer</a></li>
+    <li><a href="{{ site.repository.source }}/issues/630">#630</a>, <a href="{{ site.repository.source }}/pull/640">#640</a>: Add event name options to avoid window.onerror being invoked by jQuery, thanks to <a href="https://github.com/roryprimrose">@roryprimrose</a>. Thanks to <a href="https://github.com/stephengreentree">@stephengreentree</a> for creating the test suite (<a href="{{ site.repository.source }}/pull/657">#657</a>)</li>
+    <li><a href="{{ site.repository.source }}/pull/637">#637</a>: Add South African <a href="/validators/vat/">VAT</a> number validator, thanks to <a href="https://github.com/evilchili">@evilchili</a></li>
+    <li><a href="{{ site.repository.source }}/pull/638">#638</a>, <a href="{{ site.repository.source }}/pull/647">#647</a>: Add Brazilian <a href="/validators/phone/">phone number</a> and <a href="/validators/zipCode/">postal code</a> validator, thanks to <a href="https://github.com/fhferreira">@fhferreira</a></li>
+    <li><a href="{{ site.repository.source }}/pull/643">#643</a>: Add <a href="/validators/zipCode/">zipCode</a> and <a href="/validators/phone/">phone number</a> validators for Morocco, thanks to <a href="https://github.com/Arkni">@Arkni</a></li>
+    <li><a href="{{ site.repository.source }}/pull/650">#650</a>: Add Brazilian <a href="/validators/vat/">VAT</a> number validator, thanks to <a href="https://github.com/fhferreira">@fhferreira</a></li>
+</ul>
+
+<h3>Improvements</h3>
+<ul class="doc-list">
+    <li><a href="{{ site.repository.source }}/pull/502">#502</a>: Allowing sites without TLD to pass URI validation, thanks to <a href="https://github.com/troymccabe">@troymccabe</a></li>
+    <li><a href="{{ site.repository.source }}/pull/549">#549</a>, <a href="{{ site.repository.source }}/pull/600">#600</a>: Change the CSS/JS path in <code>demo/remote.html</code> and <code>demo/message.html</code>, thanks to <a href="https://github.com/leegtang">@leegtang</a>, <a href="https://github.com/Arkni">@Arkni</a></li>
+    <li><a href="{{ site.repository.source }}/pull/604">#604</a>: Fix the <code>demo/date.html</code> and <code>demo/tab.html</code> examples, thanks to <a href="https://github.com/Arkni">@Arkni</a></li>
+    <li><a href="{{ site.repository.source }}/pull/609">#609</a>: Add content-type header for <code>demo/remote.php</code>, thanks to <a href="https://github.com/etorres">@etorres</a></li>
+    <li><a href="{{ site.repository.source }}/pull/661">#661</a>: Add <code>headers</code> option to the <a href="/validators/remote/">remote</a> validator, thanks to <a href="https://github.com/ryan2049">@ryan2049</a></li>
+    <li><a href="{{ site.repository.source }}/issues/664">#664</a>: Fix the feedback icon position for Bootstrap 3.2</li>
+    <li><a href="{{ site.repository.source }}/issues/683">#683</a>: Force the format option to be <code>YYYY-MM-DD</code> when using <code>&lt;input type="date" /&gt;</code></li>
+    <li><a href="{{ site.repository.source }}/issues/698">#698</a>: Ignore type checking if the file type is empty</li>
+</ul>
+
+<h3>Bug fixes</h3>
+<ul class="doc-list">
+    <li><a href="{{ site.repository.source }}/issues/284">#284</a>, <a href="{{ site.repository.source }}/issues/294">#294</a>, <a href="{{ site.repository.source }}/issues/441">#441</a>, <a href="{{ site.repository.source }}/issues/516">#516</a>: The HTML 5 <code>&lt;input type="number" /&gt;</code> input allows to input non-digits characters</li>
+    <li><a href="{{ site.repository.source }}/issues/548">#548</a>: Fix the issue when using <a href="/validators/different/">different</a> validator to compare with not existing field</li>
+    <li><a href="{{ site.repository.source }}/issues/550">#550</a>, <a href="{{ site.repository.source }}/pull/551">#551</a>: Cannot validate against both ipv4 and ipv6 at the same time, thanks to <a href="https://github.com/beeglebug">@beeglebug</a></li>
+    <li><a href="{{ site.repository.source }}/issues/588">#588</a>: Don't use min, max attributes (greaterThan, lessThan validators) for <code>&lt;input type="date" /&gt;</code></li>
+    <li><a href="{{ site.repository.source }}/issues/665">#665</a>: The <a href="/settings/#form-submit-buttons">submitButtons</a> option doesn't work correctly</li>
+    <li><a href="{{ site.repository.source }}/issues/672">#672</a>: The <a href="/validators/zipCode/">zipCode</a> validator throw an exception when passing not supported country code</li>
+    <li><a href="{{ site.repository.source }}/issues/681">#681</a>: Fix the <a href="/validators/date/">date</a> validator issue where one of date/month/year or hours/minutes/seconds is prefixed by zero</li>
+    <li><a href="{{ site.repository.source }}/issues/692">#692</a>: The <a href="/validators/remote/">remote</a> validator can't set the type option via HTML attribute</li>
+    <li><a href="{{ site.repository.source }}/issues/700">#700</a>: The <a href="/validators/between/">between</a>, <a href="/validators/greaterThan/">greaterThan</a>, <a href="/validators/lessThan/">lessThan</a> validators accept param which isn't number</li>
+</ul>
+
+<h3>Language packages</h3>
+<ul class="doc-list">
+    <li><a href="{{ site.repository.source }}/pull/396">#396</a>: German language package, thanks to <a href="https://github.com/logemann">@logemann</a></li>
+    <li><a href="{{ site.repository.source }}/pull/400">#400</a>: Italian language package, thanks to <a href="https://github.com/maramazza">@maramazza</a></li>
+    <li><a href="{{ site.repository.source }}/pull/474">#474</a>: Hungarian language package, thanks to <a href="https://github.com/blackfyre">@blackfyre</a></li>
+    <li><a href="{{ site.repository.source }}/pull/478">#478</a>: Simplified and traditional Chinese language package, thanks to <a href="https://github.com/tureki">@tureki</a></li>
+    <li><a href="{{ site.repository.source }}/pull/494">#494</a>: Chilean Spanish language package, thanks to <a href="https://github.com/marceloampuerop6">@marceloampuerop6</a></li>
+    <li><a href="{{ site.repository.source }}/pull/503">#503</a>: French language package, thanks to <a href="https://github.com/dlucazeau">@dlucazeau</a></li>
+    <li><a href="{{ site.repository.source }}/pull/505">#505</a>: Czech language package, thanks to <a href="https://github.com/AdwinTrave">@AdwinTrave</a></li>
+    <li><a href="{{ site.repository.source }}/pull/507">#507</a>: Polish language package, thanks to <a href="https://github.com/grzesiek">@grzesiek</a>. <a href="{{ site.repository.source }}/pull/624">#624</a>: Typos fixed by <a href="https://github.com/lukaszbanasiak">@lukaszbanasiak</a></li>
+    <li><a href="{{ site.repository.source }}/pull/517">#517</a>: Belgium (Dutch) language package, thanks to <a href="https://github.com/dokterpasta">@dokterpasta</a></li>
+    <li><a href="{{ site.repository.source }}/pull/527">#527</a>: Bulgarian language package, thanks to <a href="https://github.com/mraiur">@mraiur</a></li>
+    <li><a href="{{ site.repository.source }}/pull/534">#534</a>: Turkish language package, thanks to <a href="https://github.com/CeRBeR666">@CeRBeR666</a></li>
+    <li><a href="{{ site.repository.source }}/pull/536">#536</a>: Spanish language package, thanks to <a href="https://github.com/vadail">@vadail</a></li>
+    <li><a href="{{ site.repository.source }}/pull/544">#544</a>: Greek language package, thanks to <a href="https://github.com/pRieStaKos">@pRieStaKos</a></li>
+    <li><a href="{{ site.repository.source }}/pull/545">#545</a>: Portuguese (Brazil) language package, thanks to <a href="https://github.com/marcuscarvalho6">@marcuscarvalho6</a></li>
+    <li><a href="{{ site.repository.source }}/pull/598">#598</a>: Danish language package, thanks to <a href="https://github.com/Djarnis">@Djarnis</a></li>
+    <li><a href="{{ site.repository.source }}/pull/674">#674</a>, <a href="{{ site.repository.source }}/pull/677">#677</a>: Dutch language package, thanks to <a href="https://github.com/jvanderheide">@jvanderheide</a></li>
+    <li><a href="{{ site.repository.source }}/pull/679">#679</a>: Add Arabic language package, thanks to <a href="https://github.com/Arkni">@Arkni</a></li>
+</ul>
+
+<h3>Contributors</h3>
+<p>Thank to the contributor:</p>
+<ul class="doc-list">
+    <li><a href="https://github.com/abuzer">@abuzer</a></li>
+    <li><a href="https://github.com/AdwinTrave">@AdwinTrave</a></li>
+    <li><a href="https://github.com/Arkni">@Arkni</a></li>
+    <li><a href="https://github.com/beeglebug">@beeglebug</a></li>
+    <li><a href="https://github.com/CeRBeR666">@CeRBeR666</a></li>
+    <li><a href="https://github.com/Djarnis">@Djarnis</a></li>
+    <li><a href="https://github.com/dlucazeau">@dlucazeau</a></li>
+    <li><a href="https://github.com/dokterpasta">@dokterpasta</a></li>
+    <li><a href="https://github.com/etorres">@etorres</a></li>
+    <li><a href="https://github.com/evilchili">@evilchili</a></li>
+    <li><a href="https://github.com/fhferreira">@fhferreira</a></li>
+    <li><a href="https://github.com/grzesiek">@grzesiek</a></li>
+    <li><a href="https://github.com/Jvanderheide">@Jvanderheide</a></li>
+    <li><a href="https://github.com/leegtang">@leegtang</a></li>
+    <li><a href="https://github.com/lukaszbanasiak">@lukaszbanasiak</a></li>
+    <li><a href="https://github.com/maramazza">@maramazza</a></li>
+    <li><a href="https://github.com/marcuscarvalho6">@marcuscarvalho6</a></li>
+    <li><a href="https://github.com/mraiur">@mraiur</a></li>
+    <li><a href="https://github.com/pRieStaKos">@pRieStaKos</a></li>
+    <li><a href="https://github.com/roryprimrose">@roryprimrose</a></li>
+    <li><a href="https://github.com/ryan2049">@ryan2049</a></li>
+    <li><a href="https://github.com/stephengreentree">@stephengreentree</a></li>
+    <li><a href="https://github.com/troymccabe">@troymccabe</a></li>
+    <li><a href="https://github.com/vadail">@vadail</a></li>
+</ul>
+
+<h3>Download</h3>
+<div>
+    <a class="btn btn-primary" href="{{ site.repository.source }}/releases/download/v0.5.1/bootstrapvalidator-dist-0.5.1.zip">bootstrapvalidator-dist-0.5.1.zip</a>
+    <a class="btn btn-default" href="{{ site.repository.source }}/archive/v0.5.1.zip">v0.5.1 Source Code</a>
+</div>

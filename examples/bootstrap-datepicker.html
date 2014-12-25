@@ -1,0 +1,101 @@
+---
+layout: default
+title: Playing with Bootstrap Datepicker
+permalink: /examples/bootstrap-datepicker/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Playing with Bootstrap Datepicker</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>The following example illustrates an usage of BootstrapValidator with the <a href="https://github.com/eternicode/bootstrap-datepicker">Bootstrap Datepicker</a> plugin.</p>
+                <div class="doc-alert doc-alert-info">
+                    You should look at the <a href="/examples/#compatibility">basic principles</a> when integrating BootstrapValidator with other plugins
+                </div>
+
+                <section>
+                    <h2>Basic example</h2>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#datepicker-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#datepicker-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#datepicker-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="datepicker-form-tab">
+                            {% include examples/bootstrap-datepicker/example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="datepicker-html-tab">
+{% highlight html %}
+{% include examples/bootstrap-datepicker/example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="datepicker-js-tab">
+{% highlight javascript %}
+{% include examples/bootstrap-datepicker/example.js %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Setting date in a range</h2>
+
+                    <p>Since Bootstrap Datepicker provides <a href="http://bootstrap-datepicker.readthedocs.org/en/release/options.html#startdate">startDate</a> and <a href="http://bootstrap-datepicker.readthedocs.org/en/release/options.html#enddate">endDate</a> options,
+                        and the <a href="/validators/date/">date</a> validator supports <code>min</code> and <code>max</code> options, we can set a date range easily.</p>
+                    <p>The following example asks to enter a date between 01/01/2010 and 12/30/2020.</p>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#range-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#range-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#range-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="range-form-tab">
+                            {% include examples/bootstrap-datepicker/range-example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="range-html-tab">
+{% highlight html %}
+<!-- Include Bootstrap Datepicker -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css">
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+{% include examples/bootstrap-datepicker/range-example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="range-js-tab">
+{% highlight javascript %}
+{% include examples/bootstrap-datepicker/range-example.js %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include examples/bootstrap-datepicker/example.js %}
+{% include examples/bootstrap-datepicker/range-example.js %}
+</script>

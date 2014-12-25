@@ -1,0 +1,142 @@
+---
+layout: default
+title: Playing with HTML 5 input types and attributes
+permalink: /examples/html5/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Playing with HTML 5 input types and attributes</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>BootstrapValidator supports a few of HTML 5 types, attributes listed as following:</p>
+
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>HTML 5 attribute</th>
+                            <th>Equivalent validator</th>
+                            <th>Equivalent HTML attribute</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>min="..."</code></td>
+                            <td><a href="/validators/greaterThan/">greaterThan validator</a></td>
+                            <td>
+{% highlight html %}
+data-bv-greaterthan="true"
+data-bv-greaterthan-value="..."
+{% endhighlight %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code>max="..."</code></td>
+                            <td><a href="/validators/lessThan/">lessThan validator</a></td>
+                            <td>
+{% highlight html %}
+data-bv-lessthan="true"
+data-bv-lessthan-value="..."
+{% endhighlight %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code>maxlength="..."</code>, <code>minlength="..."</code></td>
+                            <td><a href="/validators/stringLength/">stringLength validator</a></td>
+                            <td>
+{% highlight html %}
+data-bv-stringlength="true"
+data-bv-stringlength-max="..."
+data-bv-stringlength-min="..."
+{% endhighlight %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code>pattern="..."</code></td>
+                            <td><a href="/validators/regexp/">regexp validator</a></td>
+                            <td>
+{% highlight html %}
+data-bv-regexp="true"
+data-bv-regexp-regexp="..."
+{% endhighlight %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code>required</code></td>
+                            <td><a href="/validators/notEmpty/">notEmpty validator</a></td>
+                            <td><code>data-bv-notempty="true"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>type="color"</code></td>
+                            <td><a href="/validators/hexColor/">hexColor validator</a></td>
+                            <td><code>data-bv-hexcolor="true"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>type="email"</code></td>
+                            <td><a href="/validators/emailAddress/">emailAddress validator</a></td>
+                            <td><code>data-bv-emailaddress="true"</code></td>
+                        </tr>
+                        <tr>
+                            <td>
+{% highlight html %}
+type="range"
+min="..."
+max="..."
+{% endhighlight %}
+                            </td>
+                            <td><a href="/validators/between/">between validator</a></td>
+                            <td>
+{% highlight html %}
+data-bv-between="true"
+data-bv-between-min="..."
+data-bv-between-max="..."
+{% endhighlight %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code>type="url"</code></td>
+                            <td><a href="/validators/uri/">uri validator</a></td>
+                            <td><code>data-bv-uri="true"</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="doc-demo">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#html5-form-tab" data-toggle="tab">Try it</a></li>
+                        <li><a href="#html5-html-tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#html5-js-tab" data-toggle="tab">JS</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="html5-form-tab">
+                        {% include examples/html5/example.html %}
+                        </div>
+
+                        <div class="tab-pane" id="html5-html-tab">
+{% highlight html %}
+{% include examples/html5/example.html %}
+{% endhighlight %}
+                        </div>
+
+                        <div class="tab-pane" id="html5-js-tab">
+{% highlight javascript %}
+{% include examples/html5/example.js %}
+{% endhighlight %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include examples/html5/example.js %}
+</script>

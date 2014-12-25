@@ -1,0 +1,44 @@
+<section>
+    <h3 id="field-selector">selector: String</h3>
+
+    <p>The CSS selector to indicate the field. It is used in case that it's not possible to use the <code>name</code> attribute for the field.</p>
+
+    <h4 id="field-selector-example">Example</h4>
+    <p>Instead of using the <code>name</code> attribute, the following form uses the <code>selector</code> option to define the fields:</p>
+
+    <div class="doc-demo">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#selector-form-tab" data-toggle="tab">Try it</a></li>
+            <li><a href="#selector-html-tab" data-toggle="tab">HTML</a></li>
+            <li><a href="#selector-js-tab" data-toggle="tab">JS</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="selector-form-tab">
+            {% include settings/field/selector-example.html %}
+            </div>
+
+            <div class="tab-pane" id="selector-html-tab">
+{% highlight html %}
+{% include settings/field/selector-example.html %}
+{% endhighlight %}
+            </div>
+
+            <div class="tab-pane" id="selector-js-tab">
+{% highlight javascript %}
+{% include settings/field/selector-example.js %}
+{% endhighlight %}
+            </div>
+        </div>
+    </div>
+
+    <p>As you see, the field can be defined by a ID (<code>#ccNumber</code>), class (<code>.cvvNumber</code>) or attribute (<code>[data-stripe="exp-month"]</code>) selector.</p>
+
+    <ul class="doc-list">
+        <li><a href="/examples/requiring-at-least-one-field/">Requiring at least one field</a></li>
+    </ul>
+</section>
+
+<script>
+{% include settings/field/selector-example.js %}
+</script>

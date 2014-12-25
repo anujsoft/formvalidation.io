@@ -1,0 +1,129 @@
+---
+layout: default
+title: Validate an EAN (International Article Number)
+permalink: /validators/ean/
+examples: 73513537, 9780471117094, 4006381333931, 73513536
+related:
+    - isbn
+    - issn
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>ean validator</h1>
+        <p>Validate an EAN (International Article Number)</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-ean-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-ean="true".
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>EAN</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% assign examples = page.examples | split: ', ' %}
+                            {% for sample in examples %}
+                            <tr>
+                                <td><a href="javascript: void(0);" class="sample">{{ sample }}</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#ean-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#ean-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#ean-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="ean-form-tab">
+                            {% include validators/ean/example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="ean-html-tab">
+                            {% highlight html %}
+                            {% include validators/ean/example.html %}
+                            {% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="ean-js-tab">
+                            {% highlight javascript %}
+                            {% include validators/ean/example.js %}
+                            {% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include validators/ean/example.js %}
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        $('#eanForm')
+            .find('input[name="ean"]')
+                .val($(this).html())
+                .end()
+            .bootstrapValidator('revalidateField', 'ean');
+
+        var isValid = $('#eanForm').data('bootstrapValidator').isValid();
+        $(this)
+            .parents('tr').find('i')
+            .removeClass('fa-check fa-times')
+            .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>

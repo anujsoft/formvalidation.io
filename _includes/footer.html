@@ -1,0 +1,69 @@
+<footer class="doc-footer">
+    <div class="container">
+        <p>
+            {% if page.permalink != "/download/" %}
+            <a class="btn" href="/download/">Download</a>
+            {% endif %}
+            <a class="btn" href="{{ site.repository.source }}/issues">Report bug</a>
+        </p>
+        <p>
+            &copy; 2013 - 2014 <a href="http://twitter.com/nghuuphuoc">Nguyen Huu Phuoc</a>. All rights reserved.<br/>
+            Handcrafted with <span class="doc-heart"><i class="fa fa-heart"></i></span> and a lot of <i class="fa fa-coffee"></i>
+        </p>
+        <ul>
+            <li><a href="/getting-started/">Getting started</a></li>
+            <li>&middot;</li>
+            <li><a href="/settings/">Settings</a></li>
+            <li>&middot;</li>
+            <li><a href="/validators/">Validators</a></li>
+            <li>&middot;</li>
+            <li><a href="/api/">API</a></li>
+            <li>&middot;</li>
+            <li><a href="/examples/">Examples</a></li>
+            <li>&middot;</li>
+            <li><a href="/developing/">Developing</a></li>
+            <li>&middot;</li>
+            <li><a href="/news/">News</a></li>
+            <li>&middot;</li>
+            <li><a href="/license/">License</a></li>
+        </ul>
+        <ul>
+            <li>
+                <a href="{{ site.repository.source }}" title="Fork me on Github">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-github-alt fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="http://twitter.com/formvalidation/" title="Follow me on Twitter">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/pages/FormValidation/1567908420106565/" title="Like me on Facebook">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://plus.google.com/u/0/communities/114931136856987817254" title="Join me on Google+">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    {% if page.permalink != "/download/" and page.permalink != "/license/" %}
+    {% include ad.html %}
+    {% endif %}
+</footer>

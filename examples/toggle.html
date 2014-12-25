@@ -1,0 +1,61 @@
+---
+layout: default
+title: Toggling field
+permalink: /examples/toggle/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Toggling field</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>BootstrapValidator does not validate the fields which:</p>
+
+                <ul class="doc-list">
+                    <li>are disabled</li>
+                    <li>are hidden</li>
+                    <li>are not visible</li>
+                </ul>
+
+                <p>The following example shows an example of toggling field validator.</p>
+                <p>Try to click the <i>Add more info</i> or <i>Add more phone numbers</i> button to enable/disable the additional fields. Also, look at state of the <i>Validate</i> button based on the validity of additional fields.</p>
+
+                <div class="doc-demo">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#toggling-form-tab" data-toggle="tab">Try it</a></li>
+                        <li><a href="#toggling-html-tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#toggling-js-tab" data-toggle="tab">JS</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="toggling-form-tab">
+                        {% include examples/toggle/example.html %}
+                        </div>
+
+                        <div class="tab-pane" id="toggling-html-tab">
+                        {% highlight html %}
+                        {% include examples/toggle/example.html %}
+                        {% endhighlight %}
+                        </div>
+
+                        <div class="tab-pane" id="toggling-js-tab">
+                        {% highlight javascript %}
+                        {% include examples/toggle/example.js %}
+                        {% endhighlight %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include examples/toggle/example.js %}
+</script>

@@ -1,0 +1,70 @@
+---
+layout: default
+title: Showing icons in custom area
+permalink: /examples/showing-icon-custom-area/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Showing icons in custom area</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>In this example, I will help you how to show the feedback icons in custom area which are right after the labels.</p>
+                <p>We're going to archive it by triggering the <a href="/settings/#event-field">init.field.bv</a> event.
+                    The event handler is called after initializing the field which places the icon and error messages at desired position.</p>
+
+                <div class="doc-alert doc-alert-warning">
+                    The feedback icon must be placed inside the field's parent element which has <a href="/settings/#form-group">.form-group</a> class in most cases. Otherwise, the plugin cannot find the icon element to show up after validating the field.
+                </div>
+
+                <div class="doc-demo">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#registration-form-tab" data-toggle="tab">Try it</a></li>
+                        <li><a href="#registration-html-tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#registration-js-tab" data-toggle="tab">JS</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="registration-form-tab">
+                        {% include examples/showing-icon-custom-area/example.html %}
+                        </div>
+
+                        <div class="tab-pane" id="registration-html-tab">
+{% highlight html %}
+{% include examples/showing-icon-custom-area/example.html %}
+{% endhighlight %}
+                        </div>
+
+                        <div class="tab-pane" id="registration-js-tab">
+{% highlight javascript %}
+{% include examples/showing-icon-custom-area/example.js %}
+{% endhighlight %}
+                        </div>
+                    </div>
+                </div>
+
+                <p>Despite that the feedback icons are placed at the particular area, you might need customized CSS styles to <a href="/examples/adjusting-feedback-icon-position/">adjust</a> their position:</p>
+
+{% highlight css %}
+<style type="text/css">
+/* Custom the feedback icon styles */
+#registerForm .form-control-feedback {
+    position: static;
+    display: inline-block;
+}
+</style>
+{% endhighlight %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include examples/showing-icon-custom-area/example.js %}
+</script>

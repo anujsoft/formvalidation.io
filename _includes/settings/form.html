@@ -1,0 +1,96 @@
+<section>
+    <h2>Form settings</h2>
+
+    <p>Below is the list of settings for form:</p>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Option</th>
+                <th>Equivalent HTML attribute</th>
+                <th>Default</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>autoFocus</code></td>
+                <td><code>data-bv-autofocus</code></td>
+                <td><code>true</code></td>
+            </tr>
+            <tr>
+                <td><code>container</code></td>
+                <td><code>data-bv-container</code></td>
+                <td>n/a</td>
+            </tr>
+            <tr>
+                <td><code>excluded</code></td>
+                <td><code>data-bv-excluded</code></td>
+                <td><code>[':disabled', ':hidden', ':not(:visible)']</code></td>
+            </tr>
+            <tr>
+                <td><code>feedbackIcons</code></td>
+                <td><code>data-bv-feedbackicons-valid</code>, <code>data-bv-feedbackicons-invalid</code>, <code>data-bv-feedbackicons-validating</code></td>
+                <td>
+{% highlight javascript %}
+{
+    valid: null,
+    invalid: null,
+    validating: null
+}
+{% endhighlight %}
+                </td>
+            </tr>
+            <tr>
+                <td><code>group</code></td>
+                <td><code>data-bv-group</code></td>
+                <td><code>'.form-group'</code></td>
+            </tr>
+            <tr>
+                <td><code>live</code></td>
+                <td><code>data-bv-live</code></td>
+                <td><code>'enabled'</code></td>
+            </tr>
+            <tr>
+                <td><code>message</code></td>
+                <td><code>data-bv-message</code></td>
+                <td><code>'This value is not valid'</code></td>
+            </tr>
+            <tr>
+                <td><code>submitButtons</code></td>
+                <td><code>data-bv-submitbuttons</code></td>
+                <td><code>'[type="submit"]'</code></td>
+            </tr>
+            <tr>
+                <td><code>threshold</code></td>
+                <td><code>data-bv-threshold</code></td>
+                <td><code>null</code></td>
+            </tr>
+            <tr>
+                <td><code>trigger</code></td>
+                <td><code>data-bv-trigger</code></td>
+                <td><code>null</code></td>
+            </tr>
+            <tr>
+                <td><code>verbose</code></td>
+                <td><code>data-bv-verbose</code></td>
+                <td><code>true</code></td>
+            </tr>
+            <tr>
+                <td><code>fields</code></td>
+                <td>n/a</td>
+                <td><code>null</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    {% include settings/form/auto-focus.html %}
+    {% include settings/form/container.html %}
+    {% include settings/form/excluded.html %}
+    {% include settings/form/feedback-icons.html %}
+    {% include settings/form/group.html %}
+    {% include settings/form/live.html %}
+    {% include settings/form/message.html %}
+    {% include settings/form/submit-buttons.html %}
+    {% include settings/form/threshold.html %}
+    {% include settings/form/trigger.html %}
+    {% include settings/form/verbose.html %}
+</section>

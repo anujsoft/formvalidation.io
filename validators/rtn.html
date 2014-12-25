@@ -1,0 +1,128 @@
+---
+layout: default
+title: Validate a RTN (Routing transit number)
+permalink: /validators/rtn/
+examples: 011103093, 067014822, 211274450, 211370545, 054001725, 011400071, 031201360, 026013673, 021302567, 053902197, 036001808, 011600033
+related:
+    - creditCard
+    - cvv
+    - iban
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>rtn validator</h1>
+        <p>Validate a RTN (Routing transit number)</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-rtn-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-rtn="true".
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>RTN</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% assign examples = page.examples | split: ', ' %}
+                            {% for sample in examples %}
+                            <tr>
+                                <td><a href="javascript: void(0);" class="sample">{{ sample }}</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#rtn-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#rtn-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#rtn-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="rtn-form-tab">
+                            {% include validators/rtn/example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="rtn-html-tab">
+                            {% highlight html %}
+                            {% include validators/rtn/example.html %}
+                            {% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="rtn-js-tab">
+                            {% highlight javascript %}
+                            {% include validators/rtn/example.js %}
+                            {% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include validators/rtn/example.js %}
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        $('#rtnForm').find('input[name="rtn"]').val($(this).html());
+
+        $('#rtnForm').bootstrapValidator('revalidateField', 'rtn');
+
+        var isValid = $('#rtnForm').data('bootstrapValidator').isValid();
+        $(this)
+            .parents('tr').find('i')
+            .removeClass('fa-check fa-times')
+            .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>

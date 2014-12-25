@@ -1,0 +1,9 @@
+<div class="post">
+    <%= form_for @post do |f| %>
+        <div class="form-group">
+            <%= f.label :body %>
+            <%= f.text_area :body, class: 'form-control', rows: 3 %>
+        </div>
+        <%= f.submit 'Save', class: 'btn btn-default' %>
+    <% end %>
+</div>

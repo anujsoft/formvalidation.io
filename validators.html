@@ -1,0 +1,42 @@
+---
+layout: default
+title: Validators
+permalink: /validators/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Validators</h1>
+        <p>The richest validators in the class</p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>BootstrapValidator comes with various built-in validators listed in the alphabetical order as following:</p>
+
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for validator in site.data.validators %}
+                        <tr>
+                            <td>{{ forloop.index }}</td>
+                            <td><a href="/validators/{{ validator.name }}/">{{ validator.name }}</a></td>
+                            <td>{{ validator.description }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

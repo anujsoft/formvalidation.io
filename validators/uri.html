@@ -1,0 +1,307 @@
+---
+layout: default
+title: Validate an URL address
+permalink: /validators/uri/
+examples:
+    valid:
+        - http://foo.com/blah_blah
+        - http://foo.com/blah_blah/
+        - http://foo.com/blah_blah_(wikipedia)
+        - http://foo.com/blah_blah_(wikipedia)_(again)
+        - http://www.example.com/wpstyle/?p=364
+        - https://www.example.com/foo/?bar=baz&inga=42&quux
+        - http://✪df.ws/123
+        - http://userid:password@example.com:8080
+        - http://userid:password@example.com:8080/
+        - http://userid@example.com
+        - http://userid@example.com/
+        - http://userid@example.com:8080
+        - http://userid@example.com:8080/
+        - http://userid:password@example.com
+        - http://userid:password@example.com/
+        - http://142.42.1.1/
+        - http://142.42.1.1:8080/
+        - http://➡.ws/䨹
+        - http://⌘.ws
+        - http://⌘.ws/
+        - http://foo.com/blah_(wikipedia)#cite-1
+        - http://foo.com/blah_(wikipedia)_blah#cite-1
+        - http://foo.com/unicode_(✪)_in_parens
+        - http://foo.com/(something)?after=parens
+        - http://☺.damowmow.com/
+        - http://code.google.com/events/#&product=browser
+        - http://j.mp
+        - ftp://foo.bar/baz
+        - http://foo.bar/?q=Test%20URL-encoded%20stuff
+        - http://مثال.إختبار
+        - http://例子.测试
+        - http://उदाहरण.परीक्षा
+        - http://-.~_!$&'()*+,;=:%40:80%2f::::::@example.com
+        - http://1337.net
+        - http://a.b-c.de
+        - http://223.255.255.254
+    invalid:
+        - http://
+        - http://.
+        - http://..
+        - http://../
+        - http://?
+        - http://??
+        - http://??/
+        - http://#
+        - http://##
+        - http://##/
+        - http://foo.bar?q=Spaces should be encoded
+        - //
+        - //a
+        - ///a
+        - ///
+        - http:///a
+        - foo.com
+        - rdar://1234
+        - h://test
+        - http:// shouldfail.com
+        - :// should fail
+        - http://foo.bar/foo(bar)baz quux
+        - ftps://foo.bar/
+        - http://-error-.invalid/
+        - http://a.b--c.de/
+        - http://-a.b.co
+        - http://a.b-.co
+        - http://0.0.0.0
+        - http://10.1.1.0
+        - http://10.1.1.255
+        - http://224.1.1.1
+        - http://1.1.1.1.1
+        - http://123.123.123
+        - http://3628126748
+        - http://.www.foo.bar/
+        - http://www.foo.bar./
+        - http://.www.foo.bar./
+        - http://10.1.1.1
+        - http://10.1.1.254
+related:
+    - ip
+    - mac
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>uri validator</h1>
+        <p>Validate an URL address</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>allowLocal</code></td>
+                                <td><code>data-bv-uri-allowlocal</code></td>
+                                <td>Boolean</td>
+                                <td>Allow the private and local network IP.<br/>It is <code>false</code>, by default.</td>
+                            </tr>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-uri-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                            <tr>
+                                <td><code>protocol</code></td>
+                                <td><code>data-bv-uri-protocol</code></td>
+                                <td>String</td>
+                                <td>The protocols, separated by a comma. By default, it is set to <code>http, https, ftp</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-uri="true".<br/>
+                        You don't need to do that when using HTML 5 type="url" attribute.
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Examples</h2>
+
+                    <h3>Basic example</h3>
+
+                    <div class="doc-alert doc-alert-info">
+                        Thank to <a href="http://mathiasbynens.be/">Mathias Bynens</a> for providing this amazing collection of <a href="http://mathiasbynens.be/demo/url-regex">URL examples</a>.
+                    </div>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>URL</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="2" class="text-center"><strong>Valid URL examples</strong></td>
+                            </tr>
+                            {% for url in page.examples.valid %}
+                            <tr>
+                                <td><a href="javascript: void(0);" class="sample">{{ url }}</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            {% endfor %}
+
+                            <tr>
+                                <td colspan="2" class="text-center"><strong>Invalid URL examples</strong></td>
+                            </tr>
+                            {% for url in page.examples.invalid %}
+                            <tr>
+                                <td><a href="javascript: void(0);" class="sample">{{ url }}</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#uri-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#uri-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#uri-js-tab" data-toggle="tab">JS</a></li>
+                            <li><a href="#uri-declarative-tab" data-toggle="tab">Declarative usage</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="uri-form-tab">
+                            {% include validators/uri/basic-example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="uri-html-tab">
+{% highlight html %}
+{% include validators/uri/basic-example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="uri-js-tab">
+{% highlight javascript %}
+{% include validators/uri/basic-example.js %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="uri-declarative-tab">
+{% highlight html %}
+{% include validators/uri/declarative-example.html %}
+
+<script>
+{% include validators/uri/declarative-example.js %}
+</script>
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>HTML 5 example</h3>
+
+                    <p>The following form uses HTML 5 <code>type="url"</code> attribute to enable the uri validator.</p>
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#html5-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#html5-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#html5-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="html5-form-tab">
+                            {% include validators/uri/html5-example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="html5-html-tab">
+{% highlight html %}
+{% include validators/uri/html5-example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="html5-js-tab">
+{% highlight javascript %}
+{% include validators/uri/html5-example.js %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Using with regexp validator</h3>
+                    <p>The following example is a combination usage of the uri and <a href="/validators/regexp/">regexp</a> validators.</p>
+                    <p>It asks user to enter a valid URL which ends with .jpg, .jpeg, or .png.</p>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#regexp-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#regexp-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#regexp-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="regexp-form-tab">
+                            {% include validators/uri/regexp-example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="regexp-html-tab">
+{% highlight html %}
+{% include validators/uri/regexp-example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="regexp-js-tab">
+{% highlight javascript %}
+{% include validators/uri/regexp-example.js %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include validators/uri/basic-example.js %}
+{% include validators/uri/html5-example.js %}
+{% include validators/uri/regexp-example.js %}
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        $('#uriForm').find('input[name="website"]').val($(this).html());
+
+        $('#uriForm').bootstrapValidator('revalidateField', 'website');
+
+        var isValid = $('#uriForm').data('bootstrapValidator').isValid();
+        $(this)
+            .parents('tr').find('i')
+            .removeClass('fa-check fa-times')
+            .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>

@@ -1,0 +1,62 @@
+---
+layout: default
+title: Requiring at least one field
+permalink: /examples/requiring-at-least-one-field/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Requiring at least one field</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>In fact, the form might have multiple fields with the same validator rules but at least one of them is required.
+                    We can't use neither the <a href="/validators/notEmpty/">notEmpty</a> validator nor HTML 5 <a href="/examples/html5/">required</a>
+                    attribute for all of them.</p>
+
+                <p>Fortunately, this can be done easily by</p>
+                <ul class="doc-list">
+                    <li>Using the <a href="/settings/#field-selector">selector</a> option to define validators for all fields. So, we don't need
+                    to indicate the validator rules for each separate field.</li>
+                    <li>Using the <a href="/validators/callback/">callback</a> validator to check if one of fields is not empty.
+                    And then update the result of callback validator via the <a href="/api/#update-status">updateStatus()</a> method.</li>
+                </ul>
+
+                <div class="doc-demo">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#require-form-tab" data-toggle="tab">Try it</a></li>
+                        <li><a href="#require-html-tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#require-js-tab" data-toggle="tab">JS</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="require-form-tab">
+                        {% include examples/requiring-one-field/example.html %}
+                        </div>
+
+                        <div class="tab-pane" id="require-html-tab">
+{% highlight html %}
+{% include examples/requiring-one-field/example.html %}
+{% endhighlight %}
+                        </div>
+
+                        <div class="tab-pane" id="require-js-tab">
+{% highlight javascript %}
+{% include examples/requiring-one-field/example.js %}
+{% endhighlight %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include examples/requiring-one-field/example.js %}
+</script>

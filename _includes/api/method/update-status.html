@@ -1,0 +1,65 @@
+<section>
+    <h3 id="update-status">updateStatus</h3>
+
+    <p><code>updateStatus(field<sup>*</sup>, status<sup>*</sup>, validator): BootstrapValidator</code> &mdash; Update validator result for given field</p>
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>field</code></td>
+                <td>String|jQuery</td>
+                <td>The field name or field element</td>
+            </tr>
+            <tr>
+                <td><code>status</code></td>
+                <td>String</td>
+                <td>Can be <code>NOT_VALIDATED</code>, <code>VALIDATING</code>, <code>INVALID</code> or <code>VALID</code></td>
+            </tr>
+            <tr>
+                <td><code>validator</code></td>
+                <td>String</td>
+                <td>The validator name. If <code>null</code>, the method updates validity result for all validators</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4 id="update-status-examples">Example</h4>
+    <p>The <code>updateStatus</code> method might be used when a field validity is effected by other filed.</p>
+    <p>For example, the form below asks user for credit card expiration. The expiration is valid if it is in the range of next month and next 10 year.</p>
+    <div class="doc-demo">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#cc-form-tab" data-toggle="tab">Try it</a></li>
+            <li><a href="#cc-html-tab" data-toggle="tab">HTML</a></li>
+            <li><a href="#cc-js-tab" data-toggle="tab">JS</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="cc-form-tab">
+            {% include api/method/payment-example.html %}
+            </div>
+
+            <div class="tab-pane" id="cc-html-tab">
+{% highlight html %}
+{% include api/method/payment-example.html %}
+{% endhighlight %}
+            </div>
+
+            <div class="tab-pane" id="cc-js-tab">
+{% highlight javascript %}
+{% include api/method/payment-example.js %}
+{% endhighlight %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+{% include api/method/payment-example.js %}
+</script>

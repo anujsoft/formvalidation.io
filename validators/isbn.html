@@ -1,0 +1,127 @@
+---
+layout: default
+title: Validate an ISBN (International Standard Book Number)
+permalink: /validators/isbn/
+examples: 9971502100, 99921-58-10-7, 960 425 059 0, 99921-58-10-6, 9780306406157, 978-0-306-40615-7, 978 0 306 40615 7, 978-0-306-40615-6
+related:
+    - ean
+    - issn
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>isbn validator</h1>
+        <p>Validate an ISBN (International Standard Book Number). Support both ISBN 10 and ISBN 13</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-isbn-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-isbn="true".
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>ISBN</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% assign examples = page.examples | split: ', ' %}
+                            {% for isbn in examples %}
+                            <tr>
+                                <td><a href="javascript: void(0);" class="sample">{{ isbn }}</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#isbn-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#isbn-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#isbn-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="isbn-form-tab">
+                            {% include validators/isbn/example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="isbn-html-tab">
+                            {% highlight html %}
+                            {% include validators/isbn/example.html %}
+                            {% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="isbn-js-tab">
+                            {% highlight javascript %}
+                            {% include validators/isbn/example.js %}
+                            {% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include validators/isbn/example.js %}
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        $('#isbnForm').find('input[name="isbn"]').val($(this).html());
+
+        $('#isbnForm').bootstrapValidator('revalidateField', 'isbn');
+
+        var isValid = $('#isbnForm').data('bootstrapValidator').isValid();
+        $(this)
+            .parents('tr').find('i')
+            .removeClass('fa-check fa-times')
+            .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>

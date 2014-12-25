@@ -1,0 +1,165 @@
+---
+layout: default
+title: Showing messages in custom area
+permalink: /examples/showing-message-custom-area/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Showing messages in custom area</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <section>
+                    <p>There are many developers asking me for an example that demonstrates the ability of showing messages in custom area.</p>
+                    <p>Here are few of scenarios which you might want to use this feature:</p>
+                    <ul class="doc-list">
+                        <li>Messages are shown above or below the form due to the limitation of form height</li>
+                        <li>Messages are shown in a help panel located at the right of form</li>
+                        <li>Messages are shown in the last step of a wizard</li>
+                        <li>etc</li>
+                    </ul>
+                    <p>There are two ways to solve this requirement which are listed in the next sections.</p>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2 id="using-container-option">Using the container option</h2>
+
+                    <p>The first solution which is easiest way is to use the <a href="/settings/#form-container">container</a> option.</p>
+                    <p>This option indicates where the error messages are shown.</p>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Value</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>CSS selector</td>
+                                <td>All error messages are placed in element defined by this CSS selector</td>
+                            </tr>
+                            <tr>
+                                <td><code>tooltip</code></td>
+                                <td>Error messages of each field are placed inside a <a href="http://getbootstrap.com/javascript/#tooltips">Bootstrap tooltip</a>.</td>
+                            </tr>
+                            <tr>
+                                <td><code>popover</code></td>
+                                <td>Error messages of each field are placed inside a <a href="http://getbootstrap.com/javascript/#popovers">Bootstrap popover</a>.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>The contact form below shows messages in an element located at the bottom of form.</p>
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#contact-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#contact-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#contact-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="contact-form-tab">
+                            {% include examples/showing-message-custom-area/container-example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="contact-html-tab">
+{% highlight html %}
+{% include examples/showing-message-custom-area/container-example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="contact-js-tab">
+{% highlight javascript %}
+{% include examples/showing-message-custom-area/container-example.js %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2 id="using-events">Using the events</h2>
+
+                    <p>Using the <code>container</code> option works fine. The messages are placed inside <code>span</code> elements with <code>.help-block</code> class. You might will ask for more customizations such as:</p>
+                    <ul class="doc-list">
+                        <li>I want to place each message inside a <code>li</code> element, therefore I can customize the style later</li>
+                        <li>I want to hide the default messages as well</li>
+                        <li>When click the message, I want the associated field to be focused</li>
+                    </ul>
+                    <p>It's possible to solve these requirements by using the methods and events below:</p>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Event/Method</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="/settings/#event-form">success.form.bv</a> event</td>
+                                <td>Triggered when the form is valid</td>
+                            </tr>
+                            <tr>
+                                <td><a href="/settings/#event-field">error.field.bv</a> event</td>
+                                <td>Triggered when any field is invalid</td>
+                            </tr>
+                            <tr>
+                                <td><a href="/settings/#event-field">success.field.bv</a> event</td>
+                                <td>Triggered when any field is valid</td>
+                            </tr>
+                            <tr>
+                                <td><a href="/api/#get-messages">getMessages(field)</a> method</td>
+                                <td>Get the field messages</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>Looking at the HTML and JS tabs to see how we get the job done.</p>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#event-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#event-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#event-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="event-form-tab">
+                            {% include examples/showing-message-custom-area/event-example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="event-html-tab">
+{% highlight html %}
+{% include examples/showing-message-custom-area/event-example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="event-js-tab">
+{% highlight javascript %}
+{% include examples/showing-message-custom-area/event-example.js %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include examples/showing-message-custom-area/container-example.js %}
+{% include examples/showing-message-custom-area/event-example.js %}
+</script>

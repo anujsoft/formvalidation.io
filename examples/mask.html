@@ -1,0 +1,52 @@
+---
+layout: default
+title: Playing with Mask
+permalink: /examples/mask/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Playing with Mask</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>Use with the <a href="http://igorescobar.github.io/jQuery-Mask-Plugin/">Mask</a> plugin.</p>
+
+                <div class="doc-demo">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#mask-form-tab" data-toggle="tab">Try it</a></li>
+                        <li><a href="#mask-html-tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#mask-js-tab" data-toggle="tab">JS</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="mask-form-tab">
+                        {% include examples/mask/example.html %}
+                        </div>
+
+                        <div class="tab-pane" id="mask-html-tab">
+{% highlight html %}
+{% include examples/mask/example.html %}
+{% endhighlight %}
+                        </div>
+
+                        <div class="tab-pane" id="mask-js-tab">
+{% highlight javascript %}
+{% include examples/mask/example.js %}
+{% endhighlight %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include examples/mask/example.js %}
+</script>

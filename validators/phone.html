@@ -1,0 +1,425 @@
+---
+layout: default
+title: Validate a phone number
+permalink: /validators/phone/
+countries:
+    - country: United States
+      code: US
+#    - country: United Arab Emirates
+#      code: AE
+#      valid:
+#        - "00971501234567"
+#        - "+971521234567"
+#        - "971551234567"
+#        - "971 56 123 4567"
+#        - "971-50-123-4567"
+#        - "971.4.123.4567"
+#        - "+971 (0) 4 1234567"
+#        - "971 (56) 1234567"
+#        - "0551234567"
+#        - "021234567"
+#        - "600-540-000"
+    - country: Brazil
+      code: BR
+      valid:
+        - "0800.000.00.00"
+        - "0800-000-00-00"
+        - "0800 000 00 00"
+        - "0800-00-00-00"
+        - "0800.00.00.00"
+        - "0800 00 00 00"
+        - "0800-000-0000"
+        - "0800 000 0000"
+        - "0800.000.0000"
+        - "08000000000"
+        - "1692089-4635"
+        - "16920894635"
+        - "16992089-4635"
+        - "16 99202-4635"
+        - "(16)99202-4635"
+        - "(16)92089-4635"
+        - "(16) 92089-4635"
+        - "(15) 4343-4343"
+        - "+55 15 3702-7523"
+        - "(+55) 15 3702-7523"
+        - "(+55)1537027523"
+        - "(+55)(15)3702-7523"
+        - "(+55) 15 3702-7523"
+        - "(+55) 15 99202-7523"
+        - "99202-4635"
+        - "(16) 9208-4635"
+    - country: China
+      code: CN
+      valid:
+        - "18911111111"
+        - "189 1111 1111"
+        - "189-1111-1111"
+        - "0086-18911111111"
+        - "+86-18911111111"
+        - "86-18911111111"
+        - "0086 18911111111"
+        - "+86 18911111111"
+        - "86 18911111111"
+        - "0086 189-1111-1111"
+        - "+86 189-1111-1111"
+        - "86 189-1111-1111"
+        - "02011111111"
+        - "020-11111111"
+        - "020 11111111"
+        - "020 1111 1111"
+        - "020-1111-1111"
+        - "0086 020 82803159"
+        - "0086-020-82803159"
+        - "+86 20 61302222-8866"
+        - "+86 20 6130-2222-8866"
+        - "+86 10 59081185"
+    - country: Czech Republic
+      code: CZ
+      valid:
+        - "00420123456789"
+        - "00420 123456789"
+        - "00420 123 456 789"
+        - "00 420 123 456 789"
+        - "+420123456789"
+        - "+420 123456789"
+        - "+420 123 456 789"
+        - "123456789"
+        - "123 456 789"
+      invalid:
+        - "420123456789"
+        - "420 123456789"
+        - "420 123 456 789"
+        - "00421123456789"
+        - "00421 123456789"
+        - "00421 123 456 789"
+        - "00 421 123 456 789"
+        - "+421123456789"
+        - "+421 123456789"
+        - "+421 123 456 789"
+    - country: Denmark
+      code: DK
+    - country: France
+      code: FR
+      valid:
+        - "0644444444"
+        - "06 44 44 44 44"
+        - "06-44-44-44-44"
+        - "06.44.44.44.44"
+        - "+33644444444"
+        - "+336.44.44.44.44"
+        - "+33 6.44.44.44.44"
+        - "0033644444444"
+        - "00336.44.44.44.44"
+        - "0033 6.44.44.44.44"
+        - "+33(0)644444444"
+        - "+33 (0) 644444444"
+      invalid:
+        - "06 44.44-44.44"
+        - "06 44 44-44.44"
+        - "06 44 44-4444"
+        - "06 44 44-4444"
+        - "06444444444444"
+        - "6644444444"
+        - "06  44.44-44.44"
+        - "+33 (0)  644444444"
+        - "(0)644444444"
+        - "+33-(0)-644444444"
+        - "+33 (0)-644444444"
+        - "+33-(0) 644444444"
+        - "06.44.44.44.44."
+    - country: Germany
+      code: DE
+      valid:
+        - "+49(89)123456"
+        - "089-1234567"
+        - "0891234567"
+        - "0049-89-123456"
+        - "089 123456-78"
+    - country: Morocco
+      code: MA
+      valid:
+        - "0644444444"
+        - "0610245896"
+        - "0630548564"
+        - "06 44 44 44 44"
+        - "06-44-44-44-44"
+        - "06.44.44.44.44"
+        - "06 44.44-44.44"
+        - "0528254856"
+        - "0535484541"
+        - "05 28 44 44 44"
+        - "05-28-44.44.44"
+        - "05.28.44.44.44"
+        - "05 28.44-44.44"
+        - "+212644444444"
+        - "+2126.44.44.44.44"
+        - "+212 6.44.44.44.44"
+        - "00212644444444"
+        - "002126.44.44.44.44"
+        - "00212 6.44.44.44.44"
+        - "+212(0)644444444"
+        - "+212 (0) 644444444"
+      invalid:
+        - "0625468961"
+        - "0512548632"
+        - "0542564896"
+        - "06444444444444"
+        - "6644444444"
+        - "06  44.44-44.44"
+        - "+212 (0)  644444444"
+        - "(0)644444444"
+    - country: Pakistan
+      code: PK
+      valid:
+        - "03336527366"
+    - country: Romania
+      code: RO
+      valid:
+        - "+40213-564-864"
+        - "+40213.564.864"
+        - "+40213 564 864"
+        - "0213-564-864"
+        - "0213564864"
+        - "0313564864"
+        - "0720512346"
+        - "0730512346"
+        - "0740512346"
+        - "0750512346"
+        - "+40750512346"
+        - "+40750.512.346"
+        - "0760512346"
+        - "0770512346"
+        - "0780512346"
+      invalid:
+        - "0213/564/864"
+        - "0413564864"
+        - "0790512346"
+    - country: Russia
+      code: RU
+      valid:
+        - "+7(911)976-91-04"
+    - country: Slovakia
+      code: SK
+      valid:
+        - "00420123456789"
+        - "00420 123456789"
+        - "00420 123 456 789"
+        - "00 420 123 456 789"
+        - "+420123456789"
+        - "+420 123456789"
+        - "+420 123 456 789"
+        - "123456789"
+        - "123 456 789"
+      invalid:
+        - "420123456789"
+        - "420 123456789"
+        - "420 123 456 789"
+        - "00421123456789"
+        - "00421 123456789"
+        - "00421 123 456 789"
+        - "00 421 123 456 789"
+        - "+421123456789"
+        - "+421 123456789"
+        - "+421 123 456 789"
+    - country: Spain
+      code: ES
+    - country: Thailand
+      code: TH
+    - country: United Kingdom
+      code: GB
+      valid:
+        - "01611234567"
+        - "0161 123 4567"
+        - "(0161) 123 4567"
+        - "0161-123-4567"
+        - "+44 161 123 4567"
+        - "+441611234567"
+        - "+44(0)161234567"
+        - "00 44 161 1234567"
+        - "(011) 44 161 234567"
+        - "0161-158-5587"
+        - "0161 123 4567 ext. 123"
+        - "01611234567x123"
+        - "+44161234567x123"
+        - "+44 (0) 161 1234567 ext 123"
+      invalid:
+        - "012345678900"
+        - "1611234567"
+        - "012345678"
+        - "123 4567"
+        - "061 123 4567"
+    - country: Venezuela
+      code: VE
+related:
+    - zipCode
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>phone validator</h1>
+        <p>Validate a phone number</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>country</code><sup>*</sup></td>
+                                <td><code>data-bv-phone-country</code></td>
+                                <td>String</td>
+                                <td>An ISO-3166 country code.<br/>It's <a href="/settings/#dynamic-option">dynamic option</a></td>
+                            </tr>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-phone-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-phone="true".
+                    </div>
+
+                    <div class="doc-alert doc-alert-warning">
+                        Since the plugin doesn't support HTML 5 type="tel" attribute, you should use type="text" instead.
+                    </div>
+
+                    <p>The supported countries are:</p>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Country</th>
+                                <th>Code</th>
+                                <th>Valid examples</th>
+                                <th>Invalid examples</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in page.countries %}
+                            <tr>
+                                <td>{{ forloop.index }}</td>
+                                <td>{{ item.country }}</td>
+                                <td>{{ item.code }} {% if item.code == "US" %}<label class="label label-default">default</label>{% endif %}</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        {% for sample in item.valid %}
+                                        <li><a href="javascript: void(0);" class="sample" data-country="{{ item.code }}">{{ sample }}</a> <i class="fa"></i></li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        {% for sample in item.invalid %}
+                                        <li><a href="javascript: void(0);" class="sample" data-country="{{ item.code }}">{{ sample }}</a> <i class="fa"></i></li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#phone-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#phone-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#phone-js-tab" data-toggle="tab">JS</a></li>
+                            <li><a href="#phone-declarative-tab" data-toggle="tab">Declarative usage</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="phone-form-tab">
+                            {% include validators/phone/example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="phone-html-tab">
+{% highlight html %}
+{% include validators/phone/example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="phone-js-tab">
+{% highlight javascript %}
+{% include validators/phone/example.js %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="phone-declarative-tab">
+{% highlight html %}
+{% include validators/phone/declarative-example.html %}
+
+<script>
+{% include validators/phone/declarative-example.js %}
+</script>
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include validators/phone/example.js %}
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        var validator = $('#phoneForm').data('bootstrapValidator'),
+            country   = $(this).attr('data-country');
+
+        $('#phoneForm')
+            .find('select[name="countrySelectBox"]')
+                .val(country)
+                .end()
+            .find('input[name="phoneNumber"]')
+                .val($(this).text());
+
+        // Revalidate field
+        $('#phoneForm').bootstrapValidator('revalidateField', 'phoneNumber');
+
+        // Show the result
+        var isValid = validator.isValid();
+       $(this)
+            .parent()
+                .removeClass('doc-sample-error doc-sample-success')
+                .addClass(isValid ? 'doc-sample-success' : 'doc-sample-error')
+            .find('i')
+                .removeClass('fa-check fa-times')
+                .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>

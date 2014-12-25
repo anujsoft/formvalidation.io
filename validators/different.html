@@ -1,0 +1,116 @@
+---
+layout: default
+title: different validator
+permalink: /validators/different/
+related:
+    - identical
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>different validator</h1>
+        <p>Return true if the input value is different with given field's value</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>field</code><sup>*</sup></td>
+                                <td><code>data-bv-different-field</code></td>
+                                <td>String</td>
+                                <td>The name of field that will be used to compare with current one.<br/>You also can indicate many fields which names are separated by a comma.</td>
+                            </tr>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-different-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-different="true".
+                    </div>
+
+                     <div class="doc-alert doc-alert-warning">
+                        When using the different validator, you have to use it for all fields. The plugin will update the message, icon, status of fields properly when you change value of one of any field.
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+                    <p>The registration form below doesn't allow the username and password to be the same:</p>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#different-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#different-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#different-js-tab" data-toggle="tab">JS</a></li>
+                            <li><a href="#different-declarative-tab" data-toggle="tab">Declarative usage</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="different-form-tab">
+                            {% include validators/different/example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="different-html-tab">
+{% highlight html %}
+{% include validators/different/example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="different-js-tab">
+{% highlight javascript %}
+{% include validators/different/example.js %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="different-declarative-tab">
+{% highlight html %}
+{% include validators/different/declarative-example.html %}
+
+<script>
+{% include validators/different/declarative-example.js %}
+</script>
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include validators/different/example.js %}
+</script>

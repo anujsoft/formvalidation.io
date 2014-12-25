@@ -1,0 +1,134 @@
+---
+layout: default
+title: Adjusting feedback icon position
+permalink: /examples/adjusting-feedback-icon-position/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Adjusting feedback icon position</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>In some cases, the <a href="/settings/#form-feedback-icons">feedback icons</a> aren't shown properly. By default, Bootstrap defines feedback icon position as following:</p>
+
+{% highlight css %}
+.has-feedback .form-control-feedback {
+    top: 25px;
+    right: 0;
+}
+.form-horizontal .has-feedback .form-control-feedback {
+    top: 0;
+    right: 15px;
+}
+{% endhighlight %}
+
+                <p>By customizing the value of <code>top</code> and <code>right</code> properties, you can adjust the feedback icon to deserved position.</p>
+                <p>Below is some popular usages.</p>
+
+                <section>
+                    <h3>Button group</h3>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#button-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#button-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#button-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="button-form-tab">
+                            {% include examples/adjusting-feedback-icon-position/button-group.html %}
+                            </div>
+
+                            <div class="tab-pane" id="button-html-tab">
+{% highlight html %}
+{% include examples/adjusting-feedback-icon-position/button-group.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="button-js-tab">
+{% highlight javascript %}
+{% include examples/adjusting-feedback-icon-position/button-group.js %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Input group</h3>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#inputgroup-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#inputgroup-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#inputgroup-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="inputgroup-form-tab">
+                            {% include examples/adjusting-feedback-icon-position/input-group.html %}
+                            </div>
+
+                            <div class="tab-pane" id="inputgroup-html-tab">
+{% highlight html %}
+{% include examples/adjusting-feedback-icon-position/input-group.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="inputgroup-js-tab">
+{% highlight javascript %}
+{% include examples/adjusting-feedback-icon-position/input-group.js %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Vertical form</h3>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#vertical-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#vertical-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#vertical-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="vertical-form-tab">
+                            {% include examples/adjusting-feedback-icon-position/vertical-form.html %}
+                            </div>
+
+                            <div class="tab-pane" id="vertical-html-tab">
+{% highlight html %}
+{% include examples/adjusting-feedback-icon-position/vertical-form.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="vertical-js-tab">
+{% highlight javascript %}
+{% include examples/adjusting-feedback-icon-position/vertical-form.js %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <p>If changing the css positioning of the feedback icon isn't enough, you might have to look at the <a href="/examples/showing-icon-custom-area/">Showing icons in custom area</a> example.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include examples/adjusting-feedback-icon-position/button-group.js %}
+{% include examples/adjusting-feedback-icon-position/input-group.js %}
+{% include examples/adjusting-feedback-icon-position/vertical-form.js %}
+</script>

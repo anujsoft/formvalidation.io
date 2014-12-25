@@ -1,0 +1,116 @@
+---
+layout: default
+title: identical validator
+permalink: /validators/identical/
+related:
+    - different
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>identical validator</h1>
+        <p>Check if the value is the same as one of particular field</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>field</code><sup>*</sup></td>
+                                <td><code>data-bv-identical-field</code></td>
+                                <td>String</td>
+                                <td>The name of field that will be used to compare with current one</td>
+                            </tr>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-identical-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-identical="true".
+                    </div>
+
+                    <div class="doc-alert doc-alert-warning">
+                        When using the identical validator, you have to use it for both fields. The plugin will update the message, icon, status of fields properly when you change value of one of two fields.
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+                    <p>The following form requires the password and confirmation one to be the same using <code>identical</code> validator.</p>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#identical-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#identical-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#identical-js-tab" data-toggle="tab">JS</a></li>
+                            <li><a href="#identical-declarative-tab" data-toggle="tab">Declarative usage</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="identical-form-tab">
+                            {% include validators/identical/example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="identical-html-tab">
+{% highlight html %}
+{% include validators/identical/example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="identical-js-tab">
+{% highlight javascript %}
+{% include validators/identical/example.js %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="identical-declarative-tab">
+{% highlight html %}
+{% include validators/identical/declarative-example.html %}
+
+<script>
+{% include validators/identical/declarative-example.js %}
+</script>
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include validators/identical/example.js %}
+</script>

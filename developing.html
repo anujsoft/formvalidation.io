@@ -1,0 +1,296 @@
+---
+layout: default
+title: Developing
+permalink: /developing/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Developing</h1>
+        <p>It's quite easy to develop new validator</p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Writing new validator</h2>
+                    <p>A validator has to follow the syntax:</p>
+
+{% highlight javascript %}
+(function($) {
+    $.fn.bootstrapValidator.validators.validatorName = {
+        /**
+         * @param {BootstrapValidator} validator The validator plugin instance
+         * @param {jQuery} $field The jQuery object represents the field element
+         * @param {Object} options The validator options
+         * @returns {Boolean}
+         */
+        validate: function(validator, $field, options) {
+            // You can get the field value
+            // var value = $field.val();
+            //
+            // Perform validating
+            // ...
+            //
+            // return true if the field value is valid
+            // otherwise return false
+        }
+    };
+}(window.jQuery));
+{% endhighlight %}
+
+                    <p>The validator must implement <code>validate()</code> method that returns <code>true</code> if the field is valid, or <code>false</code> otherwise.</p>
+                    <p><code>validatorName</code> is the validator name. Since the validators are distinct by the names, <code>validatorName</code> has to be different with <a href="/validators/">built-in validators</a>.</p>
+
+                    <p>To apply the validator to particular field:</p>
+
+{% highlight javascript %}
+$(form).bootstrapValidator({
+    fields: {
+        fieldName: {
+            // Replace validatorName with the name of validator
+            // validatorOptions will be passed as third parameter of the
+            // validate(validator, $field, options) method
+            validatorName: validatorOptions
+        }
+    }
+});{% endhighlight %}
+
+                    <div class="doc-alert doc-alert-info">
+                        To see how built-in validators are developed, you can look at their sources located at the <a href="{{ site.repository.source }}/tree/master/src/js/validator">src/js/validator</a> directory.
+                    </div>
+
+                    <h3>Dynamic message</h3>
+                    <p>If you want to set dynamic error message, the validator must return an object that consists of <code>valid</code> and <code>message</code> members:</p>
+
+{% highlight javascript %}
+(function($) {
+    $.fn.bootstrapValidator.validators.validatorName = {
+        validate: function(validator, $field, options) {
+            // ... Do your logic checking
+            if (...) {
+                return {
+                    valid: true,    // or false
+                    message: 'The error message'
+                }
+            }
+
+            return {
+                valid: false,       // or true
+                message: 'Other error message'
+            }
+        }
+    };
+}(window.jQuery));
+{% endhighlight %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <p>The following example illustrates how to develop a simple validator which validate a password. The validator will treat a password as valid, if it satisfies all the conditions below:</p>
+                    <ul class="doc-list">
+                        <li>Must be more than 8 characters long</li>
+                        <li>Must contain at least one upper case character</li>
+                        <li>Must contain at least one lower case character</li>
+                        <li>Must contain at least one digit</li>
+                    </ul>
+                    <p>In fact, you can add more conditions to make a secure password.</p>
+
+{% highlight javascript %}
+(function($) {
+    $.fn.bootstrapValidator.validators.password = {
+        validate: function(validator, $field, options) {
+            var value = $field.val();
+            if (value === '') {
+                return true;
+            }
+
+            // Check the password strength
+            if (value.length < 8) {
+                return false;
+            }
+
+            // The password doesn't contain any uppercase character
+            if (value === value.toLowerCase()) {
+                return false;
+            }
+
+            // The password doesn't contain any uppercase character
+            if (value === value.toUpperCase()) {
+                return false;
+            }
+
+            // The password doesn't contain any digit
+            if (value.search(/[0-9]/) < 0) {
+                return false;
+            }
+
+            return true;
+        }
+    };
+}(window.jQuery));
+{% endhighlight %}
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#password-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#password-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#password-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="password-form-tab">
+                            {% include developing/password-example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="password-html-tab">
+{% highlight html %}
+{% include developing/password-example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="password-js-tab">
+{% highlight javascript %}
+{% include developing/password-example.js %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>Basically, the validator works fine. It returns <code>false</code> if the password doesn't satisfy any of conditions we define. The limitation here is that the user don't know
+                        which condition the password doesn't pass. It informs the same <code>The password is not valid</code> message in all cases.</p>
+                    <p>Using <a href="#dynamic-message">dynamic message</a> ability, it's easy to make the validator more friendly.</p>
+
+{% highlight javascript %}
+(function($) {
+    $.fn.bootstrapValidator.validators.securePassword = {
+        validate: function(validator, $field, options) {
+            var value = $field.val();
+            if (value === '') {
+                return true;
+            }
+
+            // Check the password strength
+            if (value.length < 8) {
+                return {
+                    valid: false,
+                    message: 'The password must be more than 8 characters long'
+                };
+            }
+
+            // The password doesn't contain any uppercase character
+            if (value === value.toLowerCase()) {
+                return {
+                    valid: false,
+                    message: 'The password must contain at least one upper case character'
+                }
+            }
+
+            // The password doesn't contain any uppercase character
+            if (value === value.toUpperCase()) {
+                return {
+                    valid: false,
+                    message: 'The password must contain at least one lower case character'
+                }
+            }
+
+            // The password doesn't contain any digit
+            if (value.search(/[0-9]/) < 0) {
+                return {
+                    valid: false,
+                    message: 'The password must contain at least one digit'
+                }
+            }
+
+            return true;
+        }
+    };
+}(window.jQuery));
+{% endhighlight %}
+                    <p>Now, the form shows exactly condition that we want the password to satisfy.</p>
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#secure-password-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#secure-password-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#secure-password-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="secure-password-form-tab">
+                            {% include developing/secure-password-example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="secure-password-html-tab">
+{% highlight html %}
+{% include developing/secure-password-example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="secure-password-js-tab">
+{% highlight javascript %}
+{% include developing/secure-password-example.js %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Building</h2>
+
+                    <p>BootstrapValidator uses <a href="http://gruntjs.com">grunt</a> to simplify building process.</p>
+                    <p>From the BootstrapValidator root directory, install dependencies:</p>
+{% highlight bash %}
+$ npm install
+{% endhighlight %}
+
+                    <p>Then, uses grunt to build:</p>
+{% highlight bash %}
+$ grunt
+{% endhighlight %}
+
+                    <p>If you want grunt to generate scripts whenever the original scripts (located in <code>src</code>) change, use the following command:</p>
+{% highlight bash %}
+$ grunt watch
+{% endhighlight %}
+
+                    <p>The generated scripts (including source and compressed versions) are placed inside the <code>dist</code> directory.</p>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Contributing</h2>
+
+                    <p>If you develop new validator which might be useful for other one, please contribute it to the project.</p>
+                    <p>It can be done via 3 steps:</p>
+
+                    <ul class="doc-list">
+                        <li><a href="{{ site.repository.source }}/fork">Fork</a> the project</li>
+                        <li>Develop new validator, suggest new feature or fix a bug</li>
+                        <li>Pull a new request</li>
+                    </ul>
+
+                    <p>All pull requests are welcome <i class="fa fa-heart"></i>.</p>
+                </section>
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include developing/password-example.js %}
+{% include developing/secure-password-example.js %}
+</script>

@@ -1,0 +1,217 @@
+<section>
+    <h2>Usage</h2>
+    <p>It takes only 3 steps to use the plugin:</p>
+
+    <!-- including -->
+    <section>
+        <h3>Including library</h3>
+        <p>Since the BootstrapValidator plugin requires <a href="http://jquery.com/">jQuery</a> (v1.9.1 or higher) and <a href="http://getbootstrap.com">Bootstrap</a> (v3.0.0 or higher), you have to include the required CSS and JS files to your page:</p>
+
+{% highlight html %}
+<!-- BootstrapValidator requires Bootstrap CSS v3.0.0 or higher -->
+<link rel="stylesheet" href="/path/to/bootstrap/css/bootstrap.css"/>
+<link rel="stylesheet" href="/path/to/dist/css/bootstrapValidator.min.css"/>
+
+<!-- and jQuery v1.9.1 or higher -->
+<script type="text/javascript" src="/path/to/jquery/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/path/to/bootstrap/js/bootstrap.min.js"></script>
+{% endhighlight %}
+
+        <div class="doc-alert doc-alert-info">
+            BootstrapValidator doesn't require Bootstrap's Javascript if you don't use Bootstrap <a href="http://getbootstrap.com/javascript/#tooltips">tooltip</a> or <a href="http://getbootstrap.com/javascript/#popovers">popover</a> to show the messages via <a href="/settings/#form-container">container</a> option.
+        </div>
+
+        <p>Next, requires the plugin javascript file:</p>
+
+{% highlight html %}
+<!-- Either use the compressed version (recommended in the production site) -->
+<script type="text/javascript" src="/path/to/dist/js/bootstrapValidator.min.js"></script>
+
+<!-- Or use the original one with all validators included -->
+<script type="text/javascript" src="/path/to/dist/js/bootstrapValidator.js"></script>
+
+<!-- Or use the plugin with required validators -->
+<script type="text/javascript" src="/path/to/src/js/bootstrapValidator.js"></script>
+<script type="text/javascript" src="/path/to/src/js/validator/...validator..."></script>
+{% endhighlight %}
+
+        <p>If you want to use the default message translated in the <a href="#language-package">language package</a>, then finally include it:</p>
+{% highlight html %}
+<script type="text/javascript" src="/path/to/src/js/language/languagecode_COUNTRYCODE.js"></script>
+{% endhighlight %}
+
+        <div class="doc-alert doc-alert-info">
+            <p>You don't need to require the <a href="#language-package">English package</a> because it is already included in the plugin. The package is available here just for translating into other languages.</p>
+        </div>
+    </section>
+
+    <!-- writing-form -->
+    <section>
+        <h3>Writing form</h3>
+        <p>Since BootstrapValidator is designed to use with Bootstrap, your form must be structured using Bootstrap classes.</p>
+
+        <p>If your form is NOT structured by Bootstrap classes (the element containing field and associated label does NOT have form-group class), you will see the following error in the Console:</p>
+{% highlight html %}
+// Chrome
+Uncaught RangeError: Maximum call stack size exceeded
+
+// Firefox
+Too much recursion error
+{% endhighlight %}
+
+        <div class="doc-alert doc-alert-info">
+            If your form is complex and uses custom CSS class for each group instead of .form-group, use the <a href="/settings/#form-group">group option</a>
+        </div>
+
+        <h4>Name conflict</h4>
+        <p>Do not use the properties of a form, such as <code>submit</code>, <code>reset</code>, <code>length</code>, <code>method</code> to set the <code>name</code> or <code>id</code> attribute of form, field elements. Name conflicts can cause the problem.</p>
+        <p>For example, you cannot submit the form after validating if use <code>submit</code> to name the Submit button:</p>
+{% highlight html %}
+<button type="submit" name="submit" class="btn btn-primary">Submit</button>
+{% endhighlight %}
+        <p><a href="http://kangax.github.com/domlint/">DOMLint</a> has a complete list of rules to check the markup for these kind of problems.</p>
+
+        <p>The plugin supports all possible kind of Bootstrap form, including:</p>
+
+        <h4>Basic form</h4>
+        <div class="doc-demo">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#basic-form-tab" data-toggle="tab">Try it</a></li>
+                <li><a href="#basic-html-tab" data-toggle="tab">HTML</a></li>
+                <li><a href="#basic-js-tab" data-toggle="tab">JS</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="basic-form-tab">
+                    {% include getting-started/usage/form-basic.html %}
+                </div>
+
+                <div class="tab-pane" id="basic-html-tab">
+{% highlight html %}
+{% include getting-started/usage/form-basic.html %}
+{% endhighlight %}
+                </div>
+
+                <div class="tab-pane" id="basic-js-tab">
+{% highlight javascript %}
+{% include getting-started/usage/form-basic.js %}
+{% endhighlight %}
+                </div>
+            </div>
+        </div>
+
+        <h4>Basic form without labels</h4>
+        <div class="doc-demo">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#basicwlabel-form-tab" data-toggle="tab">Try it</a></li>
+                <li><a href="#basicwlabel-html-tab" data-toggle="tab">HTML</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="basicwlabel-form-tab">
+                    {% include getting-started/usage/form-without-label.html %}
+                </div>
+
+                <div class="tab-pane" id="basicwlabel-html-tab">
+{% highlight html %}
+{% include getting-started/usage/form-without-label.html %}
+{% endhighlight %}
+                </div>
+            </div>
+        </div>
+
+        <h4>Inline form</h4>
+        <div class="doc-demo">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#inline-form-tab" data-toggle="tab">Try it</a></li>
+                <li><a href="#inline-html-tab" data-toggle="tab">HTML</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="inline-form-tab">
+                    {% include getting-started/usage/form-inline.html %}
+                </div>
+
+                <div class="tab-pane" id="inline-html-tab">
+{% highlight html %}
+{% include getting-started/usage/form-inline.html %}
+{% endhighlight %}
+                </div>
+            </div>
+        </div>
+
+        <h4>Horizontal form</h4>
+        <div class="doc-demo">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#horizontal-form-tab" data-toggle="tab">Try it</a></li>
+                <li><a href="#horizontal-html-tab" data-toggle="tab">HTML</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="horizontal-form-tab">
+                    {% include getting-started/usage/form-horizontal.html %}
+                </div>
+
+                <div class="tab-pane" id="horizontal-html-tab">
+{% highlight html %}
+{% include getting-started/usage/form-horizontal.html %}
+{% endhighlight %}
+                </div>
+            </div>
+        </div>
+
+        <p>It also supports multiple fields on the same row:</p>
+
+        <div class="doc-demo">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#row-form-tab" data-toggle="tab">Try it</a></li>
+                <li><a href="#row-html-tab" data-toggle="tab">HTML</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="row-form-tab">
+                {% include getting-started/usage/form-row.html %}
+                </div>
+
+                <div class="tab-pane" id="row-html-tab">
+{% highlight html %}
+{% include getting-started/usage/form-row.html %}
+{% endhighlight %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- calling -->
+    <section>
+        <h3>Calling plugin</h3>
+
+        <p>Call the plugin to validate the form as following:</p>
+
+{% highlight javascript %}
+$(document).ready(function() {
+    $(formSelector).bootstrapValidator({
+        excluded: ...,
+        feedbackIcons: ...,
+        live: 'enabled',
+        message: 'This value is not valid',
+        submitButtons: 'button[type="submit"]',
+        trigger: null,
+        fields: ...
+    });
+});
+{% endhighlight %}
+
+        <p>For example, to validate the sample registration form above, the plugin might be called as:</p>
+
+{% highlight javascript %}
+{% include getting-started/usage/form-basic.js %}
+{% endhighlight %}
+
+        <p>Look at the <a href="/settings/">Settings</a> page to see the meaning of plugin options.</p>
+    </section>
+</section>
+
+<script>
+{% include getting-started/usage/form-basic.js %}
+</script>

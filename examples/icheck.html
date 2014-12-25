@@ -1,0 +1,52 @@
+---
+layout: default
+title: Playing with iCheck
+permalink: /examples/icheck/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Playing with iCheck</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>Use with the <a href="http://fronteed.com/iCheck/">iCheck</a> plugin.</p>
+
+                <div class="doc-demo">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#icheck-form-tab" data-toggle="tab">Try it</a></li>
+                        <li><a href="#icheck-html-tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#icheck-js-tab" data-toggle="tab">JS</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="icheck-form-tab">
+                        {% include examples/icheck/example.html %}
+                        </div>
+
+                        <div class="tab-pane" id="icheck-html-tab">
+{% highlight html %}
+{% include examples/icheck/example.html %}
+{% endhighlight %}
+                        </div>
+
+                        <div class="tab-pane" id="icheck-js-tab">
+{% highlight javascript %}
+{% include examples/icheck/example.js %}
+{% endhighlight %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include examples/icheck/example.js %}
+</script>

@@ -1,0 +1,25 @@
+<form id="differentForm" class="form-horizontal"
+    data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+    data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+    data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Username</label>
+        <div class="col-sm-5">
+            <input type="text" class="form-control" name="username"
+                data-bv-different="true"
+                data-bv-different-field="password"
+                data-bv-different-message="The username and password cannot be the same as each other" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Password</label>
+        <div class="col-sm-5">
+            <input type="password" class="form-control" name="password"
+                data-bv-different="true"
+                data-bv-different-field="username"
+                data-bv-different-message="The password cannot be the same as username" />
+        </div>
+    </div>
+</form>

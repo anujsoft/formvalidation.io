@@ -1,0 +1,184 @@
+---
+layout: default
+title: between validator
+permalink: /validators/between/
+related:
+    - greaterThan
+    - lessThan
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>between validator</h1>
+        <p>Check if the input value is between (strictly or not) two given numbers</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>inclusive</code></td>
+                                <td><code>data-bv-between-inclusive</code></td>
+                                <td>Boolean</td>
+                                <td>Can be <code>true</code> or <code>false</code>. If <code>true</code>, the input value must be in the range strictly</td>
+                            </tr>
+                            <tr>
+                                <td><code>max</code><sup>*</sup></td>
+                                <td><code>data-bv-between-max</code> or <code>max</code></td>
+                                <td>Float</td>
+                                <td>The upper value in the range.<br/>It's a <a href="/settings/#dynamic-option">dynamic option</a></td>
+                            </tr>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-between-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                            <tr>
+                                <td><code>min</code><sup>*</sup></td>
+                                <td><code>data-bv-between-min</code> or <code>min</code></td>
+                                <td>Float</td>
+                                <td>The lower value in the range.<br/>It's a <a href="/settings/#dynamic-option">dynamic option</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>If you use <code>min</code> and <code>max</code> attributes, please set <code>type="range"</code>.</p>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-between="true".<br/>
+                        You don't need to do that when using all of HTML 5 type="range", min="...", max="..." attributes.
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <h3>Basic example</h3>
+                    <p>The following example validates latitude and longitude values.</p>
+                    <p>A valid latitude must be between -90.0 and 90.0, and valid longitude may range from -180.0 to 180.0.</p>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#latlong-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#latlong-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#latlong-js-tab" data-toggle="tab">JS</a></li>
+                            <li><a href="#latlong-html5-tab" data-toggle="tab">HTML 5</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="latlong-form-tab">
+                            {% include validators/between/basic-example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="latlong-html-tab">
+{% highlight html %}
+{% include validators/between/basic-example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="latlong-js-tab">
+{% highlight javascript %}
+{% include validators/between/basic-example.js %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="latlong-html5-tab">
+{% highlight html %}
+<form id="latlongForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-lg-3 control-label">Latitude</label>
+        <div class="col-lg-5">
+            <input class="form-control" name="latitude"
+                type="range" min="-90" max="90"
+                data-bv-between-message="The latitude must be between -90.0 and 90.0" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-lg-3 control-label">Longitude</label>
+        <div class="col-lg-5">
+            <input class="form-control" name="longitude"
+                type="range" min="-180" max="180"
+                data-bv-between-message="The longitude must be between -180.0 and 180.0" />
+        </div>
+    </div>
+</form>
+{% endhighlight %}
+{% highlight javascript %}
+$(document).ready(function() {
+    $('#latlongForm').bootstrapValidator({
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        }
+    });
+});
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Dynamic option example</h3>
+                    <p>The following form asks you to enter the number of floors of building and the your floor number. Your floor number must be between 1 and the number of floors.</p>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#dynamic-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#dynamic-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#dynamic-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="dynamic-form-tab">
+                            {% include validators/between/dynamic-option-example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="dynamic-html-tab">
+{% highlight html %}
+{% include validators/between/dynamic-option-example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="dynamic-js-tab">
+{% highlight javascript %}
+{% include validators/between/dynamic-option-example.js %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include validators/between/basic-example.js %}
+{% include validators/between/dynamic-option-example.js %}
+</script>

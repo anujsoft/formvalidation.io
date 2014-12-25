@@ -1,0 +1,25 @@
+<form id="zipCodeForm" class="form-horizontal"
+    data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+    data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+    data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Country</label>
+        <div class="col-sm-5">
+            <select class="form-control" name="countrySelectBox">
+                {% for item in page.countries %}<option value="{{ item.code }}">{{ item.country }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Postal code</label>
+        <div class="col-sm-5">
+            <input type="text" class="form-control" name="postalCode"
+                data-bv-zipcode="true"
+                data-bv-zipcode-country="countrySelectBox"
+                data-bv-zipcode-message="The value is not valid %s postal code" />
+        </div>
+    </div>
+</form>

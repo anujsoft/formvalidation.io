@@ -1,0 +1,332 @@
+---
+layout: post
+title: Best jQuery practices
+date: 2014-12-15 20:30:00 +0700
+author: nghuuphuoc
+---
+
+<p>This post introduces best jQuery practices you should follow:</p>
+
+<h3>Loading from CDN</h3>
+<p>Instead of storing jQuery on your server, choose to load it from popular CDNs. It will decrease the page loading time.</p>
+
+{% highlight html %}
+<!-- Don't -->
+<script src="/vendor/jquery/jquery.min.js"></script>
+
+<!-- Do -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+{% endhighlight %}
+
+<p>Below is the list of popular CDNs which you can find jQuery on:</p>
+<ul class="doc-list">
+    <li><a href="https://developers.google.com/speed/libraries/devguide#jquery">Google CDN</a></li>
+    <li><a href="http://www.asp.net/ajax/cdn#jQuery_Releases_on_the_CDN_0">Microsoft CDN</a></li>
+    <li><a href="http://jquery.com/download/#jquery-39-s-cdn-provided-by-maxcdn">jQuery CDN</a></li>
+    <li><a href="http://cdnjs.com/libraries/jquery/">CDNJS CDN</a></li>
+    <li><a href="http://www.jsdelivr.com/#!jquery">jsDelivr CDN</a></li>
+</ul>
+
+<p>There are some good practices, not only for jQuery, but also for other CSS, JS libraries when loading them from CDN:</p>
+
+<p><strong>Provide a fallback version in your server if loading from CDN fails</strong></p>
+
+{% highlight html %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>window.jQuery || document.write("<script src='/vendor/jquery/jquery.min.js'>\x3C/script>");</script>
+{% endhighlight %}
+
+<p><strong>Choosing the compressed version</strong></p>
+
+{% highlight html %}
+<!-- Don't -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+
+<!-- Do -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+{% endhighlight %}
+
+<p><strong>Placing the script at the bottom of page</strong></p>
+
+{% highlight html %}
+<!doctype html>
+<head>
+    ...
+    <!-- Don't -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+    ...
+    <!-- Do -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</body>
+{% endhighlight %}
+
+<p><strong>Using protocol-relative URL</strong></p>
+<p>Leaving http: or https: out of the URL. By doing this, the browser will choose to load the https URL of script if your page is severed under https.</p>
+
+{% highlight html %}
+<!-- Don't -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<!-- Do -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+{% endhighlight %}
+
+<h3>Shorthand for the ready event</h3>
+
+{% highlight javascript %}
+// Usual way
+$(document).ready(function() {
+    ...
+});
+
+// The shorthand
+$(function() {
+
+});
+{% endhighlight %}
+
+<h3>Naming jQuery object starting with $</h3>
+<p>With this naming convention, we can know whether or not a variable is a jQuery object.</p>
+
+{% highlight javascript %}
+// Don't
+var form = $('#contactForm');
+
+// Do
+var $form = $('#contactForm');
+{% endhighlight %}
+
+<h3>Using $this</h3>
+<p>Use $this variable at the beginning anonymous functions, for example, inside an each loop:</p>
+
+{% highlight javascript %}
+// Don't
+$('li').each(function() {
+    $(this).on('click', function() {
+        $(this).addClass('active');
+    });
+});
+
+// Do
+$('li').each(function() {
+    var $this = $(this);
+    $this.on('click', function() {
+        $this.addClass('active');
+    });
+});
+{% endhighlight %}
+
+<p>Someone prefer to use that or self. Don't forget to prefix with $ if it's jQuery object.</p>
+
+<h3>Caching jQuery objects</h3>
+<p>If a jQuery object is used multiple times, caching it will save the performance of script.</p>
+
+{% highlight javascript %}
+// Don't
+$('.menu li').each(function() { ... });
+$('.menu li').each(function() { ... });
+
+// Do
+var $items = $('.menu li');
+$items.each(function() { ... });
+
+// Reuse it
+$items.each(function() { ... });
+{% endhighlight %}
+
+<h3>Chaining method</h3>
+<p>Chaining method is one of most powerful features of jQuery. It allows us to call multiple methods at the same time.</p>
+<div class="doc-alert doc-alert-info">
+    "Write less, do more", the jQuery's slogan, is perfectly right in this case
+</div>
+
+{% highlight javascript %}
+// Don't
+var $a = $('#about');
+$a.hide();
+$a.addClass();
+$a.fadeIn();
+$a.hide();
+
+// Do
+$('#about').hide().addClass().fadeIn().hide();
+
+// Better
+// Add line-break and indent for readability
+$('#about')
+    .hide()
+    .addClass()
+    .fadeIn()
+    .hide();
+{% endhighlight %}
+
+<h3>Creating new element</h3>
+<p>When creating new element, try to use jQuery methods to manipulate the element instead of giving full HTML code.</p>
+
+{% highlight javascript %}
+// Don't
+var $hidden = $('<input class="form-control" type="hidden" name="foo" value="bar" />').appendTo('#form');
+
+// Do
+var $hidden = $('<input/>')
+                .addClass('form-control')
+                .attr('type', 'hidden')
+                .attr('name', 'foo')
+                .val('bar')
+                .appendTo('#form');
+
+// Or
+var $hidden = $('<input/>', {
+                    class: 'form-control',
+                    type: 'hidden',
+                    name: 'foo',
+                    value: 'bar'
+                })
+                .appendTo('#form');
+{% endhighlight %}
+
+<h3>Don't mix CSS with jQuery</h3>
+<p>Don't set the CSS styles for element directly. Using CSS class instead.</p>
+
+{% highlight html %}
+// Don't
+$('#button').css({
+    'background-color': '#5cb85c',
+    'border-color': '#4cae4c'
+});
+
+// Do
+.success {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+$('#button').addClass('success');
+{% endhighlight %}
+
+<h3>Optimizing selectors</h3>
+
+<p><strong>Using ID selector</strong></p>
+<p>To retrieve the element by given ID, jQuery uses native document.getElementById() method which is faster than using Sizzle.</p>
+<div class="doc-alert doc-alert-info">
+    <a href="https://github.com/jquery/sizzle">Sizzle</a> is a pure-JavaScript CSS selector engine used by jQuery
+</div>
+
+{% highlight javascript %}
+// Don't
+$('#wrapper #inner');
+$('div#inner');
+$('.wrapper #inner');
+
+// Do
+$('#inner');
+{% endhighlight %}
+
+<p><strong>Using ID-based selector</strong></p>
+
+{% highlight javascript %}
+// Don't
+$('#container .row');
+
+// Faster
+$('#container').find('.row');
+{% endhighlight %}
+
+<p><strong>Specificity</strong></p>
+<p>Be specific on the right-hand side of your selector, and less specific on the left.</p>
+
+{% highlight javascript %}
+// Unoptimized
+$('div.data .gonzalez');
+
+// Optimized
+$('.data td.gonzalez');
+{% endhighlight %}
+
+<p><strong>Avoid the universal selectors</strong></p>
+
+{% highlight javascript %}
+// Slow
+$('div.container > *');
+
+// Faster
+$('.container').children();
+{% endhighlight %}
+
+<p><strong>Avoid implied universal selectors</strong></p>
+<p>It's recommended to prefix a pseudo-class selectors (beginning with :) with a tag name or other selector. Otherwise, the universal selector (*) is still implied.</p>
+
+{% highlight javascript %}
+// Don't
+$('.category :radio');
+
+// Do
+$('.category input:radio');
+{% endhighlight %}
+
+<p><strong>Using filtering methods instead of pseudo selectors</strong></p>
+<p>When possible, use jQuery filter method instead of pseudo selectors. jQuery then uses querySelectorAll method which is faster than using Sizzle methods.</p>
+
+{% highlight javascript %}
+// Don't
+$('.item:first')
+
+// Do
+$('.item').eq(0)
+{% endhighlight %}
+
+<h3>Don't use JS inline to bind events</h3>
+<p>Always using jQuery to bind events:</p>
+
+{% highlight html %}
+<!-- Don't -->
+<button id="saveButton" onclick="javascript: save();">Save</button>
+
+// Do
+$('#saveButton').on('click', function() {
+    ...
+});
+{% endhighlight %}
+
+<h3>Using custom namespace for events</h3>
+<p>By using custom namespace, you can easily unbind the exact event without affecting to other event handlers which are bound to the element.</p>
+
+{% highlight javascript %}
+$('#saveButton').on('click.bv', function() {
+    ...
+});
+
+// Later, it's possible to unbind the event handler
+$('#saveButton').off('click.bv');
+{% endhighlight %}
+
+<h3>Don't put all parameters in Ajax URL</h3>
+<p>When sending data to remote URL using an Ajax request, use data option to send them instead of putting in the URL.</p>
+{% highlight javascript %}
+// Don't
+$.ajax({
+    url: '/remote/url?param1=value1&amp;param2=value2...'
+}});
+
+// Do
+$.ajax({
+    url: '/remote/url',
+    data: {
+        param1: 'value1',
+        param2: 'value2'
+        ...
+    }
+});
+{% endhighlight %}
+
+<p>In the case the parameter might be too long (the article's content, for example), consider to use the POST method for both Ajax requests and the back-end.</p>
+<div class="doc-alert doc-alert-info">
+    Internet Explorer 8 (and earlier) <a href="http://support.microsoft.com/kb/208427">limits</a> 2083 characters in URL
+</div>
+
+<h3>References</h3>
+<ul class="doc-list">
+    <li><a href="http://learn.jquery.com/performance/optimize-selectors/">Optimize selectors</a></li>
+</ul>

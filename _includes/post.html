@@ -1,0 +1,14 @@
+<div class="doc-post">
+    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+
+    <div class="doc-post-meta">
+        <a href="https://github.com/{{ post.author }}" title="@{{ post.author }}">
+            <img src="https://github.com/{{ post.author }}.png" />
+        </a>
+        <p>{{ post.date | date_to_string }}</p>
+    </div>
+
+    <div class="doc-post-content">
+        {{ post.content }}
+    </div>
+</div>

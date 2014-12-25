@@ -1,0 +1,146 @@
+<section>
+    <h3 id="event-form">Form events</h3>
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Event</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>init.form.bv</code></td>
+                <td>Triggered after the form is initialized by the plugin</td>
+            </tr>
+            <tr>
+                <td><code>error.form.bv</code></td>
+                <td>Triggered when the form is invalid</td>
+            </tr>
+            <tr>
+                <td><code>success.form.bv</code></td>
+                <td>Triggered when the form is valid</td>
+            </tr>
+            <tr>
+                <td><code>added.field.bv</code></td>
+                <td>Triggered after adding dynamic field</td>
+            </tr>
+            <tr>
+                <td><code>removed.field.bv</code></td>
+                <td>Triggered after removing given field</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Usage</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Listening to event</td>
+                <td>
+{% highlight javascript %}
+$(document).ready(function() {
+    $(form)
+        // on('init.form.bv') must be declared
+        // before calling .bootstrapValidator(options)
+        .on('init.form.bv', function(e, data) {
+            // $(e.target)  --> The form instance
+            // data.bv      --> The BootstrapValidator instance
+            // data.options --> The form options
+
+            // Do something ...
+        })
+
+        .bootstrapValidator(options)
+
+        .on('error.form.bv', function(e) {
+            // $(e.target) --> The form instance
+            // $(e.target).data('bootstrapValidator')
+            //             --> The BootstrapValidator instance
+
+            // Do something ...
+        })
+
+        .on('success.form.bv', function(e) {
+            // The e parameter is same as one
+            // in the error.form.bv event above
+
+            // Do something ...
+        })
+
+        .on('added.field.bv', function(e, data) {
+            // $(e.target)  --> The form instance
+            // $(e.target).data('bootstrapValidator')
+            //              --> The BootstrapValidator instance
+
+            // data.field   --> The field name
+            // data.element --> The new field element
+            // data.options --> The new field options
+
+            // Do something ...
+        })
+
+        .on('removed.field.bv', function(e, data) {
+            // The e and data parameters are same as one
+            // in the added.field.bv event above
+
+            // Do something ...
+        });
+});
+{% endhighlight %}
+                </td>
+            </tr>
+            <tr>
+                <td>Using option</td>
+                <td>
+{% highlight javascript %}
+$(document).ready(function() {
+    $(form)
+        .bootstrapValidator({
+            onError: function(e) {
+                // Do something ...
+            },
+            onSuccess: function(e) {
+                // Do something ...
+            }
+        });
+});
+{% endhighlight %}
+                </td>
+            </tr>
+            <tr>
+                <td>Using HTML 5 attributes</td>
+                <td>
+{% highlight html %}
+<form data-bv-onerror="onFormError" data-bv-onsuccess="onFormSuccess"></form>
+{% endhighlight %}
+
+{% highlight javascript %}
+function onFormError(e) {
+    // Do something ...
+};
+
+function onFormSuccess(e) {
+    // Do something ...
+};
+
+$(document).ready(function() {
+    $(form).bootstrapValidator(options);
+});
+{% endhighlight %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4 id="event-form-examples">Examples</h4>
+    <ul class="doc-list">
+        <li><a href="/examples/ajax-submit/">Using Ajax to submit the form</a></li>
+        <li><a href="/examples/showing-message-custom-area/#using-events">Showing messages in custom area</a></li>
+    </ul>
+</section>

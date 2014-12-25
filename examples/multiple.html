@@ -1,0 +1,52 @@
+---
+layout: default
+title: Using multiple elements with the same name
+permalink: /examples/multiple/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Using multiple elements with the same name</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>It's possible to validate multiple fields with the same name. The fields can be radio buttons, checkboxes or text boxes, etc.</p>
+
+                <div class="doc-demo">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#multiple-form-tab" data-toggle="tab">Try it</a></li>
+                        <li><a href="#multiple-html-tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#multiple-js-tab" data-toggle="tab">JS</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="multiple-form-tab">
+                        {% include examples/multiple/example.html %}
+                        </div>
+
+                        <div class="tab-pane" id="multiple-html-tab">
+                        {% highlight html %}
+                        {% include examples/multiple/example.html %}
+                        {% endhighlight %}
+                        </div>
+
+                        <div class="tab-pane" id="multiple-js-tab">
+                        {% highlight javascript %}
+                        {% include examples/multiple/example.js %}
+                        {% endhighlight %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include examples/multiple/example.js %}
+</script>

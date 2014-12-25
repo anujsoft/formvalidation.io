@@ -1,0 +1,151 @@
+---
+layout: post
+title: BootstrapValidator v0.5.2 Released
+date: 2014-09-25 16:10:00 +0700
+author: nghuuphuoc
+---
+
+<h3>New features</h3>
+<ul class="doc-list">
+    <li><a href="{{ site.repository.source }}/pull/480">#480</a>: Add <code>verbose</code> option, thanks to <a href="https://github.com/mbezhanov">@mbezhanov</a></li>
+    <li><a href="{{ site.repository.source }}/issues/542">#542</a>, <a href="{{ site.repository.source }}/pull/666">#666</a>: Add blank validator, thanks to <a href="https://github.com/bermo">@bermo</a></li>
+    <li><a href="{{ site.repository.source }}/issues/617">#617</a>: Add <code>init</code> and <code>destroy</code> methods to validator</li>
+    <li><a href="{{ site.repository.source }}/pull/724">#724</a>: Add Venezuelan VAT number (RIF) validator, thanks to <a href="https://github.com/paquitodev">@paquitodev</a></li>
+    <li><a href="{{ site.repository.source }}/pull/739">#739</a>: Add China phone number validator, thanks to <a href="https://github.com/caijh">@caijh</a></li>
+    <li><a href="{{ site.repository.source }}/pull/743">#743</a>: Add Venezuela phone number validator, thanks to <a href="https://github.com/paquitodev">@paquitodev</a></li>
+    <li><a href="{{ site.repository.source }}/pull/760">#760</a>: Add Romania phone number validator, thanks to <a href="https://github.com/adrian-dks">@adrian-dks</a></li>
+    <li><a href="{{ site.repository.source }}/pull/761">#761</a>: Add Romania postal code validator, thanks to <a href="https://github.com/adrian-dks">@adrian-dks</a></li>
+    <li><a href="{{ site.repository.source }}/pull/785">#785</a>: Add Denmark phone number validator, thanks to <a href="https://github.com/emilchristensen">@emilchristensen</a></li>
+    <li><a href="{{ site.repository.source }}/pull/787">#787</a>: Add Thailand phone number and ID validator, thanks to <a href="https://github.com/figgaro">@figgaro</a></li>
+    <li><a href="{{ site.repository.source }}/pull/793">#793</a>, <a href="{{ site.repository.source }}/pull/798">#798</a>: Add Chinese citizen ID validator, thanks to <a href="https://github.com/shamiao">@shamiao</a></li>
+    <li><a href="{{ site.repository.source }}/pull/802">#802</a>: Add Russia phone number validator, thanks to <a href="https://github.com/cylon-v">@cylon-v</a>. <a href="{{ site.repository.source }}/pull/816">#816</a>: Improved by <a href="https://github.com/stepin">@stepin</a></li>
+    <li><a href="{{ site.repository.source }}/pull/816">#816</a>: Add Russian postal code validator, thanks to <a href="https://github.com/stepin">@stepin</a></li>
+    <li><a href="{{ site.repository.source }}/pull/867">#867</a>: Add Czech and Slovakia phone number and postal code validators, thanks to <a href="https://github.com/cuchac">@cuchac</a></li>
+</ul>
+
+<h3>Changes</h3>
+<ul class="doc-list">
+    <li><a href="{{ site.repository.source }}/issues/753">#753</a>: Change the default type of <a href="/validators/remote/">remote</a> validator to GET</li>
+</ul>
+
+<h3>Improvements</h3>
+<ul class="doc-list">
+    <li><a href="{{ site.repository.source }}/pull/249">#249</a>, <a href="{{ site.repository.source }}/issues/574">#574</a>, <a href="{{ site.repository.source }}/issues/669">#669</a>: Add <code>delay</code> option to the <a href="/validators/remote/">remote</a> validator, thanks to <a href="https://github.com/q-state">@q-state</a></li>
+    <li><a href="{{ site.repository.source }}/issues/345">#345</a>, <a href="{{ site.repository.source }}/pull/454">#454</a>: The <a href="/validators/different/">different</a> validator allows more than a 2-way comparison, thanks to <a href="https://github.com/AlaskanShade">@AlaskanShade</a></li>
+    <li><a href="{{ site.repository.source }}/issues/557">#557</a>, <a href="{{ site.repository.source }}/pull/569">#569</a>: The <a href="/settings/#form-container">container</a> option can be defined by a callback, thanks to <a href="https://github.com/mattrick">@mattrick</a></li>
+    <li><a href="{{ site.repository.source }}/issues/570">#570</a>: Use CSS classes instead of inline styling to fix icons with <code>input-group</code>, thanks to <a href="https://github.com/dlcrush">@dlcrush</a></li>
+    <li><a href="{{ site.repository.source }}/issues/578">#578</a>, <a href="{{ site.repository.source }}/pull/813">#813</a>: The <a href="/validators/stringLength/">stringLength</a> validator supports HTML 5 <code>minlength</code> attribute, thanks to <a href="https://github.com/emilchristensen">@emilchristensen</a></li>
+    <li><a href="{{ site.repository.source }}/pull/675">#675</a>: The <a href="/validators/emailAddress/">emailAddress</a> validator accepts multiple email addresses, thanks to <a href="https://github.com/kenny-evitt">@kenny-evitt</a></li>
+    <li><a href="{{ site.repository.source }}/issues/716">#716</a>, <a href="{{ site.repository.source }}/issues/765">#765</a>: Reuse data returned by <a href="/validators/callback/">callback</a>, <a href="/validators/remote/">remote</a>, custom validators</li>
+    <li><a href="{{ site.repository.source }}/pull/734">#734</a>: The <a href="/validators/uri/">uri</a> validator adds support for custom protocol, thanks to <a href="https://github.com/bcamarneiro">@bcamarneiro</a></li>
+    <li><a href="{{ site.repository.source }}/issues/737">#737</a>: Support VAT number without prefixing by country code</li>
+    <li><a href="{{ site.repository.source }}/issues/754">#754</a>: Support latest Bootstrap when using tooltip/popover to show the message</li>
+    <li><a href="{{ site.repository.source }}/issues/783">#783</a>: Improve behaviour of the <a href="/validators/different/">different</a> validator</li>
+    <li><a href="{{ site.repository.source }}/pull/792">#792</a>: Add "BootstrapValidator's JavaScript requires jQuery" warning, thanks to <a href="https://github.com/Arkni">@Arkni</a></li>
+    <li><a href="{{ site.repository.source }}/pull/803">#803</a>: Add <code>minSize</code> option for the <a href="/validators/file/">file</a> validator, thanks to <a href="https://github.com/Arkni">@Arkni</a></li>
+    <li><a href="{{ site.repository.source }}/issues/824">#824</a>: Add <a href="/validators/phone/">phone</a> number validator test suite</li>
+</ul>
+
+<h3>Bug fixes</h3>
+<ul class="doc-list">
+    <li><a href="{{ site.repository.source }}/issues/611">#611</a>, <a href="{{ site.repository.source }}/issues/703">#703</a>: Tabs get red even form is valid</li>
+    <li><a href="{{ site.repository.source }}/issues/612">#612</a>, <a href="{{ site.repository.source }}/pull/740">#740</a>, <a href="{{ site.repository.source }}/pull/741">#741</a>: Fix the <a href="/validators/emailAddress/">emailAddress</a> issue which email@server is not valid email address, thanks to <a href="https://github.com/kromit">@kromit</a></li>
+    <li><a href="{{ site.repository.source }}/issues/687">#687</a>, <a href="{{ site.repository.source }}/pull/711">#711</a>: Keep disabled validators VALID, thanks to <a href="https://github.com/talberti">@talberti</a></li>
+    <li><a href="{{ site.repository.source }}/pull/725">#725</a>: Fix the issue when adding field which does not exist but is already set in "fields" option</li>
+    <li><a href="{{ site.repository.source }}/issues/732">#732</a>: Fix the issue when removing the radio or checkbox field</li>
+    <li><a href="{{ site.repository.source }}/issues/746">#746</a>: The form is still submitted when clicking on submit button which is set <code>onclick="return false;"</code></li>
+    <li><a href="{{ site.repository.source }}/issues/758">#758</a>: Using <a href="/validators/notEmpty/">notEmpty</a> validator with <code>type="number"</code></li>
+    <li><a href="{{ site.repository.source }}/issues/759">#759</a>, <a href="{{ site.repository.source }}/pull/764">#764</a>: The tooltip/popover isn't shown if there is disabled validator.
+        The tooltip/popover is shown automatically when the field gets the focus, thanks to <a href="https://github.com/leedorian">@leedorian</a></li>
+    <li><a href="{{ site.repository.source }}/issues/797">#797</a>, <a href="{{ site.repository.source }}/pull/799">#799</a>: Can't validate ipv4 and ipv6 at the same time. Add ip validator test suite, thanks to <a href="https://github.com/Arkni">@Arkni</a></li>
+    <li><a href="{{ site.repository.source }}/pull/816">#816</a>: Fix Russian <a href="/validators/vat/">VAT</a> number validator, thanks to <a href="https://github.com/stepin">@stepin</a></li>
+    <li><a href="{{ site.repository.source }}/issues/832">#832</a>: The form won't be validated if the submit button contains a HTML tag</li>
+</ul>
+
+<h3>Document</h3>
+<ul class="doc-list">
+    <li><a href="{{ site.repository.source }}/issues/709">#709</a>, <a href="{{ site.repository.source }}/pull/715">#715</a>: Add <a href="/examples/bootstrap-select/">Bootstrap Select</a> and <a href="/examples/select2/">Select2</a> examples, thanks to <a href="https://github.com/Arkni">@Arkni</a></li>
+    <li><a href="{{ site.repository.source }}/issues/855">#855</a>, <a href="{{ site.repository.source }}/pull/858">#858</a>: Add <a href="/examples/tinymce/">TinyMCE</a> example, thanks to <a href="https://github.com/Arkni">@Arkni</a></li>
+    <li><a href="{{ site.repository.source }}/issues/859">#859</a>, <a href="{{ site.repository.source }}/issues/862">#862</a>, <a href="{{ site.repository.source }}/pull/865">#865</a>: Add <a href="/examples/tooltip-popover-position/">Changing tooltip/popover position</a> example, thanks to <a href="https://github.com/Arkni">@Arkni</a></li>
+</ul>
+
+<h3>Language packages</h3>
+<ul class="doc-list">
+    <li><a href="{{ site.repository.source }}/pull/706">#706</a>: Japanese language package, thanks to <a href="https://github.com/tsuyoshifujii">@tsuyoshifujii</a></li>
+    <li><a href="{{ site.repository.source }}/pull/712">#712</a>: Swedish language package, thanks to <a href="https://github.com/ulsa">@ulsa</a></li>
+    <li><a href="{{ site.repository.source }}/pull/727">#727</a>: Belgium (French) language package, thanks to <a href="https://github.com/neilime">@neilime</a></li>
+    <li><a href="{{ site.repository.source }}/pull/729">#729</a>: Persian (Farsi) language package, thanks to <a href="https://github.com/i0">@i0</a></li>
+    <li><a href="{{ site.repository.source }}/pull/779">#779</a>: Romanian language package, thanks to <a href="https://github.com/filipac">@filipac</a></li>
+    <li><a href="{{ site.repository.source }}/pull/787">#787</a>: Thai language package, thanks to <a href="https://github.com/figgaro">@figgaro</a></li>
+    <li><a href="{{ site.repository.source }}/pull/788">#788</a>: Fully re-translated Simplified Chinese language package, thanks to <a href="https://github.com/shamiao">@shamiao</a></li>
+    <li><a href="{{ site.repository.source }}/pull/795">#795</a>: Re-translated traditional Chinese language package, thanks to <a href="https://github.com/tureki">@tureki</a></li>
+    <li><a href="{{ site.repository.source }}/pull/802">#802</a>: Russian language package, thanks to <a href="https://github.com/cylon-v">@cylon-v</a>. <a href="{{ site.repository.source }}/pull/816">#816</a>: Improved by <a href="https://github.com/stepin">@stepin</a></li>
+    <li><a href="{{ site.repository.source }}/pull/806">#806</a>: Ukrainian language package, thanks to <a href="https://github.com/oleg-voloshyn">@oleg-voloshyn</a></li>
+    <li><a href="{{ site.repository.source }}/pull/840">#840</a>: Serbian language package, thanks to <a href="https://github.com/markocrni">@markocrni</a></li>
+    <li><a href="{{ site.repository.source }}/pull/856">#856</a>: Norwegian language package, thanks to <a href="https://github.com/trondulseth">@trondulseth</a></li>
+    <li><a href="{{ site.repository.source }}/pull/868">#868</a>: Indonesian language package, thanks to <a href="https://github.com/egig">@egig</a></li>
+</ul>
+
+<h3>Upgrade from v0.5.x to v0.5.2</h3>
+<p>If you don't use the <a href="/validators/remote/">remote</a> validator, just download v0.5.2 package and override the CSS/JS bundle.</p>
+<p>Otherwise, please indicate the <code>type</code> option when using <a href="/validators/remote/">remote</a> validator:</p>
+
+{% highlight javascript %}
+$(form).bootstrapValidator({
+    fields: {
+        username: {
+            message: 'The username is not valid',
+            validators: {
+                // The validator will create an Ajax request
+                // sending { username: 'its value' } to the back-end
+                remote: {
+                    message: 'The username is not available',
+                    url: '/path/to/backend/',
+                    type: 'GET'     // or 'POST'
+                }
+            }
+        }
+    }
+});
+{% endhighlight %}
+
+<h3>Contributors</h3>
+<p>Thanks to 30 contributors:</p>
+<ul class="doc-list">
+    <li><a href="https://github.com/adrian-dks">@adrian-dks</a></li>
+    <li><a href="https://github.com/AlaskanShade">@AlaskanShade</a></li>
+    <li><a href="https://github.com/Arkni">@Arkni</a></li>
+    <li><a href="https://github.com/bcamarneiro">@bcamarneiro</a></li>
+    <li><a href="https://github.com/bermo">@bermo</a></li>
+    <li><a href="https://github.com/caijh">@caijh</a></li>
+    <li><a href="https://github.com/cuchac">@cuchac</a></li>
+    <li><a href="https://github.com/cylon-v">@cylon-v</a></li>
+    <li><a href="https://github.com/dlcrush">@dlcrush</a></li>
+    <li><a href="https://github.com/egig">@egig</a></li>
+    <li><a href="https://github.com/emilchristensen">@emilchristensen</a></li>
+    <li><a href="https://github.com/figgaro">@figgaro</a></li>
+    <li><a href="https://github.com/filipac">@filipac</a></li>
+    <li><a href="https://github.com/i0">@i0</a></li>
+    <li><a href="https://github.com/kenny-evitt">@kenny-evitt</a></li>
+    <li><a href="https://github.com/kromit">@kromit</a></li>
+    <li><a href="https://github.com/leedorian">@leedorian</a></li>
+    <li><a href="https://github.com/mbezhanov">@mbezhanov</a></li>
+    <li><a href="https://github.com/markocrni">@markocrni</a></li>
+    <li><a href="https://github.com/mattrick">@mattrick</a></li>
+    <li><a href="https://github.com/neilime">@neilime</a></li>
+    <li><a href="https://github.com/oleg-voloshyn">@oleg-voloshyn</a></li>
+    <li><a href="https://github.com/paquitodev">@paquitodev</a></li>
+    <li><a href="https://github.com/q-state">@q-state</a></li>
+    <li><a href="https://github.com/shamiao">@shamiao</a></li>
+    <li><a href="https://github.com/stepin">@stepin</a></li>
+    <li><a href="https://github.com/talberti">@talberti</a></li>
+    <li><a href="https://github.com/tsuyoshifujii">@tsuyoshifujii</a></li>
+    <li><a href="https://github.com/tureki">@tureki</a></li>
+    <li><a href="https://github.com/ulsa">@ulsa</a></li>
+</ul>
+
+<h3>Download</h3>
+<div>
+    <a class="btn btn-primary" href="{{ site.repository.source }}/releases/download/v0.5.2/bootstrapvalidator-dist-0.5.2.zip">bootstrapvalidator-dist-0.5.2.zip</a>
+    <a class="btn btn-default" href="{{ site.repository.source }}/archive/v0.5.2.zip">v0.5.2 Source Code</a>
+</div>

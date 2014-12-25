@@ -1,0 +1,129 @@
+---
+layout: default
+title: Integrating with ASP.Net
+permalink: /examples/integrating-asp-net/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Integrating with ASP.Net</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>Since ASP.Net changes the field name when rendering the controls, you have to use <code><%= control.UniqueID %></code> as the name of fields.</p>
+
+                <div class="doc-demo">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#aspnet-programmatic-tab" data-toggle="tab">Programmatic usage</a></li>
+                        <li><a href="#aspnet-declarative-tab" data-toggle="tab">Declarative usage</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="aspnet-programmatic-tab">
+{% highlight javascript %}
+<%@ Page
+    Title=""
+    Language="C#"
+    MasterPageFile="~/Master.Master"
+    AutoEventWireup="true"
+    CodeBehind="..."
+    Inherits="..." %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+    <!-- Fields -->
+    <asp:TextBox runat="server" CssClass="form-control" ID="userNameTextBox" />
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#form1').bootstrapValidator({
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                // There is no single quote
+                <%=userNameTextBox.UniqueID%>: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The username is required and cannot be empty'
+                        },
+                        stringLength: {
+                            min: 6,
+                            max: 30,
+                            message: 'The username must be more than 6 and less than 30 characters long'
+                        },
+                        regexp: {
+                            regexp: /^[a-zA-Z0-9]+$/,
+                            message: 'The username can only consist of alphabetical and number'
+                        },
+                        different: {
+                            field: 'password',
+                            message: 'The username and password cannot be the same as each other'
+                        }
+                    }
+                }
+            }
+        });
+    });
+    </script>
+</asp:Content>
+{% endhighlight %}
+                        </div>
+
+                        <div class="tab-pane" id="aspnet-declarative-tab">
+{% highlight javascript %}
+<%@ Page
+    Title=""
+    Language="C#"
+    MasterPageFile="~/Master.Master"
+    AutoEventWireup="true"
+    CodeBehind="..."
+    Inherits="..." %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+    <!-- Fields -->
+    <asp:TextBox runat="server" CssClass="form-control" ID="userNameTextBox"
+        data-bv-notempty="true"
+        data-bv-notempty-message="The username is required and cannot be empty"
+
+        data-bv-stringlength="true"
+        data-bv-stringlength-min="6"
+        data-bv-stringlength-max="30"
+        data-bv-stringlength-message="The username must be more than 6 and less than 30 characters long"
+
+        data-bv-regexp="true"
+        data-bv-regexp-regexp="^[a-zA-Z0-9]+$"
+        data-bv-regexp-message="The username can only consist of alphabetical and number"
+
+        data-bv-different="true"
+        data-bv-different-field="password"
+        data-bv-different-message="The username and password cannot be the same as each other" />
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#form1').bootstrapValidator({
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            }
+        });
+    });
+    </script>
+</asp:Content>
+{% endhighlight %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

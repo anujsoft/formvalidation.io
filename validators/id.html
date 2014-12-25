@@ -1,0 +1,363 @@
+---
+layout: default
+title: Validate identification number
+permalink: /validators/id/
+countries:
+    - country: Bosnia and Herzegovina
+      abbr: JMBG
+      code: BA
+      examples:
+    - country: Brazil
+      abbr: CPF
+      code: BR
+      examples:
+        - 39053344705
+        - 390.533.447-05
+        - 111.444.777-35
+        - 231.002.999-00
+        - 000.000.000-00
+    - country: Bulgari
+      abbr: EGN
+      code: BG
+      examples:
+        - 7523169263
+        - 8032056031
+        - 803205 603 1
+        - 8001010008
+        - 7501020018
+        - 7552010005
+        - 7542011030
+        - 8019010008
+    - country: Chile
+      abbr: RUN/RUT
+      code: CL
+      examples:
+        - 76086428-5
+        - 22060449-7
+        - 12531909-2
+    - country: China
+      abbr:
+      code: CN
+      examples:
+        - 450202201409072332
+        - 22011219930407001X
+        - 110108601017023
+        - 999999199304070016
+    - country: Croatia
+      abbr: OIB
+      code: HR
+      examples:
+        - 33392005961
+        - 33392005962
+    - country: Czech
+      abbr: RC
+      code: CZ
+      examples:
+        - 7103192745
+        - 991231123
+        - 1103492745
+        - 590312123
+    - country: Denmark
+      abbr: CPR
+      code: DK
+      examples:
+        - 2110625629
+        - 211062-5629
+        - 511062-5629
+    - country: Estonia
+      abbr: isikukood
+      code: EE
+      examples:
+        - 37605030299
+    - country: Finland
+      abbr: HETU
+      code: FI
+      examples:
+        - 311280-888Y
+        - 131052-308T
+        - 131052-308U
+        - 310252-308Y
+    - country: Iceland
+      abbr: Kennitala
+      code: IS
+      examples:
+        - 120174-3399
+        - 1201743399
+        - 0902862349
+    - country: Ireland
+      abbr: PPS
+      code: IE
+      examples:
+        - 6433435F
+        - 6433435FT
+        - 6433435FW
+        - 6433435OA
+        - 6433435IH
+        - 1234567TW
+        - 1234567FA
+        - 6433435E
+        - 6433435VH
+    - country: Latvia
+      abbr: Personas kods
+      code: LV
+      examples:
+        - 161175-19997
+        - 16117519997
+        - 161375-19997
+    - country: Lithuania
+      abbr: Asmens kodas
+      code: LT
+      examples:
+        - 38703181745
+        - 38703181746
+        - 78703181745
+        - 38703421745
+    - country: Macedonia
+      abbr: ЕМБГ
+      code: MK
+      examples:
+    - country: Montenegro
+      abbr: JMBG
+      code: ME
+      examples:
+    - country: Netherlands
+      abbr: BSN
+      code: NL
+      examples:
+        - 111222333
+        - 941331490
+        - 9413.31.490
+        - 111252333
+    - country: Romania
+      abbr: CNP
+      code: RO
+      examples:
+        - 1630615123457
+        - 1800101221144
+        - 8800101221144
+        - 1632215123457
+        - 1630615123458
+    - country: San Marino
+      abbr:
+      code: SM
+      examples:
+    - country: Serbia
+      abbr: JMBG
+      code: RS
+      examples:
+    - country: Slovakia
+      abbr: RC
+      code: SK
+      examples:
+        - 7103192745
+        - 991231123
+        - 7103192746
+        - 1103492745
+    - country: Slovenia
+      abbr: EMŠO
+      code: SI
+      examples:
+        - 0101006500006
+    - country: South Africa
+      abbr: South African ID
+      code: ZA
+      examples:
+        - 8001015009087
+        - 8001015009287
+        - 8001015009086
+    - country: Spain
+      abbr: DNI/NIE
+      code: ES
+      examples:
+        - 54362315K
+        - 54362315-K
+        - X2482300W
+        - X-2482300W
+        - X-2482300-W
+        - 54362315Z
+        - X-2482300A
+    - country: Sweden
+      abbr: personnummer
+      code: SE
+      examples:
+        - 8112289874
+        - 811228-9874
+        - 811228+9874
+        - 811228-9873
+    - country: Switzerland
+      abbr: AHV-Nr/No AVS
+      code: CH
+      examples:
+        - 756.1234.5678.95
+        - 7561234567895
+    - country: Thailand
+      abbr:
+      code: TH
+      examples:
+        - 7145620509547
+        - 3688699975685
+        - 2368719339716
+        - 1100800092310
+related:
+    - vat
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>id validator</h1>
+        <p>Validate identification number</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>country</code><sup>*</sup></td>
+                                <td><code>data-bv-id-country</code></td>
+                                <td>String</td>
+                                <td>An ISO-3166 country code.<br/>It's <a href="/settings/#dynamic-option">dynamic option</a></td>
+                            </tr>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-id-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-id="true".
+                    </div>
+
+                    <p>The validator supports the following countries (click the sample number to validate it):</p>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Country</th>
+                                <th>Abbreviation ID system</th>
+                                <th>Country code</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in page.countries %}
+                            <tr>
+                                <td>{{ forloop.index }}</td>
+                                <td>{{ item.country }}</td>
+                                <td>{{ item.abbr }}</td>
+                                <td>{{ item.code }}</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        {% for sample in item.examples %}
+                                        <li><a href="javascript: void(0);" class="sample" data-country="{{ item.code }}">{{ sample }}</a> <i class="fa"></i></li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#id-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#id-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#id-js-tab" data-toggle="tab">JS</a></li>
+                            <li><a href="#id-declarative-tab" data-toggle="tab">Declarative usage</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="id-form-tab">
+                            {% include validators/id/example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="id-html-tab">
+{% highlight html %}
+{% include validators/id/example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="id-js-tab">
+{% highlight javascript %}
+{% include validators/id/example.js %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="id-declarative-tab">
+{% highlight html %}
+{% include validators/id/declarative-example.html %}
+
+<script>
+{% include validators/id/declarative-example.js %}
+</script>
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include validators/id/example.js %}
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        var validator = $('#idForm').data('bootstrapValidator'),
+            country   = $(this).attr('data-country');
+
+        $('#idForm')
+            .find('select[name="countrySelectBox"]')
+                .val(country)
+                .end()
+            .find('input[name="idNumber"]')
+                .val($(this).text());
+
+        // Revalidate field
+        $('#idForm').bootstrapValidator('revalidateField', 'idNumber');
+
+        // Show the result
+        var isValid = validator.isValid();
+       $(this)
+            .parent()
+                .removeClass('doc-sample-error doc-sample-success')
+                .addClass(isValid ? 'doc-sample-success' : 'doc-sample-error')
+            .find('i')
+                .removeClass('fa-check fa-times')
+                .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>

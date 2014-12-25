@@ -1,0 +1,400 @@
+---
+layout: default
+title: Validate VAT number
+permalink: /validators/vat/
+countries:
+    - country: Austria
+      abbr: UID
+      code: AT
+      examples:
+        - ATU13585627
+        - ATU13585626
+    - country: Belgium
+      abbr: n° TVA / BTW-nr / Mwst-nr
+      code: BE
+      examples:
+        - BE0428759497
+        - BE431150351
+    - country: Brazil
+      abbr: CNPJ
+      code: BR
+      examples:
+    - country: Bulgaria
+      abbr: ДДС номер
+      code: BG
+      examples:
+        - BG175074752
+        - BG7523169263
+        - BG8032056031
+        - BG7542011030
+        - BG7111042925
+        - BG175074753
+        - BG7552A10004
+        - BG7111042922
+    - country: Croatia
+      abbr: PDV-ID; OIB
+      code: HR
+      examples:
+        - HR33392005961
+        - HR33392005962
+    - country: Cyprus
+      abbr: ΦΠΑ
+      code: CY
+      examples:
+        - CY10259033P
+        - CY10259033Z
+    - country: Czech Republic
+      abbr: DIČ
+      code: CZ
+      examples:
+        - CZ25123891
+        - CZ7103192745
+        - CZ991231123
+        - CZ640903926
+        - CZ25123890
+        - CZ1103492745
+        - CZ590312123
+    - country: Denmark
+      abbr: CVR
+      code: DK
+      examples:
+        - DK13585628
+        - DK13585627
+    - country: Estonia
+      abbr: KMKR
+      code: EE
+      examples:
+        - EE100931558
+        - EE100594102
+        - EE100594103
+    - country: Finland
+      abbr: ALV nro
+      code: FI
+      examples:
+        - FI20774740
+        - FI20774741
+    - country: France
+      abbr: n° TVA
+      code: FR
+      examples:
+        - FR40303265045
+        - FR23334175221
+        - FRK7399859412
+        - FR4Z123456782
+        - FR84323140391
+    - country: Germany
+      abbr: USt-IdNr.
+      code: DE
+      examples:
+        - DE136695976
+        - DE136695978
+    - country: Greece
+      abbr: ΑΦΜ
+      code: GR / EL
+      examples:
+        - GR023456780
+        - EL094259216
+        - EL123456781
+    - country: Hungary
+      abbr: ANUM
+      code: HU
+      examples:
+        - HU12892312
+        - HU12892313
+    - country: Iceland
+      abbr: VSK
+      code: IS
+      examples:
+        - IS12345
+        - IS123456
+        - IS1234567
+    - country: Ireland
+      abbr: VAT no
+      code: IE
+      examples:
+        - IE6433435F
+        - IE6433435OA
+        - IE8D79739I
+        - IE8D79738J
+    - country: Italy
+      abbr: P.IVA
+      code: IT
+      examples:
+        - IT00743110157
+        - IT00743110158
+    - country: Latvia
+      abbr: PVN
+      code: LV
+      examples:
+        - LV40003521600
+        - LV16117519997
+        - LV40003521601
+        - LV16137519997
+    - country: Lithuania
+      abbr: PVM kodas
+      code: LT
+      examples:
+        - LT119511515
+        - LT100001919017
+        - LT100004801610
+        - LT100001919018
+    - country: Luxembourg
+      abbr: No. TVA
+      code: LU
+      examples:
+        - LU15027442
+        - LU15027443
+    - country: Malta
+      abbr: Vat No.
+      code: MT
+      examples:
+        - MT11679112
+        - MT11679113
+    - country: Netherlands
+      abbr: Btw-nr.
+      code: NL
+      examples:
+        - NL004495445B01
+        - NL123456789B90
+    - country: Norway
+      abbr: Orgnr
+      code: "NO"
+      examples:
+    - country: Poland
+      abbr: NIP
+      code: PL
+      examples:
+        - PL8567346215
+        - PL8567346216
+    - country: Portugal
+      abbr: NIF / NIPC
+      code: PT
+      examples:
+        - PT501964843
+        - PT501964842
+    - country: Romania
+      abbr: CIF
+      code: RO
+      examples:
+        - RO18547290
+        - RO18547291
+    - country: Russia
+      abbr: ИНН
+      code: RU
+      examples:
+    - country: Serbia
+      abbr: PIB
+      code: RS
+      examples:
+    - country: Slovakia
+      abbr: IČ DPH
+      code: SK
+      examples:
+        - SK2022749619
+        - SK2022749618
+    - country: Slovenia
+      abbr: ID za DDV
+      code: SI
+      examples:
+        - SI50223054
+        - SI50223055
+    - country: South Africa
+      abbr:
+      code: ZA
+      examples:
+        - ZA4012345678
+        - ZA40123456789
+        - ZA3012345678
+    - country: Spain
+      abbr: NIF / CIF
+      code: ES
+      examples:
+        - ES54362315K
+        - ESX2482300W
+        - ESX5253868R
+        - ESM1234567L
+        - ESJ99216582
+        - ESB58378431
+        - ESB64717838
+        - ES54362315Z
+        - ESX2482300A
+        - ESJ99216583
+    - country: Sweden
+      abbr: Momsnr.
+      code: SE
+      examples:
+        - SE123456789701
+        - SE123456789101
+    - country: Switzerland
+      abbr: MWST / TVA / IVA
+      code: CH
+      examples:
+    - country: United Kingdom
+      abbr: VAT Reg No
+      code: GB
+      examples:
+        - GB980780684
+        - GB802311781
+    - country: Venezuela
+      abbr: RIF
+      code: VE
+      examples:
+        - VEJ309272292
+        - VEV242818101
+        - VEJ000126518
+        - VEJ309272293
+        - J000458323
+related:
+    - id
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>vat validator</h1>
+        <p>Validate VAT number</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>country</code></td>
+                                <td><code>data-bv-vat-country</code></td>
+                                <td>String</td>
+                                <td>An ISO-3166 country code.<br/>It's <a href="/settings/#dynamic-option">dynamic option</a>.<br/>If it is not defined, it will be parsed from the VAT number</td>
+                            </tr>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-vat-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-vat="true".
+                    </div>
+
+                    <p>The validator supports the following countries (click the example VAT number to validate it):</p>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Country</th>
+                                <th>Abbreviation VAT name</th>
+                                <th>Country code</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in page.countries %}
+                            <tr>
+                                <td>{{ forloop.index }}</td>
+                                <td>{{ item.country }}</td>
+                                <td>{{ item.abbr }}</td>
+                                <td>{{ item.code }}</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        {% for sample in item.examples %}
+                                        <li><a href="javascript: void(0);" class="sample">{{ sample }}</a> <i class="fa"></i></li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#vat-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#vat-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#vat-js-tab" data-toggle="tab">JS</a></li>
+                            <li><a href="#vat-declarative-tab" data-toggle="tab">Declarative usage</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="vat-form-tab">
+                            {% include validators/vat/example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="vat-html-tab">
+{% highlight html %}
+{% include validators/vat/example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="vat-js-tab">
+{% highlight javascript %}
+{% include validators/vat/example.js %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="vat-declarative-tab">
+{% highlight html %}
+{% include validators/vat/declarative-example.html %}
+
+<script>
+{% include validators/vat/declarative-example.js %}
+</script>
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include validators/vat/example.js %}
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        $('#vatForm').find('input[name="vat"]').val($(this).text());
+
+        $('#vatForm').bootstrapValidator('revalidateField', 'vat');
+
+        var isValid = $('#vatForm').data('bootstrapValidator').isValid();
+        $(this)
+            .parent()
+                .removeClass('doc-sample-error doc-sample-success')
+                .addClass(isValid ? 'doc-sample-success' : 'doc-sample-error')
+            .find('i')
+                .removeClass('fa-check fa-times')
+                .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>

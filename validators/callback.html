@@ -1,0 +1,190 @@
+---
+layout: default
+title: callback validator
+permalink: /validators/callback/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>callback validator</h1>
+        <p>Return the validity from a callback method</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>callback</code><sup>*</sup></td>
+                                <td><code>data-bv-callback-callback</code></td>
+                                <td>Function</td>
+                                <td>The callback method</td>
+                            </tr>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-callback-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-callback="true".
+                    </div>
+
+                    <p>The callback method must follow the format below:</p>
+
+{% highlight javascript %}
+function(value, validator, $field) {
+    // value is the value of field
+    // validator is instance of BootstrapValidator
+    // $field is the jQuery object representing the field element
+
+    // Check the field validity
+    return true;    // or false
+}
+{% endhighlight %}
+
+                    <p>If you want to return a dynamic message, the callback function must return an object containing the <code>valid</code> and <code>message</code> members:</p>
+
+{% highlight javascript %}
+function(value, validator, $field) {
+    // ... Do your logic checking
+    if (...) {
+        return {
+            valid: true,    // or false
+            message: 'The error message'
+        }
+    }
+
+    return {
+        valid: false,       // or true
+        message: 'Other error message'
+    }
+}
+{% endhighlight %}
+                    <p>Look at the <a href="#dynamic-message-example">dynamic message</a> example.</p>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <h3>Basic example</h3>
+                    <p>In the following form, user is asked to enter a correct answer of simple operation which is generated randomly.</p>
+                    <p>The captcha is also generated after form submission by triggering the <a href="/settings/#event-form">error.form.bv</a> event.</p>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#callback-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#callback-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#callback-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="callback-form-tab">
+                            {% include validators/callback/basic-example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="callback-html-tab">
+{% highlight html %}
+{% include validators/callback/basic-example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="callback-js-tab">
+{% highlight javascript %}
+{% include validators/callback/basic-example.js %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>It's possible to use HTML 5 attributes to set the <code>callback</code> as following snippet:</p>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#html5-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#html5-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="html5-html-tab">
+{% highlight html %}
+{% include validators/callback/declarative-example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="html5-js-tab">
+{% highlight javascript %}
+{% include validators/callback/declarative-example.js %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Dynamic message example</h3>
+                    <p>The form below ask to enter a secure password, which must satisfies all the following conditions:</p>
+                    <ul class="doc-list">
+                        <li>Must be more than 8 characters long</li>
+                        <li>Must contain at least one upper case character</li>
+                        <li>Must contain at least one lower case character</li>
+                        <li>Must contain at least one digit</li>
+                    </ul>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#password-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#password-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#password-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="password-form-tab">
+                                {% include validators/callback/dynamic-message-example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="password-html-tab">
+{% highlight html %}
+{% include validators/callback/dynamic-message-example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="password-js-tab">
+{% highlight javascript %}
+{% include validators/callback/dynamic-message-example.js %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include validators/callback/basic-example.js %}
+{% include validators/callback/dynamic-message-example.js %}
+</script>

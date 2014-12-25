@@ -1,0 +1,116 @@
+---
+layout: default
+title: Playing with Bootstrap Tabs
+permalink: /examples/bootstrap-tab/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Playing with Bootstrap Tabs</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>The following example shows that the plugin works perfectly with <a href="http://getbootstrap.com/javascript/#tabs">Bootstrap Tabs</a>.</p>
+                <p>By default, the fields in inactive tabs will not be validated because they are not visible. In order to validate them, we need to use the <a href="/settings/#excluded">excluded</a> option:</p>
+
+{% highlight javascript %}
+excluded: [':disabled']
+{% endhighlight %}
+
+                <div class="doc-alert doc-alert-info">
+                    You should look at the <a href="/examples/#compatibility">basic principles</a> when integrating BootstrapValidator with other plugins
+                </div>
+
+                <p>Assume that you want to add an icon to tab to indicate the valid or invalid tab. A tab is called valid if all fields inside it are valid. Otherwise, if there is at least one invalid field inside tab, the tab is invalid.</p>
+                <p>Firstly, we need to prepare the icon placed at the tab title:</p>
+
+{% highlight html %}
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#info-tab" data-toggle="tab">Tab title <i class="fa"></i></a></li>
+    <li><a href="#address-tab" data-toggle="tab">Tab title <i class="fa"></i></a></li>
+</ul>
+{% endhighlight %}
+
+                <p>Lastly, add success/error class to icon when the field is valid/invalid by triggering the <code>error.field.bv</code> and <code>success.field.bv</code> <a href="/settings/#event-field">events</a>:</p>
+
+{% highlight javascript %}
+$(document).ready(function() {
+    $('#accountForm')
+        .bootstrapValidator({
+            excluded: [':disabled'],
+            ...
+        })
+
+        // Called when a field is invalid
+        .on('error.field.bv', function(e, data) {
+            // data.element --> The field element
+
+            var $tabPane = data.element.parents('.tab-pane'),
+                tabId    = $tabPane.attr('id');
+
+            $('a[href="#' + tabId + '"][data-toggle="tab"]')
+                .parent()
+                .find('i')
+                .removeClass('fa-check')
+                .addClass('fa-times');
+        })
+
+        // Called when a field is valid
+        .on('success.field.bv', function(e, data) {
+            // data.bv      --> The BootstrapValidator instance
+            // data.element --> The field element
+
+            var $tabPane = data.element.parents('.tab-pane'),
+                tabId    = $tabPane.attr('id'),
+                $icon    = $('a[href="#' + tabId + '"][data-toggle="tab"]')
+                            .parent()
+                            .find('i')
+                            .removeClass('fa-check fa-times');
+
+            // Check if the submit button is clicked
+            if (data.bv.getSubmitButton()) {
+                // Check if all fields in tab are valid
+                var isValidTab = data.bv.isValidContainer($tabPane);
+                $icon.addClass(isValidTab ? 'fa-check' : 'fa-times');
+            }
+        });
+});
+{% endhighlight %}
+
+                <div class="doc-demo">
+                    {% include examples/bootstrap-tab/example.html %}
+                </div>
+
+                <div class="doc-demo">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tabs-html-tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#tabs-js-tab" data-toggle="tab">JS</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tabs-html-tab">
+{% highlight html %}
+{% include examples/bootstrap-tab/example.html %}
+{% endhighlight %}
+                        </div>
+
+                        <div class="tab-pane" id="tabs-js-tab">
+{% highlight javascript %}
+{% include examples/bootstrap-tab/example.js %}
+{% endhighlight %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include examples/bootstrap-tab/example.js %}
+</script>

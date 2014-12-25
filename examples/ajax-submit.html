@@ -1,0 +1,52 @@
+---
+layout: default
+title: Using Ajax to submit the form
+permalink: /examples/ajax-submit/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Using Ajax to submit the form</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>By triggering the <a href="/settings/#event-form">success.form.bv</a> event, we can use Ajax to submit the form data.</p>
+
+{% highlight javascript %}
+$(document).ready(function() {
+    $(form)
+        .bootstrapValidator({
+            ... options ...
+        })
+        .on('success.form.bv', function(e) {
+            // Prevent form submission
+            e.preventDefault();
+
+            // Get the form instance
+            var $form = $(e.target);
+
+            // Get the BootstrapValidator instance
+            var bv = $form.data('bootstrapValidator');
+
+            // Use Ajax to submit form data
+            $.post($form.attr('action'), $form.serialize(), function(result) {
+                // ... Process the result ...
+            }, 'json');
+        });
+});
+{% endhighlight %}
+
+                    <p>In the example above, you can see the form is prevented from doing default submission by using</p>
+
+{% highlight javascript %}
+e.preventDefault();
+{% endhighlight %}
+            </div>
+        </div>
+    </div>
+</div>

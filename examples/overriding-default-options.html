@@ -1,0 +1,108 @@
+---
+layout: default
+title: Overriding default options
+permalink: /examples/overriding-default-options/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Overriding default options</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>Assume that your page consists of many forms that need to be validated. These forms might use same options, such as feedbackIcons, default error message, etc.</p>
+                <p>As a natural approach, you have to repeat initializing the options as following:</p>
+
+{% highlight javascript %}
+$(document).ready(function() {
+    $(firstForm).bootstrapValidator({
+        message: 'The field is not valid',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        }
+        ...
+    });
+
+    $(secondForm).bootstrapValidator({
+        message: 'The field is not valid',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        }
+        ...
+    });
+});
+{% endhighlight %}
+
+                    <p>From v0.5.0, you can override the default options as below:</p>
+
+{% highlight javascript %}
+$(document).ready(function() {
+    $.fn.bootstrapValidator.DEFAULT_OPTIONS = $.extend({}, $.fn.bootstrapValidator.DEFAULT_OPTIONS, {
+        message: 'The field is not valid',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        }
+    });
+});
+{% endhighlight %}
+
+                    <p>By overriding the default options, you don't need to repeat setting these options when calling the plugin:</p>
+
+{% highlight javascript %}
+$(document).ready(function() {
+    $(firstForm).bootstrapValidator({
+        // Don't need to set the feedbackIcons, message options anymore
+        ...
+    });
+
+    $(secondForm).bootstrapValidator({
+        // Don't need to set the feedbackIcons, message options anymore
+        ...
+    });
+});
+{% endhighlight %}
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#override-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#override-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#override-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="override-form-tab">
+                            {% include examples/overriding-default-options/example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="override-html-tab">
+{% highlight html %}
+{% include examples/overriding-default-options/example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="override-js-tab">
+{% highlight javascript %}
+{% include examples/overriding-default-options/example.js %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include examples/overriding-default-options/example.js %}
+</script>

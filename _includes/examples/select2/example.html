@@ -1,0 +1,47 @@
+<!-- Include Select2 CSS -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.0/select2.min.css" />
+
+<!-- CSS to make Select2 fit in with Bootstrap 3.x -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.0/select2-bootstrap.min.css" />
+
+<!-- Include Select2 JS -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.0/select2.min.js"></script>
+
+<style type="text/css">
+#select2Form .form-control-feedback {
+    /* To make the feedback icon visible */
+    z-index: 100;
+}
+</style>
+
+<form id="select2Form" method="post" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-4 control-label">Favorite color</label>
+        <div class="col-sm-6">
+            <select name="colors" class="form-control select2-select"
+                multiple data-placeholder="Choose 2-4 colors">
+                <option value="black">Black</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="orange">Orange</option>
+                <option value="red">Red</option>
+                <option value="yellow">Yellow</option>
+                <option value="white">White</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-4 control-label">Favorite color using tags</label>
+        <div class="col-sm-6">
+            <input class="form-control" name="colors-tags"
+                   multiple data-placeholder="Choose 2-4 colors" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-6 col-sm-offset-4">
+            <button type="submit" class="btn btn-default">Validate</button>
+        </div>
+    </div>
+</form>

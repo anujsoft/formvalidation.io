@@ -1,0 +1,195 @@
+- name:         base64
+  version:      0.3.2
+  description:  Validate a base64 encoded string
+
+- name:         between
+  version:      0.1.0
+  description:  Check if the input value is between (strictly or not) two given numbers
+
+- name:         callback
+  version:      0.2.0
+  description:  Return the validity from a callback method
+
+- name:         choice
+  version:      0.3.0
+  description:  Check if the number of checked boxes are less or more than a given number
+
+- name:         color
+  version:      0.5.3
+  description:  Validate a color in different formats
+
+- name:         creditCard
+  version:      0.2.0
+  description:  Validate a credit card number
+
+- name:         cusip
+  version:      0.4.5
+  description:  Validate a CUSIP
+
+- name:         cvv
+  version:      0.3.2
+  description:  Validate a CVV number
+
+- name:         date
+  version:      0.3.1
+  description:  Validate date
+
+- name:         different
+  version:      0.2.0
+  description:  Return true if the input value is different with given field's value
+
+- name:         digits
+  version:      0.1.0
+  description:  Return true if the value contains only digits
+
+- name:         ean
+  version:      0.4.4
+  description:  Validate an EAN (International Article Number)
+
+- name:         emailAddress
+  version:      0.1.0
+  description:  Validate an email address
+
+- name:         file
+  version:      0.4.3
+  description:  Validate file
+
+- name:         greaterThan
+  version:      0.1.0
+  description:  Return true if the value is greater than or equals to given number
+
+- name:         grid
+  version:      0.4.4
+  description:  Validate a GRId (Global Release Identifier)
+
+- name:         hex
+  version:      0.4.0
+  description:  Validate a hexadecimal number
+
+- name:         hexColor
+  version:      0.1.0
+  description:  Validate a hex color
+
+- name:         iban
+  version:      0.4.0
+  description:  Validate an International Bank Account Number (IBAN)
+
+- name:         id
+  version:      0.4.5
+  description:  Validate identification number
+
+- name:         identical
+  version:      0.1.0
+  description:  Check if the value is the same as one of particular field
+
+- name:         imei
+  version:      0.4.4
+  description:  Validate an IMEI (International Mobile Station Equipment Identity)
+
+- name:         imo
+  version:      0.5.1
+  description:  Validate an IMO (International Maritime Organization)
+
+- name:         integer
+  version:      0.4.0
+  description:  Validate an integer number
+
+- name:         ip
+  version:      0.3.2
+  description:  Validate an IP address. Support both IPv4 and IPv6
+
+- name:         isbn
+  version:      0.3.2
+  description:  Validate an ISBN (International Standard Book Number). Support both ISBN 10 and ISBN 13
+
+- name:         isin
+  version:      0.4.5
+  description:  Validate an ISIN (International Securities Identification Number)
+
+- name:         ismn
+  version:      0.4.4
+  description:  Validate an ISMN (International Standard Music Number)
+
+- name:         issn
+  version:      0.4.4
+  description:  Validate an ISSN (International Standard Serial Number)
+
+- name:         lessThan
+  version:      0.1.0
+  description:  Return true if the value is less than or equals to given number
+
+- name:         mac
+  version:      0.3.2
+  description:  Validate a MAC address
+
+- name:         meid
+  version:      0.5.1
+  description:  Validate a MEID (mobile equipment identifier)
+
+- name:         notEmpty
+  version:      0.1.0
+  description:  Check if the value is empty
+
+- name:         numeric
+  version:      0.4.0
+  description:  Check if the value is numeric
+
+- name:         phone
+  version:      0.3.2
+  description:  Validate a phone number
+
+- name:         regexp
+  version:      0.1.0
+  description:  Check if the value matches given Javascript regular expression
+
+- name:         remote
+  version:      0.1.0
+  description:  Perform remote checking via Ajax request
+
+- name:         rtn
+  version:      0.4.5
+  description:  Validate a RTN (Routing transit number)
+
+- name:         sedol
+  version:      0.4.5
+  description:  Validate a SEDOL (Stock Exchange Daily Official List)
+
+- name:         siren
+  version:      0.4.2
+  description:  Validate a Siren number
+
+- name:         siret
+  version:      0.4.2
+  description:  Validate a Siret number
+
+- name:         step
+  version:      0.3.2
+  description:  Check if the value is valid step one
+
+- name:         stringCase
+  version:      0.4.0
+  description:  Check if a string is a lower or upper case one
+
+- name:         stringLength
+  version:      0.1.0
+  description:  Validate the length of a string
+
+- name:         uri
+  version:      0.1.0
+  description:  Validate an URL address
+
+- name:         uuid
+  version:      0.4.0
+  description:  Validate an UUID, support v3, v4, v5
+
+- name:         vat
+  version:      0.4.3
+  description:  Validate VAT number
+
+- name:         vin
+  version:      0.4.2
+  description:  Validate an US VIN (Vehicle Identification Number)
+
+- name:         zipCode
+  version:      0.1.0
+  description:  Validate a zip code

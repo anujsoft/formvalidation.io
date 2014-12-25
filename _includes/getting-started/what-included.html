@@ -1,0 +1,90 @@
+<section>
+    <h2>What's included?</h2>
+
+    <p>The <a href="/download/">BootstrapValidator package</a> consists of the following files:</p>
+
+{% highlight bash %}
+bootstrapvalidator/
+├── dist
+│   ├── css
+│   │   ├── bootstrapValidator.css
+│   │   └── bootstrapValidator.min.css
+│   └── js
+│       ├──language
+│       │   ├── de_DE.js
+│       │   ├── en_US.js
+│       │   └── ...
+│       ├── bootstrapValidator.js
+│       └── bootstrapValidator.min.js
+└── src
+    ├── css
+    │   ├── bootstrapValidator.css
+    │   └── bootstrapValidator.min.css
+    └── js
+        ├──language
+        │   ├── de_DE.js
+        │   ├── en_US.js
+        │   └── ...
+        ├── validator
+        │   ├── base64.js
+        │   ├── between.js
+        │   ├── callback.js
+        │   └── ...
+        └── bootstrapValidator.js
+{% endhighlight %}
+
+    <p>The <strong>src</strong> directory consists of the original source files. <strong>src/js/bootstrapValidator.js</strong> is not compressed and doesn't include any validators.</p>
+
+    <p>The <strong>dist</strong> directory consists of files which is combined and compressed.
+    <strong>dist/js/bootstrapValidator(.min).js</strong> includes all validators. It should be used in the production site.</p>
+
+    <p>The language packages are placed inside both <strong>dist/js/language</strong> and <strong>src/js/language</strong> directories.</p>
+
+    <h3>Language packages</h3>
+
+    <p>BootstrapValidator has been translated into the following languages:</p>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Language</th>
+                <th>File Name</th>
+                <th>Translated By</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td>English <span class="label label-default">built in</span></td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/en_US.js">en_US.js</a></td>
+                <td><a href="http://github.com/nghuuphuoc">@nghuuphuoc</a></td>
+            </tr>
+
+            {% for package in site.data.languages %}
+            <tr>
+                <td>{{ forloop.index }}</td>
+                <td>{{ package.name }}</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/{{ package.file }}">{{ package.file }}</a></td>
+                <td>{% for author in package.author %}<a href="http://github.com/{{ package.author }}" style="display: block;">@{{ author }}</a>{% endfor %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="doc-alert doc-alert-info">
+        If you wonder how to use the language package, then this <a href="/examples/using-language-package/">example</a> is exactly for you
+    </div>
+
+    <h3>Translate to other language</h3>
+    <p>It is very easy to translate default English package into your language. Follow the steps below:</p>
+    <ol>
+        <li>Fork the <a href="{{ site.repository.source }}">project</a></li>
+        <li>
+            Create new language file in the <a href="{{ site.repository.source }}/tree/master/src/js/language">language</a> directory.<br/>
+            The file must be named as <strong>countrycode_LANGUAGECODE.js</strong>, where <strong>countrycode</strong> and <strong>LANGUAGECODE</strong> are the ISO 3166 country and language codes in lowercase and uppercase respectively.<br/>
+            The <strong>File Name</strong> column in the table above are some examples of valid language file name.
+        </li>
+        <li>Translate the <a href="{{ site.repository.source }}/blob/master/src/js/language/en_US.js">English language package</a> into your language file created above</li>
+        <li><a href="https://help.github.com/articles/creating-a-pull-request/">Make a pull request</a></li>
+    </ol>
+</section>

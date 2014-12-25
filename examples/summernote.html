@@ -1,0 +1,55 @@
+---
+layout: default
+title: Playing with Summernote
+permalink: /examples/summernote/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Playing with Summernote</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>This example shows how to use BootstrapValidator with <a href="http://hackerwins.github.io/summernote/">Summernote</a> plugin.</p>
+                <div class="doc-alert doc-alert-info">
+                    You should look at the <a href="/examples/#compatibility">basic principles</a> when integrating BootstrapValidator with other plugins
+                </div>
+
+                <div class="doc-demo">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#summernote-form-tab" data-toggle="tab">Try it</a></li>
+                        <li><a href="#summernote-html-tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#summernote-js-tab" data-toggle="tab">JS</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="summernote-form-tab">
+                        {% include examples/summernote/example.html %}
+                        </div>
+
+                        <div class="tab-pane" id="summernote-html-tab">
+{% highlight html %}
+{% include examples/summernote/example.html %}
+{% endhighlight %}
+                        </div>
+
+                        <div class="tab-pane" id="summernote-js-tab">
+{% highlight javascript %}
+{% include examples/summernote/example.js %}
+{% endhighlight %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include examples/summernote/example.js %}
+</script>

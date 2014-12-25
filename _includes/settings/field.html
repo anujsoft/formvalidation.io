@@ -1,0 +1,72 @@
+<section>
+    <h2 id="field-settings">Field settings</h2>
+
+    <p>Below is the list of Field settings:</p>
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Option</th>
+                <th>Equivalent HTML attribute</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>autoFocus</code></td>
+                <td><code>data-bv-autofocus</code></td>
+            </tr>
+            <tr>
+                <td><code>container</code></td>
+                <td><code>data-bv-container</code></td>
+            </tr>
+            <tr>
+                <td><code>enabled</code></td>
+                <td><code>data-bv-enabled</code></td>
+            </tr>
+            <tr>
+                <td><code>excluded</code></td>
+                <td><code>data-bv-excluded</code></td>
+            </tr>
+            <tr>
+                <td><code>feedbackIcons</code></td>
+                <td><code>data-bv-feedbackicons</code></td>
+            </tr>
+            <tr>
+                <td><code>group</code></td>
+                <td><code>data-bv-group</code></td>
+            </tr>
+            <tr>
+                <td><code>message</code></td>
+                <td><code>data-bv-message</code></td>
+            </tr>
+            <tr>
+                <td><code>selector</code></td>
+                <td><code>data-bv-selector</code></td>
+            </tr>
+            <tr>
+                <td><code>threshold</code></td>
+                <td><code>data-bv-threshold</code></td>
+            </tr>
+            <tr>
+                <td><code>trigger</code></td>
+                <td><code>data-bv-trigger</code></td>
+            </tr>
+            <tr>
+                <td><code>verbose</code></td>
+                <td><code>data-bv-verbose</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    {% include settings/field/auto-focus.html %}
+    {% include settings/field/container.html %}
+    {% include settings/field/enabled.html %}
+    {% include settings/field/excluded.html %}
+    {% include settings/field/feedback-icons.html %}
+    {% include settings/field/group.html %}
+    {% include settings/field/message.html %}
+    {% include settings/field/selector.html %}
+    {% include settings/field/threshold.html %}
+    {% include settings/field/trigger.html %}
+    {% include settings/field/verbose.html %}
+</section>

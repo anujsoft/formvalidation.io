@@ -1,0 +1,352 @@
+---
+layout: default
+title: Validate a zip code
+permalink: /validators/zipCode/
+countries:
+    - country: United States
+      code: US
+      valid:
+        - "12345"
+      invalid:
+        - "123"
+    - country: Austria
+      code: AT
+      valid:
+        - "6020"
+        - "1010"
+        - "4853"
+      invalid:
+        - "0020"
+        - "12345"
+        - "102"
+        - "12AB"
+        - "AT 6020 XY"
+    - country: Brazil
+      code: BR
+    - country: Canada
+      code: CA
+    - country: Czech Republic
+      code: CZ
+      valid:
+        - "12345"
+        - "123 45"
+      invalid:
+        - "12 345"
+        - "123456"
+        - "1 2345"
+        - "1234 5"
+        - "12 3 45"
+    - country: Denmark
+      code: DK
+      valid:
+        - "DK-1234"
+      invalid:
+        - "DK 123"
+    - country: French
+      code: FR
+      valid:
+        - "12340"
+        - "01230"
+        - "75116"
+      invalid:
+        - "123 45"
+        - "12 345"
+        - "123456"
+        - "1 2345"
+        - "1234 5"
+        - "12 3 45"
+        - "1234A"
+    - country: Germany
+      code: DE
+      valid:
+        - "52238"
+        - "01001"
+        - "09107"
+      invalid:
+        - "01000"
+        - "99999"
+        - "102"
+        - "ABCDE"
+        - "DE 52240 XY"
+#    - country: India
+#      code: IN
+#      valid:
+#        - "226024"
+#        - "201014"
+#        - "226 021"
+#      invalid:
+#        - "226-024"
+#        - "11023"
+#        - "A226023"
+    - country: Italy
+      code: IT
+      valid:
+        - "I-12345"
+        - "IT-12345"
+      invalid:
+        - "1234"
+    - country: Ireland
+      code: IE
+      valid:
+        - "A65 F4E2"
+        - "D6W FNT4"
+        - "T37 F8HK"
+      invalid:
+        - "a65 f4e2"
+        - "D6W FNTO"
+        - "T37F8HK"
+    - country: Morocco
+      code: MA
+    - country: Netherlands
+      code: NL
+      valid:
+        - "1234 ab"
+      invalid:
+        - "0123"
+    - country: Portugal
+      code: PT
+      valid:
+        - "2435-459"
+        - "1000-000"
+        - "1234-456"
+      invalid:
+        - "0123-456"
+        - "1234456"
+        - "1234-ABC"
+        - "1234 456"
+    - country: Romania
+      code: RO
+    - country: Russia
+      code: RU
+    - country: Singapore
+      code: SG
+    - country: Slovakia
+      code: SK
+      valid:
+        - "12345"
+        - "123 45"
+      invalid:
+        - "12 345"
+        - "123456"
+        - "1 2345"
+        - "1234 5"
+        - "12 3 45"
+    - country: Sweden
+      code: SE
+      valid:
+        - "S-12345"
+      invalid:
+        - "S-567 8"
+    - country: Switzerland
+      code: CH
+      valid:
+        - "8280"
+        - "8090"
+        - "8238"
+        - "9490"
+      invalid:
+        - "0123"
+        - "99999"
+        - "102"
+        - "ABCD"
+        - "CH-5224 XY"
+    - country: United Kingdom
+      code: GB
+      valid:
+        - "EC1A 1BB"
+        - "W1A 1HQ"
+        - "M1 1AA"
+        - "B33 8TH"
+        - "CR2 6XH"
+        - "DN55 1PT"
+        - "AI-2640"
+        - "ASCN 1ZZ"
+        - "GIR 0AA"
+related:
+    - phone
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>zipCode validator</h1>
+        <p>Validate a zip code</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>country</code></td>
+                                <td><code>data-bv-zipcode-country</code></td>
+                                <td>String</td>
+                                <td>An ISO-3166 country code.<br/>It's <a href="/settings/#dynamic-option">dynamic option</a></td>
+                            </tr>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-zipcode-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-zipcode="true".
+                    </div>
+
+                    <p>Currently, the validator supports the following countries:</p>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Country</th>
+                                <th>Code</th>
+                                <th>Valid examples</th>
+                                <th>Invalid examples</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in page.countries %}
+                            <tr>
+                                <td>{{ forloop.index }}</td>
+                                <td>{{ item.country }}</td>
+                                <td>{{ item.code }} {% if item.code == "US" %}<label class="label label-default">default</label>{% endif %}</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        {% for sample in item.valid %}
+                                        <li><a href="javascript: void(0);" class="sample" data-country="{{ item.code }}">{{ sample }}</a> <i class="fa"></i></li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        {% for sample in item.invalid %}
+                                        <li><a href="javascript: void(0);" class="sample" data-country="{{ item.code }}">{{ sample }}</a> <i class="fa"></i></li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <h3>US zipcode</h3>
+                    <p>This validator supports 4 digits US zipcode. If you want a valid US zipcode to be 5 digits exactly, use the <a href="/validators/regexp/">regexp</a> validator:</p>
+{% highlight javascript %}
+$(document).ready(function() {
+    $('#postcodeForm').bootstrapValidator({
+        fields: {
+            postcode: {
+                validators: {
+                    regexp: {
+                        regexp: /^\d{5}$/,
+                        message: 'The US zipcode must contain 5 digits'
+                    }
+                }
+            }
+        }
+    });
+});
+{% endhighlight %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#zipcode-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#zipcode-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#zipcode-js-tab" data-toggle="tab">JS</a></li>
+                            <li><a href="#zipcode-declarative-tab" data-toggle="tab">Declarative usage</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="zipcode-form-tab">
+                            {% include validators/zipCode/example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="zipcode-html-tab">
+{% highlight html %}
+{% include validators/zipCode/example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="zipcode-js-tab">
+{% highlight javascript %}
+{% include validators/zipCode/example.js %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="zipcode-declarative-tab">
+{% highlight html %}
+{% include validators/zipCode/declarative-example.html %}
+
+<script>
+{% include validators/zipCode/declarative-example.js %}
+</script>
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include validators/zipCode/example.js %}
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        var validator = $('#zipCodeForm').data('bootstrapValidator'),
+            country   = $(this).attr('data-country');
+
+        $('#zipCodeForm')
+            .find('select[name="countrySelectBox"]')
+                .val(country)
+                .end()
+            .find('input[name="postalCode"]')
+                .val($(this).text());
+
+        // Revalidate field
+        $('#zipCodeForm').bootstrapValidator('revalidateField', 'postalCode');
+
+        // Show the result
+        var isValid = validator.isValid();
+       $(this)
+            .parent()
+                .removeClass('doc-sample-error doc-sample-success')
+                .addClass(isValid ? 'doc-sample-success' : 'doc-sample-error')
+            .find('i')
+                .removeClass('fa-check fa-times')
+                .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>

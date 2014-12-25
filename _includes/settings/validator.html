@@ -1,0 +1,28 @@
+<section>
+    <h2 id="validator-settings">Validator settings</h2>
+    <p>The following table shows the common settings for validators (when using it, replace <code>{validatorname}</code> with the validator name). For specific settings of each validator, please look at its documentation.</p>
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Option</th>
+                <th>Equivalent HTML attribute</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>enabled</code></td>
+                <td><code>data-bv-{validatorname}</code></td>
+            </tr>
+            <tr>
+                <td><code>message</code></td>
+                <td><code>data-bv-{validatorname}-message</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    {% include settings/validator/enabled.html %}
+    {% include settings/validator/message.html %}
+    {% include settings/validator/dynamic-option.html %}
+    {% include settings/validator/dynamic-message.html %}
+</section>

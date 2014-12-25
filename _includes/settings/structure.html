@@ -1,0 +1,72 @@
+<section>
+    <h2>Settings structure</h2>
+
+    <p>There are three levels of settings which are form, field, and validators.</p>
+    <p>The BootstrapValidator plugin can be called as following:</p>
+
+{% highlight javascript %}
+$(formSelector).bootstrapValidator({
+    ... Form settings go here ...
+    fields: {
+        specificFieldName: {
+            ... Field settings go here ...
+
+            validators: {
+                specificValidatorName: {
+                    ... common validator settings go here ...
+
+                    ... specific validator settings ...
+                }
+            }
+        }
+    }
+});
+{% endhighlight %}
+
+    <p>Most of settings can be set via HTML 5 attributes prefixed with <code>data-bv</code>.</p>
+    <p>For example, the following call:</p>
+
+{% highlight javascript %}
+$(formSelector).bootstrapValidator({
+    excluded: [':disabled', ':hidden', ':not(:visible)'],
+    feedbackIcons: {
+        valid: 'glyphicon glyphicon-ok',
+        invalid: 'glyphicon glyphicon-remove',
+        validating: 'glyphicon glyphicon-refresh'
+    },
+    live: 'enabled',
+    message: 'This value is not valid',
+    submitButtons: 'button[type="submit"]',
+    trigger: null,
+    fields: ...
+});
+{% endhighlight %}
+
+    <p>is equivalent with the one below:</p>
+
+{% highlight html %}
+<form data-bv-message="This value is not valid"
+      data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+      data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+      data-bv-feedbackicons-validating="glyphicon glyphicon-refresh"
+      data-bv-submitbuttons='button[type="submit"]'
+      data-bv-live="enabled">
+    ...
+</form>
+{% endhighlight %}
+
+{% highlight javascript %}
+$(document).ready(function() {
+    $(formSelector).bootstrapValidator({
+        fields: ...
+    });
+});
+{% endhighlight %}
+
+    <p>In the next sections, you will see the full list of options for each level.</p>
+
+    <h4 id="structure-examples">Examples</h4>
+    <ul class="doc-list">
+        <li><a href="/examples/overriding-default-options/">Overriding default options</a></li>
+    </ul>
+</section>

@@ -1,0 +1,42 @@
+---
+layout: post
+title: Upgrading to v0.5.0
+date: 2014-07-14 15:00:00 +0700
+author: nghuuphuoc
+---
+
+<p>From v0.5.0, we remove the <code>submitHandler</code> option. In v0.5.0, use the <a href="/settings/#event-form">success.form.bv</a> event instead.</p>
+<p>In v0.4.5 and earlier versions:</p>
+
+{% highlight javascript %}
+$(form).bootstrapValidator({
+    submitHandler: function(form, validator, submitButton) {
+        ...
+    }
+});
+{% endhighlight %}
+
+<p>In v0.5.0:</p>
+
+{% highlight javascript %}
+$(form)
+    .bootstrapValidator({
+        // Removing submitHandler option
+    })
+    .on('success.form.bv', function(e) {
+        // Prevent form submission
+        e.preventDefault();
+
+        var $form        = $(e.target),
+            validator    = $form.data('bootstrapValidator'),
+            submitButton = validator.getSubmitButton();
+
+        // Do whatever you want here ...
+    });
+{% endhighlight %}
+
+<h3>Download</h3>
+<div>
+    <a class="btn btn-primary" href="{{ site.repository.source }}/releases/download/v0.5.0/bootstrapvalidator-dist-0.5.0.zip">bootstrapvalidator-dist-0.5.0.zip</a>
+    <a class="btn btn-default" href="{{ site.repository.source }}/archive/v0.5.0.zip">v0.5.0 Source Code</a>
+</div>

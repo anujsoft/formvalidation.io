@@ -1,0 +1,86 @@
+<style type="text/css">
+/* Adjust feedback icon position */
+#reportForm .has-feedback .form-control-feedback {
+    right: -30px;
+}
+</style>
+        
+<form id="reportForm" method="post" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Bug title</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="title" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Description</label>
+        <div class="col-sm-6">
+            <textarea class="form-control" name="description" rows="8"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Operating system</label>
+        <div class="col-sm-9">
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default">
+                    <input type="radio" name="os" value="window" /> Window
+                </label>
+                <label class="btn btn-default">
+                    <input type="radio" name="os" value="centos" /> Centos
+                </label>
+                <label class="btn btn-default">
+                    <input type="radio" name="os" value="fedora" /> Fedora
+                </label>
+                <label class="btn btn-default">
+                    <input type="radio" name="os" value="ubuntu" /> Ubuntu
+                </label>
+                <label class="btn btn-default">
+                    <input type="radio" name="os" value="macos" /> Mac OS X
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Browser(s)</label>
+        <div class="col-sm-9">
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default">
+                    <input type="checkbox" name="browser[]" value="ie" /> IE
+                </label>
+                <label class="btn btn-default">
+                    <input type="checkbox" name="browser[]" value="chrome" /> Chrome
+                </label>
+                <label class="btn btn-default">
+                    <input type="checkbox" name="browser[]" value="firefox"> Firefox
+                </label>
+                <label class="btn btn-default">
+                    <input type="checkbox" name="browser[]" value="safari" /> Safari
+                </label>
+                <label class="btn btn-default">
+                    <input type="checkbox" name="browser[]" value="opera"> Opera
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Priority</label>
+        <div class="col-sm-4">
+            <select class="form-control" name="priority">
+                <option value="">Choose the priority</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-5 col-sm-offset-3">
+            <button type="submit" class="btn btn-default">Report issue</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,56 @@
+---
+layout: default
+title: Playing with Bootstrap Button
+permalink: /examples/bootstrap-button/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Playing with Bootstrap Button</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>Use with the <a href="http://getbootstrap.com/javascript/#buttons">Bootstrap Button</a> component.</p>
+
+                <div class="doc-alert doc-alert-info">
+                    You should look at the <a href="/examples/#compatibility">basic principles</a> when integrating BootstrapValidator with other plugins
+                </div>
+
+                <div class="doc-demo">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#button-form-tab" data-toggle="tab">Try it</a></li>
+                        <li><a href="#button-html-tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#button-js-tab" data-toggle="tab">JS</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="button-form-tab">
+                        {% include examples/bootstrap-button/example.html %}
+                        </div>
+
+                        <div class="tab-pane" id="button-html-tab">
+{% highlight html %}
+{% include examples/bootstrap-button/example.html %}
+{% endhighlight %}
+                        </div>
+
+                        <div class="tab-pane" id="button-js-tab">
+{% highlight javascript %}
+{% include examples/bootstrap-button/example.js %}
+{% endhighlight %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include examples/bootstrap-button/example.js %}
+</script>

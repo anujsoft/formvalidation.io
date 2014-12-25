@@ -1,0 +1,57 @@
+<section>
+    <h3 id="add-field">addField</h3>
+
+    <p><code>addField(field<sup>*</sup>, options): BootstrapValidator</code> &mdash; Add a new field.</p>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>field</code></td>
+                <td>String|jQuery</td>
+                <td>The field name or field element</td>
+            </tr>
+            <tr>
+                <td><code>options</code></td>
+                <td>Object</td>
+                <td>
+                    The field options.<br/>If it is not defined, the options are merged by:<br/>
+                    <ul class="doc-list">
+                        <li>Options which are parsed from HTML attributes of field</li>
+                        <li>The current options which are set when calling the plugin</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>If you want to do additional task after adding new field, then trigger the <a href="/settings/#event-form">added.field.bv</a> event:</p>
+
+{% highlight javascript %}
+$(document).ready(function() {
+    $(form)
+        .bootstrapValidator(options)
+        .on('added.field.bv', function(e, data) {
+            // $(e.target)  --> The form instance
+            // $(e.target).data('bootstrapValidator')
+            //              --> The BootstrapValidator instance
+
+            // data.field   --> The field name
+            // data.element --> The new field element
+            // data.options --> The new field options
+
+            // Do something ...
+        });
+});
+{% endhighlight %}
+
+    <h4 id="add-field-examples">Example</h4>
+    <ul class="doc-list">
+        <li><a href="/examples/adding-dynamic-field/">Adding dynamic field</a></li>
+    </ul>
+</section>

@@ -1,0 +1,56 @@
+---
+layout: default
+title: Playing with pickadate
+permalink: /examples/pickadate/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Playing with pickadate</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>The following example demonstrates how to use BootstrapValidator with the <a href="http://amsul.ca/pickadate.js/">pickadate</a> plugin.</p>
+
+                <div class="doc-alert doc-alert-info">
+                    You should look at the <a href="/examples/#compatibility">basic principles</a> when integrating BootstrapValidator with other plugins
+                </div>
+
+                <div class="doc-demo">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#pickadate-form-tab" data-toggle="tab">Try it</a></li>
+                        <li><a href="#pickadate-html-tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#pickadate-js-tab" data-toggle="tab">JS</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="pickadate-form-tab">
+                        {% include examples/pickadate/example.html %}
+                        </div>
+
+                        <div class="tab-pane" id="pickadate-html-tab">
+{% highlight html %}
+{% include examples/pickadate/example.html %}
+{% endhighlight %}
+                        </div>
+
+                        <div class="tab-pane" id="pickadate-js-tab">
+{% highlight javascript %}
+{% include examples/pickadate/example.js %}
+{% endhighlight %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include examples/pickadate/example.js %}
+</script>

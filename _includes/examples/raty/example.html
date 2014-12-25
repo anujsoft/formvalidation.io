@@ -1,0 +1,31 @@
+<!-- Include Raty JS file -->
+<script src="/vendor/raty/jquery.raty.min.js"></script>
+
+<form id="ratyForm" method="post" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Rating</label>
+        <div class="col-sm-5">
+            <div id="ratyRating"></div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Review title</label>
+        <div class="col-sm-5">
+            <input type="text" class="form-control" name="title" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Your review</label>
+        <div class="col-sm-5">
+            <textarea rows="5" class="form-control" name="content"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-5 col-sm-offset-3">
+            <button type="submit" class="btn btn-default">Validate</button>
+        </div>
+    </div>
+</form>

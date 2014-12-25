@@ -1,0 +1,38 @@
+<section>
+    <h3 id="field-feedback-icons">feedbackIcons: Boolean</h3>
+
+    <p>Enable or disable feedback icons.</p>
+
+    <h4 id="field-feedback-icons-example">Example</h4>
+    <p>The form below disables the feedback icons for field by setting <code>feedbackIcons: false</code> or <code>feedbackIcons: 'false'</code></p>
+
+    <div class="doc-demo">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#field-icons-form-tab" data-toggle="tab">Try it</a></li>
+            <li><a href="#field-icons-html-tab" data-toggle="tab">HTML</a></li>
+            <li><a href="#field-icons-js-tab" data-toggle="tab">JS</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="field-icons-form-tab">
+            {% include settings/field/feedback-icons-example.html %}
+            </div>
+
+            <div class="tab-pane" id="field-icons-html-tab">
+{% highlight html %}
+{% include settings/field/feedback-icons-example.html %}
+{% endhighlight %}
+            </div>
+
+            <div class="tab-pane" id="field-icons-js-tab">
+{% highlight javascript %}
+{% include settings/field/feedback-icons-example.js %}
+{% endhighlight %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+{% include settings/field/feedback-icons-example.js %}
+</script>

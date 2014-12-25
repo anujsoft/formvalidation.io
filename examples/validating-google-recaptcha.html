@@ -1,0 +1,254 @@
+---
+layout: default
+title: Validating Google reCAPTCHA
+permalink: /examples/validating-google-recaptcha/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Validating Google reCAPTCHA</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>This example is a step by step instruction on how to use a <a href="/validators/remote/">remote</a> validator to verify a <a href="https://www.google.com/recaptcha/">Google reCAPTCHA</a>.</p>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Registry keys</h2>
+                    <p>You need to register a public and private keys provided at <a href="https://www.google.com/recaptcha/admin">Get reCAPTCHA</a> page.</p>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Showing the captcha</h2>
+                    <p>Assume that the captcha will be placed inside an element with id of <code>recaptcha</code> as following:</p>
+
+{% highlight html %}
+<form id="defaultForm" method="post" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Captcha</label>
+        <div class="col-sm-9 captchaContainer">
+            <div id="recaptcha"></div>
+        </div>
+    </div>
+</form>
+{% endhighlight %}
+
+                    <p>Google reCAPTCHA allows using either Non-Javascript or Ajax API to show up the recaptcha image. In this example, we will use the <a href="https://developers.google.com/recaptcha/docs/display#AJAX">reCAPTCHA Ajax API</a>.</p>
+
+{% highlight html %}
+<!-- The reCAPTCHA Ajax script -->
+<script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    // Call the BootstrapValidator plugin
+    $('#defaultForm').bootstrapValidator({
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        }
+        // You can define other settings and other fields on form here
+    });
+
+    // Replace 'PUBLIC_KEY' with your public key
+    // The second parameter 'recaptcha' is the Id of element showing up the captcha image
+    Recaptcha.create('PUBLIC_KEY', 'recaptcha', {
+        theme: 'white'
+    });
+});
+</script>
+{% endhighlight %}
+
+                    <p>reCAPTCHA then creates a text box with name of <code>recaptcha_response_field</code>. We use the <a href="/api/#add-field">addField()</a> method to add this field:</p>
+
+{% highlight html %}
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#defaultForm').bootstrapValidator(...);
+
+    Recaptcha.create('PUBLIC_KEY', 'recaptcha', {
+        theme: 'white',
+        // captchaLoaded function will be called after the captcha image is loaded
+        callback: captchaLoaded
+    });
+
+    function captchaLoaded() {
+        // Add new field after loading captcha
+        $('#defaultForm').bootstrapValidator('addField', 'recaptcha_response_field', {
+            validators: {
+                notEmpty: {
+                    message: 'The captcha is required and can\'t be empty'
+                }
+            }
+        });
+    };
+});
+</script>
+{% endhighlight %}
+
+                    <p>At the moment, the captcha field uses only <a href="/validators/notEmpty/">notEmpty</a> validator indicating that the field is required. We will use the <a href="/validators/remote/">remote</a> validator to verify it in the next step.</p>
+
+                    <p>Currently, if you leave the captcha empty and submit the form, the field will be masked as invalid. But the element showing captcha seem to be shown not properly, because the feedback icon is placed right after the field:</p>
+                    <p class="text-center">
+                        <img src="/asset/img/example/validating-google-recaptcha/icon-position-before.png" alt="Feedback icon position" />
+                    </p>
+
+                    <p>In order to fix this, we need to move the feedback icon right after the <code>recaptcha</code> element. It can be done by triggering the <a href="/settings/#event-form">added.field.bv</a> event, which is called after adding a field:</p>
+
+{% highlight html %}
+<script type="text/javascript">
+$(document).ready(function() {
+    ...
+
+    function captchaLoaded() {
+        $('#defaultForm')
+            .on('added.field.bv', function(e, data) {
+                // The field "recaptcha_response_field" has just been added
+                if (data.field === 'recaptcha_response_field') {
+                    // Find the icon
+                    var $parent = data.element.parents('.form-group'),
+                        $icon   = $parent.find('.form-control-feedback[data-bv-icon-for="' + data.field + '"]');
+
+                    // Move icon to other position
+                    $icon.insertAfter('#recaptcha');
+                }
+            })
+            .bootstrapValidator('addField', 'recaptcha_response_field', {
+                validators: {
+                    notEmpty: {
+                        message: 'The captcha is required and can\'t be empty'
+                    }
+                }
+            });
+    };
+});
+</script>
+{% endhighlight %}
+
+                    <p>Now, try to submit the form, and you will see that the feedback icon is shown at the desired position:</p>
+                    <p class="text-center">
+                        <img src="/asset/img/example/validating-google-recaptcha/icon-position-after.png" alt="Feedback icon position" />
+                    </p>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Verifying the captcha</h2>
+
+                    <p>The last step is to validate the captcha using the <a href="/validators/remote/">remote</a> validator. Google reCAPTCHA requires the value of <code>recaptcha_response_field</code> and <code>recaptcha_challenge_field</code> fields. The last one is a hidden field generated by Google reCAPTCHA.</p>
+                    <p>So, we need to send these fields to our back-end:</p>
+
+{% highlight html %}
+<script type="text/javascript">
+$(document).ready(function() {
+    ...
+
+    function captchaLoaded() {
+        $('#defaultForm')
+            .on('added.field.bv', function(e, data) {
+                ...
+            })
+            .bootstrapValidator('addField', 'recaptcha_response_field', {
+                validators: {
+                    notEmpty: {
+                        message: 'The captcha is required and can\'t be empty'
+                    },
+                    remote: {
+                        type: 'POST',
+                        url: 'recaptcha.php',
+                        message: 'The captcha is not valid',
+                        data: function() {
+                            // We also need to send the challenge field value
+                            return {
+                                recaptcha_challenge_field: $('#defaultForm').find('[name="recaptcha_challenge_field"]').val()
+                            };
+                        },
+                        delay: 1000
+                    }
+                }
+            });
+    };
+});
+</script>
+{% endhighlight %}
+
+                    <p>Google reCAPTCHA provides many libraries in different languages to help us verify the captcha based on <code>recaptcha_response_field</code> and <code>recaptcha_challenge_field</code> values.</p>
+                    <p>To simply demonstrate the back-end verifying process, I use the <a href="https://developers.google.com/recaptcha/docs/php">reCAPTCHA PHP library</a> which can be downloaded <a href="http://code.google.com/p/recaptcha/downloads/list?q=label:phplib-Latest">here</a>.</p>
+
+{% highlight php %}
+<?php
+// Register the public and private keys at https://www.google.com/recaptcha/admin
+define('PUBLIC_KEY',  '...');
+define('PRIVATE_KEY', '...');
+
+// Download the PHP library
+// https://developers.google.com/recaptcha/docs/php
+require_once('recaptchalib.php');
+
+// Verify the captcha
+// https://developers.google.com/recaptcha/docs/verify
+$resp = recaptcha_check_answer(PRIVATE_KEY,
+                                $_SERVER['REMOTE_ADDR'],
+                                $_POST['recaptcha_challenge_field'],
+                                $_POST['recaptcha_response_field']
+                            );
+
+echo json_encode(array(
+    'valid' => $resp->is_valid,
+));
+{% endhighlight %}
+
+                    <p>Of course, you can use your own solution to verify the captcha as long as the back-end need to return an encoded JSON containing the <code>valid</code> key.</p>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Final code</h2>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#recaptcha-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#recaptcha-js-tab" data-toggle="tab">JS</a></li>
+                            <li><a href="#recaptcha-backend-tab" data-toggle="tab">Back-end</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="recaptcha-html-tab">
+{% highlight html %}
+{% include examples/validating-google-recaptcha/example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="recaptcha-js-tab">
+{% highlight javascript %}
+{% include examples/validating-google-recaptcha/example.js %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="recaptcha-backend-tab">
+{% highlight javascript %}
+{% include examples/validating-google-recaptcha/recaptcha.php %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>The following image shows how the field looks like when the captcha is valid:</p>
+                    <p class="text-center">
+                        <img src="/asset/img/example/validating-google-recaptcha/valid.png" alt="Valid recaptcha" />
+                    </p>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

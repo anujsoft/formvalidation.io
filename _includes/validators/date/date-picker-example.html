@@ -1,0 +1,26 @@
+<link href="/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+<script src="//oss.maxcdn.com/momentjs/2.8.2/moment.min.js"></script>
+<script src="/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+
+<style type="text/css">
+/**
+ * Override feedback icon position
+ * See http://formvalidation.io/examples/adjusting-feedback-icon-position/
+ */
+#meetingForm .dateContainer .form-control-feedback {
+    top: 0;
+    right: -15px;
+}
+</style>
+
+<form id="meetingForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Meeting time</label>
+        <div class="col-sm-6 dateContainer">
+            <div class="input-group date" id="datetimePicker">
+                <input type="text" class="form-control" name="meeting" placeholder="MM/DD/YYYY h:m A" />
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+            </div>
+        </div>
+    </div>
+</form>

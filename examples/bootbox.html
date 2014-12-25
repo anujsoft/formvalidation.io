@@ -1,0 +1,113 @@
+---
+layout: default
+title: Playing with Bootbox
+permalink: /examples/bootbox/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Playing with Bootbox</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <section>
+                    <p>Use with the <a href="http://bootboxjs.com/">Bootbox.js</a> plugin.</p>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#bootbox-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#bootbox-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#bootbox-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="bootbox-form-tab">
+                                <div class="text-center" style="margin-top: 20px;">
+                                {% include examples/bootbox/example.html %}
+                                </div>
+                            </div>
+
+                            <div class="tab-pane" id="bootbox-html-tab">
+{% highlight html %}
+{% include examples/bootbox/example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="bootbox-js-tab">
+{% highlight javascript %}
+{% include examples/bootbox/example.js %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>If you want to use Ajax to <a href="/examples/ajax-submit/">submit</a> the form, and then close the modal, we can use the <a href="/settings/#event-form">success.form.bv</a> event:</p>
+
+{% highlight javascript %}
+$(document).ready(function() {
+    $('#loginForm')
+        .bootstrapValidator({
+            ...
+        })
+        .on('success.form.bv', function(e) {
+            // Prevent form submission
+            e.preventDefault();
+
+            var $form = $(e.target),                        // The form instance
+                bv    = $form.data('bootstrapValidator');   // BootstrapValidator instance
+
+            // Use Ajax to submit form data
+            $.post($form.attr('action'), $form.serialize(), function(result) {
+                // ... Process the result ...
+
+                // Hide the modal containing the form
+                $form.parents('.bootbox').modal('hide');
+            }, 'json');
+        });
+
+    // Login button click handler
+    $('#loginButton').on('click', function() {
+        // Same code as above
+        ...
+    });
+});
+{% endhighlight %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Related examples</h2>
+                    <ul>
+                        <li><a href="/examples/modal/">Validate a form placed inside a Bootstrap modal</a></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include examples/bootbox/example.js %}
+$(document).ready(function() {
+    $('#loginForm').on('success.form.bv', function(e) {
+        // Prevent form submission
+        e.preventDefault();
+
+        var $form     = $(e.target),
+            validator = $form.data('bootstrapValidator'),
+            username  = validator.getFieldElements('username').val();
+
+        // Hide the modal containing the form
+        $form.parents('.bootbox').modal('hide');
+
+        // Show the welcome dialog
+        bootbox.alert('Welcome back, ' + username);
+    });
+});
+</script>

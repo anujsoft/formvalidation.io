@@ -1,0 +1,403 @@
+---
+layout: default
+title: Validate a color in different formats
+permalink: /validators/color/
+color_types:
+    - name: hex
+      valid:
+            - "#0000FF"
+            - "#00F"
+      invalid:
+            - 123
+            - 112233
+            - "#4567"
+    - name: hsl
+      valid:
+            - hsl(120,50%,50%)
+            - hsl( 120 , 50% , 50% )
+            - hsl(  120,  50%,       50%  )
+            - hsl(-120,50%,50%)
+            - hsl(480,50%,50%)
+      invalid:
+            - hsl(10,-50%,50%)
+            - hsl(10,50%,-50%)
+            - 120,50%,50%
+            - hsl(120,100%,101%)
+            - hsl (120,50%,50%)
+            #- " hsl(120,50%,50%)"
+            #- "hsl(120,50%,50%) "
+            - hsl(50%, 50%, 100%)
+            - hsl(120, 50, 100%)
+            - hsl(120, 50%, 100)
+    - name: hsla
+      valid:
+            - hsla(120,50%,50%,1)
+            - hsla( 120 , 50% , 50%, 1 )
+            - hsla(  120,  50%,       50% ,   1  )
+            - hsla(-120,50%,50%,1)
+            - hsla(480,50%,50%,1)
+            - hsla(120,50%,100%,0)
+            - hsla(120,50%,100%,1)
+            - hsla(120,50%,100%,0.5)
+            - hsla(120,50%,100%,.5)
+            - hsla(120,50%,100%,.524141)
+      invalid:
+            - hsla(120,50%,100%,50%)
+            - hsla(120,50%,100%,2)
+            - hsla(120,50%,100%,-1)
+            - hsla(120,50%,100%,1.000000000001)
+            - hsla(120,50%,100%,-0.5)
+            - hsla(120,50%,100%,2.3)
+            - hsla(10,-50%,50%,1)
+            - hsla(10,50%,-50%,1)
+            - 120,50%,50%,1
+            - hsla(120,100%,101%,1)
+            - hsla (120,50%,50%,1)
+            #- " hsla(120,50%,50%,1)"
+            #- "hsla(120,50%,50%,1) "
+            - hsla(50%, 50%, 100%,1)
+            - hsla(120, 50, 100%,1)
+            - hsla(120, 50%, 100,1)
+    - name: keyword
+      valid:
+            - transparent
+            - blue
+      invalid:
+            - blueviolet red
+            - shady
+            - blueish
+    - name: rgb
+      valid:
+            - rgb(255,255,255)
+            - rgb( 255 , 255 , 255 )
+            - rgb(  255,  255,       255  )
+            - rgb(255,255,255)
+            - rgb(100%,100%,100%)
+      invalid:
+            - rgb(255,255,100%)
+            - rgb(-10,255,255)
+            - rgb(-10%,100%,100%)
+            - 255,255,255
+            - rgb(255,255,256)
+            - rgb(100%,100%,101%)
+            - rgb (255,255,255)
+            #- " rgb(255,255,255)"
+            #- "rgb(255,255,255) "
+    - name: rgba
+      valid:
+            - rgba(255,255,255,1)
+            - rgba( 255 , 255 , 255 , 1 )
+            - rgba(  255  ,  255    ,       255 ,  1     )
+            - rgba(255,255,255,1)
+            - rgba(100%,100%,100%,1)
+            - rgba(255,255,255,0)
+            - rgba(255,255,255,1)
+            - rgba(255,255,255,0.5)
+            - rgba(255,255,255,.5)
+            - rgba(255,255,255,.524141)
+            - rgba(100%,100%,100%,0)
+            - rgba(100%,100%,100%,1)
+            - rgba(100%,100%,100%,0.5)
+            - rgba(100%,100%,100%,.5)
+            - rgba(100%,100%,100%,.524141)
+      invalid:
+            - rgba(100%,100%,100%,50%)
+            - rgba(255,255,255,2)
+            - rgba(255,255,255,-1)
+            - rgba(255,255,255,1.000000000001)
+            - rgba(255,255,255,-0.5)
+            - rgba(255,255,255,2.3)
+            - rgba(255,255,100%,1)
+            - rgba(-10,255,255,1)
+            - rgba(-10%,100%,100%,1)
+            - 255,255,255,1
+            - rgba(255,255,256),1
+            - rgba(100%,100%,101%,1)
+            - rgba (255,255,255,1)
+            #- " rgba(255,255,255,1)"
+            #- "rgba(255,255,255,1) "
+related:
+    - hexColor
+    - regexp
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>color validator</h1>
+        <p>Validate a color in different formats</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-color-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                            <tr>
+                                <td><code>type</code></td>
+                                <td><code>data-bv-color-type</code></td>
+                                <td>String|String[]</td>
+                                <td>
+                                    <p>The type of color. It can be:</p>
+                                    <ul class="doc-list">
+                                        <li>One of <a href="#supported-types">supported types</a> listed below</li>
+                                        <li>Array of supported types</li>
+                                        <li>A string consists of supported types, separated by a comma</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-color="true".
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Supported types</h2>
+
+                    <p>Following is the list of supported types:</p>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Valid sample</th>
+                                <th>Invalid sample</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for type in page.color_types %}
+                            <tr>
+                                <td>{{ type.name }}</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        {% for sample in type.valid %}
+                                        <li><a href="javascript: void(0);" class="sample">{{ sample }}</a> <i class="fa"></i></li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        {% for sample in type.invalid %}
+                                        <li><a href="javascript: void(0);" class="sample">{{ sample }}</a> <i class="fa"></i></li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <p>The <code>keyword</code> type accepts the following colors:</p>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Starting with</th>
+                                <th>Colors</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>A</td>
+                                <td><pre><code>aliceblue, antiquewhite, aqua, aquamarine, azure</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td>B</td>
+                                <td><pre><code>beige, bisque, black, blanchedalmond, blue, blueviolet, brown, burlywood</code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>C</td>
+                                <td><pre><code>cadetblue, chartreuse, chocolate, coral, cornflowerblue, cornsilk, crimson, cyan</code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>D</td>
+                                <td>
+<pre><code>darkblue, darkcyan, darkgoldenrod, darkgray, darkgreen, darkgrey, darkkhaki, darkmagenta,
+darkolivegreen, darkorange, darkorchid, darkred, darksalmon, darkseagreen, darkslateblue,
+darkslategray, darkslategrey, darkturquoise, darkviolet, deeppink, deepskyblue, dimgray,
+dimgrey, dodgerblue</code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>F</td>
+                                <td><pre><code>firebrick, floralwhite, forestgreen, fuchsia</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td>G</td>
+                                <td><pre><code>gainsboro, ghostwhite, gold, goldenrod, gray, green, greenyellow, grey</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td>H</td>
+                                <td><pre><code>honeydew, hotpink</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td>I</td>
+                                <td><pre><code>indianred, indigo, ivory</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td>K</td>
+                                <td><pre><code>khaki</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td>L</td>
+                                <td>
+<pre><code>lavender, lavenderblush, lawngreen, lemonchiffon, lightblue, lightcoral, lightcyan,
+lightgoldenrodyellow, lightgray, lightgreen, lightgrey, lightpink, lightsalmon, lightseagreen,
+lightskyblue, lightslategray, lightslategrey, lightsteelblue, lightyellow, lime, limegreen,
+linen</code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>M</td>
+                                <td>
+<pre><code>magenta, maroon, mediumaquamarine, mediumblue, mediumorchid, mediumpurple, mediumseagreen,
+mediumslateblue, mediumspringgreen, mediumturquoise, mediumvioletred, midnightblue, mintcream,
+mistyrose, moccasin</code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>N</td>
+                                <td><pre><code>navajowhite, navy</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td>O</td>
+                                <td><pre><code>oldlace, olive, olivedrab, orange, orangered, orchid</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td>P</td>
+                                <td>
+<pre><code>palegoldenrod, palegreen, paleturquoise, palevioletred, papayawhip, peachpuff, peru, pink,
+plum, powderblue, purple</code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>R</td>
+                                <td><pre><code>red, rosybrown, royalblue</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td>S</td>
+                                <td>
+<pre><code>saddlebrown, salmon, sandybrown, seagreen, seashell, sienna, silver, skyblue, slateblue,
+slategray, slategrey, snow, springgreen, steelblue</code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>T</td>
+                                <td><pre><code>tan, teal, thistle, tomato, transparent, turquoise</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td>V</td>
+                                <td><pre><code>violet</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td>W</td>
+                                <td><pre><code>wheat, white, whitesmoke</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td>Y</td>
+                                <td><pre><code>yellow, yellowgreen</code></pre></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#color-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#color-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#color-js-tab" data-toggle="tab">JS</a></li>
+                            <li><a href="#color-declarative-tab" data-toggle="tab">Declarative usage</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="color-form-tab">
+                            {% include validators/color/example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="color-html-tab">
+{% highlight html %}
+{% include validators/color/example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="color-js-tab">
+{% highlight javascript %}
+{% include validators/color/example.js %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="color-declarative-tab">
+{% highlight html %}
+{% include validators/color/declarative-example.html %}
+
+<script>
+{% include validators/color/declarative-example.js %}
+</script>
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include validators/color/example.js %}
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        $('#colorForm')
+            .find('input[name="color"]')
+                .val($(this).html())
+                .end()
+            .bootstrapValidator('revalidateField', 'color');
+
+        var isValid = $('#colorForm').data('bootstrapValidator').isValid();
+        $(this)
+            .parent()
+                .removeClass('doc-sample-error doc-sample-success')
+                .addClass(isValid ? 'doc-sample-success' : 'doc-sample-error')
+            .find('i')
+                .removeClass('fa-check fa-times')
+                .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>

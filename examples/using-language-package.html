@@ -1,0 +1,63 @@
+---
+layout: default
+title: Using language package
+permalink: /examples/using-language-package/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Using language package</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <p>The default messages have been translated into <a href="/getting-started/#language-packages">many languages</a>, thank for all of awesome contributors.</p>
+        <p>In this example, I am going to show you how easy to use additional language package.</p>
+        <p>First, including the language package, right after the plugin script:</p>
+
+{% highlight html %}
+<script type="text/javascript" src="/path/to/dist/js/bootstrapValidator.js"></script>
+<script type="text/javascript" src="/path/to/dist/js/language/languagecode_COUNTRYCODE.js"></script>
+{% endhighlight %}
+
+        <p>When calling the plugin, <code>.bootstrapValidator()</code>, just don't set the <code>message</code> option. The messages then are taken from the translation package.</p>
+
+        <p>The working example below shows an usage of French language package:</p>
+
+        <div class="doc-demo">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#language-form-tab" data-toggle="tab">Try it</a></li>
+                <li><a href="#language-html-tab" data-toggle="tab">HTML</a></li>
+                <li><a href="#language-js-tab" data-toggle="tab">JS</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="language-form-tab">
+                    {% include examples/using-language-package/example.html %}
+                </div>
+
+                <div class="tab-pane" id="language-html-tab">
+{% highlight html %}
+<!-- Include BootstrapValidator plugin first -->
+<script src="/vendor/bootstrapvalidator/js/lbootstrapValidator.js"></script>
+
+<!-- Then include the French language package -->
+{% include examples/using-language-package/example.html %}
+{% endhighlight %}
+                </div>
+
+                <div class="tab-pane" id="language-js-tab">
+{% highlight javascript %}
+{% include examples/using-language-package/example.js %}
+{% endhighlight %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include examples/using-language-package/example.js %}
+</script>

@@ -1,0 +1,234 @@
+---
+layout: default
+title: Validate an email address
+permalink: /validators/emailAddress/
+
+# http://en.wikipedia.org/wiki/Email_address#Examples
+examples:
+    - niceandsimple@example.com
+    - very.common@example.com
+    - a.little.lengthy.but.fine@dept.example.com
+    - disposable.style.email.with+symbol@example.com
+    - other.email-with-dash@example.com
+    - '"much.more unusual"@example.com'
+    - '"very.unusual.@.unusual.com"@example.com'
+    - '"very.(),:;<>[]\".VERY.\"very@\\ \"very\".unusual"@strange.example.com'
+    - admin@mailserver1
+    - "!#$%&'*+-/=?^_`{}|~@example.org"
+    - '" "@example.org'
+    - üñîçøðé@example.com
+    - üñîçøðé@üñîçøðé.com
+    - Abc.example.com
+    - A@b@c@example.com
+    - a"b(c)d,e:f;g<h>i[j\k]l@example.com
+    - just"not"right@example.com
+    - this is"not\allowed@example.com
+    - this\ still\"not\\allowed@example.com
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>emailAddress validator</h1>
+        <p>Validate an email address</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-emailaddress-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                            <tr>
+                                <td><code>multiple</code></td>
+                                <td><code>data-bv-emailaddress-multiple</code></td>
+                                <td>String</td>
+                                <td>Allow multiple email addresses, separated by a comma or semicolon. The default value is <code>false</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>separator</code></td>
+                                <td><code>data-bv-emailaddress-separator</code></td>
+                                <td>String</td>
+                                <td>Regex for character or characters expected as separator between addresses. By default, it is /[,;]/, i.e. comma or semicolon</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-emailaddress="true".<br/>
+                        You don't need to do that when using HTML 5 type="email" attribute.
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        This validator passes an empty field since the field might be optional. If the field is required, then use the <a href="/validators/notEmpty/">notEmpty validator</a>.
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Examples</h2>
+
+                    <h3>Basic example</h3>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Email address</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for email in page.examples %}
+                            <tr>
+                                <td><a href="javascript: void(0);" class="sample">{{ email }}</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#email-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#email-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#email-js-tab" data-toggle="tab">JS</a></li>
+                            <li><a href="#email-declarative-tab" data-toggle="tab">Declarative usage</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="email-form-tab">
+                            {% include validators/emailAddress/example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="email-html-tab">
+{% highlight html %}
+{% include validators/emailAddress/example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="email-js-tab">
+{% highlight javascript %}
+{% include validators/emailAddress/example.js %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="email-declarative-tab">
+{% highlight html %}
+{% include validators/emailAddress/declarative-example.html %}
+
+<script>
+{% include validators/emailAddress/declarative-example.js %}
+</script>
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>HTML 5 example</h3>
+
+                    <p>The emailAddress validator will be enabled automatically when using HTML 5 <code>type="email"</code> attribute.</p>
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#html5-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#html5-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#html5-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="html5-form-tab">
+                            {% include validators/emailAddress/html5-example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="html5-html-tab">
+{% highlight html %}
+{% include validators/emailAddress/html5-example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="html5-js-tab">
+{% highlight javascript %}
+{% include validators/emailAddress/html5-example.js %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Is a@b valid email address?</h3>
+
+                    <p>Yes! It's valid email address. If you want to treat these kind of email addresses as invalid one, you can use the <a href="/validators/regexp/">regexp</a> validator to define expression of email address.</p>
+                    <p>The following example uses this approach and borrow the idea from <a href="/examples/showing-one-message/">Showing one message</a> example to archive this.</p>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#regexp-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#regexp-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#regexp-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="regexp-form-tab">
+                            {% include validators/emailAddress/regexp-example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="regexp-html-tab">
+{% highlight html %}
+{% include validators/emailAddress/regexp-example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="regexp-js-tab">
+{% highlight javascript %}
+{% include validators/emailAddress/regexp-example.js %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include validators/emailAddress/example.js %}
+{% include validators/emailAddress/html5-example.js %}
+{% include validators/emailAddress/regexp-example.js %}
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        $('#emailForm')
+            .find('input[name="email"]')
+                .val($(this).html())
+                .end()
+            .bootstrapValidator('revalidateField', 'email');
+
+        var isValid = $('#emailForm').data('bootstrapValidator').isValid();
+        $(this)
+            .parents('tr').find('i')
+            .removeClass('fa-check fa-times')
+            .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>

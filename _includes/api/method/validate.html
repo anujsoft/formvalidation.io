@@ -1,0 +1,13 @@
+<section>
+    <h3 id="validate">validate</h3>
+
+    <p><code>validate(): BootstrapValidator</code> &mdash; Validate form manually. It is useful when you want to validate form by clicking a button or a link instead of a submit buttons.</p>
+
+{% highlight javascript %}
+$(form).bootstrapValidator(options).bootstrapValidator('validate');
+
+// or
+$(form).bootstrapValidator(options);
+$(form).data('bootstrapValidator').validate();
+{% endhighlight %}
+</section>

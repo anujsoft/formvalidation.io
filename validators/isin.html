@@ -1,0 +1,127 @@
+---
+layout: default
+title: Validate an ISIN (International Securities Identification Number)
+permalink: /validators/isin/
+examples: US0378331005, AU0000XVGZA3, GB0002634946, US0378331004, AA0000XVGZA3
+related:
+    - cusip
+    - sedol
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>isin validator</h1>
+        <p>Validate an ISIN (International Securities Identification Number)</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-isin-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-isin="true".
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>ISIN</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% assign examples = page.examples | split: ', ' %}
+                            {% for sample in examples %}
+                            <tr>
+                                <td><a href="javascript: void(0);" class="sample">{{ sample }}</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#isin-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#isin-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#isin-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="isin-form-tab">
+                            {% include validators/isin/example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="isin-html-tab">
+                            {% highlight html %}
+                            {% include validators/isin/example.html %}
+                            {% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="isin-js-tab">
+                            {% highlight javascript %}
+                            {% include validators/isin/example.js %}
+                            {% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include validators/isin/example.js %}
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        $('#isinForm').find('input[name="isin"]').val($(this).html());
+
+        $('#isinForm').bootstrapValidator('revalidateField', 'isin');
+
+        var isValid = $('#isinForm').data('bootstrapValidator').isValid();
+        $(this)
+            .parents('tr').find('i')
+            .removeClass('fa-check fa-times')
+            .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>

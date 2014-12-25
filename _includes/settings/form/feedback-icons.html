@@ -1,0 +1,52 @@
+<section>
+    <h3 id="form-feedback-icons">feedbackIcons: Object</h3>
+    <p>Indicate valid/invalid/validating icons based on the field validity.</p>
+
+    <div class="doc-alert doc-alert-warning">
+        This feature requires <a href="http://getbootstrap.com/css/#forms-control-validation">Bootstrap v3.1.0 or later</a>.
+        Since Bootstrap doesn't provide any methods to know its version, this option cannot be on/off automatically.
+        In other word, to use this feature you have to upgrade your Bootstrap to v3.1.0 or later.
+    </div>
+
+    <p>It supports <a href="http://getbootstrap.com/components/#glyphicons">Glyphicons</a> (included in Bootstrap):</p>
+
+{% highlight javascript %}
+feedbackIcons: {
+    valid: 'glyphicon glyphicon-ok',
+    invalid: 'glyphicon glyphicon-remove',
+    validating: 'glyphicon glyphicon-refresh'
+}
+{% endhighlight %}
+
+    <p>and <a href="http://fontawesome.io/icons">FontAwesome</a> icons (don't forget to insert FontAwesome CSS in your <code>head</code>):</p>
+
+{% highlight javascript %}
+feedbackIcons: {
+    valid: 'fa fa-check',
+    invalid: 'fa fa-times',
+    validating: 'fa fa-refresh'
+}
+{% endhighlight %}
+
+    <p>By default, these icons are not set. You also can <a href="#field-feedback-icons">enabled or disable</a> feedback icon for particular field.</p>
+
+    <h4>Using with Bootswatch</h4>
+    <p>Some <a href="http://bootswatch.com">BootsWatch</a> themes override some CSS styles causing feedback icon invisible to your eyes. For instance, the <a href="http://bootswatch.com/flatly/">Flatly theme</a> set the feedback icon color to <code>#FFF</code>.</p>
+    <p>To fix this, you can simply add some CSS to your <code>head</code>, right before the BootsWatch theme CSS, to reset the feedback icons color:</p>
+{% highlight html %}
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css">
+<style type="text/css">
+.has-error .form-control-feedback {
+    color: #E74C3C;
+}
+.has-success .form-control-feedback {
+    color: #18BCA0;
+}
+</style>
+{% endhighlight %}
+
+    <h4 id="form-feedback-icons-examples">Example</h4>
+    <ul class="doc-list">
+        <li><a href="/examples/adjusting-feedback-icon-position/">Adjusting feedback icon position</a></li>
+    </ul>
+</section>

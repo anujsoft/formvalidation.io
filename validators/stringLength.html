@@ -1,0 +1,194 @@
+---
+layout: default
+title: Validate length of a string
+permalink: /validators/stringLength/
+related:
+    - notEmpty
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>stringLength validator</h1>
+        <p>Validate the length of a string</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>max</code></td>
+                                <td><code>data-bv-stringlength-max</code> or <code>maxlength</code></td>
+                                <td>Number</td>
+                                <td>The maximum length.<br/>It's <a href="/settings/#dynamic-option">dynamic option</a></td>
+                            </tr>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-stringlength-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                            <tr>
+                                <td><code>min</code></td>
+                                <td><code>data-bv-stringlength-min</code> or <code>minlength</code></td>
+                                <td>Number</td>
+                                <td>The minimum length.<br/>It's <a href="/settings/#dynamic-option">dynamic option</a></td>
+                            </tr>
+                            <tr>
+                                <td><code>utf8Bytes</code></td>
+                                <td><code>data-bv-stringlength-utf8bytes</code></td>
+                                <td>Boolean</td>
+                                <td>Evaluate string length in UTF-8 bytes. Default to <code>false</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>trim</code></td>
+                                <td><code>data-bv-stringlength-trim</code></td>
+                                <td>Boolean</td>
+                                <td>Indicate the length will be calculated after trimming the value or not. Default to <code>false</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>At least one of <code>min</code> and <code>max</code> options is required.</p>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-stringlength="true".<br/>
+                        You don't need to do that when using either HTML 5 maxlength="..." or minlength="..." attribute.
+                    </div>
+
+                    <h3>Using with Rails form</h3>
+                    <p>Rails' forms count new lines as two characters (<code>\r\n</code>). Meanwhile, the stringLength validator counts new lines as one character.
+                        So the user can input more than number of allowed characters as long as they enter a new line.</p>
+                    <p>This problem can be solved by using the <a href="/settings/#dynamic-option">dynamic option</a> feature which is provided by the <code>max</code> option:</p>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#rails-form-tab" data-toggle="tab">Form</a></li>
+                            <li><a href="#rails-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="rails-form-tab">
+{% highlight ruby %}
+{% include validators/stringLength/rails-example.html %}
+{% endhighlight %}
+                            </div>
+
+
+                            <div class="tab-pane" id="rails-js-tab">
+{% highlight javascript %}
+{% include validators/stringLength/rails-example.js %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Examples</h2>
+
+                    <h3>Basic example</h3>
+
+                    <p>In the following form, the <strong>Full name</strong> and <strong>Bio</strong> fields must be less than 50 and 200 characters respectively.</p>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#stringlength-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#stringlength-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#stringlength-js-tab" data-toggle="tab">JS</a></li>
+                            <li><a href="#stringlength-declarative-tab" data-toggle="tab">Declarative usage</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="stringlength-form-tab">
+                            {% include validators/stringLength/example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="stringlength-html-tab">
+{% highlight html %}
+{% include validators/stringLength/example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="stringlength-js-tab">
+{% highlight javascript %}
+{% include validators/stringLength/example.js %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="stringlength-declarative-tab">
+{% highlight html %}
+{% include validators/stringLength/declarative-example.html %}
+
+<script>
+{% include validators/stringLength/declarative-example.js %}
+</script>
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>HTML 5 example</h3>
+
+                    <p>The following example demonstrates an usage of the stringLength validator with <code>maxlength</code> and <code>minlength</code> attributes.</p>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#html5-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#html5-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#html5-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="html5-form-tab">
+                            {% include validators/stringLength/html5-example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="html5-html-tab">
+{% highlight html %}
+{% include validators/stringLength/html5-example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="html5-js-tab">
+{% highlight javascript %}
+{% include validators/stringLength/html5-example.js %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include validators/stringLength/example.js %}
+{% include validators/stringLength/html5-example.js %}
+</script>

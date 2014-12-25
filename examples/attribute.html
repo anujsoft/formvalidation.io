@@ -1,0 +1,96 @@
+---
+layout: default
+title: Setting validator options via HTML attributes
+permalink: /examples/attribute/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Setting validator options via HTML attributes</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <section>
+                    <p>This example illustrates the ability of setting validator options via HTML attributes.</p>
+                    <p>In order to set a specific validator to given field, you have to declare additional attributes for the field. For example:</p>
+
+{% highlight html %}
+<input
+    data-bv-validatorname="true"
+    data-bv-validatorname-validatoroption="..." />
+{% endhighlight %}
+
+                    <p>Here are some important points when setting the attributes for field:</p>
+
+                    <ol>
+                        <li><code>validatorname</code> and <code>validatoroption</code> must be lowercase.</li>
+                        <li>Use <code>data-bv-validatorname</code>, <code>data-bv-validatorname="true"</code>, or <code>data-bv-validatorname="data-bv-validatorname"</code> to enable particular validator for field.</li>
+                        <li>Set <code>data-bv-validatorname="false"</code> to disable the validator</li>
+                        <li>There are some validators which not all options are configurable via HTML attribute. Refer to each validator documentation to see exactly the equivalent HTML attribute for each option.</li>
+                    </ol>
+
+                    <p>If there are multiple elements having the same name, you just need to set the HTML attribute to one of them. For example:</p>
+
+{% highlight html %}
+<div class="form-group">
+    <label class="col-sm-3 control-label">Gender</label>
+    <div class="col-sm-5">
+        <div class="radio">
+            <label>
+                <input type="radio" name="gender" value="male"
+                    data-bv-notempty data-bv-notempty-message="The gender is required" /> Male
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="gender" value="female" /> Female
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="gender" value="other" /> Other
+            </label>
+        </div>
+    </div>
+</div>
+{% endhighlight %}
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#attribute-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#attribute-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#attribute-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="attribute-form-tab">
+                            {% include examples/attribute/example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="attribute-html-tab">
+{% highlight html %}
+{% include examples/attribute/example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="attribute-js-tab">
+{% highlight javascript %}
+{% include examples/attribute/example.js %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include examples/attribute/example.js %}
+</script>

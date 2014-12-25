@@ -1,0 +1,38 @@
+<!-- Include chosen CSS, JS -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.jquery.min.js"></script>
+
+<style type="text/css">
+#chosenForm .chosen-choices {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-height: 34px;
+    padding: 6px 12px;
+}
+#chosenForm .form-control-feedback {
+    /* To make the feedback icon visible */
+    z-index: 100;
+}
+</style>
+
+<form id="chosenForm" method="post" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Favorite color</label>
+        <div class="col-sm-5">
+            <select class="form-control chosen-select" name="colors" multiple data-placeholder="Choose 2-4 colors">
+                <option value="black">Black</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="orange">Orange</option>
+                <option value="red">Red</option>
+                <option value="yellow">Yellow</option>
+                <option value="white">White</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-5 col-sm-offset-3">
+            <button type="submit" class="btn btn-default">Validate</button>
+        </div>
+    </div>
+</form>

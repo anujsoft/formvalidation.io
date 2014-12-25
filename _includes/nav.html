@@ -1,0 +1,34 @@
+<nav class="doc-nav" tabindex="-1">
+    <ul>
+        <li{% if page.url == '/' %} class="doc-nav-active"{% endif %}><a href="/">Home</a></li>
+    {% for nav in site.data.nav %}
+        {% if page.url contains nav.permalink %}
+            {% assign c = "doc-nav-active" %}
+        {% else %}
+            {% assign c = "" %}
+        {% endif %}
+        <li class="{{ c }}"><a href="{{ nav.permalink }}">{{ nav.title }}</a></li>
+    {% endfor %}
+    </ul>
+
+    <div class="doc-hr"></div>
+
+    <ul>
+        <li><a href="{{ site.repository.source }}" title="Fork me on Github">Github <i class="fa fa-github"></i></a></li>
+        <li><a href="http://twitter.com/formvalidation/" title="Follow me on Twitter">formvalidation <i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://www.facebook.com/pages/FormValidation/1567908420106565/" title="Like me on Facebook">FormValidation <i class="fa fa-facebook"></i></a></li>
+        <li><a href="https://plus.google.com/u/0/communities/114931136856987817254" title="Join me on Google+">Google+ community <i class="fa fa-google-plus"></i></a></li>
+    </ul>
+
+    <div class="doc-hr"></div>
+
+    <div class="doc-creator">
+        <p>
+            Handcrafted with <span class="doc-heart"><i class="fa fa-heart"></i></span> and a lot of <i class="fa fa-coffee"></i><br />
+            by <a href="http://twitter.com/nghuuphuoc">@nghuuphuoc</a><br/>
+            <img src="http://github.com/nghuuphuoc.png" />
+        </p>
+        <p><a href="mailto: phuoc@huuphuoc.me" class="btn">Hire me</a></p>
+    </div>
+</nav>
+<button class="btn doc-logo" title="Toggle the navigation"><i class="fa fa-bars"></i></button>

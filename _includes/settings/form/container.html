@@ -1,0 +1,65 @@
+<section>
+    <h3 id="form-container">container: String</h3>
+    <p>Indicate where the error messages are shown.</p>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Value</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CSS selector</td>
+                <td>All error messages are placed in element defined by this CSS selector</td>
+            </tr>
+            <tr>
+                <td><code>tooltip</code></td>
+                <td>Error messages of each field are placed inside a <a href="http://getbootstrap.com/javascript/#tooltips">Bootstrap tooltip</a>.</td>
+            </tr>
+            <tr>
+                <td><code>popover</code></td>
+                <td>Error messages of each field are placed inside a <a href="http://getbootstrap.com/javascript/#popovers">Bootstrap popover</a>.</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>This option can be <a href="#field-container">overridden</a> by particular field.</p>
+
+    <h4 id="form-container-examples">Examples</h4>
+    <p>The following form uses <a href="http://getbootstrap.com/javascript/#tooltips">Bootstrap tooltip</a> to show the error message.</p>
+
+    <div class="doc-demo">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#container-form-tab" data-toggle="tab">Try it</a></li>
+            <li><a href="#container-html-tab" data-toggle="tab">HTML</a></li>
+            <li><a href="#container-js-tab" data-toggle="tab">JS</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="container-form-tab">
+                {% include settings/form/container-example.html %}
+            </div>
+
+            <div class="tab-pane" id="container-html-tab">
+{% highlight html %}
+{% include settings/form/container-example.html %}
+{% endhighlight %}
+            </div>
+
+            <div class="tab-pane" id="container-js-tab">
+{% highlight javascript %}
+{% include settings/form/container-example.js %}
+{% endhighlight %}
+            </div>
+        </div>
+    </div>
+
+    <ul class="doc-list">
+        <li><a href="/examples/showing-message-custom-area/#using-container-option">Showing messages in custom area</a></li>
+        <li><a href="/examples/changing-tooltip-position">Changing tooltip's position</a></li>
+    </ul>
+</section>
+
+<script>
+{% include settings/form/container-example.js %}
+</script>

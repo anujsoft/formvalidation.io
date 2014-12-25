@@ -1,0 +1,53 @@
+---
+layout: default
+title: Changing the tooltip position
+permalink: /examples/changing-tooltip-position/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Changing the tooltip position</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>When you choose to use Bootstrap <a href="http://getbootstrap.com/javascript/#tooltips">Tooltip</a> or <a href="http://getbootstrap.com/javascript/#popovers">Popover</a> as <a href="/settings/#form-container">container</a>, all tooltips/popovers will be shown positioned to the top, but you can change their position by triggering the <a href="/settings/#event-field">error.field.bv</a> event.</p>
+                <p>The following form uses <a href="http://getbootstrap.com/javascript/#tooltips">Bootstrap Tooltip</a>, positioned to the right, to show the error message.</p>
+
+                <div class="doc-demo">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tooltip-container-form-tab" data-toggle="tab">Try it</a></li>
+                        <li><a href="#tooltip-container-html-tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#tooltip-container-js-tab" data-toggle="tab">JS</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tooltip-container-form-tab">
+                        {% include examples/changing-tooltip-position/example.html %}
+                        </div>
+
+                        <div class="tab-pane" id="tooltip-container-html-tab">
+{% highlight html %}
+{% include examples/changing-tooltip-position/example.html %}
+{% endhighlight %}
+                        </div>
+
+                        <div class="tab-pane" id="tooltip-container-js-tab">
+{% highlight javascript %}
+{% include examples/changing-tooltip-position/example.js %}
+{% endhighlight %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include examples/changing-tooltip-position/example.js %}
+</script>

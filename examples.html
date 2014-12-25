@@ -1,0 +1,42 @@
+---
+layout: default
+title: Examples
+permalink: /examples/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Examples</h1>
+        <p>A collection of usage examples you can play with</p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                {% include examples/faq.html %}
+
+                <div class="doc-hr"></div>
+
+                {% include examples/basic.html %}
+
+                <div class="doc-hr"></div>
+
+                {% include examples/advance.html %}
+
+                <div class="doc-hr"></div>
+
+                {% include examples/server-side.html %}
+
+                <div class="doc-hr"></div>
+
+                {% include examples/compatibility.html %}
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>

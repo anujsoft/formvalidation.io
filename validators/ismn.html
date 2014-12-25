@@ -1,0 +1,126 @@
+---
+layout: default
+title: Validate an ISMN (International Standard Music Number)
+permalink: /validators/ismn/
+examples: M230671187, 979-0-0601-1561-5, 979 0 3452 4680 5, 9790060115615, 9790060115614
+related:
+    - grid
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>ismn validator</h1>
+        <p>Validate an ISMN (International Standard Music Number)</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-ismn-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-ismn="true".
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>ISMN</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% assign examples = page.examples | split: ', ' %}
+                            {% for ismn in examples %}
+                            <tr>
+                                <td><a href="javascript: void(0);" class="sample">{{ ismn }}</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#ismn-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#ismn-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#ismn-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="ismn-form-tab">
+                            {% include validators/ismn/example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="ismn-html-tab">
+                            {% highlight html %}
+                            {% include validators/ismn/example.html %}
+                            {% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="ismn-js-tab">
+                            {% highlight javascript %}
+                            {% include validators/ismn/example.js %}
+                            {% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include validators/ismn/example.js %}
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        $('#ismnForm').find('input[name="ismn"]').val($(this).html());
+
+        $('#ismnForm').bootstrapValidator('revalidateField', 'ismn');
+
+        var isValid = $('#ismnForm').data('bootstrapValidator').isValid();
+        $(this)
+            .parents('tr').find('i')
+            .removeClass('fa-check fa-times')
+            .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>

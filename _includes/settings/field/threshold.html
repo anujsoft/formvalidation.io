@@ -1,0 +1,35 @@
+<section>
+    <h3 id="field-threshold">threshold: Number</h3>
+    <p>Do not live validate field until the length of field value exceed this number.</p>
+
+    <h4 id="field-threshold-example">Example</h4>
+    <div class="doc-demo">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#threshold-form-tab" data-toggle="tab">Try it</a></li>
+            <li><a href="#threshold-html-tab" data-toggle="tab">HTML</a></li>
+            <li><a href="#threshold-js-tab" data-toggle="tab">JS</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="threshold-form-tab">
+            {% include settings/field/threshold-example.html %}
+            </div>
+
+            <div class="tab-pane" id="threshold-html-tab">
+{% highlight html %}
+{% include settings/field/threshold-example.html %}
+{% endhighlight %}
+            </div>
+
+            <div class="tab-pane" id="threshold-js-tab">
+{% highlight javascript %}
+{% include settings/field/threshold-example.js %}
+{% endhighlight %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+{% include settings/field/threshold-example.js %}
+</script>

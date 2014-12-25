@@ -1,0 +1,252 @@
+---
+layout: default
+title: Validate file
+permalink: /validators/file/
+mime_types:
+    - ext: doc
+      type: application/msword
+    - ext: pdf
+      type: application/pdf
+    - ext: rtf
+      type: application/rtf
+    - ext: xls
+      type: application/vnd.ms-excel
+    - ext: ppt
+      type: application/vnd.ms-powerpoint
+    - ext: rar
+      type: application/x-rar-compressed
+    - ext: swf
+      type: application/x-shockwave-flash
+    - ext: zip
+      type: application/zip
+    - ext: mid midi kar
+      type: audio/midi
+    - ext: mp3
+      type: audio/mpeg
+    - ext: ogg
+      type: audio/ogg
+    - ext: m4a
+      type: audio/x-m4a
+    - ext: ra
+      type: audio/x-realaudio
+    - ext: gif
+      type: image/gif
+    - ext: jpeg jpg
+      type: image/jpeg
+    - ext: png
+      type: image/png
+    - ext: tif tiff
+      type: image/tiff
+    - ext: wbmp
+      type: image/vnd.wap.wbmp
+    - ext: ico
+      type: image/x-icon
+    - ext: jng
+      type: image/x-jng
+    - ext: bmp
+      type: image/x-ms-bmp
+    - ext: svg svgz
+      type: image/svg+xml
+    - ext: webp
+      type: image/webp
+    - ext: css
+      type: text/css
+    - ext: html htm shtml
+      type: text/html
+    - ext: txt
+      type: text/plain
+    - ext: xml
+      type: text/xml
+    - ext: 3gpp 3gp
+      type: video/3gpp
+    - ext: mp4
+      type: video/mp4
+    - ext: mpeg mpg
+      type: video/mpeg
+    - ext: mov
+      type: video/quicktime
+    - ext: webm
+      type: video/webm
+    - ext: flv
+      type: video/x-flv
+    - ext: m4v
+      type: video/x-m4v
+    - ext: wmv
+      type: video/x-ms-wmv
+    - ext: avi
+      type: video/x-msvideo
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>file validator</h1>
+        <p>Validate file</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>extension</code></td>
+                                <td><code>data-bv-file-extension</code></td>
+                                <td>String</td>
+                                <td>The allowed extensions, separated by a comma</td>
+                            </tr>
+                            <tr>
+                                <td><code>maxFiles</code></td>
+                                <td><code>data-bv-file-maxfiles</code></td>
+                                <td>Number</td>
+                                <td>The maximum number of files</td>
+                            </tr>
+                            <tr>
+                                <td><code>maxSize</code></td>
+                                <td><code>data-bv-file-maxsize</code></td>
+                                <td>Number</td>
+                                <td>The maximum file size in bytes</td>
+                            </tr>
+                            <tr>
+                                <td><code>maxTotalSize</code></td>
+                                <td><code>data-bv-file-maxtotalsize</code></td>
+                                <td>Number</td>
+                                <td>The maximum size in bytes for all files</td>
+                            </tr>
+                            <tr>
+                                <td><code>minFiles</code></td>
+                                <td><code>data-bv-file-minfiles</code></td>
+                                <td>Number</td>
+                                <td>The minimum number of files</td>
+                            </tr>
+                            <tr>
+                                <td><code>minSize</code></td>
+                                <td><code>data-bv-file-minsize</code></td>
+                                <td>Number</td>
+                                <td>The minimum file size in bytes</td>
+                            </tr>
+                            <tr>
+                                <td><code>minTotalSize</code></td>
+                                <td><code>data-bv-file-mintotalsize</code></td>
+                                <td>Number</td>
+                                <td>The minimum size in bytes for all files</td>
+                            </tr>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-file-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                            <tr>
+                                <td><code>type</code></td>
+                                <td><code>data-bv-file-type</code></td>
+                                <td>String</td>
+                                <td>
+                                    <p>The allowed MIME type, separated by a comma.</p>
+                                    <p>For example: Setting <code>image/jpeg,image/png,application/pdf</code> only allows to upload JPEG, PNG image and PDF document.</p>
+                                    <p>See <a href="#mime-types">popular MIME types</a> listed below.</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>The <code>maxSize</code> and <code>type</code> are only used if the browser supports HTML 5 File API.</p>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-file="true".
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Popular MIME types</h2>
+                    <p>The following table shows popular MIME types. For other MIME type, you can refer to the <a href="https://www.sitepoint.com/web-foundations/mime-types-complete-list/">complete list</a>.</p>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>MIME type</th>
+                                <th>File extensions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in page.mime_types %}
+                            <tr>
+                                <td>{{ item.type }}</td>
+                                <td>{{ item.ext }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <p>The following form allows to upload JPEG, PNG image which is smaller than 2 MB in size.</p>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#file-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#file-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#file-js-tab" data-toggle="tab">JS</a></li>
+                            <li><a href="#file-declarative-tab" data-toggle="tab">Declarative usage</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="file-form-tab">
+                            {% include validators/file/example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="file-html-tab">
+{% highlight html %}
+{% include validators/file/example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="file-js-tab">
+{% highlight javascript %}
+{% include validators/file/example.js %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="file-declarative-tab">
+{% highlight html %}
+{% include validators/file/declarative-example.html %}
+
+<script>
+{% include validators/file/declarative-example.js %}
+</script>
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include validators/file/example.js %}
+</script>

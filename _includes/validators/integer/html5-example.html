@@ -1,0 +1,25 @@
+<style type="text/css">
+/* Place the HTML 5 spinner at the default position */
+#html5Form .inputContainer .form-control {
+    padding-right: 10px;
+}
+/* Adjust feedback icon position */
+#html5Form .inputContainer .form-control-feedback {
+    right: -15px;
+}
+</style>
+
+<form id="html5Form" class="form-horizontal"
+    data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+    data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+    data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-md-4 control-label">Type an integer number</label>
+        <div class="col-md-3 inputContainer">
+            <input class="form-control" name="number"
+                type="number"
+                data-bv-integer-message="The value is not an integer" />
+        </div>
+    </div>
+</form>

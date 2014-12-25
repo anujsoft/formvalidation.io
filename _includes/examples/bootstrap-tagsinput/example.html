@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap.tagsinput/0.4.2/bootstrap-tagsinput.css" />
+<script src="//cdn.jsdelivr.net/bootstrap.tagsinput/0.4.2/bootstrap-tagsinput.min.js"></script>
+
+<style type="text/css">
+.bootstrap-tagsinput {
+    width: 100%;
+}
+.label {
+    line-height: 2 !important;
+}
+</style>
+
+<form id="bootstrapTagsInputForm" method="post" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Cities</label>
+        <div class="col-sm-5">
+            <input type="text" name="cities" class="form-control"
+                   value="Hanoi" data-role="tagsinput" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Countries</label>
+        <div class="col-sm-5">
+            <input type="text" name="countries" class="form-control"
+                   value="Vietnam" data-role="tagsinput" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-5 col-sm-offset-3">
+            <button type="submit" class="btn btn-default">Validate</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,27 @@
+<section>
+    <h3 id="reset-form">resetForm</h3>
+
+    <p><code>resetForm(resetFormData): BootstrapValidator</code> &mdash; Reset form. It hides all error elements and feedback icons. All the fields are marked as not validated yet.</p>
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>resetFormData</code></td>
+                <td>Boolean</td>
+                <td>If <code>true</code>, the method resets the fields which have validator rules.</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% highlight javascript %}
+$(form).bootstrapValidator(options);
+$(form).data('bootstrapValidator').resetForm();
+{% endhighlight %}
+</section>

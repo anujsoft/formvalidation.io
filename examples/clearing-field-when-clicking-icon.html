@@ -1,0 +1,58 @@
+---
+layout: default
+title: Clearing field when clicking the icon
+permalink: /examples/clearing-field-when-clicking-icon/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Clearing field when clicking the icon</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>The following example shows how to clear the field when clicking the feedback icon.</p>
+                <p>In order to archive this, there are some useful things for us:</p>
+                <ul class="doc-list">
+                    <li>Trigger the <a href="/settings/#event-field">init.field.bv</a> event which is called after the plugin initializes the fields, such as prepare the feedback icon and message elements</li>
+                    <li>Handle the feedback icon's <code>click</code> event</li>
+                    <li>Using the <a href="/api/#reset-field">resetField()</a> method to clear the field</li>
+                </ul>
+
+                <div class="doc-demo">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#clearing-form-tab" data-toggle="tab">Try it</a></li>
+                        <li><a href="#clearing-html-tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#clearing-js-tab" data-toggle="tab">JS</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="clearing-form-tab">
+                        {% include examples/clearing-field-when-clicking-icon/example.html %}
+                        </div>
+
+                        <div class="tab-pane" id="clearing-html-tab">
+{% highlight html %}
+{% include examples/clearing-field-when-clicking-icon/example.html %}
+{% endhighlight %}
+                        </div>
+
+                        <div class="tab-pane" id="clearing-js-tab">
+{% highlight javascript %}
+{% include examples/clearing-field-when-clicking-icon/example.js %}
+{% endhighlight %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include examples/clearing-field-when-clicking-icon/example.js %}
+</script>

@@ -1,0 +1,15 @@
+<form id="callbackForm" class="form-horizontal"
+    data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+    data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+    data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-lg-3 control-label" id="captchaOperation"></label>
+        <div class="col-lg-2">
+            <input type="text" class="form-control" name="captcha"
+                data-bv-callback="true"
+                data-bv-callback-message="Wrong answer"
+                data-bv-callback-callback="checkCaptcha" />
+        </div>
+    </div>
+</form>

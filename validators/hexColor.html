@@ -1,0 +1,175 @@
+---
+layout: default
+title: Validate a hex color
+permalink: /validators/hexColor/
+related:
+    - color
+    - regexp
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>hexColor validator</h1>
+        <p>Validate a hex color</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-hexcolor-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-hexcolor="true".<br/>
+                        You don't need to do that when using HTML 5 type="color" attribute.
+                    </div>
+
+                    <div class="doc-alert doc-alert-warning">
+                        The hexColor validator is deprecated. It will be removed in v0.6.0. You should use the <a href="/validators/color/">color</a> validator instead.
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Examples</h2>
+
+                    <h3>Basic example</h3>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#hexcolor-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#hexcolor-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#hexcolor-js-tab" data-toggle="tab">JS</a></li>
+                            <li><a href="#hexcolor-declarative-tab" data-toggle="tab">Declarative usage</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="hexcolor-form-tab">
+                            {% include validators/hexColor/basic-example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="hexcolor-html-tab">
+{% highlight html %}
+{% include validators/hexColor/basic-example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="hexcolor-js-tab">
+{% highlight javascript %}
+{% include validators/hexColor/basic-example.js %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="hexcolor-declarative-tab">
+{% highlight html %}
+{% include validators/hexColor/declarative-example.html %}
+
+<script>
+{% include validators/hexColor/declarative-example.js %}
+</script>
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>HTML 5 example</h3>
+
+                    <p>The color validator will be turned on automatically if the input uses HTML 5 <code>type="color"</code> attribute.</p>
+                    <p>According to the <a href="http://www.w3.org/TR/html-markup/input.color.html#input.color.attrs.value">W3C specification</a>, the color input only accepts 6 hex character values. 3 hex character values as #FFF is not valid.</p>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#html5-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#html5-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#html5-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="html5-form-tab">
+                            {% include validators/hexColor/html5-example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="html5-html-tab">
+{% highlight html %}
+{% include validators/hexColor/html5-example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="html5-js-tab">
+{% highlight javascript %}
+{% include validators/hexColor/html5-example.js %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Color picker example</h3>
+
+                    <p>The following form uses a <a href="http://mjolnic.github.io/bootstrap-colorpicker/">Bootstrap Color Picker</a>.</p>
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#colorpicker-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#colorpicker-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#colorpicker-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="colorpicker-form-tab">
+                            {% include validators/hexColor/color-picker-example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="colorpicker-html-tab">
+{% highlight html %}
+{% include validators/hexColor/color-picker-example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="colorpicker-js-tab">
+{% highlight javascript %}
+{% include validators/hexColor/color-picker-example.js %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include validators/hexColor/basic-example.js %}
+{% include validators/hexColor/html5-example.js %}
+{% include validators/hexColor/color-picker-example.js %}
+</script>

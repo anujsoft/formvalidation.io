@@ -1,0 +1,79 @@
+---
+layout: default
+title: Form is submitted twice
+permalink: /examples/form-submit-twice/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Form is submitted twice</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>By default, after pressing the submit button, the plugin will validate fields and then submit the form if all fields are valid.</p>
+                <p>If you use a custom submit handler, the form might be submitted more than one time.</p>
+                <p>To prevent the plugin from submitting the form automatically, you can trigger the <a href="/settings/#event-form">success.form.bv</a> event:</p>
+
+{% highlight javascript %}
+$(document).ready(function() {
+    $(form)
+        .bootstrapValidator({
+            ... options ...
+        })
+        .on('success.form.bv', function(e) {
+            // Prevent form submission
+            e.preventDefault();
+
+            // You can get the form instance
+            var $form = $(e.target);
+
+            // and the BootstrapValidator instance
+            var bv = $form.data('bootstrapValidator');
+
+            // Do whatever you want here ...
+
+            // Use the defaultSubmit() method if you want to submit the form
+            // See http://formvalidation.io/api/#default-submit
+            bv.defaultSubmit();
+        });
+});
+{% endhighlight %}
+
+                <p>You can use a custom submit handler like the following way:</p>
+
+{% highlight javascript %}
+$(document).ready(function() {
+    $(form)
+        .bootstrapValidator({
+            ... options ...
+        })
+        .on('success.form.bv', function(e) {
+            // Prevent form submission
+            e.preventDefault();
+        });
+
+    // Custom submit handler
+    $(form).submit(function(e) {
+        // You can get the form instance
+        var $form = $(e.target);
+
+        // and the BootstrapValidator instance
+        var bv = $form.data('bootstrapValidator');
+
+        // Do whatever you want here ...
+    });
+});
+{% endhighlight %}
+
+                <ul class="doc-list">
+                    <li><a href="/examples/ajax-submit/">Using Ajax to submit the form</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

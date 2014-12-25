@@ -1,0 +1,68 @@
+---
+layout: default
+title: Validate a numeric number
+permalink: /validators/numeric/
+related:
+    - digits
+    - integer
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>numeric validator</h1>
+        <p>Check if the value is numeric</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>separator</code></td>
+                                <td><code>data-bv-numeric-separator</code></td>
+                                <td>String</td>
+                                <td>The decimal separator. Can be a dot (.) <span class="label label-default">default</span> or comma (,)</td>
+                            </tr>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-numeric-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-numeric="true".<br/>
+                        You don't need to do that when<br/>
+                        i) using HTML 5 type="number" attribute,<br/>
+                        ii) and the step attribute must be specified which its value is not an integer
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>

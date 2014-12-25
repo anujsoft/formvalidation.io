@@ -1,0 +1,41 @@
+---
+layout: default
+title: Settings
+permalink: /settings/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Settings</h1>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                {% include settings/structure.html %}
+
+                <div class="doc-hr"></div>
+
+                {% include settings/form.html %}
+
+                <div class="doc-hr"></div>
+
+                {% include settings/field.html %}
+
+                <div class="doc-hr"></div>
+
+                {% include settings/validator.html %}
+
+                <div class="doc-hr"></div>
+
+                {% include settings/events.html %}
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>

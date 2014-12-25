@@ -1,0 +1,45 @@
+name:                 FormValidation
+highlighter:          pygments
+
+source:               .
+destination:          ../output
+markdown:             kramdown
+exclude:              ['node_modules', '*.less']
+url:                  http://formvalidation.io/
+
+paginate:             5
+paginate_path:        /news/page:num
+encoding:             UTF-8
+relative_permalinks:  false
+permalink:            /news/:title/
+timezone:             Asia/Ho_Chi_Minh
+
+# Custom variables
+# not defined by Jekyll
+license:
+  developer:
+    price:            25$
+    gumroad_url:      https://gum.co/bv-developer-license
+    sellfy_url:       https://sellfy.com/p/uitF/
+    sellfy_id:        uitF
+  organization:
+    price:            75$
+    gumroad_url:      https://gum.co/bv-organization-license
+    sellfy_url:       https://sellfy.com/p/eQiZ/
+    sellfy_id:        eQiZ
+current_version:      0.5.3
+released_date:        2014.11.05
+github_watchers:      1580
+github_forks:         1070
+github_downloads:     92,000
+twitter_followers:    215
+download:
+  dist:               https://github.com/formvalidation/formvalidation/releases/download/v0.5.3/bootstrapvalidator-dist-0.5.3.zip
+  tag:                https://github.com/formvalidation/formvalidation/archive/v0.5.3.zip
+repository:
+  source:             https://github.com/formvalidation/formvalidation
+  docs:               https://github.com/formvalidation/formvalidation.io/gh-pages
+  docs_edit:          https://github.com/formvalidation/formvalidation.io/edit/docs
+ga_code:              UA-44786951-2
+jquery_plugin_url:    http://plugins.jquery.com/bootstrapValidator
+disqus:               bootstrapvalidator

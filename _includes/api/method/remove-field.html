@@ -1,0 +1,45 @@
+<section>
+    <h3 id="remove-field">removeField</h3>
+
+    <p><code>removeField(field<sup>*</sup>): BootstrapValidator</code> &mdash; Remove given field</p>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>field</code></td>
+                <td>String|jQuery</td>
+                <td>The field name or field element</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>By triggering the <a href="/settings/#event-form">removed.field.bv</a> event, you can perform additional task after removing given field:</p>
+
+{% highlight javascript %}
+$(document).ready(function() {
+    $(form)
+        .bootstrapValidator(options)
+        .on('removed.field.bv', function(e, data) {
+            // $(e.target)  --> The form instance
+            // $(e.target).data('bootstrapValidator')
+            //              --> The BootstrapValidator instance
+
+            // data.field   --> The field name
+            // data.element --> The new field element
+
+            // Do something ...
+        });
+});
+{% endhighlight %}
+
+    <h4 id="remove-field-examples">Example</h4>
+    <ul class="doc-list">
+        <li><a href="/examples/adding-dynamic-field/">Adding dynamic field</a></li>
+    </ul>
+</section>

@@ -1,0 +1,56 @@
+<section>
+    <h2>Compatibility</h2>
+
+    <p>In order to make BootstrapValidator work together with other plugin, you should follow two rules below:</p>
+
+    <ol>
+        <li>
+            <p><strong>Don't exclude the field if the plugin changes the field visibility</strong></p>
+            <p>Some plugins hide your field and create new elements to change how the field looks like. By default, the hidden, invisible fields will not be validated. Therefore, you need to set <code>excluded: ':disabled'</code>. See the <a href="/settings/#form-excluded">excluded</a> option for more information.</p>
+            <p>Example: <a href="/examples/bootstrap-button/">Bootstrap Button</a></p>
+        </li>
+
+        <li>
+            <p><strong>Revalidate the field if the plugin changes its value dynamically:</strong></p>
+            <p>Most plugins trigger an event after changing the field value. By using this kind of event handler, you need to ask BootstrapValidator to revalidate the field.</p>
+        </li>
+    </ol>
+
+{% highlight javascript %}
+$(field)
+    .nameOfPlugin(pluginOptions)
+    .on(pluginChangedEvent, function() {
+        $(form)
+            .data('bootstrapValidator')             // Get the validator instance
+            .revalidateField(field);                // Revalidate it
+
+        // It is equivalent to use
+        $(form).bootstrapValidator('revalidateField', field);
+    });
+{% endhighlight %}
+
+    <p>Look at the <a href="/api/#revalidate-field"><code>revalidateField()</code></a> method for more details.</p>
+    <p>Example: <a href="/examples/chosen/">Chosen</a></p>
+
+    <p>These examples show how you can use BootstrapValidator with other Javascript plugins.</p>
+
+    <ul class="doc-list">
+        <li><a href="/examples/bootbox/">Bootbox</a></li>
+        <li><a href="/examples/bootstrap-button/">Bootstrap Button</a></li>
+        <li><a href="/examples/bootstrap-datepicker/">Bootstrap Datepicker</a> <span class="label label-success">NEW</span></li>
+        <li><a href="/validators/date/#datetime-picker-example">Bootstrap Datetime Picker</a></li>
+        <li><a href="/examples/bootstrap-multiselect/">Bootstrap Multiselect</a></li>
+        <li><a href="/examples/bootstrap-select/">Bootstrap Select</a></li>
+        <li><a href="/examples/bootstrap-tab/">Bootstrap Tabs</a></li>
+        <li><a href="/examples/bootstrap-tagsinput/">Bootstrap Tags Input</a></li>
+        <li><a href="/examples/chosen/">Chosen</a></li>
+        <li><a href="/examples/ckeditor/">CKEditor</a></li>
+        <li><a href="/examples/icheck/">iCheck</a></li>
+        <li><a href="/examples/mask/">Mask</a></li>
+        <li><a href="/examples/pickadate/">Pickadate</a> <span class="label label-success">NEW</span></li>
+        <li><a href="/examples/raty/">Raty</a></li>
+        <li><a href="/examples/select2/">Select2</a></li>
+        <li><a href="/examples/summernote/">Summernote</a></li>
+        <li><a href="/examples/tinymce/">TinyMCE</a></li>
+    </ul>
+</section>

@@ -1,0 +1,44 @@
+---
+layout: default
+title: News
+comment: false
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>News</h1>
+        <p>The latest news about BootstrapValidator</p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                {% for post in paginator.posts %}
+                    {% include post.html %}
+
+                    <div class="doc-hr"></div>
+                {% endfor %}
+
+                <div class="doc-pagination">
+                    {% if paginator.next_page %}
+                        <a href="/news/page{{ paginator.next_page }}" class="doc-pagination-older">Older</a>
+                    {% else %}
+                        <span class="doc-pagination-older">Older</span>
+                    {% endif %}
+
+                    {% if paginator.previous_page %}
+                        {% if paginator.page == 2 %}
+                            <a href="/news/" class="doc-pagination-newer">Newer</a>
+                        {% else %}
+                            <a href="/news/page{{ paginator.previous_page }}" class="doc-pagination-newer">Newer</a>
+                        {% endif %}
+                    {% else %}
+                        <span class="doc-pagination-newer">Newer</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

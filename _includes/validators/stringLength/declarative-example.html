@@ -1,0 +1,25 @@
+<form id="stringLengthForm" class="form-horizontal"
+    data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+    data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+    data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Full name</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="fullName"
+                data-bv-stringlength="true"
+                data-bv-stringlength-max="50"
+                data-bv-stringlength-message="The full name must be less than 50 characters" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Bio</label>
+        <div class="col-sm-6">
+            <textarea rows="5" class="form-control" name="bio"
+                data-bv-stringlength="true"
+                data-bv-stringlength-max="200"
+                data-bv-stringlength-message="The bio must be less than 200 characters"></textarea>
+        </div>
+    </div>
+</form>

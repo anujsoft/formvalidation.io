@@ -1,0 +1,54 @@
+<form id="hidingSuccessForm" method="post">
+    <div class="form-group">
+        <label>Proposal title</label>
+        <input type="text" class="form-control" name="title" />
+    </div>
+
+    <div class="form-group">
+        <label>Abstract</label>
+        <textarea class="form-control" name="abstract" rows="5"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Topics</label>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="topics[]" value="angularjs" /> AngularJS
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="topics[]" value="backbone" /> Backbone
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="topics[]" value="emberjs" /> EmberJS
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="topics[]" value="jquery" /> jQuery
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="topics[]" value="nodejs" /> NodeJS
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Session type</label>
+        <select class="form-control" name="sessionType" style="width: 200px;">
+            <option value="">Choose the session type</option>
+            <option value="presentation">Presentation</option>
+            <option value="panel">Panel</option>
+            <option value="workshop">Workshop</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+</form>

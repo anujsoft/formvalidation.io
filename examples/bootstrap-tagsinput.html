@@ -1,0 +1,57 @@
+---
+layout: default
+title: Playing with Bootstrap Tags Input
+permalink: /examples/bootstrap-tagsinput/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Playing with Bootstrap Tags Input</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>Use with the <a href="http://timschlechter.github.io/bootstrap-tagsinput/examples/">Bootstrap Tags Input</a> plugin.</p>
+                <div class="doc-alert doc-alert-info">
+                    You should look at the <a href="/examples/#compatibility">basic principles</a> when integrating BootstrapValidator with other plugins
+                </div>
+                <p>The <strong>Cities</strong> field requires to enter at least one city you like most.</p>
+                <p>The <strong>Countries</strong> field requires to enter 2-4 countries you like most.</p>
+
+                <div class="doc-demo">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#bootstraptagsinput-form-tab" data-toggle="tab">Try it</a></li>
+                        <li><a href="#bootstraptagsinput-html-tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#bootstraptagsinput-js-tab" data-toggle="tab">JS</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="bootstraptagsinput-form-tab">
+                        {% include examples/bootstrap-tagsinput/example.html %}
+                        </div>
+
+                        <div class="tab-pane" id="bootstraptagsinput-html-tab">
+{% highlight html %}
+{% include examples/bootstrap-tagsinput/example.html %}
+{% endhighlight %}
+                        </div>
+
+                        <div class="tab-pane" id="bootstraptagsinput-js-tab">
+{% highlight javascript %}
+{% include examples/bootstrap-tagsinput/example.js %}
+{% endhighlight %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include examples/bootstrap-tagsinput/example.js %}
+</script>

@@ -1,0 +1,43 @@
+---
+layout: post
+title: BootstrapValidator v0.3.1 Released
+date: 2014-03-17 10:00:00 +0700
+author: nghuuphuoc
+---
+
+<h3>New features</h3>
+<ul class="doc-list">
+    <li><a href="{{ site.repository.source }}/issues/4">#4</a>: Add <a href="/validators/date/"><code>date</code> validator</a></li>
+    <li><a href="{{ site.repository.source }}/issues/80">#80</a>: Add <a href="/settings/#field-enabled"><code>enabled</code> option</a> and <a href="/api/#enable-field-validators"><code>enableFieldValidators()</code> method</a> to enable/disable all validators to given field</li>
+    <li><a href="{{ site.repository.source }}/pull/90">#90</a>: Add <code>bower.json</code> file, thanks to <a href="https://github.com/ikanedo">@ikanedo</a></li>
+</ul>
+
+<h3>Changes</h3>
+<ul class="doc-list">
+    <li>Remove the <code>columns</code> option. Now the plugin works normally no matter how many columns the form uses</li>
+</ul>
+
+<h3>Improvements</h3>
+<ul class="doc-list">
+    <li><a href="{{ site.repository.source }}/issues/3">#3</a>, <a href="{{ site.repository.source }}/issues/92">#92</a>: Support more form controls on the same row</li>
+    <li><a href="{{ site.repository.source }}/issues/72">#72</a>, <a href="{{ site.repository.source }}/issues/79">#79</a>: Improve <a href="/api/#update-status"><code>updateStatus()</code> method</a> to make the plugin play well with another</li>
+    <li><a href="{{ site.repository.source }}/issues/102">#102</a>: The <a href="/api/#reset-form"><code>resetForm</code> method</a> now only resets fields with validator rules</li>
+</ul>
+
+<h3>Bug fixes</h3>
+<ul class="doc-list">
+    <li><a href="{{ site.repository.source }}/issues/82">#82</a>, <a href="{{ site.repository.source }}/issues/84">#84</a>: The error messages aren't shown if the form field doesn't have label</li>
+    <li><a href="{{ site.repository.source }}/issues/89">#89</a>: <a href="/settings/#form-submit-handler"><code>submitHandler</code></a> or default submission isn't called after <a href="/validators/remote/">remote validation</a> completes</li>
+</ul>
+
+<h3>Contributors</h3>
+<p>Thank to the contributors:</p>
+<ul class="doc-list">
+    <li><a href="https://github.com/ikanedo">@ikanedo</a></li>
+</ul>
+
+<h3>Download</h3>
+<div>
+    <a class="btn btn-primary" href="{{ site.repository.source }}/releases/download/v0.3.1/bootstrapvalidator-dist-0.3.1.zip">bootstrapvalidator-dist-0.3.1.zip</a>
+    <a class="btn btn-default" href="{{ site.repository.source }}/archive/v0.3.1.zip">v0.3.1 Source Code</a>
+</div>

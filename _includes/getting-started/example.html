@@ -1,0 +1,42 @@
+<section>
+    <h2>Example</h2>
+
+    <p>Below is a classical registration form covering all the steps you've just seen above:</p>
+
+    <div class="doc-demo">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#example-form-tab" data-toggle="tab">Try it</a></li>
+            <li><a href="#example-programmatic-tab" data-toggle="tab">Programmatic usage</a></li>
+            <li><a href="#example-declarative-tab" data-toggle="tab">Declarative usage</a></li>
+            <li><a href="#example-cdn-tab" data-toggle="tab">CDN usage</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="example-form-tab">
+            {% include getting-started/example/form.html %}
+            </div>
+
+            <div class="tab-pane" id="example-programmatic-tab">
+{% highlight html %}
+{% include getting-started/example/programmatic.html %}
+{% endhighlight %}
+            </div>
+
+            <div class="tab-pane" id="example-declarative-tab">
+{% highlight html %}
+{% include getting-started/example/declarative.html %}
+{% endhighlight %}
+            </div>
+
+            <div class="tab-pane" id="example-cdn-tab">
+{% highlight html %}
+{% include getting-started/example/cdn.html %}
+{% endhighlight %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+{% include getting-started/example/form.js %}
+</script>

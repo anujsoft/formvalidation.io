@@ -1,0 +1,84 @@
+---
+layout: default
+title: Hiding success class
+permalink: /examples/hiding-success-class/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Hiding success class</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>Based on the field status, the field and its container are marked as success or error element. The plugin will add <code>has-success</code> or <code>has-error</code> class to the container element.</p>
+                <p>If you think that it's better to indicate error status only due to the similarity of these status colors, you can remove <code>has-success</code> class from the container.</p>
+                <p>It can be done by triggering the <a href="/settings/#event-field">success.field.bv</a> event as below:</p>
+
+                <div class="doc-demo">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#hiding-success-form-tab" data-toggle="tab">Try it</a></li>
+                        <li><a href="#hiding-success-html-tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#hiding-success-js-tab" data-toggle="tab">JS</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="hiding-success-form-tab">
+                        {% include examples/hiding-success-class/example.html %}
+                        </div>
+
+                        <div class="tab-pane" id="hiding-success-html-tab">
+{% highlight html %}
+{% include examples/hiding-success-class/example.html %}
+{% endhighlight %}
+                        </div>
+
+                        <div class="tab-pane" id="hiding-success-js-tab">
+{% highlight javascript %}
+{% include examples/hiding-success-class/example.js %}
+{% endhighlight %}
+                        </div>
+                    </div>
+                </div>
+
+                <p>Based on this approach, it's possible to hide success icon and remove the success CSS class from the container if the field is empty. You just simply change the <code>success.field.bv</code> event handler a little bit:</p>
+
+{% highlight javascript %}
+$(document).ready(function() {
+    $('#hidingSuccessForm')
+        .bootstrapValidator({
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                ...
+            }
+        })
+        .on('success.field.bv', function(e, data) {
+            // If the field is empty
+            if (data.element.val() === '') {
+                var $parent = data.element.parents('.form-group');
+
+                // Remove the has-success class
+                $parent.removeClass('has-success');
+
+                // Hide the success icon
+                $parent.find('.form-control-feedback[data-bv-icon-for="' + data.field + '"]').hide();
+            }
+        });
+});
+{% endhighlight %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include examples/hiding-success-class/example.js %}
+</script>

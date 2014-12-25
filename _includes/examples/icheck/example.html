@@ -1,0 +1,97 @@
+<!-- Include iCheck skin -->
+<link rel="stylesheet" href="//oss.maxcdn.com/icheck/1.0.2/skins/square/red.min.css" />
+
+<!-- Include iCheck plugin -->
+<script src="//oss.maxcdn.com/icheck/1.0.2/icheck.min.js"></script>
+
+<!-- Set the radio/checkbox position properly -->
+<style type="text/css">
+#icheckForm .radio label, #icheckForm .checkbox label {
+    padding-left: 0;
+}
+</style>
+
+<form id="icheckForm" method="post" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Job position</label>
+        <div class="col-sm-5">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="job" value="designer" /> Designer
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="job" value="frontend" /> Front-end Developer
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="job" value="backend" /> Back-end Developer
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="job" value="dba" /> Database Administrator
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="job" value="sys" /> System Engineer
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Programming Languages</label>
+        <div class="col-sm-5">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="languages[]" value="net" /> .Net
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="languages[]" value="java" /> Java
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="languages[]" value="c" /> C/C++
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="languages[]" value="php" /> PHP
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="languages[]" value="perl" /> Perl
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="languages[]" value="ruby" /> Ruby
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="languages[]" value="python" /> Python
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="languages[]" value="javascript" /> Javascript
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-5 col-sm-offset-3">
+            <button type="submit" class="btn btn-default">Validate</button>
+        </div>
+    </div>
+</form>

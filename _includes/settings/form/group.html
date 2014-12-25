@@ -1,0 +1,51 @@
+<section>
+    <h3 id="form-group">group: String</h3>
+
+    <p>CSS selector indicates the parent element of field. By default, it is <code>.form-group</code>.</p>
+    <p>Following Bootstrap form structure, each field and its label are wrapped inside <code>.form-group</code> element.</p>
+    <p>This option might be used in the following cases:</p>
+    <ul class="doc-list">
+        <li>The form uses a custom CSS class for each group</li>
+        <li>Each group consist of more than one field</li>
+    </ul>
+
+    <p>You also can specify the <a href="#field-group">group</a> for particular field.</p>
+
+    <h4 id="form-group-example">Example</h4>
+
+    <p>In the following form, each field is placed inside a cell of table. The error messages are placed inside a <a href="#form-container">tooltip</a>.</p>
+
+    <div class="doc-demo">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#form-group-form-tab" data-toggle="tab">Try it</a></li>
+            <li><a href="#form-group-html-tab" data-toggle="tab">HTML</a></li>
+            <li><a href="#form-group-js-tab" data-toggle="tab">JS</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="form-group-form-tab">
+            {% include settings/form/group-example.html %}
+            </div>
+
+            <div class="tab-pane" id="form-group-html-tab">
+{% highlight html %}
+{% include settings/form/group-example.html %}
+{% endhighlight %}
+        </div>
+
+        <div class="tab-pane" id="form-group-js-tab">
+{% highlight javascript %}
+{% include settings/form/group-example.js %}
+{% endhighlight %}
+            </div>
+        </div>
+    </div>
+
+    <ul class="doc-list">
+        <li><a href="/examples/complex-form/">Complex form</a></li>
+    </ul>
+</section>
+
+<script>
+{% include settings/form/group-example.js %}
+</script>

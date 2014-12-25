@@ -1,0 +1,39 @@
+<section>
+    <h3 id="field-trigger">trigger: String</h3>
+
+    <p>The field events (separated by a space) which are fired when the live validating mode is enabled.</p>
+    <p>For example, <code>trigger="focus blur"</code> means that the field will be validated when user focus on or leave the focus off the field.</p>
+
+    <h4 id="field-trigger-example">Example</h4>
+    <p>In the following form, the <i>Title</i> field will be validated while user type any character (<code>trigger="keyup"</code>). The <i>Summary</i> field will be validated when user lose the focus (<code>trigger="blur"</code>).</p>
+
+    <div class="doc-demo">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#trigger-form-tab" data-toggle="tab">Try it</a></li>
+            <li><a href="#trigger-html-tab" data-toggle="tab">HTML</a></li>
+            <li><a href="#trigger-js-tab" data-toggle="tab">JS</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="trigger-form-tab">
+            {% include settings/field/trigger-example.html %}
+            </div>
+
+            <div class="tab-pane" id="trigger-html-tab">
+{% highlight html %}
+{% include settings/field/trigger-example.html %}
+{% endhighlight %}
+            </div>
+
+            <div class="tab-pane" id="trigger-js-tab">
+{% highlight javascript %}
+{% include settings/field/trigger-example.js %}
+{% endhighlight %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+{% include settings/field/trigger-example.js %}
+</script>

@@ -1,0 +1,54 @@
+---
+layout: default
+title: Showing only one message each time
+permalink: /examples/showing-one-message/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Showing only one message each time</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p>By default, all messages are shown at the same time. It's also possible if you want only one message to be shown each time by triggering the <a href="/settings/#event-validator">error.validator.bv</a> event.</p>
+                <p>This event is triggered when the field doesn't pass a particular validator.</p>
+                <p>In the following registration form, the username field must pass three validators. But there is one message shown each time.</p>
+
+                <div class="doc-demo">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#registration-form-tab" data-toggle="tab">Try it</a></li>
+                        <li><a href="#registration-html-tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#registration-js-tab" data-toggle="tab">JS</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="registration-form-tab">
+                        {% include examples/showing-one-message/example.html %}
+                        </div>
+
+                        <div class="tab-pane" id="registration-html-tab">
+{% highlight html %}
+{% include examples/showing-one-message/example.html %}
+{% endhighlight %}
+                        </div>
+
+                        <div class="tab-pane" id="registration-js-tab">
+{% highlight javascript %}
+{% include examples/showing-one-message/example.js %}
+{% endhighlight %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include examples/showing-one-message/example.js %}
+</script>

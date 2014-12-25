@@ -1,0 +1,36 @@
+---
+layout: post
+title: BootstrapValidator v0.4.4 Released
+date: 2014-05-05 10:00:00 +0700
+author: nghuuphuoc
+---
+
+<h3>New features</h3>
+<ul class="doc-list">
+    <li>Add <code>$.fn.bootstrapValidator.helpers.mod_11_10</code> method that implements modulus 11, 10 (ISO 7064) algorithm. The helper is then reused in validating <a href="/validators/vat/">German and Croatian VAT</a> numbers</li>
+    <li>Add <code>$.fn.bootstrapValidator.helpers.mod_37_36</code> method that implements modulus 37, 36 (ISO 7064) algorithm, used in <a href="/validators/grid/">GRid</a> validator</li>
+    <li><a href="{{ site.repository.source }}/issues/213">#213</a>: Add <a href="/validators/ean/">ean (International Article Number)</a> validator</li>
+    <li><a href="{{ site.repository.source }}/issues/214">#214</a>: Add <a href="/validators/grid/">grid (Global Release Identifier)</a> validator</li>
+    <li><a href="{{ site.repository.source }}/issues/215">#215</a>: Add <a href="/validators/imei/">imei (International Mobile Station Equipment Identity)</a> validator</li>
+    <li><a href="{{ site.repository.source }}/issues/216">#216</a>: Add <a href="/validators/ismn/">ismn (International Standard Music Number)</a> validator</li>
+    <li><a href="{{ site.repository.source }}/issues/217">#217</a>: Add <a href="/validators/issn/">issn (International Standard Serial Number)</a> validator</li>
+</ul>
+
+<h3>Improvements</h3>
+<ul class="doc-list">
+    <li><a href="{{ site.repository.source }}/issues/191">#191</a>, <a href="{{ site.repository.source }}/issues/223">#223</a>: Support using both the <code>name</code> attribute and <code>selector</code> option for field</li>
+    <li><a href="{{ site.repository.source }}/issues/206">#206</a>: Indicate success/error tab</li>
+    <li><a href="{{ site.repository.source }}/issues/220">#220</a>: Add UK postcode support for the <a href="/validators/zipCode/">zipCode validator</a></li>
+    <li><a href="{{ site.repository.source }}/issues/229">#229</a>: The <a href="/validators/date/">date validator</a> supports seconds</li>
+</ul>
+
+<h3>Bug fixes</h3>
+<ul class="doc-list">
+    <li><a href="{{ site.repository.source }}/issues/231">#231</a>: Wrong prefix of Laser credit card number</li>
+</ul>
+
+<h3>Download</h3>
+<div>
+    <a class="btn btn-primary" href="{{ site.repository.source }}/releases/download/v0.4.4/bootstrapvalidator-dist-0.4.4.zip">bootstrapvalidator-dist-0.4.4.zip</a>
+    <a class="btn btn-default" href="{{ site.repository.source }}/archive/v0.4.4.zip">v0.4.4 Source Code</a>
+</div>

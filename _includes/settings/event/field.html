@@ -1,0 +1,204 @@
+<section>
+    <h3 id="event-field">Field events</h3>
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Event</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>init.field.bv</code></td>
+                <td>Triggered after the field is initialized by the plugin</td>
+            </tr>
+            <tr>
+                <td><code>error.field.bv</code></td>
+                <td>Triggered when any field is invalid</td>
+            </tr>
+            <tr>
+                <td><code>success.field.bv</code></td>
+                <td>Triggered when any field is valid</td>
+            </tr>
+            <tr>
+                <td><code>status.field.bv</code></td>
+                <td>
+                    <p>Triggered when field changes status. Each field has four possible status:</p>
+                    <ul class="doc-list">
+                        <li><code>NOT_VALIDATED</code>: The field is not validated yet</li>
+                        <li><code>VALIDATING</code>: The field is being validated</li>
+                        <li><code>INVALID</code>: The field is invalid</li>
+                        <li><code>VALID</code>: The field is valid</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Usage</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Listening to event</td>
+                <td>
+{% highlight javascript %}
+$(document).ready(function() {
+    $(form)
+        // on('init.field.bv') must be declared
+        // before calling .bootstrapValidator(options)
+        .on('init.field.bv', function(e, data) {
+            // $(e.target)  --> The field element
+            // data.bv      --> The BootstrapValidator instance
+            // data.field   --> The field name
+            // data.element --> The field element
+        })
+
+        .bootstrapValidator(options)
+
+        .on('error.field.bv', function(e, data) {
+            // The e and data parameters are the same
+            // as one in the init.field.bv event above
+
+            // Do something ...
+        })
+
+        .on('success.field.bv', function(e, data) {
+            // The e and data parameters are the same
+            // as one in the init.field.bv event above
+
+            // Do something ...
+        })
+
+        .on('status.field.bv', function(e, data) {
+            // The e and data parameters are the same
+            // as one in the init.field.bv event above
+
+            // data.status --> New field status
+
+            // Do something ...
+        });
+});
+{% endhighlight %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>If you want to trigger this event for particular field, for example, the <code>name="email"</code> field:</p>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Usage</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Listening to event</td>
+                <td>
+{% highlight javascript %}
+$(document).ready(function() {
+    $(form)
+        // on('init.field.bv') must be declared
+        // before calling .bootstrapValidator(options)
+        .on('init.field.bv', '[name="email"]', function(e, data) {
+            // Do something ...
+        })
+
+        .bootstrapValidator(options)
+
+        .on('error.field.bv', '[name="email"]', function(e, data) {
+            // Do something ...
+        })
+
+        .on('success.field.bv', '[name="email"]', function(e, data) {
+            // Do something ...
+        })
+
+        .on('status.field.bv', '[name="email"]', function(e, data) {
+            // Do something ...
+        });
+});
+{% endhighlight %}
+                </td>
+            </tr>
+            <tr>
+                <td>Using option</td>
+                <td>
+{% highlight javascript %}
+$(document).ready(function() {
+    $(form)
+        .bootstrapValidator({
+            fields: {
+                email: {
+                    onError: function(e, data) {
+                        // Do something ...
+                    },
+                    onSuccess: function(e, data) {
+                        // Do something ...
+                    },
+                    onStatus: function(e, data) {
+                        // Do something ...
+                    },
+                    validators: {
+                        ...
+                    }
+                }
+            }
+        });
+});
+{% endhighlight %}
+                </td>
+            </tr>
+            <tr>
+                <td>Using HTML 5 attributes</td>
+                <td>
+{% highlight html %}
+<form>
+    ...
+    <input type="text" name="email" class="form-control"
+        data-bv-emailaddress
+        data-bv-onerror="onFieldError"
+        data-bv-onsuccess="onFieldSuccess"
+        data-bv-onstatus="onFieldStatus" />
+    ...
+</form>
+{% endhighlight %}
+{% highlight javascript %}
+function onFieldError(e, data) {
+    // Do something ...
+};
+
+function onFieldSuccess(e, data) {
+    // Do something ...
+};
+
+function onFieldStatus(e, data) {
+    // Do something ...
+};
+
+$(document).ready(function() {
+    $(form).bootstrapValidator(options);
+});
+{% endhighlight %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4 id="event-field-examples">Examples</h4>
+    <ul class="doc-list">
+        <li><a href="/examples/clearing-field-when-clicking-icon/">Clearing field when clicking the icon</a></li>
+        <li><a href="/examples/enabling-submit-button/">Enabling the submit button all the time</a></li>
+        <li><a href="/examples/hiding-success-class/">Hiding success class</a></li>
+        <li><a href="/examples/showing-icon-custom-area/">Showing icons in custom area</a></li>
+        <li><a href="/examples/showing-message-custom-area/#using-events">Showing messages in custom area</a></li>
+        <li><a href="/examples/showing-valid-message/">Showing valid message</a></li>
+    </ul>
+</section>

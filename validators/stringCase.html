@@ -1,0 +1,95 @@
+---
+layout: default
+title: Check if a string is a lower or upper case one
+permalink: /validators/stringCase/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>stringCase validator</h1>
+        <p>Check if a string is a lower or upper case one</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>case</code></td>
+                                <td><code>data-bv-stringcase-case</code></td>
+                                <td>String</td>
+                                <td>Can be <code>lower</code> <span class="label label-default">default</span> or <code>upper</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-stringcase-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-stringcase="true".
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+                    <p>The following form asks user to enter a credit card holder in uppercase:</p>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#stringcase-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#stringcase-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#stringcase-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="stringcase-form-tab">
+                            {% include validators/stringCase/example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="stringcase-html-tab">
+                            {% highlight html %}
+                            {% include validators/stringCase/example.html %}
+                            {% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="stringcase-js-tab">
+                            {% highlight javascript %}
+                            {% include validators/stringCase/example.js %}
+                            {% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include validators/stringCase/example.js %}
+</script>

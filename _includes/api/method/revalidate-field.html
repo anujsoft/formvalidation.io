@@ -1,0 +1,74 @@
+<section>
+    <h3 id="revalidate-field">revalidateField</h3>
+
+    <p><code>revalidateField(field<sup>*</sup>): BootstrapValidator</code> &mdash; Revalidate given field.</p>
+    <p>It's used when you need to revalidate the field which its value is updated by other plugin.</p>
+    <p>By default, the plugin doesn't re-validate a field once it is already validated and marked as a valid one.
+        When using with other plugins, the field value is changed and therefore need to be re-validated.</p>
+
+    <p>Behind the scenes, the method is equivalent to:</p>
+
+{% highlight javascript %}
+$(form).data('bootstrapValidator')
+    .updateStatus(field, 'NOT_VALIDATED')
+    .validateField(field);
+
+// Or
+$(form).bootstrapValidator('updateStatus', field, 'NOT_VALIDATED')
+       .bootstrapValidator('validateField', field);
+{% endhighlight %}
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>field</code></td>
+                <td>String|jQuery</td>
+                <td>The field name or field element</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4 id="revalidate-field-examples">Examples</h4>
+    <p>The following example describes how to re-validate a field which uses with <a href="http://eonasdan.github.io/bootstrap-datetimepicker/">Boostrap Datetime Picker</a>:</p>
+
+    <div class="doc-demo">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#datepicker-form-tab" data-toggle="tab">Try it</a></li>
+            <li><a href="#datepicker-html-tab" data-toggle="tab">HTML</a></li>
+            <li><a href="#datepicker-js-tab" data-toggle="tab">JS</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="datepicker-form-tab">
+            {% include api/method/datepicker-example.html %}
+            </div>
+
+            <div class="tab-pane" id="datepicker-html-tab">
+{% highlight html %}
+{% include api/method/datepicker-example.html %}
+{% endhighlight %}
+            </div>
+
+            <div class="tab-pane" id="datepicker-js-tab">
+{% highlight javascript %}
+{% include api/method/datepicker-example.js %}
+{% endhighlight %}
+            </div>
+        </div>
+    </div>
+
+    <ul class="doc-list">
+        <li><a href="/examples/#compatibility">Play with other plugins</a></li>
+    </ul>
+</section>
+
+<script>
+{% include api/method/datepicker-example.js %}
+</script>

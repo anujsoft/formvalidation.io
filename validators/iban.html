@@ -1,0 +1,392 @@
+---
+layout: default
+title: Validate an International Bank Account Number (IBAN)
+permalink: /validators/iban/
+countries:
+    - country: Albania
+      code: AL
+      example: AL47212110090000000235698741
+    - country: Algeria
+      code: DZ
+      example: DZ4000400174401001050486
+    - country: Andorra
+      code: AD
+      example: AD1200012030200359100100
+    - country: Angola
+      code: AO
+      example: AO06000600000100037131174
+    - country: Austria
+      code: AT
+      example: AT611904300234573201
+    - country: Azerbaijan
+      code: AZ
+      example: AZ21NABZ00000000137010001944
+    - country: Bahrain
+      code: BH
+      example: BH29BMAG1299123456BH00
+    - country: Bosnia and Herzegovina
+      code: BA
+      example: BA391290079401028494
+    - country: Belgium
+      code: BE
+      example: BE68539007547034
+    - country: Benin
+      code: BJ
+      example: BJ11B00610100400271101192591
+    - country: Brazil
+      code: BR
+      example: BR9700360305000010009795493P1
+    - country: Bulgaria
+      code: BG
+      example: BG80BNBG96611020345678
+    - country: Burkina Faso
+      code: BF
+      example: BF1030134020015400945000643
+    - country: Burundi
+      code: BI
+      example: BI43201011067444
+    - country: Cameroon
+      code: CM
+      example: CM2110003001000500000605306
+    - country: Cape Verde
+      code: CV
+      example: CV64000300004547069110176
+    - country: Costa Rica
+      code: CR
+      example: CR0515202001026284066
+    - country: Croatia
+      code: HR
+      example: HR1210010051863000160
+    - country: Cyprus
+      code: CY
+      example: CY17002001280000001200527600
+    - country: Czech Republic
+      code: CZ
+      example: CZ6508000000192000145399
+    - country: Denmark
+      code: DK
+      example: DK5000400440116243
+    - country: Dominican Republic
+      code: DO
+      example: DO28BAGR00000001212453611324
+    - country: Estonia
+      code: EE
+      example: EE382200221020145685
+    - country: Faroe Islands
+      code: FO
+      example: FO1464600009692713
+    - country: Finland
+      code: FI
+      example: FI2112345600000785
+    - country: France
+      code: FR
+      example: FR1420041010050500013M02606
+    - country: Guatemala
+      code: GT
+      example: GT82TRAJ01020000001210029690
+    - country: Georgia
+      code: GE
+      example: GE29NB0000000101904917
+    - country: Germany
+      code: DE
+      example: DE89370400440532013000
+    - country: Gibraltar
+      code: GI
+      example: GI75NWBK000000007099453
+    - country: Greece
+      code: GR
+      example: GR1601101250000000012300695
+    - country: Greenland
+      code: GL
+      example: GL8964710001000206
+    - country: Hungary
+      code: HU
+      example: HU42117730161111101800000000
+    - country: Iceland
+      code: IS
+      example: IS140159260076545510730339
+    - country: Iran
+      code: IR
+      example: IR580540105180021273113007
+    - country: Ireland
+      code: IE
+      example: IE29AIBK93115212345678
+    - country: Israel
+      code: IL
+      example: IL620108000000099999999
+    - country: Italy
+      code: IT
+      example: IT60X0542811101000000123456
+    - country: Ivory Coast
+      code: CI
+      example: CI05A00060174100178530011852
+    - country: Jordan
+      code: JO
+      example: JO94CBJO0010000000000131000302
+    - country: Kazakhstan
+      code: KZ
+      example: KZ176010251000042993
+    - country: Kuwait
+      code: KW
+      example: KW74NBOK0000000000001000372151
+    - country: Latvia
+      code: LV
+      example: LV80BANK0000435195001
+    - country: Lebanon
+      code: LB
+      example: LB30099900000001001925579115
+    - country: Liechtenstein
+      code: LI
+      example: LI21088100002324013AA
+    - country: Lithuania
+      code: LT
+      example: LT121000011101001000
+    - country: Luxembourg
+      code: LU
+      example: LU280019400644750000
+    - country: Macedonia
+      code: MK
+      example: MK07300000000042425
+    - country: Madagascar
+      code: MG
+      example: MG4600005030010101914016056
+    - country: Malta
+      code: MT
+      example: MT84MALT011000012345MTLCAST001S
+    - country: Mauritania
+      code: MR
+      example: MR1300012000010000002037372
+    - country: Mauritius
+      code: MU
+      example: MU17BOMM0101101030300200000MUR
+    - country: Mali
+      code: ML
+      example: ML03D00890170001002120000447
+    - country: Moldova
+      code: MD
+      example: MD24AG000225100013104168
+    - country: Monaco
+      code: MC
+      example: MC5813488000010051108001292
+    - country: Montenegro
+      code: ME
+      example: ME25505000012345678951
+    - country: Mozambique
+      code: MZ
+      example: MZ59000100000011834194157
+    - country: Netherlands
+      code: NL
+      example: NL91ABNA0417164300
+    - country: Norway
+      code: "NO"
+      example: NO9386011117947
+    - country: Pakistan
+      code: PK
+      example: PK24SCBL0000001171495101
+    - country: Palestine
+      code: PS
+      example: PS92PALS000000000400123456702
+    - country: Poland
+      code: PL
+      example: PL27114020040000300201355387
+    - country: Portugal
+      code: PT
+      example: PT50000201231234567890154
+    - country: Qatar
+      code: QA
+      example: QA58DOHB00001234567890ABCDEFG
+    - country: Romania
+      code: RO
+      example: RO49AAAA1B31007593840000
+    - country: San Marino
+      code: SM
+      example: SM86U0322509800000000270100
+    - country: Saudi Arabia
+      code: SA
+      example: SA0380000000608010167519
+    - country: Senegal
+      code: SN
+      example: SN12K00100152000025690007542
+    - country: Serbia
+      code: RS
+      example: RS35260005601001611379
+    - country: Slovakia
+      code: SK
+      example: SK3112000000198742637541
+    - country: Slovenia
+      code: SI
+      example: SI56191000000123438
+    - country: Spain
+      code: ES
+      example: ES9121000418450200051332
+    - country: Sweden
+      code: SE
+      example: SE3550000000054910000003
+    - country: Switzerland
+      code: CH
+      example: CH9300762011623852957
+    - country: Tunisia
+      code: TN
+      example: TN5914207207100707129648
+    - country: Turkey
+      code: TR
+      example: TR330006100519786457841326
+    - country: United Arab Emirates
+      code: AE
+      example: AE260211000000230064016
+    - country: United Kingdom
+      code: GB
+      example: GB29NWBK60161331926819
+    - country: Virgin Islands, British
+      code: VG
+      example: VG96VPVG0000012345678901
+related:
+    - creditCard
+    - cvv
+    - rtn
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>iban validator</h1>
+        <p>Validate an International Bank Account Number (IBAN)</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>country</code></td>
+                                <td><code>data-bv-iban-country</code></td>
+                                <td>String</td>
+                                <td>An ISO-3166 country code.<br/>It's <a href="/settings/#dynamic-option">dynamic option</a></td>
+                            </tr>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-iban-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-iban="true".
+                    </div>
+
+                    <p>If the <code>country</code> is not defined, it will be parsed from the IBAN number.</p>
+                    <p>The validator supports the following countries (sorted by the country code in alphabetical order):</p>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Country</th>
+                                <th>Code</th>
+                                <th>Sample IBAN</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in page.countries %}
+                            <tr>
+                                <td>{{ forloop.index }}</td>
+                                <td>{{ item.country }}</td>
+                                <td>{{ item.code }}</td>
+                                <td><a href="javascript: void(0);" class="sample">{{ item.example }}</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#iban-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#iban-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#iban-js-tab" data-toggle="tab">JS</a></li>
+                            <li><a href="#iban-declarative-tab" data-toggle="tab">Declarative usage</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="iban-form-tab">
+                            {% include validators/iban/example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="iban-html-tab">
+{% highlight html %}
+{% include validators/iban/example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="iban-js-tab">
+{% highlight javascript %}
+{% include validators/iban/example.js %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="iban-declarative-tab">
+{% highlight html %}
+{% include validators/iban/declarative-example.html %}
+
+<script>
+{% include validators/iban/declarative-example.js %}
+</script>
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include validators/iban/example.js %}
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        $('#ibanForm')
+            .find('input[name="iban"]')
+                .val($(this).html())
+                .end()
+            .bootstrapValidator('revalidateField', 'iban');
+
+        var isValid = $('#ibanForm').data('bootstrapValidator').isValid();
+        $(this)
+            .parents('tr').find('i')
+            .removeClass('fa-check fa-times')
+            .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>

@@ -1,0 +1,27 @@
+<!-- Include bootbox.js -->
+<script src="//oss.maxcdn.com/bootbox/4.2.0/bootbox.min.js"></script>
+
+<button class="btn btn-default" id="loginButton">Login</button>
+
+<!-- The login modal. Don't display it initially -->
+<form id="loginForm" method="post" class="form-horizontal" style="display: none;">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Username</label>
+        <div class="col-sm-5">
+            <input type="text" class="form-control" name="username" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Password</label>
+        <div class="col-sm-5">
+            <input type="password" class="form-control" name="password" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-5 col-sm-offset-3">
+            <button type="submit" class="btn btn-default">Login</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,143 @@
+---
+layout: post
+title: BootstrapValidator v0.4.0 Released
+date: 2014-04-03 10:00:00 +0700
+author: nghuuphuoc
+---
+
+<h3>New features</h3>
+<ul class="doc-list">
+    <li><i class="fa fa-star"></i> <a href="{{ site.repository.source }}/issues/14">#14</a>, <a href="{{ site.repository.source }}/issues/57">#57</a>: Set validator option by using <a href="/examples/#attribute">HTML 5 attributes</a></li>
+    <li><i class="fa fa-star"></i> Support <a href="/examples/#html5">HTML 5 input types</a>:</li>
+</ul>
+
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <th>HTML 5 attribute</th>
+            <th>Equivalent validator</th>
+            <th>Equivalent HTML attribute</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>min="..."</code></td>
+            <td><a href="/validators/greaterThan/">greaterThan validator</a></td>
+            <td>
+{% highlight html %}
+data-bv-greaterthan="true"
+data-bv-greaterthan-value="..."
+{% endhighlight %}
+            </td>
+        </tr>
+        <tr>
+            <td><code>max="..."</code></td>
+            <td><a href="/validators/lessThan/">lessThan validator</a></td>
+            <td>
+{% highlight html %}
+data-bv-lessthan="true"
+data-bv-lessthan-value="..."
+{% endhighlight %}
+            </td>
+        </tr>
+        <tr>
+            <td><code>maxlength="..."</code></td>
+            <td><a href="/validators/stringLength/">stringLength validator</a></td>
+            <td>
+{% highlight html %}
+data-bv-stringlength="true"
+data-bv-stringlength-max="..."
+{% endhighlight %}
+            </td>
+        </tr>
+        <tr>
+            <td><code>pattern="..."</code></td>
+            <td><a href="/validators/regexp/">regexp validator</a></td>
+            <td>
+{% highlight html %}
+data-bv-regexp="true"
+data-bv-regexp-regexp="..."
+{% endhighlight %}
+            </td>
+        </tr>
+        <tr>
+            <td><code>required</code></td>
+            <td><a href="/validators/notEmpty/">notEmpty validator</a></td>
+            <td><code>data-bv-notempty="true"</code></td>
+        </tr>
+        <tr>
+            <td><code>type="color"</code></td>
+            <td><a href="/validators/hexColor/">hexColor validator</a></td>
+            <td><code>data-bv-hexcolor="true"</code></td>
+        </tr>
+        <tr>
+            <td><code>type="email"</code></td>
+            <td><a href="/validators/emailAddress/">emailAddress validator</a></td>
+            <td><code>data-bv-emailaddress="true"</code></td>
+        </tr>
+        <tr>
+            <td>
+{% highlight html %}
+type="range"
+min="..."
+max="..."
+{% endhighlight %}
+            </td>
+            <td><a href="/validators/between/">between validator</a></td>
+            <td>
+{% highlight html %}
+data-bv-between="true"
+data-bv-between-min="..."
+data-bv-between-max="..."
+{% endhighlight %}
+            </td>
+        </tr>
+        <tr>
+            <td><code>type="url"</code></td>
+            <td><a href="/validators/uri/">uri validator</a></td>
+            <td><code>data-bv-uri="true"</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="doc-list">
+    <li><i class="fa fa-star"></i> <a href="{{ site.repository.source }}/issues/74">#74</a>, <a href="{{ site.repository.source }}/issues/103">#103</a>, <a href="{{ site.repository.source }}/issues/122">#122</a>: Set the custom <a href="/settings/#trigger">trigger event</a>. It's possible to use <code>data-bv-trigger</code> attribute or <code>trigger</code> option.</li>
+    <li><a href="{{ site.repository.source }}/issues/109">#109</a>: Add <a href="/api/#set-live-mode"><code>setLiveMode()</code> method</a> to turn on/off the live validating mode</li>
+    <li><a href="{{ site.repository.source }}/issues/114">#114</a>: Add <a href="/validators/iban/">iban validator</a> for validating IBAN (International Bank Account Number)</li>
+    <li><a href="{{ site.repository.source }}/issues/116">#116</a>: Add <a href="/validators/uuid/">uuid validator</a>, support UUID v3, v4, v5</li>
+    <li><a href="{{ site.repository.source }}/issues/128">#128</a>: Add <a href="/validators/numeric/">numeric validator</a></li>
+    <li><a href="{{ site.repository.source }}/issues/135">#135</a>: Add <a href="/validators/integer/">integer validator</a></li>
+    <li><a href="{{ site.repository.source }}/issues/138">#138</a>: Add <a href="/validators/hex/">hex validator</a></li>
+    <li><a href="{{ site.repository.source }}/issues/139">#139</a>: Add <a href="/validators/stringCase/">stringCase validator</a> to check a string is lower or upper case</li>
+</ul>
+
+<h3>Changes</h3>
+<ul class="doc-list">
+    <li><a href="/api/#disable-submit-buttons"><code>disableSubmitButtons()</code></a> is now marked as a public API</li>
+    <li>The first parameter of <a href="/api/#update-status"><code>updateStatus()</code> method</a> now accepts the field name only</li>
+</ul>
+
+<h3>Improvements</h3>
+<ul class="doc-list">
+    <li><a href="{{ site.repository.source }}/issues/133">#133</a>: The <a href="/validators/regexp/">regexp validator</a> allows to pass a string</li>
+    <li><i class="fa fa-star"></i> <a href="{{ site.repository.source }}/issues/136">#136</a>: Support multiple elements with the <a href="/examples/multiple/">same name</a></li>
+    <li><a href="{{ site.repository.source }}/pull/140">#140</a>: Do not validate hidden (<code>type="hidden"</code>) and invisible element, thanks to <a href="https://github.com/easonhan007">@easonhan007</a></li>
+</ul>
+
+<h3>Bug fixes</h3>
+<ul class="doc-list">
+    <li><a href="{{ site.repository.source }}/issues/126">#126</a>: Submit button remains disabled after calling custom <code>submitHandler</code> and the form is valid</li>
+    <li><a href="{{ site.repository.source }}/issues/132">#132</a>: The <code>fields.[fieldName].message</code> option is not used when showing the error message</li>
+</ul>
+
+<h3>Contributors</h3>
+<p>Thank to the contributors:</p>
+<ul class="doc-list">
+    <li><a href="https://github.com/easonhan007">@easonhan007</a></li>
+</ul>
+
+<h3>Download</h3>
+<div>
+    <a class="btn btn-primary" href="{{ site.repository.source }}/releases/download/v0.4.0/bootstrapvalidator-dist-0.4.0.zip">bootstrapvalidator-dist-0.4.0.zip</a>
+    <a class="btn btn-default" href="{{ site.repository.source }}/archive/v0.4.0.zip">v0.4.0 Source Code</a>
+</div>

@@ -1,0 +1,32 @@
+<section>
+    <h2>Usage</h2>
+
+    <p>After initializing the form with the plugin using <code>$(form).bootstrapValidator(options)</code>, there are two ways to call the plugin method:</p>
+{% highlight javascript %}
+// Get plugin instance
+var bootstrapValidator = $(form).data('bootstrapValidator');
+
+// and then call method
+bootstrapValidator.methodName(parameters)
+{% endhighlight %}
+
+    <p>or:</p>
+{% highlight javascript %}
+$(form).bootstrapValidator(methodName, parameters);
+{% endhighlight %}
+
+    <p>The first way mostly returns the <code>BootstrapValidator</code> instance, meanwhile the second one always returns the jQuery object representing the form.</p>
+    <p>So, it's possible to chain methods as below:</p>
+{% highlight javascript %}
+// The first way
+$(form)
+    .data('bootstrapValidator')
+    .updateStatus('birthday', 'NOT_VALIDATED')
+    .validateField('birthday');
+
+// The second one
+$(form)
+    .bootstrapValidator('updateStatus', 'birthday', 'NOT_VALIDATED')
+    .bootstrapValidator('validateField', 'birthday');
+{% endhighlight %}
+</section>

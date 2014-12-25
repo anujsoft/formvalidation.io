@@ -1,0 +1,15 @@
+<form id="profileForm" class="form-horizontal"
+    data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+    data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+    data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-lg-3 control-label">Full name</label>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" name="fullName"
+                data-bv-regexp="true"
+                data-bv-regexp-regexp="^[a-z\s]+$"
+                data-bv-regexp-message="The full name can consist of alphabetical characters and spaces only" />
+        </div>
+    </div>
+</form>

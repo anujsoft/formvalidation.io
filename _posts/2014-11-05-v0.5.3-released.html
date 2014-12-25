@@ -1,0 +1,140 @@
+---
+layout: post
+title: BootstrapValidator v0.5.3 Released
+date: 2014-11-05 22:00:00 +0700
+author: nghuuphuoc
+---
+
+<h3>New features</h3>
+<ul class="doc-list">
+    <li><a href="{{ site.repository.source }}/issues/807">#807</a>, <a href="{{ site.repository.source }}/pull/821">#821</a>: Add <code>min</code>, <code>max</code> options for the <a href="/validators/date/">date</a> validator, thanks to <a href="https://github.com/Arkni">@Arkni</a></li>
+    <li><a href="{{ site.repository.source }}/pull/822">#822</a>: Add <a href="/validators/color/">color</a> validator, thanks to <a href="https://github.com/emilchristensen">@emilchristensen</a></li>
+    <li><a href="{{ site.repository.source }}/pull/844">#844</a>, <a href="{{ site.repository.source }}/pull/874">#874</a>: The <a href="/validators/stringLength/">stringLength</a> validator adds option to evaluate length in UTF-8 bytes, thanks to <a href="https://github.com/thx2001r">@thx2001r</a></li>
+    <li><a href="{{ site.repository.source }}/issues/960">#960</a>, <a href="{{ site.repository.source }}/issues/1052">#1052</a>: Add <code>trim</code> option for the <a href="/validators/stringLength/">stringLength</a> validator</li>
+    <li><a href="{{ site.repository.source }}/pull/1001">#1001</a>: Add <code>minFiles</code>, <code>maxFiles</code>, <code>minTotalSize</code>, <code>maxTotalSize</code> options for the <a href="/validators/file/">file</a> validator, thanks to <a href="https://github.com/morrizon">@morrizon</a></li>
+    <li><a href="{{ site.repository.source }}/pull/1008">#1008</a>: Add France <a href="/validators/zipCode/">postal code</a> validator, thanks to <a href="https://github.com/jazzzz">@jazzzz</a></li>
+    <li><a href="{{ site.repository.source }}/pull/1010">#1010</a>: Add Ireland <a href="/validators/zipCode/">postal code</a> validator, thanks to <a href="https://github.com/zmira">@zmira</a></li>
+    <li><a href="{{ site.repository.source }}/pull/1018">#1018</a>: Add German <a href="/validators/phone/">phone number</a> and <a href="/validators/zipCode/">postal code</a> validators, thanks to <a href="https://github.com/jhadenfeldt">@jhadenfeldt</a></li>
+    <li><a href="{{ site.repository.source }}/pull/1022">#1022</a>: Add Portugal <a href="/validators/zipCode/">postal code</a> validator, thanks to <a href="https://github.com/zmira">@zmira</a></li>
+    <li><a href="{{ site.repository.source }}/issues/1033">#1033</a>, <a href="{{ site.repository.source }}/issues/1043">#1043</a>, <a href="{{ site.repository.source }}/issues/1068">#1068</a>: Add <a href="/settings/#form-auto-focus">autoFocus</a> option</li>
+    <li><a href="{{ site.repository.source }}/pull/1072">#1072</a>: Add Austria and Switzerland <a href="/validators/zipCode/">postal code</a> validators, thanks to <a href="https://github.com/thomaslhotta">@thomaslhotta</a></li>
+</ul>
+
+<h3>Improvements</h3>
+<ul class="doc-list">
+    <li><a href="{{ site.repository.source }}/issues/823">#823</a>: The <a href="/validators/hexColor/">hexColor</a> validator only accepts 6 hex character values when using HTML 5 <code>type='color'</code> attribute</li>
+    <li><a href="{{ site.repository.source }}/pull/864">#864</a>: Comma separator handling in <a href="/validators/greaterThan/">greaterThan</a>, <a href="/validators/lessThan/">lessThan</a> validators, thanks to <a href="https://github.com/mgibas">@mgibas</a></li>
+    <li><a href="{{ site.repository.source }}/pull/999">#999</a>, <a href="{{ site.repository.source }}/issues/1048">#1048</a>: Replace ',' with '.' to validate decimal numbers correct, thanks to <a href="https://github.com/johanronn77">@johanronn77</a></li>
+    <li><a href="{{ site.repository.source }}/pull/1002">#1002</a>: Put tooltip/popover on bottom if there is not enough space on top, thanks to <a href="https://github.com/jazzzz">@jazzzz</a></li>
+    <li><a href="{{ site.repository.source }}/pull/1015">#1015</a>: The <a href="/validators/remote/">remote</a> validator allows to set <code>data</code> options via HTML attributes, thanks to <a href="https://github.com/jazzzz">@jazzzz</a></li>
+    <li><a href="{{ site.repository.source }}/pull/1017">#1017</a>: <a href="/examples/attribute/">Enable validator</a> when setting <code>data-bv-validatorname="data-bv-validatorname"</code>, thanks to <a href="https://github.com/jazzzz">@jazzzz</a></li>
+    <li><a href="{{ site.repository.source }}/issues/1026">#1026</a>: Requires jQuery 1.9.1 or higher</li>
+</ul>
+
+<h3>Bug fixes</h3>
+<ul class="doc-list">
+    <li><a href="{{ site.repository.source }}/issues/343">#343</a>, <a href="{{ site.repository.source }}/issues/481">#481</a>, <a href="{{ site.repository.source }}/pull/1045">#1045</a>: Fix double submit with defered validators, thanks to <a href="https://github.com/jazzzz">@jazzzz</a></li>
+    <li><a href="{{ site.repository.source }}/issues/933">#933</a>, <a href="{{ site.repository.source }}/issues/959">#959</a>, <a href="{{ site.repository.source }}/issues/1047">#1047</a>: Tooltip/popover isn't destroyed when the field is valid</li>
+    <li><a href="{{ site.repository.source }}/issues/991">#991</a>: The field is validated only one time when setting <code>trigger: 'blur'</code>, <code>container: 'tooltip'</code></li>
+    <li><a href="{{ site.repository.source }}/pull/1014">#1014</a>: Fix <a href="/api/#is-valid-field">isValidField()</a> and <a href="/api/#validate-field">validateField()</a> methods for fields without validators, thanks to <a href="https://github.com/jazzzz">@jazzzz</a></li>
+    <li><a href="{{ site.repository.source }}/issues/1050">#1050</a>: Fix the issue when using multiple fields with same name, the tooltip of the last element is always shown</li>
+    <li><a href="{{ site.repository.source }}/issues/1055">#1055</a>, <a href="{{ site.repository.source }}/pull/1063">#1063</a>: The <a href="/settings/#event-field">error.field.bv</a> event isn't triggered if verbose is set to false, thanks to <a href="https://github.com/shineability">@shineability</a></li>
+    <li><a href="{{ site.repository.source }}/issues/1057">#1057</a>, <a href="{{ site.repository.source }}/pull/1063">#1063</a>: The <a href="/settings/#field-verbose">verbose</a> option for field doesn't override the form level, thanks to <a href="https://github.com/shineability">@shineability</a></li>
+</ul>
+
+<h3>Document</h3>
+<ul class="doc-list">
+    <li><a href="{{ site.repository.source }}/pull/848">#848</a>: Update the <a href="/validators/stringLength">stringLength</a> document, thanks to <a href="https://github.com/Relequestual">@Relequestual</a></li>
+    <li><a href="{{ site.repository.source }}/issues/885">#885</a>: Add a notification about setting <a href="/validators/identical/">identical</a> validator for both fields</li>
+    <li><a href="{{ site.repository.source }}/issues/912">#912</a>: Add <a href="/examples/using-language-package/">Using language package</a> example</li>
+    <li><a href="{{ site.repository.source }}/issues/920">#920</a>, <a href="{{ site.repository.source }}/pull/929">#929</a>, <a href="{{ site.repository.source }}/pull/936">#936</a>: Update the <a href="/examples/tooltip-popover-position/">Changing the tooltip, popover's position</a> example, thanks to <a href="https://github.com/Arkni">@Arkni</a></li>
+    <li><a href="{{ site.repository.source }}/issues/938">#938</a>: Add <a href="/validators/regexp/#html-5-example">time</a> validator example</li>
+    <li><a href="{{ site.repository.source }}/issues/979">#979</a>: Add <a href="/validators/stringLength/#using-with-rails-form">Rails usage</a> for stringLength validator</li>
+    <li><a href="{{ site.repository.source }}/pull/1006">#1006</a>: Fix the order of <a href="/settings/#validator-enabled">parameters</a> for <a href="/api/#enable-field-validators">enableFieldValidators()</a> method, thanks to <a href="https://github.com/mchrapka">@mchrapka</a></li>
+    <li><a href="{{ site.repository.source }}/pull/1009">#1009</a>: Fix mixed data/delay in <a href="/validators/remote/">remote</a> doc, thanks to <a href="https://github.com/jazzzz">@jazzzz</a></li>
+    <li><a href="{{ site.repository.source }}/pull/1019">#1019</a>: Updated docs for added German <a href="/validators/zipCode/">postal code</a> and <a href="/validators/phone/">phone number</a> validators, thanks to <a href="https://github.com/jhadenfeldt">@jhadenfeldt</a></li>
+    <li><a href="{{ site.repository.source }}/pull/1038">#1038</a>: Fix <a href="/examples/changing-tooltip-position/">Changing tooltip, popover's position</a> example link, thanks to <a href="https://github.com/Arkni">@Arkni</a></li>
+</ul>
+
+<h3>Language packages</h3>
+<ul class="doc-list">
+    <li><a href="{{ site.repository.source }}/pull/827">#827</a>: Update Dutch language package, thanks to <a href="https://github.com/JvanderHeide">@JvanderHeide</a></li>
+    <li><a href="{{ site.repository.source }}/pull/829">#829</a>: Update Swedish language package, thanks to <a href="https://github.com/ulsa">@ulsa</a></li>
+    <li><a href="{{ site.repository.source }}/pull/834">#834</a>: Update Ukrainian and Russian language packages, thanks to <a href="https://github.com/oleg-voloshyn">@oleg-voloshyn</a></li>
+    <li><a href="{{ site.repository.source }}/pull/835">#835</a>: Update Belgium (French) language package, thanks to <a href="https://github.com/neilime">@neilime</a></li>
+    <li><a href="{{ site.repository.source }}/pull/836">#836</a>: Update French language package, thanks to <a href="https://github.com/neilime">@neilime</a></li>
+    <li><a href="{{ site.repository.source }}/pull/837">#837</a>: Update Bulgarian language package, thanks to <a href="https://github.com/mraiur">@mraiur</a></li>
+    <li><a href="{{ site.repository.source }}/pull/846">#846</a>: Update simplified Chinese language package, thanks to <a href="https://github.com/shamiao">@shamiao</a></li>
+    <li><a href="{{ site.repository.source }}/pull/849">#849</a>: Update Serbian language package, thanks to <a href="https://github.com/markocrni">@markocrni</a></li>
+    <li><a href="{{ site.repository.source }}/issues/850">#850</a>, <a href="{{ site.repository.source }}/pull/851">#851</a>: Update Danish language package, thanks to <a href="https://github.com/Djarnis">@Djarnis</a></li>
+    <li><a href="{{ site.repository.source }}/pull/869">#869</a>: Update Polish language package, thanks to <a href="https://github.com/grzesiek">@grzesiek</a></li>
+    <li><a href="{{ site.repository.source }}/pull/870">#870</a>: Update Traditional Chinese language package, thanks to <a href="https://github.com/tureki">@tureki</a></li>
+    <li><a href="{{ site.repository.source }}/pull/871">#871</a>: Update Czech language package, thanks to <a href="https://github.com/cuchac">@cuchac</a></li>
+    <li><a href="{{ site.repository.source }}/pull/872">#872</a>: Update Indonesian language package, thanks to <a href="https://github.com/egig">@egig</a></li>
+    <li><a href="{{ site.repository.source }}/pull/879">#879</a>: Update Romanian language package, thanks to <a href="https://github.com/filipac">@filipac</a></li>
+    <li><a href="{{ site.repository.source }}/pull/880">#880</a>: Update Belgium (Dutch) language package, thanks to <a href="https://github.com/dokterpasta">@dokterpasta</a></li>
+    <li><a href="{{ site.repository.source }}/pull/881">#881</a>: Update Italian language package, thanks to <a href="https://github.com/maramazza">@maramazza</a></li>
+    <li><a href="{{ site.repository.source }}/pull/882">#882</a>: Update Spanish language package, thanks to <a href="https://github.com/vadail">@vadail</a></li>
+    <li><a href="{{ site.repository.source }}/pull/891">#891</a>: Update Portuguese (Brazil) language package, thanks to <a href="https://github.com/dgmike">@dgmike</a></li>
+    <li><a href="{{ site.repository.source }}/pull/893">#893</a>: Fix country name of Dominican Republic, thanks to <a href="https://github.com/sventech">@sventech</a></li>
+    <li><a href="{{ site.repository.source }}/pull/900">#900</a>: Update Persian (Farsi) language package, thanks to <a href="https://github.com/i0">@i0</a></li>
+    <li><a href="{{ site.repository.source }}/pull/903">#903</a>: Update Hungarian language package, thanks to <a href="https://github.com/blackfyre">@blackfyre</a></li>
+    <li><a href="{{ site.repository.source }}/pull/910">#910</a>: Update Greek language package, thanks to <a href="https://github.com/pRieStaKos">@pRieStaKos</a></li>
+    <li><a href="{{ site.repository.source }}/pull/913">#913</a>: Update Thai language package, thanks to <a href="https://github.com/figgaro">@figgaro</a></li>
+    <li><a href="{{ site.repository.source }}/pull/915">#915</a>: Update Turkish language package, thanks to <a href="https://github.com/CeRBeR666">@CeRBeR666</a></li>
+    <li><a href="{{ site.repository.source }}/pull/961">#961</a>: Update Chilean Spanish language package, thanks to <a href="https://github.com/marceloampuerop6">@marceloampuerop6</a></li>
+    <li><a href="{{ site.repository.source }}/pull/967">#967</a>: Add Hebrew language package, thanks to <a href="https://github.com/yakidahan">@yakidahan</a></li>
+    <li><a href="{{ site.repository.source }}/pull/974">#974</a>: Add Albanian language package, thanks to <a href="https://github.com/desaretiuss">@desaretiuss</a></li>
+    <li><a href="{{ site.repository.source }}/pull/1025">#1025</a>: Fix French emailAddress message, thanks to <a href="https://github.com/jazzzz">@jazzzz</a></li>
+    <li><a href="{{ site.repository.source }}/pull/1051">#1051</a>: Add Portuguese language package, thanks to <a href="https://github.com/rtbfreitas">@rtbfreitas</a></li>
+</ul>
+
+<h3>Contributors</h3>
+<p>Thanks to 40 contributors:</p>
+<ul class="doc-list">
+    <li><a href="https://github.com/Arkni">@Arkni</a></li>
+    <li><a href="https://github.com/blackfyre">@blackfyre</a></li>
+    <li><a href="https://github.com/CeRBeR666">@CeRBeR666</a></li>
+    <li><a href="https://github.com/cuchac">@cuchac</a></li>
+    <li><a href="https://github.com/desaretiuss">@desaretiuss</a></li>
+    <li><a href="https://github.com/dgmike">@dgmike</a></li>
+    <li><a href="https://github.com/Djarnis">@Djarnis</a></li>
+    <li><a href="https://github.com/dokterpasta">@dokterpasta</a></li>
+    <li><a href="https://github.com/egig">@egig</a></li>
+    <li><a href="https://github.com/emilchristensen">@emilchristensen</a></li>
+    <li><a href="https://github.com/figgaro">@figgaro</a></li>
+    <li><a href="https://github.com/filipac">@filipac</a></li>
+    <li><a href="https://github.com/grzesiek">@grzesiek</a></li>
+    <li><a href="https://github.com/i0">@i0</a></li>
+    <li><a href="https://github.com/jazzzz">@jazzzz</a></li>
+    <li><a href="https://github.com/jhadenfeldt">@jhadenfeldt</a></li>
+    <li><a href="https://github.com/johanronn77">@johanronn77</a></li>
+    <li><a href="https://github.com/JvanderHeide">@JvanderHeide</a></li>
+    <li><a href="https://github.com/marceloampuerop6">@marceloampuerop6</a></li>
+    <li><a href="https://github.com/maramazza">@maramazza</a></li>
+    <li><a href="https://github.com/markocrni">@markocrni</a></li>
+    <li><a href="https://github.com/mchrapka">@mchrapka</a></li>
+    <li><a href="https://github.com/mgibas">@mgibas</a></li>
+    <li><a href="https://github.com/morrizon">@morrizon</a></li>
+    <li><a href="https://github.com/mraiur">@mraiur</a></li>
+    <li><a href="https://github.com/neilime">@neilime</a></li>
+    <li><a href="https://github.com/oleg-voloshyn">@oleg-voloshyn</a></li>
+    <li><a href="https://github.com/pRieStaKos">@pRieStaKos</a></li>
+    <li><a href="https://github.com/Relequestual">@Relequestual</a></li>
+    <li><a href="https://github.com/rtbfreitas">@rtbfreitas</a></li>
+    <li><a href="https://github.com/shamiao">@shamiao</a></li>
+    <li><a href="https://github.com/shineability">@shineability</a></li>
+    <li><a href="https://github.com/sventech">@sventech</a></li>
+    <li><a href="https://github.com/thomaslhotta">@thomaslhotta</a></li>
+    <li><a href="https://github.com/thx2001r">@thx2001r</a></li>
+    <li><a href="https://github.com/tureki">@tureki</a></li>
+    <li><a href="https://github.com/ulsa">@ulsa</a></li>
+    <li><a href="https://github.com/vadail">@vadail</a></li>
+    <li><a href="https://github.com/yakidahan">@yakidahan</a></li>
+    <li><a href="https://github.com/zmira">@zmira</a></li>
+</ul>
+
+<h3>Download</h3>
+<div>
+    <a class="btn btn-primary" href="/download/" title="Download BootstrapValidator v0.5.3">BootstrapValidator v0.5.3</a>
+</div>

@@ -1,0 +1,127 @@
+---
+layout: default
+title: Validate an ISSN (International Standard Serial Number)
+permalink: /validators/issn/
+examples: 0378-5955, 0024-9319, 0032-1478, 0032-147X
+related:
+    - ean
+    - isbn
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>issn validator</h1>
+        <p>Validate an ISSN (International Standard Serial Number)</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-issn-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-issn="true".
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>ISSN</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% assign examples = page.examples | split: ', ' %}
+                            {% for issn in examples %}
+                            <tr>
+                                <td><a href="javascript: void(0);" class="sample">{{ issn }}</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#issn-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#issn-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#issn-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="issn-form-tab">
+                            {% include validators/issn/example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="issn-html-tab">
+                            {% highlight html %}
+                            {% include validators/issn/example.html %}
+                            {% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="issn-js-tab">
+                            {% highlight javascript %}
+                            {% include validators/issn/example.js %}
+                            {% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include validators/issn/example.js %}
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        $('#issnForm').find('input[name="issn"]').val($(this).html());
+
+        $('#issnForm').bootstrapValidator('revalidateField', 'issn');
+
+        var isValid = $('#issnForm').data('bootstrapValidator').isValid();
+        $(this)
+            .parents('tr').find('i')
+            .removeClass('fa-check fa-times')
+            .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>

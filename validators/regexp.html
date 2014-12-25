@@ -1,0 +1,158 @@
+---
+layout: default
+title: Check if the value matches given Javascript regular expression
+permalink: /validators/regexp/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>regexp validator</h1>
+        <p>Check if the value matches given Javascript regular expression</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-regexp-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                            <tr>
+                                <td><code>regexp</code><sup>*</sup></td>
+                                <td><code>data-bv-regexp-regexp</code> or <code>pattern</code></td>
+                                <td>String</td>
+                                <td>The Javascript regular expression</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-regexp="true".<br/>
+                        You don't need to do that when using HTML 5 pattern="..." attribute.
+                    </div>
+
+                    <h3>Using a correct pattern</h3>
+
+                    <p>If the validator still pass when the field value doesn't match the pattern, please ensure you use a correct pattern.</p>
+                    <p>Here are some check lists:</p>
+                    <ol>
+                        <li>
+                            <p>Is the pattern wrapped between <code>^</code> and <code>$</code>?</p>
+                            <p>For example, if a field must be 5 digits number, then <code>^\d{5}</code> (no <code>$</code> at the end) is wrong pattern. <code>^\d{5}$</code> is right one.</p>
+                        </li>
+                        <li>
+                            <p>Does the pattern work with external services?</p>
+                            <p>You can use the following services to test the regular expression:</p>
+                            <ul class="doc-list">
+                                <li><a href="http://regexr.com">regexr.com</a></li>
+                                <li><a href="http://regex101.com/">regex101.com</a></li>
+                                <li><a href="http://regexpal.com/">regexpal.com</a></li>
+                            </ul>
+                        </li>
+                    </ol>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Examples</h2>
+                    <p>In the following form, user is asked to enter the full name which alphabetical characters and spaces only.</p>
+
+                    <h3>Basic example</h3>
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#regexp-form-tab" data-toggle="tab">Form</a></li>
+                            <li><a href="#regexp-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#regexp-js-tab" data-toggle="tab">JS</a></li>
+                            <li><a href="#regexp-declarative-tab" data-toggle="tab">Declarative usage</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="regexp-form-tab">
+                            {% include validators/regexp/example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="regexp-html-tab">
+{% highlight html %}
+{% include validators/regexp/example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="regexp-js-tab">
+{% highlight javascript %}
+{% include validators/regexp/example.js %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="regexp-declarative-tab">
+{% highlight html %}
+{% include validators/regexp/declarative-example.html %}
+
+<script>
+{% include validators/regexp/declarative-example.js %}
+</script>
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>HTML 5 example</h3>
+                    <p>By default, the regexp validator will be used if the field uses HTML 5 <code>pattern</code> attribute. In order to disable the validator, just simply set <code>data-bv-regexp="false"</code>.</p>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#html5-form-tab" data-toggle="tab">Form</a></li>
+                            <li><a href="#html5-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#html5-js-tab" data-toggle="tab">JS</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="html5-form-tab">
+                            {% include validators/regexp/html5-example.html %}
+                            </div>
+
+                            <div class="tab-pane" id="html5-html-tab">
+{% highlight html %}
+{% include validators/regexp/html5-example.html %}
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="html5-js-tab">
+{% highlight javascript %}
+{% include validators/regexp/html5-example.js %}
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+{% include validators/regexp/example.js %}
+{% include validators/regexp/html5-example.js %}
+</script>

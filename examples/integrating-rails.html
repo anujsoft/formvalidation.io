@@ -1,0 +1,70 @@
+---
+layout: default
+title: Integrating with Rails
+permalink: /examples/integrating-rails/
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Integrating with Rails</h1>
+        <p>&larr; <a href="/examples/">Examples</a></p>
+        {% include edit-button.html %}
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <section>
+                    <p>For Rails, the input field is constructed from model name and field name. For example, user have email as field, when form helper render view, the input field name will be <code>'user[email]'</code>. The syntax for calling the plugin looks like below:</p>
+
+{% highlight javascript %}
+$(form).bootstrapValidator({
+    fields: {
+        'user[email]': {
+            validatorName: validatorOptions
+        }
+    }
+});
+{% endhighlight %}
+
+                    <p>When using BootstrapValidator in a Rails remote form, in order to prevent the form from multiple submissions, trigger the <a href="/settings/#event-form">success.form.bv</a> event as following:</p>
+
+{% highlight javascript %}
+$(form)
+    .bootstrapValidator({
+        ...
+    })
+    .on('success.form.bv', function(e) {
+        // Called when the form is valid
+        var $form = $(e.target);
+        if ($form.data('remote')) {
+            e.preventDefault();
+            return false;
+        }
+    })
+    .on('submit', function(e) {
+        var $form = $(e.target);
+        if ($form.data('remote')) {
+            var numInvalidFields = $form.data('bootstrapValidator').getInvalidFields().length;
+            if (numInvalidFields) {
+                e.preventDefault();
+                return false;
+            }
+        }
+    });
+{% endhighlight %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Resources</h2>
+                    <ul>
+                        <li><a href="https://rubygems.org/gems/bootstrap-validator-rails">BootstrapValidator gem for Rails</a>, created by Jiří Kaipr (<a href="https://github.com/jkaipr">@jkaipr</a>)</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

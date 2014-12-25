@@ -1,0 +1,18 @@
+<form id="phoneForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Country</label>
+        <div class="col-sm-5">
+            <select class="form-control" name="countrySelectBox">
+                {% for item in page.countries %}<option value="{{ item.code }}">{{ item.country }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Phone number</label>
+        <div class="col-sm-5">
+            <input type="text" class="form-control" name="phoneNumber" />
+        </div>
+    </div>
+</form>

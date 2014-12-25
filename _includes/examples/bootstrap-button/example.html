@@ -1,0 +1,55 @@
+<!-- Override the feedback icons position -->
+<style type="text/css">
+#buttonGroupForm .btn-group .form-control-feedback {
+    top: 0;
+    right: -30px;
+}
+</style>
+
+<form id="buttonGroupForm" method="post" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Gender</label>
+        <div class="col-sm-9">
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default">
+                    <input type="radio" name="gender" value="male" /> Male
+                </label>
+                <label class="btn btn-default">
+                    <input type="radio" name="gender" value="female" /> Female
+                </label>
+                <label class="btn btn-default">
+                    <input type="radio" name="gender" value="other" /> Other
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Languages</label>
+        <div class="col-sm-9">
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default">
+                    <input type="checkbox" name="languages[]" value="english" /> English
+                </label>
+                <label class="btn btn-default">
+                    <input type="checkbox" name="languages[]" value="german" /> German
+                </label>
+                <label class="btn btn-default">
+                    <input type="checkbox" name="languages[]" value="french" /> French
+                </label>
+                <label class="btn btn-default">
+                    <input type="checkbox" name="languages[]" value="russian" /> Russian
+                </label>
+                <label class="btn btn-default">
+                    <input type="checkbox" name="languages[]" value="italian"> Italian
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-9 col-sm-offset-3">
+            <button type="submit" class="btn btn-default">Validate</button>
+        </div>
+    </div>
+</form>

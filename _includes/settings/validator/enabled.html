@@ -1,0 +1,97 @@
+<section>
+    <h3 id="validator-enabled">enabled: Boolean</h3>
+
+    <p>Indicate the validator is enabled or disabled. It is <code>true</code>, by default.</p>
+    <p>Look at the field's <a href="#field-enabled">enabled</a> option if you want to enable/disable all validators.</p>
+    <p>The table below shows three equivalent ways to enable or disable given validator:</p>
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Usage</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>HTML 5 attribute</td>
+                <td>
+{% highlight html %}
+<!-- Enable validator -->
+<input class="form-control" name="fullName" data-bv-notempty />
+
+<!-- or -->
+<input class="form-control" name="fullName" data-bv-notempty="true" />
+
+<!-- Disable validator -->
+<input class="form-control" name="fullName" data-bv-notempty="false" />
+{% endhighlight %}
+                </td>
+            </tr>
+            <tr>
+                <td>Plugin option</td>
+                <td>
+{% highlight javascript %}
+$(document).ready(function() {
+    $(form).bootstrapValidator({
+        fields: {
+            fullName: {
+                validators: {
+                    notEmpty: {
+                        enabled: true   // or false
+                    }
+                }
+            }
+        }
+    });
+});
+{% endhighlight %}
+                </td>
+            <tr>
+                <td><a href="/api/#enable-field-validators">enableFieldValidators()</a></td>
+                <td>
+{% highlight javascript %}
+// Enable validator
+$(form)
+    .bootstrapValidator('enableFieldValidators', fullName, true, 'notEmpty');
+
+// Disable validator
+$(form)
+    .bootstrapValidator('enableFieldValidators', fullName, false, 'notEmpty');
+{% endhighlight %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4 id="validator-enabled-example">Example</h4>
+    <div class="doc-demo">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#validator-enabled-form-tab" data-toggle="tab">Try it</a></li>
+            <li><a href="#validator-enabled-html-tab" data-toggle="tab">HTML</a></li>
+            <li><a href="#validator-enabled-js-tab" data-toggle="tab">JS</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="validator-enabled-form-tab">
+            {% include settings/validator/enabled-example.html %}
+            </div>
+
+            <div class="tab-pane" id="validator-enabled-html-tab">
+{% highlight html %}
+{% include settings/validator/enabled-example.html %}
+{% endhighlight %}
+            </div>
+
+            <div class="tab-pane" id="validator-enabled-js-tab">
+{% highlight javascript %}
+{% include settings/validator/enabled-example.js %}
+{% endhighlight %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+{% include settings/validator/enabled-example.js %}
+</script>

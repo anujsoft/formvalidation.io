@@ -1,0 +1,25 @@
+<!-- Include CKEditor and jQuery adapter -->
+<script src="//cdn.ckeditor.com/4.4.3/basic/ckeditor.js"></script>
+<script src="//cdn.ckeditor.com/4.4.3/basic/adapters/jquery.js"></script>
+        
+<form id="profileForm" method="post" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Full name</label>
+        <div class="col-sm-5">
+            <input type="text" class="form-control" name="fullName" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Bio</label>
+        <div class="col-sm-9">
+            <textarea class="form-control" name="bio" style="height: 400px;"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-5 col-sm-offset-3">
+            <button type="submit" class="btn btn-default">Validate</button>
+        </div>
+    </div>
+</form>
