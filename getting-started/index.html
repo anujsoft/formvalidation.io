@@ -1,0 +1,1519 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title>Getting Started - FormValidation</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="BootstrapValidator, a jQuery plugin to validate form fields">
+<meta name="keywords" content="Bootstrap, jQuery, validate, plugin, validator, form">
+<meta name="author" content="Nguyen Huu Phuoc">
+<meta name="google-site-verification" content="uzi08FxE8yqb9q-PlBzFxZeuUGalNFp3gX2haopVWBc" />
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cardo:400,400italic,700">
+<link rel="stylesheet" href="/vendor/pygments/github.css">
+<link rel="stylesheet" href="/asset/css/style.css">
+
+<!--[if lt IE 9]>
+<script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<script src="//oss.maxcdn.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-44786951-2']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+</head>
+<body>
+    <nav class="doc-nav" tabindex="-1">
+    <ul>
+        <li><a href="/">Home</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/download/">Download</a></li>
+    
+        
+            
+        
+        <li class="doc-nav-active"><a href="/getting-started/">Getting Started</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/settings/">Settings</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/validators/">Validators</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/api/">API</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/examples/">Examples</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/developing/">Developing</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/news/">News</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/license/">License</a></li>
+    
+    </ul>
+
+    <div class="doc-hr"></div>
+
+    <ul>
+        <li><a href="https://github.com/formvalidation/formvalidation" title="Fork me on Github">Github <i class="fa fa-github"></i></a></li>
+        <li><a href="http://twitter.com/formvalidation/" title="Follow me on Twitter">formvalidation <i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://www.facebook.com/pages/FormValidation/1567908420106565/" title="Like me on Facebook">FormValidation <i class="fa fa-facebook"></i></a></li>
+        <li><a href="https://plus.google.com/u/0/communities/114931136856987817254" title="Join me on Google+">Google+ community <i class="fa fa-google-plus"></i></a></li>
+    </ul>
+
+    <div class="doc-hr"></div>
+
+    <div class="doc-creator">
+        <p>
+            Handcrafted with <span class="doc-heart"><i class="fa fa-heart"></i></span> and a lot of <i class="fa fa-coffee"></i><br />
+            by <a href="http://twitter.com/nghuuphuoc">@nghuuphuoc</a><br/>
+            <img src="http://github.com/nghuuphuoc.png" />
+        </p>
+        <p><a href="mailto: phuoc@huuphuoc.me" class="btn">Hire me</a></p>
+    </div>
+</nav>
+<button class="btn doc-logo" title="Toggle the navigation"><i class="fa fa-bars"></i></button>
+
+    <div id="main" class="doc-content-wrapper">
+        <div class="doc-notification">
+    <i class="fa fa-bell-o"></i> <a href="/news/v0.5.3-released/">v0.5.3</a> is released on 2014.11.05!
+</div>
+
+        <div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Getting Started</h1>
+        <p>Getting used with BootstrapValidator</p>
+        <a class="btn doc-edit-btn" href="https://github.com/formvalidation/formvalidation.io/edit/docs/getting-started.html">Improve it on Github</a>
+        <div id="shareButton" class="doc-share-button"></div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+    <h2>What's included?</h2>
+
+    <p>The <a href="/download/">BootstrapValidator package</a> consists of the following files:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">bootstrapvalidator/
+├── dist
+│   ├── css
+│   │   ├── bootstrapValidator.css
+│   │   └── bootstrapValidator.min.css
+│   └── js
+│       ├──language
+│       │   ├── de_DE.js
+│       │   ├── en_US.js
+│       │   └── ...
+│       ├── bootstrapValidator.js
+│       └── bootstrapValidator.min.js
+└── src
+    ├── css
+    │   ├── bootstrapValidator.css
+    │   └── bootstrapValidator.min.css
+    └── js
+        ├──language
+        │   ├── de_DE.js
+        │   ├── en_US.js
+        │   └── ...
+        ├── validator
+        │   ├── base64.js
+        │   ├── between.js
+        │   ├── callback.js
+        │   └── ...
+        └── bootstrapValidator.js</code></pre></div>
+
+    <p>The <strong>src</strong> directory consists of the original source files. <strong>src/js/bootstrapValidator.js</strong> is not compressed and doesn't include any validators.</p>
+
+    <p>The <strong>dist</strong> directory consists of files which is combined and compressed.
+    <strong>dist/js/bootstrapValidator(.min).js</strong> includes all validators. It should be used in the production site.</p>
+
+    <p>The language packages are placed inside both <strong>dist/js/language</strong> and <strong>src/js/language</strong> directories.</p>
+
+    <h3>Language packages</h3>
+
+    <p>BootstrapValidator has been translated into the following languages:</p>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Language</th>
+                <th>File Name</th>
+                <th>Translated By</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td>English <span class="label label-default">built in</span></td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/en_US.js">en_US.js</a></td>
+                <td><a href="http://github.com/nghuuphuoc">@nghuuphuoc</a></td>
+            </tr>
+
+            
+            <tr>
+                <td>1</td>
+                <td>Albanian</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/sq_AL.js">sq_AL.js</a></td>
+                <td><a href="http://github.com/desaretiuss" style="display: block;">@desaretiuss</a></td>
+            </tr>
+            
+            <tr>
+                <td>2</td>
+                <td>Arabic</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/ar_MA.js">ar_MA.js</a></td>
+                <td><a href="http://github.com/Arkni" style="display: block;">@Arkni</a></td>
+            </tr>
+            
+            <tr>
+                <td>3</td>
+                <td>Belgium (French)</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/be_FR.js">be_FR.js</a></td>
+                <td><a href="http://github.com/neilime" style="display: block;">@neilime</a></td>
+            </tr>
+            
+            <tr>
+                <td>4</td>
+                <td>Belgium (Netherland)</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/be_NL.js">be_NL.js</a></td>
+                <td><a href="http://github.com/dokterpasta" style="display: block;">@dokterpasta</a></td>
+            </tr>
+            
+            <tr>
+                <td>5</td>
+                <td>Bulgarian</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/bg_BG.js">bg_BG.js</a></td>
+                <td><a href="http://github.com/mraiur" style="display: block;">@mraiur</a></td>
+            </tr>
+            
+            <tr>
+                <td>6</td>
+                <td>Catalan</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/ca_ES.js">ca_ES.js</a></td>
+                <td><a href="http://github.com/ArnauAregall" style="display: block;">@ArnauAregall</a></td>
+            </tr>
+            
+            <tr>
+                <td>7</td>
+                <td>Chilean Spanish</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/es_CL.js">es_CL.js</a></td>
+                <td><a href="http://github.com/marceloampuerop6" style="display: block;">@marceloampuerop6</a></td>
+            </tr>
+            
+            <tr>
+                <td>8</td>
+                <td>Chinese</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/zh_CN.js">zh_CN.js</a></td>
+                <td><a href="http://github.com/shamiao" style="display: block;">@shamiao</a></td>
+            </tr>
+            
+            <tr>
+                <td>9</td>
+                <td>Czech</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/cs_CZ.js">cs_CZ.js</a></td>
+                <td><a href="http://github.com/AdwinTravebudik21cuchac" style="display: block;">@AdwinTrave</a><a href="http://github.com/AdwinTravebudik21cuchac" style="display: block;">@budik21</a><a href="http://github.com/AdwinTravebudik21cuchac" style="display: block;">@cuchac</a></td>
+            </tr>
+            
+            <tr>
+                <td>10</td>
+                <td>Danish</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/da_DK.js">da_DK.js</a></td>
+                <td><a href="http://github.com/Djarnis" style="display: block;">@Djarnis</a></td>
+            </tr>
+            
+            <tr>
+                <td>11</td>
+                <td>Dutch (Netherland)</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/nl_NL.js">nl_NL.js</a></td>
+                <td><a href="http://github.com/JvanderHeide" style="display: block;">@JvanderHeide</a></td>
+            </tr>
+            
+            <tr>
+                <td>12</td>
+                <td>Finnish</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/fi_FI.js">fi_FI.js</a></td>
+                <td><a href="http://github.com/traone" style="display: block;">@traone</a></td>
+            </tr>
+            
+            <tr>
+                <td>13</td>
+                <td>French</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/fr_FR.js">fr_FR.js</a></td>
+                <td><a href="http://github.com/dlucazeaujazzzzneilime" style="display: block;">@dlucazeau</a><a href="http://github.com/dlucazeaujazzzzneilime" style="display: block;">@jazzzz</a><a href="http://github.com/dlucazeaujazzzzneilime" style="display: block;">@neilime</a></td>
+            </tr>
+            
+            <tr>
+                <td>14</td>
+                <td>German</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/de_DE.js">de_DE.js</a></td>
+                <td><a href="http://github.com/logemann" style="display: block;">@logemann</a></td>
+            </tr>
+            
+            <tr>
+                <td>15</td>
+                <td>Greek</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/gr_EL.js">gr_EL.js</a></td>
+                <td><a href="http://github.com/pRieStaKos" style="display: block;">@pRieStaKos</a></td>
+            </tr>
+            
+            <tr>
+                <td>16</td>
+                <td>Hebrew</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/he_IL.js">he_IL.js</a></td>
+                <td><a href="http://github.com/yakidahan" style="display: block;">@yakidahan</a></td>
+            </tr>
+            
+            <tr>
+                <td>17</td>
+                <td>Hindi</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/hi_IN.js">hi_IN.js</a></td>
+                <td><a href="http://github.com/gladiatorAsh" style="display: block;">@gladiatorAsh</a></td>
+            </tr>
+            
+            <tr>
+                <td>18</td>
+                <td>Hungarian</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/hu_HU.js">hu_HU.js</a></td>
+                <td><a href="http://github.com/blackfyre" style="display: block;">@blackfyre</a></td>
+            </tr>
+            
+            <tr>
+                <td>19</td>
+                <td>Indonesian</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/id_ID.js">id_ID.js</a></td>
+                <td><a href="http://github.com/egig" style="display: block;">@egig</a></td>
+            </tr>
+            
+            <tr>
+                <td>20</td>
+                <td>Italian</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/it_IT.js">it_IT.js</a></td>
+                <td><a href="http://github.com/maramazza" style="display: block;">@maramazza</a></td>
+            </tr>
+            
+            <tr>
+                <td>21</td>
+                <td>Japanese</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/ja_JP.js">ja_JP.js</a></td>
+                <td><a href="http://github.com/tsuyoshifujii" style="display: block;">@tsuyoshifujii</a></td>
+            </tr>
+            
+            <tr>
+                <td>22</td>
+                <td>Norwegian</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/no_NO.js">no_NO.js</a></td>
+                <td><a href="http://github.com/trondulseth" style="display: block;">@trondulseth</a></td>
+            </tr>
+            
+            <tr>
+                <td>23</td>
+                <td>Persian (Farsi)</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/fa_IR.js">fa_IR.js</a></td>
+                <td><a href="http://github.com/i0" style="display: block;">@i0</a></td>
+            </tr>
+            
+            <tr>
+                <td>24</td>
+                <td>Polish</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/pl_PL.js">pl_PL.js</a></td>
+                <td><a href="http://github.com/grzesieklukaszbanasiak" style="display: block;">@grzesiek</a><a href="http://github.com/grzesieklukaszbanasiak" style="display: block;">@lukaszbanasiak</a></td>
+            </tr>
+            
+            <tr>
+                <td>25</td>
+                <td>Portuguese (Brazil)</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/pt_BR.js">pt_BR.js</a></td>
+                <td><a href="http://github.com/marcuscarvalho6dgmike" style="display: block;">@marcuscarvalho6</a><a href="http://github.com/marcuscarvalho6dgmike" style="display: block;">@dgmike</a></td>
+            </tr>
+            
+            <tr>
+                <td>26</td>
+                <td>Portuguese (Portugal)</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/pt_PT.js">pt_PT.js</a></td>
+                <td><a href="http://github.com/rtbfreitas" style="display: block;">@rtbfreitas</a></td>
+            </tr>
+            
+            <tr>
+                <td>27</td>
+                <td>Romanian</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/ro_RO.js">ro_RO.js</a></td>
+                <td><a href="http://github.com/filipac" style="display: block;">@filipac</a></td>
+            </tr>
+            
+            <tr>
+                <td>28</td>
+                <td>Russian</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/ru_RU.js">ru_RU.js</a></td>
+                <td><a href="http://github.com/cylon-vstepin" style="display: block;">@cylon-v</a><a href="http://github.com/cylon-vstepin" style="display: block;">@stepin</a></td>
+            </tr>
+            
+            <tr>
+                <td>29</td>
+                <td>Serbian</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/sr_RS.js">sr_RS.js</a></td>
+                <td><a href="http://github.com/markocrni" style="display: block;">@markocrni</a></td>
+            </tr>
+            
+            <tr>
+                <td>30</td>
+                <td>Slovak</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/sk_SK.js">sk_SK.js</a></td>
+                <td><a href="http://github.com/budik21" style="display: block;">@budik21</a></td>
+            </tr>
+            
+            <tr>
+                <td>31</td>
+                <td>Spanish</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/es_ES.js">es_ES.js</a></td>
+                <td><a href="http://github.com/vadail" style="display: block;">@vadail</a></td>
+            </tr>
+            
+            <tr>
+                <td>32</td>
+                <td>Swedish</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/sv_SE.js">sv_SE.js</a></td>
+                <td><a href="http://github.com/ulsa" style="display: block;">@ulsa</a></td>
+            </tr>
+            
+            <tr>
+                <td>33</td>
+                <td>Taiwanese</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/zh_TW.js">zh_TW.js</a></td>
+                <td><a href="http://github.com/tureki" style="display: block;">@tureki</a></td>
+            </tr>
+            
+            <tr>
+                <td>34</td>
+                <td>Thai</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/th_TH.js">th_TH.js</a></td>
+                <td><a href="http://github.com/figgaro" style="display: block;">@figgaro</a></td>
+            </tr>
+            
+            <tr>
+                <td>35</td>
+                <td>Turkish</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/tr_TR.js">tr_TR.js</a></td>
+                <td><a href="http://github.com/CeRBeR666" style="display: block;">@CeRBeR666</a></td>
+            </tr>
+            
+            <tr>
+                <td>36</td>
+                <td>Ukrainian</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/ua_UA.js">ua_UA.js</a></td>
+                <td><a href="http://github.com/oleg-voloshyn" style="display: block;">@oleg-voloshyn</a></td>
+            </tr>
+            
+            <tr>
+                <td>37</td>
+                <td>Vietnamese</td>
+                <td><a href="/vendor/bootstrapvalidator/js/language/vi_VN.js">vi_VN.js</a></td>
+                <td><a href="http://github.com/nghuuphuoc" style="display: block;">@nghuuphuoc</a></td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+    <div class="doc-alert doc-alert-info">
+        If you wonder how to use the language package, then this <a href="/examples/using-language-package/">example</a> is exactly for you
+    </div>
+
+    <h3>Translate to other language</h3>
+    <p>It is very easy to translate default English package into your language. Follow the steps below:</p>
+    <ol>
+        <li>Fork the <a href="https://github.com/formvalidation/formvalidation">project</a></li>
+        <li>
+            Create new language file in the <a href="https://github.com/formvalidation/formvalidation/tree/master/src/js/language">language</a> directory.<br/>
+            The file must be named as <strong>countrycode_LANGUAGECODE.js</strong>, where <strong>countrycode</strong> and <strong>LANGUAGECODE</strong> are the ISO 3166 country and language codes in lowercase and uppercase respectively.<br/>
+            The <strong>File Name</strong> column in the table above are some examples of valid language file name.
+        </li>
+        <li>Translate the <a href="https://github.com/formvalidation/formvalidation/blob/master/src/js/language/en_US.js">English language package</a> into your language file created above</li>
+        <li><a href="https://help.github.com/articles/creating-a-pull-request/">Make a pull request</a></li>
+    </ol>
+</section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+    <h2>Usage</h2>
+    <p>It takes only 3 steps to use the plugin:</p>
+
+    <!-- including -->
+    <section>
+        <h3>Including library</h3>
+        <p>Since the BootstrapValidator plugin requires <a href="http://jquery.com/">jQuery</a> (v1.9.1 or higher) and <a href="http://getbootstrap.com">Bootstrap</a> (v3.0.0 or higher), you have to include the required CSS and JS files to your page:</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- BootstrapValidator requires Bootstrap CSS v3.0.0 or higher --&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/path/to/bootstrap/css/bootstrap.css&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/path/to/dist/css/bootstrapValidator.min.css&quot;</span><span class="nt">/&gt;</span>
+
+<span class="c">&lt;!-- and jQuery v1.9.1 or higher --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/path/to/jquery/jquery-1.10.2.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/path/to/bootstrap/js/bootstrap.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></div>
+
+        <div class="doc-alert doc-alert-info">
+            BootstrapValidator doesn't require Bootstrap's Javascript if you don't use Bootstrap <a href="http://getbootstrap.com/javascript/#tooltips">tooltip</a> or <a href="http://getbootstrap.com/javascript/#popovers">popover</a> to show the messages via <a href="/settings/#form-container">container</a> option.
+        </div>
+
+        <p>Next, requires the plugin javascript file:</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Either use the compressed version (recommended in the production site) --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/path/to/dist/js/bootstrapValidator.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="c">&lt;!-- Or use the original one with all validators included --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/path/to/dist/js/bootstrapValidator.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="c">&lt;!-- Or use the plugin with required validators --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/path/to/src/js/bootstrapValidator.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/path/to/src/js/validator/...validator...&quot;</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></div>
+
+        <p>If you want to use the default message translated in the <a href="#language-package">language package</a>, then finally include it:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/path/to/src/js/language/languagecode_COUNTRYCODE.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></div>
+
+        <div class="doc-alert doc-alert-info">
+            <p>You don't need to require the <a href="#language-package">English package</a> because it is already included in the plugin. The package is available here just for translating into other languages.</p>
+        </div>
+    </section>
+
+    <!-- writing-form -->
+    <section>
+        <h3>Writing form</h3>
+        <p>Since BootstrapValidator is designed to use with Bootstrap, your form must be structured using Bootstrap classes.</p>
+
+        <p>If your form is NOT structured by Bootstrap classes (the element containing field and associated label does NOT have form-group class), you will see the following error in the Console:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html">// Chrome
+Uncaught RangeError: Maximum call stack size exceeded
+
+// Firefox
+Too much recursion error</code></pre></div>
+
+        <div class="doc-alert doc-alert-info">
+            If your form is complex and uses custom CSS class for each group instead of .form-group, use the <a href="/settings/#form-group">group option</a>
+        </div>
+
+        <h4>Name conflict</h4>
+        <p>Do not use the properties of a form, such as <code>submit</code>, <code>reset</code>, <code>length</code>, <code>method</code> to set the <code>name</code> or <code>id</code> attribute of form, field elements. Name conflicts can cause the problem.</p>
+        <p>For example, you cannot submit the form after validating if use <code>submit</code> to name the Submit button:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">name=</span><span class="s">&quot;submit&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-primary&quot;</span><span class="nt">&gt;</span>Submit<span class="nt">&lt;/button&gt;</span></code></pre></div>
+        <p><a href="http://kangax.github.com/domlint/">DOMLint</a> has a complete list of rules to check the markup for these kind of problems.</p>
+
+        <p>The plugin supports all possible kind of Bootstrap form, including:</p>
+
+        <h4>Basic form</h4>
+        <div class="doc-demo">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#basic-form-tab" data-toggle="tab">Try it</a></li>
+                <li><a href="#basic-html-tab" data-toggle="tab">HTML</a></li>
+                <li><a href="#basic-js-tab" data-toggle="tab">JS</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="basic-form-tab">
+                    <form class="registerForm">
+    <div class="form-group">
+        <label>Username</label>
+        <input type="text" class="form-control" name="username" />
+    </div>
+
+    <div class="form-group">
+        <label>Email address</label>
+        <input type="text" class="form-control" name="email" />
+    </div>
+</form>
+                </div>
+
+                <div class="tab-pane" id="basic-html-tab">
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">&quot;registerForm&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label&gt;</span>Username<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">name=</span><span class="s">&quot;username&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label&gt;</span>Email address<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">name=</span><span class="s">&quot;email&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span></code></pre></div>
+                </div>
+
+                <div class="tab-pane" id="basic-js-tab">
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.registerForm&#39;</span><span class="p">).</span><span class="nx">bootstrapValidator</span><span class="p">({</span>
+        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;This value is not valid&#39;</span><span class="p">,</span>
+        <span class="nx">feedbackIcons</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">valid</span><span class="o">:</span> <span class="s1">&#39;glyphicon glyphicon-ok&#39;</span><span class="p">,</span>
+            <span class="nx">invalid</span><span class="o">:</span> <span class="s1">&#39;glyphicon glyphicon-remove&#39;</span><span class="p">,</span>
+            <span class="nx">validating</span><span class="o">:</span> <span class="s1">&#39;glyphicon glyphicon-refresh&#39;</span>
+        <span class="p">},</span>
+        <span class="nx">fields</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">username</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The username is not valid&#39;</span><span class="p">,</span>
+                <span class="nx">validators</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">notEmpty</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The username is required and cannot be empty&#39;</span>
+                    <span class="p">},</span>
+                    <span class="nx">stringLength</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">min</span><span class="o">:</span> <span class="mi">6</span><span class="p">,</span>
+                        <span class="nx">max</span><span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The username must be more than 6 and less than 30 characters long&#39;</span>
+                    <span class="p">},</span>
+                    <span class="nx">regexp</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">regexp</span><span class="o">:</span> <span class="sr">/^[a-zA-Z0-9_]+$/</span><span class="p">,</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The username can only consist of alphabetical, number and underscore&#39;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nx">email</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">validators</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">notEmpty</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The email is required and cannot be empty&#39;</span>
+                    <span class="p">},</span>
+                    <span class="nx">emailAddress</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The input is not a valid email address&#39;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">});</span></code></pre></div>
+                </div>
+            </div>
+        </div>
+
+        <h4>Basic form without labels</h4>
+        <div class="doc-demo">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#basicwlabel-form-tab" data-toggle="tab">Try it</a></li>
+                <li><a href="#basicwlabel-html-tab" data-toggle="tab">HTML</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="basicwlabel-form-tab">
+                    <form class="registerForm">
+    <div class="form-group">
+        <input type="text" class="form-control" name="username" placeholder="Username" />
+    </div>
+
+    <div class="form-group">
+        <input type="text" class="form-control" name="email" placeholder="Email address" />
+    </div>
+</form>
+                </div>
+
+                <div class="tab-pane" id="basicwlabel-html-tab">
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">&quot;registerForm&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">name=</span><span class="s">&quot;username&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;Username&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">name=</span><span class="s">&quot;email&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;Email address&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span></code></pre></div>
+                </div>
+            </div>
+        </div>
+
+        <h4>Inline form</h4>
+        <div class="doc-demo">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#inline-form-tab" data-toggle="tab">Try it</a></li>
+                <li><a href="#inline-html-tab" data-toggle="tab">HTML</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="inline-form-tab">
+                    <form class="form-inline registerForm">
+    <div class="form-group">
+        <input type="text" class="form-control" name="username" placeholder="Username" />
+    </div>
+
+    <div class="form-group">
+        <input type="text" class="form-control" name="email" placeholder="Email address" />
+    </div>
+</form>
+                </div>
+
+                <div class="tab-pane" id="inline-html-tab">
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">&quot;form-inline registerForm&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">name=</span><span class="s">&quot;username&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;Username&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">name=</span><span class="s">&quot;email&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;Email address&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span></code></pre></div>
+                </div>
+            </div>
+        </div>
+
+        <h4>Horizontal form</h4>
+        <div class="doc-demo">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#horizontal-form-tab" data-toggle="tab">Try it</a></li>
+                <li><a href="#horizontal-html-tab" data-toggle="tab">HTML</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="horizontal-form-tab">
+                    <form class="form-horizontal registerForm">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Username</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="username" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Email address</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="email" />
+        </div>
+    </div>
+</form>
+                </div>
+
+                <div class="tab-pane" id="horizontal-html-tab">
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">&quot;form-horizontal registerForm&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;col-sm-3 control-label&quot;</span><span class="nt">&gt;</span>Username<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-6&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">name=</span><span class="s">&quot;username&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;col-sm-3 control-label&quot;</span><span class="nt">&gt;</span>Email address<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-6&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">name=</span><span class="s">&quot;email&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span></code></pre></div>
+                </div>
+            </div>
+        </div>
+
+        <p>It also supports multiple fields on the same row:</p>
+
+        <div class="doc-demo">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#row-form-tab" data-toggle="tab">Try it</a></li>
+                <li><a href="#row-html-tab" data-toggle="tab">HTML</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="row-form-tab">
+                 <form class="form-horizontal registerForm">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Account</label>
+
+        <div class="col-sm-4">
+            <input type="text" class="form-control" name="username" placeholder="Username" />
+        </div>
+
+        <div class="col-sm-4">
+            <input type="text" class="form-control" name="email" placeholder="Email address" />
+        </div>
+    </div>
+</form>
+                </div>
+
+                <div class="tab-pane" id="row-html-tab">
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">&quot;form-horizontal registerForm&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;col-sm-2 control-label&quot;</span><span class="nt">&gt;</span>Account<span class="nt">&lt;/label&gt;</span>
+
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-4&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">name=</span><span class="s">&quot;username&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;Username&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-4&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">name=</span><span class="s">&quot;email&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;Email address&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span></code></pre></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- calling -->
+    <section>
+        <h3>Calling plugin</h3>
+
+        <p>Call the plugin to validate the form as following:</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="nx">formSelector</span><span class="p">).</span><span class="nx">bootstrapValidator</span><span class="p">({</span>
+        <span class="nx">excluded</span><span class="o">:</span> <span class="p">...,</span>
+        <span class="nx">feedbackIcons</span><span class="o">:</span> <span class="p">...,</span>
+        <span class="nx">live</span><span class="o">:</span> <span class="s1">&#39;enabled&#39;</span><span class="p">,</span>
+        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;This value is not valid&#39;</span><span class="p">,</span>
+        <span class="nx">submitButtons</span><span class="o">:</span> <span class="s1">&#39;button[type=&quot;submit&quot;]&#39;</span><span class="p">,</span>
+        <span class="nx">trigger</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nx">fields</span><span class="o">:</span> <span class="p">...</span>
+    <span class="p">});</span>
+<span class="p">});</span></code></pre></div>
+
+        <p>For example, to validate the sample registration form above, the plugin might be called as:</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.registerForm&#39;</span><span class="p">).</span><span class="nx">bootstrapValidator</span><span class="p">({</span>
+        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;This value is not valid&#39;</span><span class="p">,</span>
+        <span class="nx">feedbackIcons</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">valid</span><span class="o">:</span> <span class="s1">&#39;glyphicon glyphicon-ok&#39;</span><span class="p">,</span>
+            <span class="nx">invalid</span><span class="o">:</span> <span class="s1">&#39;glyphicon glyphicon-remove&#39;</span><span class="p">,</span>
+            <span class="nx">validating</span><span class="o">:</span> <span class="s1">&#39;glyphicon glyphicon-refresh&#39;</span>
+        <span class="p">},</span>
+        <span class="nx">fields</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">username</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The username is not valid&#39;</span><span class="p">,</span>
+                <span class="nx">validators</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">notEmpty</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The username is required and cannot be empty&#39;</span>
+                    <span class="p">},</span>
+                    <span class="nx">stringLength</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">min</span><span class="o">:</span> <span class="mi">6</span><span class="p">,</span>
+                        <span class="nx">max</span><span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The username must be more than 6 and less than 30 characters long&#39;</span>
+                    <span class="p">},</span>
+                    <span class="nx">regexp</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">regexp</span><span class="o">:</span> <span class="sr">/^[a-zA-Z0-9_]+$/</span><span class="p">,</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The username can only consist of alphabetical, number and underscore&#39;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nx">email</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">validators</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">notEmpty</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The email is required and cannot be empty&#39;</span>
+                    <span class="p">},</span>
+                    <span class="nx">emailAddress</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The input is not a valid email address&#39;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">});</span></code></pre></div>
+
+        <p>Look at the <a href="/settings/">Settings</a> page to see the meaning of plugin options.</p>
+    </section>
+</section>
+
+<script>
+$(document).ready(function() {
+    $('.registerForm').bootstrapValidator({
+        message: 'This value is not valid',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            username: {
+                message: 'The username is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'The username is required and cannot be empty'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: 'The username must be more than 6 and less than 30 characters long'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_]+$/,
+                        message: 'The username can only consist of alphabetical, number and underscore'
+                    }
+                }
+            },
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: 'The email is required and cannot be empty'
+                    },
+                    emailAddress: {
+                        message: 'The input is not a valid email address'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
+
+                <div class="doc-hr"></div>
+
+                <section>
+    <h2>Example</h2>
+
+    <p>Below is a classical registration form covering all the steps you've just seen above:</p>
+
+    <div class="doc-demo">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#example-form-tab" data-toggle="tab">Try it</a></li>
+            <li><a href="#example-programmatic-tab" data-toggle="tab">Programmatic usage</a></li>
+            <li><a href="#example-declarative-tab" data-toggle="tab">Declarative usage</a></li>
+            <li><a href="#example-cdn-tab" data-toggle="tab">CDN usage</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="example-form-tab">
+                            <form id="registrationForm" method="post" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Username</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" name="username" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Email address</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" name="email" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Password</label>
+                        <div class="col-sm-5">
+                            <input type="password" class="form-control" name="password" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Gender</label>
+                        <div class="col-sm-5">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="gender" value="male" /> Male
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="gender" value="female" /> Female
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="gender" value="other" /> Other
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Date of birth</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" name="birthday" placeholder="YYYY/MM/DD" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-9 col-sm-offset-3">
+                            <!-- Do NOT use name="submit" or id="submit" for the Submit button -->
+                            <button type="submit" class="btn btn-default">Sign up</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="tab-pane" id="example-programmatic-tab">
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="c">&lt;!-- Bootstrap CSS --&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/vendor/bootstrap/css/bootstrap.css&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="c">&lt;!-- Include FontAwesome CSS if you want to use feedback icons provided by FontAwesome --&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/vendor/font-awesome/css/font-awesome.min.css&quot;</span> <span class="nt">/&gt;</span>
+
+    <span class="c">&lt;!-- BootstrapValidator CSS --&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/vendor/bootstrapvalidator/dist/css/bootstrapValidator.min.css&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="c">&lt;!-- jQuery and Bootstrap JS --&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/vendor/jquery/jquery.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/vendor/bootstrap/js/bootstrap.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+    <span class="c">&lt;!-- BootstrapValidator JS --&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/vendor/bootstrapvalidator/dist/js/bootstrapValidator.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-md-8 col-md-offset-2&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;page-header&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;h2&gt;</span>Sign up<span class="nt">&lt;/h2&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+
+                <span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">&quot;registrationForm&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span> <span class="na">class=</span><span class="s">&quot;form-horizontal&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;col-sm-3 control-label&quot;</span><span class="nt">&gt;</span>Username<span class="nt">&lt;/label&gt;</span>
+                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-5&quot;</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">name=</span><span class="s">&quot;username&quot;</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;col-sm-3 control-label&quot;</span><span class="nt">&gt;</span>Email address<span class="nt">&lt;/label&gt;</span>
+                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-5&quot;</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">name=</span><span class="s">&quot;email&quot;</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;col-sm-3 control-label&quot;</span><span class="nt">&gt;</span>Password<span class="nt">&lt;/label&gt;</span>
+                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-5&quot;</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;password&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">name=</span><span class="s">&quot;password&quot;</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;col-sm-3 control-label&quot;</span><span class="nt">&gt;</span>Gender<span class="nt">&lt;/label&gt;</span>
+                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-5&quot;</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;radio&quot;</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;label&gt;</span>
+                                    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;radio&quot;</span> <span class="na">name=</span><span class="s">&quot;gender&quot;</span> <span class="na">value=</span><span class="s">&quot;male&quot;</span> <span class="nt">/&gt;</span> Male
+                                <span class="nt">&lt;/label&gt;</span>
+                            <span class="nt">&lt;/div&gt;</span>
+                            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;radio&quot;</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;label&gt;</span>
+                                    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;radio&quot;</span> <span class="na">name=</span><span class="s">&quot;gender&quot;</span> <span class="na">value=</span><span class="s">&quot;female&quot;</span> <span class="nt">/&gt;</span> Female
+                                <span class="nt">&lt;/label&gt;</span>
+                            <span class="nt">&lt;/div&gt;</span>
+                            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;radio&quot;</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;label&gt;</span>
+                                    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;radio&quot;</span> <span class="na">name=</span><span class="s">&quot;gender&quot;</span> <span class="na">value=</span><span class="s">&quot;other&quot;</span> <span class="nt">/&gt;</span> Other
+                                <span class="nt">&lt;/label&gt;</span>
+                            <span class="nt">&lt;/div&gt;</span>
+                        <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;col-sm-3 control-label&quot;</span><span class="nt">&gt;</span>Date of birth<span class="nt">&lt;/label&gt;</span>
+                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-5&quot;</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">name=</span><span class="s">&quot;birthday&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;YYYY/MM/DD&quot;</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-9 col-sm-offset-3&quot;</span><span class="nt">&gt;</span>
+                            <span class="c">&lt;!-- Do NOT use name=&quot;submit&quot; or id=&quot;submit&quot; for the Submit button --&gt;</span>
+                            <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-default&quot;</span><span class="nt">&gt;</span>Sign up<span class="nt">&lt;/button&gt;</span>
+                        <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;/form&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#registrationForm&#39;</span><span class="p">).</span><span class="nx">bootstrapValidator</span><span class="p">({</span>
+        <span class="c1">// To use feedback icons, ensure that you use Bootstrap v3.1.0 or later</span>
+        <span class="nx">feedbackIcons</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">valid</span><span class="o">:</span> <span class="s1">&#39;glyphicon glyphicon-ok&#39;</span><span class="p">,</span>
+            <span class="nx">invalid</span><span class="o">:</span> <span class="s1">&#39;glyphicon glyphicon-remove&#39;</span><span class="p">,</span>
+            <span class="nx">validating</span><span class="o">:</span> <span class="s1">&#39;glyphicon glyphicon-refresh&#39;</span>
+        <span class="p">},</span>
+        <span class="nx">fields</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">username</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The username is not valid&#39;</span><span class="p">,</span>
+                <span class="nx">validators</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">notEmpty</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The username is required and cannot be empty&#39;</span>
+                    <span class="p">},</span>
+                    <span class="nx">stringLength</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">min</span><span class="o">:</span> <span class="mi">6</span><span class="p">,</span>
+                        <span class="nx">max</span><span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The username must be more than 6 and less than 30 characters long&#39;</span>
+                    <span class="p">},</span>
+                    <span class="nx">regexp</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">regexp</span><span class="o">:</span> <span class="sr">/^[a-zA-Z0-9]+$/</span><span class="p">,</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The username can only consist of alphabetical and number&#39;</span>
+                    <span class="p">},</span>
+                    <span class="nx">different</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">field</span><span class="o">:</span> <span class="s1">&#39;password&#39;</span><span class="p">,</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The username and password cannot be the same as each other&#39;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nx">email</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">validators</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">notEmpty</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The email address is required and cannot be empty&#39;</span>
+                    <span class="p">},</span>
+                    <span class="nx">emailAddress</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The email address is not a valid&#39;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nx">password</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">validators</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">notEmpty</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The password is required and cannot be empty&#39;</span>
+                    <span class="p">},</span>
+                    <span class="nx">different</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">field</span><span class="o">:</span> <span class="s1">&#39;username&#39;</span><span class="p">,</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The password cannot be the same as username&#39;</span>
+                    <span class="p">},</span>
+                    <span class="nx">stringLength</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">min</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The password must have at least 8 characters&#39;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nx">birthday</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">validators</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">notEmpty</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The date of birth is required&#39;</span>
+                    <span class="p">},</span>
+                    <span class="nx">date</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">format</span><span class="o">:</span> <span class="s1">&#39;YYYY/MM/DD&#39;</span><span class="p">,</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The date of birth is not valid&#39;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nx">gender</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">validators</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">notEmpty</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The gender is required&#39;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
+            </div>
+
+            <div class="tab-pane" id="example-declarative-tab">
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="c">&lt;!-- Bootstrap CSS --&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/vendor/bootstrap/css/bootstrap.css&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="c">&lt;!-- Include FontAwesome CSS if you want to use feedback icons provided by FontAwesome --&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/vendor/font-awesome/css/font-awesome.min.css&quot;</span> <span class="nt">/&gt;</span>
+
+    <span class="c">&lt;!-- BootstrapValidator CSS --&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/vendor/bootstrapvalidator/dist/css/bootstrapValidator.min.css&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="c">&lt;!-- jQuery and Bootstrap JS --&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/vendor/jquery/jquery.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/vendor/bootstrap/js/bootstrap.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+    <span class="c">&lt;!-- BootstrapValidator JS --&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/vendor/bootstrapvalidator/dist/js/bootstrapValidator.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-md-8 col-md-offset-2&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;page-header&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;h2&gt;</span>Sign up<span class="nt">&lt;/h2&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+
+                <span class="c">&lt;!-- To use feedback icons, ensure that you use Bootstrap v3.1.0 or later --&gt;</span>
+                <span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">&quot;registrationForm&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span> <span class="na">class=</span><span class="s">&quot;form-horizontal&quot;</span>
+                    <span class="na">data-bv-feedbackicons-valid=</span><span class="s">&quot;glyphicon glyphicon-ok&quot;</span>
+                    <span class="na">data-bv-feedbackicons-invalid=</span><span class="s">&quot;glyphicon glyphicon-remove&quot;</span>
+                    <span class="na">data-bv-feedbackicons-validating=</span><span class="s">&quot;glyphicon glyphicon-refresh&quot;</span><span class="nt">&gt;</span>
+
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;col-sm-3 control-label&quot;</span><span class="nt">&gt;</span>Username<span class="nt">&lt;/label&gt;</span>
+                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-5&quot;</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">name=</span><span class="s">&quot;username&quot;</span>
+                                <span class="na">data-bv-notempty=</span><span class="s">&quot;true&quot;</span>
+                                <span class="na">data-bv-notempty-message=</span><span class="s">&quot;The username is required and cannot be empty&quot;</span>
+
+                                <span class="na">data-bv-stringlength=</span><span class="s">&quot;true&quot;</span>
+                                <span class="na">data-bv-stringlength-min=</span><span class="s">&quot;6&quot;</span>
+                                <span class="na">data-bv-stringlength-max=</span><span class="s">&quot;30&quot;</span>
+                                <span class="na">data-bv-stringlength-message=</span><span class="s">&quot;The username must be more than 6 and less than 30 characters long&quot;</span>
+
+                                <span class="na">data-bv-regexp=</span><span class="s">&quot;true&quot;</span>
+                                <span class="na">data-bv-regexp-regexp=</span><span class="s">&quot;^[a-zA-Z0-9]+$&quot;</span>
+                                <span class="na">data-bv-regexp-message=</span><span class="s">&quot;The username can only consist of alphabetical and number&quot;</span>
+
+                                <span class="na">data-bv-different=</span><span class="s">&quot;true&quot;</span>
+                                <span class="na">data-bv-different-field=</span><span class="s">&quot;password&quot;</span>
+                                <span class="na">data-bv-different-message=</span><span class="s">&quot;The username and password cannot be the same as each other&quot;</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;col-sm-3 control-label&quot;</span><span class="nt">&gt;</span>Email address<span class="nt">&lt;/label&gt;</span>
+                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-5&quot;</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">name=</span><span class="s">&quot;email&quot;</span>
+                                <span class="na">data-bv-notempty=</span><span class="s">&quot;true&quot;</span>
+                                <span class="na">data-bv-notempty-message=</span><span class="s">&quot;The email address is required and cannot be empty&quot;</span>
+
+                                <span class="na">data-bv-emailaddress=</span><span class="s">&quot;true&quot;</span>
+                                <span class="na">data-bv-emailaddress-message=</span><span class="s">&quot;The email address is not a valid&quot;</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;col-sm-3 control-label&quot;</span><span class="nt">&gt;</span>Password<span class="nt">&lt;/label&gt;</span>
+                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-5&quot;</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;password&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">name=</span><span class="s">&quot;password&quot;</span>
+                                <span class="na">data-bv-notempty=</span><span class="s">&quot;true&quot;</span>
+                                <span class="na">data-bv-notempty-message=</span><span class="s">&quot;The password is required and cannot be empty&quot;</span>
+
+                                <span class="na">data-bv-stringlength=</span><span class="s">&quot;true&quot;</span>
+                                <span class="na">data-bv-stringlength-min=</span><span class="s">&quot;8&quot;</span>
+                                <span class="na">data-bv-stringlength-message=</span><span class="s">&quot;The password must have at least 8 characters&quot;</span>
+
+                                <span class="na">data-bv-different=</span><span class="s">&quot;true&quot;</span>
+                                <span class="na">data-bv-different-field=</span><span class="s">&quot;username&quot;</span>
+                                <span class="na">data-bv-different-message=</span><span class="s">&quot;The password cannot be the same as username&quot;</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;col-sm-3 control-label&quot;</span><span class="nt">&gt;</span>Gender<span class="nt">&lt;/label&gt;</span>
+                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-5&quot;</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;radio&quot;</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;label&gt;</span>
+                                    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;radio&quot;</span> <span class="na">name=</span><span class="s">&quot;gender&quot;</span> <span class="na">value=</span><span class="s">&quot;male&quot;</span>
+                                        <span class="na">data-bv-notempty=</span><span class="s">&quot;true&quot;</span>
+                                        <span class="na">data-bv-notempty-message=</span><span class="s">&quot;The gender is required&quot;</span> <span class="nt">/&gt;</span> Male
+                                <span class="nt">&lt;/label&gt;</span>
+                            <span class="nt">&lt;/div&gt;</span>
+                            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;radio&quot;</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;label&gt;</span>
+                                    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;radio&quot;</span> <span class="na">name=</span><span class="s">&quot;gender&quot;</span> <span class="na">value=</span><span class="s">&quot;female&quot;</span> <span class="nt">/&gt;</span> Female
+                                <span class="nt">&lt;/label&gt;</span>
+                            <span class="nt">&lt;/div&gt;</span>
+                            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;radio&quot;</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;label&gt;</span>
+                                    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;radio&quot;</span> <span class="na">name=</span><span class="s">&quot;gender&quot;</span> <span class="na">value=</span><span class="s">&quot;other&quot;</span> <span class="nt">/&gt;</span> Other
+                                <span class="nt">&lt;/label&gt;</span>
+                            <span class="nt">&lt;/div&gt;</span>
+                        <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;col-sm-3 control-label&quot;</span><span class="nt">&gt;</span>Date of birth<span class="nt">&lt;/label&gt;</span>
+                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-5&quot;</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">name=</span><span class="s">&quot;birthday&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;YYYY/MM/DD&quot;</span>
+                                <span class="na">data-bv-notempty=</span><span class="s">&quot;true&quot;</span>
+                                <span class="na">data-bv-notempty-message=</span><span class="s">&quot;The date of birth is required&quot;</span>
+
+                                <span class="na">data-bv-date=</span><span class="s">&quot;true&quot;</span>
+                                <span class="na">data-bv-date-format=</span><span class="s">&quot;YYYY/MM/DD&quot;</span>
+                                <span class="na">data-bv-date-message=</span><span class="s">&quot;The date of birth is not valid&quot;</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-9 col-sm-offset-3&quot;</span><span class="nt">&gt;</span>
+                            <span class="c">&lt;!-- Do NOT use name=&quot;submit&quot; or id=&quot;submit&quot; for the Submit button --&gt;</span>
+                            <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-default&quot;</span><span class="nt">&gt;</span>Sign up<span class="nt">&lt;/button&gt;</span>
+                        <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;/form&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#registrationForm&#39;</span><span class="p">).</span><span class="nx">bootstrapValidator</span><span class="p">();</span>
+<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
+            </div>
+
+            <div class="tab-pane" id="example-cdn-tab">
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="c">&lt;!-- Bootstrap CSS --&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;//cdn.jsdelivr.net/bootstrap/3.3.1/css/bootstrap.min.css&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="c">&lt;!-- Include FontAwesome CSS if you want to use feedback icons provided by FontAwesome --&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;//cdn.jsdelivr.net/fontawesome/4.2.0/css/font-awesome.min.css&quot;</span> <span class="nt">/&gt;</span>
+
+    <span class="c">&lt;!-- BootstrapValidator CSS --&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;//cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="c">&lt;!-- jQuery and Bootstrap JS --&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;//cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;//cdn.jsdelivr.net/bootstrap/3.3.1/js/bootstrap.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+    <span class="c">&lt;!-- BootstrapValidator JS --&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;//cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+
+    <span class="c">&lt;!-- Same as Programmatic or Declarative usage --&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+$(document).ready(function() {
+    $('#registrationForm').bootstrapValidator({
+        // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            username: {
+                message: 'The username is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'The username is required and cannot be empty'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: 'The username must be more than 6 and less than 30 characters long'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9]+$/,
+                        message: 'The username can only consist of alphabetical and number'
+                    },
+                    different: {
+                        field: 'password',
+                        message: 'The username and password cannot be the same as each other'
+                    }
+                }
+            },
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: 'The email address is required and cannot be empty'
+                    },
+                    emailAddress: {
+                        message: 'The email address is not a valid'
+                    }
+                }
+            },
+            password: {
+                validators: {
+                    notEmpty: {
+                        message: 'The password is required and cannot be empty'
+                    },
+                    different: {
+                        field: 'username',
+                        message: 'The password cannot be the same as username'
+                    },
+                    stringLength: {
+                        min: 8,
+                        message: 'The password must have at least 8 characters'
+                    }
+                }
+            },
+            birthday: {
+                validators: {
+                    notEmpty: {
+                        message: 'The date of birth is required'
+                    },
+                    date: {
+                        format: 'YYYY/MM/DD',
+                        message: 'The date of birth is not valid'
+                    }
+                }
+            },
+            gender: {
+                validators: {
+                    notEmpty: {
+                        message: 'The gender is required'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <footer class="doc-footer">
+    <div class="container">
+        <p>
+            
+            <a class="btn" href="/download/">Download</a>
+            
+            <a class="btn" href="https://github.com/formvalidation/formvalidation/issues">Report bug</a>
+        </p>
+        <p>
+            &copy; 2013 - 2014 <a href="http://twitter.com/nghuuphuoc">Nguyen Huu Phuoc</a>. All rights reserved.<br/>
+            Handcrafted with <span class="doc-heart"><i class="fa fa-heart"></i></span> and a lot of <i class="fa fa-coffee"></i>
+        </p>
+        <ul>
+            <li><a href="/getting-started/">Getting started</a></li>
+            <li>&middot;</li>
+            <li><a href="/settings/">Settings</a></li>
+            <li>&middot;</li>
+            <li><a href="/validators/">Validators</a></li>
+            <li>&middot;</li>
+            <li><a href="/api/">API</a></li>
+            <li>&middot;</li>
+            <li><a href="/examples/">Examples</a></li>
+            <li>&middot;</li>
+            <li><a href="/developing/">Developing</a></li>
+            <li>&middot;</li>
+            <li><a href="/news/">News</a></li>
+            <li>&middot;</li>
+            <li><a href="/license/">License</a></li>
+        </ul>
+        <ul>
+            <li>
+                <a href="https://github.com/formvalidation/formvalidation" title="Fork me on Github">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-github-alt fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="http://twitter.com/formvalidation/" title="Follow me on Twitter">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/pages/FormValidation/1567908420106565/" title="Like me on Facebook">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://plus.google.com/u/0/communities/114931136856987817254" title="Join me on Google+">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    
+    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=bootstrapvalidatorcom" id="_carbonads_js"></script>
+    
+</footer>
+    </div>
+
+<script src="/vendor/tocjs/js/toc.min.js"></script>
+<script src="/vendor/share/share.min.js"></script>
+<script>
+$(function() {
+    // Create share button
+    new Share('#shareButton');
+
+    $('[data-toggle="tooltip"]').tooltip();
+
+    $('.doc-logo').on('click', function() {
+        $('body').toggleClass('doc-nav-shown');
+    });
+
+    $('form').each(function() {
+        $(this).on('success.form.bv', function(e) {
+            e.preventDefault();
+        });
+    });
+
+    // Create table of contents
+    if ($('#toc').length) {
+        $('#toc')
+            .css('max-width', $('#toc').width())
+            .toc({
+                selector: '#main h2, #main h3, #main h4, #main h5, #main h6',
+                elementClass: 'toc',
+                ulClass: 'nav',
+                indexingFormats: '______'
+            });
+
+        var $window = $(window),
+            $body   = $(document.body);
+        $body.scrollspy({
+            target: '#toc'
+        });
+
+        $window.on('load', function() {
+            $body.scrollspy('refresh');
+        });
+
+        setTimeout(function() {
+            var $sideBar = $('#toc');
+            $sideBar.affix({
+                offset: {
+                    top: function() {
+                        return (this.top = $sideBar.offset().top);
+                    }
+                }
+            });
+        }, 100);
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,844 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title>Validate a color in different formats - FormValidation</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="BootstrapValidator, a jQuery plugin to validate form fields">
+<meta name="keywords" content="Bootstrap, jQuery, validate, plugin, validator, form">
+<meta name="author" content="Nguyen Huu Phuoc">
+<meta name="google-site-verification" content="uzi08FxE8yqb9q-PlBzFxZeuUGalNFp3gX2haopVWBc" />
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cardo:400,400italic,700">
+<link rel="stylesheet" href="/vendor/pygments/github.css">
+<link rel="stylesheet" href="/asset/css/style.css">
+
+<!--[if lt IE 9]>
+<script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<script src="//oss.maxcdn.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-44786951-2']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+</head>
+<body>
+    <nav class="doc-nav" tabindex="-1">
+    <ul>
+        <li><a href="/">Home</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/download/">Download</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/getting-started/">Getting Started</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/settings/">Settings</a></li>
+    
+        
+            
+        
+        <li class="doc-nav-active"><a href="/validators/">Validators</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/api/">API</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/examples/">Examples</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/developing/">Developing</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/news/">News</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/license/">License</a></li>
+    
+    </ul>
+
+    <div class="doc-hr"></div>
+
+    <ul>
+        <li><a href="https://github.com/formvalidation/formvalidation" title="Fork me on Github">Github <i class="fa fa-github"></i></a></li>
+        <li><a href="http://twitter.com/formvalidation/" title="Follow me on Twitter">formvalidation <i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://www.facebook.com/pages/FormValidation/1567908420106565/" title="Like me on Facebook">FormValidation <i class="fa fa-facebook"></i></a></li>
+        <li><a href="https://plus.google.com/u/0/communities/114931136856987817254" title="Join me on Google+">Google+ community <i class="fa fa-google-plus"></i></a></li>
+    </ul>
+
+    <div class="doc-hr"></div>
+
+    <div class="doc-creator">
+        <p>
+            Handcrafted with <span class="doc-heart"><i class="fa fa-heart"></i></span> and a lot of <i class="fa fa-coffee"></i><br />
+            by <a href="http://twitter.com/nghuuphuoc">@nghuuphuoc</a><br/>
+            <img src="http://github.com/nghuuphuoc.png" />
+        </p>
+        <p><a href="mailto: phuoc@huuphuoc.me" class="btn">Hire me</a></p>
+    </div>
+</nav>
+<button class="btn doc-logo" title="Toggle the navigation"><i class="fa fa-bars"></i></button>
+
+    <div id="main" class="doc-content-wrapper">
+        <div class="doc-notification">
+    <i class="fa fa-bell-o"></i> <a href="/news/v0.5.3-released/">v0.5.3</a> is released on 2014.11.05!
+</div>
+
+        <div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>color validator</h1>
+        <p>Validate a color in different formats</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        <a class="btn doc-edit-btn" href="https://github.com/formvalidation/formvalidation.io/edit/docs/validators/color.html">Improve it on Github</a>
+        <div id="shareButton" class="doc-share-button"></div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-color-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                            <tr>
+                                <td><code>type</code></td>
+                                <td><code>data-bv-color-type</code></td>
+                                <td>String|String[]</td>
+                                <td>
+                                    <p>The type of color. It can be:</p>
+                                    <ul class="doc-list">
+                                        <li>One of <a href="#supported-types">supported types</a> listed below</li>
+                                        <li>Array of supported types</li>
+                                        <li>A string consists of supported types, separated by a comma</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-color="true".
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Supported types</h2>
+
+                    <p>Following is the list of supported types:</p>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Valid sample</th>
+                                <th>Invalid sample</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td>hex</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">#0000FF</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">#00F</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">123</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">112233</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">#4567</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>hsl</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsl(120,50%,50%)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsl( 120 , 50% , 50% )</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsl(  120,  50%,       50%  )</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsl(-120,50%,50%)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsl(480,50%,50%)</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsl(10,-50%,50%)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsl(10,50%,-50%)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">120,50%,50%</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsl(120,100%,101%)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsl (120,50%,50%)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsl(50%, 50%, 100%)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsl(120, 50, 100%)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsl(120, 50%, 100)</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>hsla</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsla(120,50%,50%,1)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsla( 120 , 50% , 50%, 1 )</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsla(  120,  50%,       50% ,   1  )</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsla(-120,50%,50%,1)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsla(480,50%,50%,1)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsla(120,50%,100%,0)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsla(120,50%,100%,1)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsla(120,50%,100%,0.5)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsla(120,50%,100%,.5)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsla(120,50%,100%,.524141)</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsla(120,50%,100%,50%)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsla(120,50%,100%,2)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsla(120,50%,100%,-1)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsla(120,50%,100%,1.000000000001)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsla(120,50%,100%,-0.5)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsla(120,50%,100%,2.3)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsla(10,-50%,50%,1)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsla(10,50%,-50%,1)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">120,50%,50%,1</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsla(120,100%,101%,1)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsla (120,50%,50%,1)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsla(50%, 50%, 100%,1)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsla(120, 50, 100%,1)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">hsla(120, 50%, 100,1)</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>keyword</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">transparent</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">blue</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">blueviolet red</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">shady</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">blueish</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>rgb</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgb(255,255,255)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgb( 255 , 255 , 255 )</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgb(  255,  255,       255  )</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgb(255,255,255)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgb(100%,100%,100%)</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgb(255,255,100%)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgb(-10,255,255)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgb(-10%,100%,100%)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">255255255</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgb(255,255,256)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgb(100%,100%,101%)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgb (255,255,255)</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>rgba</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba(255,255,255,1)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba( 255 , 255 , 255 , 1 )</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba(  255  ,  255    ,       255 ,  1     )</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba(255,255,255,1)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba(100%,100%,100%,1)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba(255,255,255,0)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba(255,255,255,1)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba(255,255,255,0.5)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba(255,255,255,.5)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba(255,255,255,.524141)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba(100%,100%,100%,0)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba(100%,100%,100%,1)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba(100%,100%,100%,0.5)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba(100%,100%,100%,.5)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba(100%,100%,100%,.524141)</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba(100%,100%,100%,50%)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba(255,255,255,2)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba(255,255,255,-1)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba(255,255,255,1.000000000001)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba(255,255,255,-0.5)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba(255,255,255,2.3)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba(255,255,100%,1)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba(-10,255,255,1)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba(-10%,100%,100%,1)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">2552552551</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba(255,255,256),1</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba(100%,100%,101%,1)</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">rgba (255,255,255,1)</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+
+                    <p>The <code>keyword</code> type accepts the following colors:</p>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Starting with</th>
+                                <th>Colors</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>A</td>
+                                <td><pre><code>aliceblue, antiquewhite, aqua, aquamarine, azure</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td>B</td>
+                                <td><pre><code>beige, bisque, black, blanchedalmond, blue, blueviolet, brown, burlywood</code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>C</td>
+                                <td><pre><code>cadetblue, chartreuse, chocolate, coral, cornflowerblue, cornsilk, crimson, cyan</code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>D</td>
+                                <td>
+<pre><code>darkblue, darkcyan, darkgoldenrod, darkgray, darkgreen, darkgrey, darkkhaki, darkmagenta,
+darkolivegreen, darkorange, darkorchid, darkred, darksalmon, darkseagreen, darkslateblue,
+darkslategray, darkslategrey, darkturquoise, darkviolet, deeppink, deepskyblue, dimgray,
+dimgrey, dodgerblue</code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>F</td>
+                                <td><pre><code>firebrick, floralwhite, forestgreen, fuchsia</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td>G</td>
+                                <td><pre><code>gainsboro, ghostwhite, gold, goldenrod, gray, green, greenyellow, grey</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td>H</td>
+                                <td><pre><code>honeydew, hotpink</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td>I</td>
+                                <td><pre><code>indianred, indigo, ivory</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td>K</td>
+                                <td><pre><code>khaki</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td>L</td>
+                                <td>
+<pre><code>lavender, lavenderblush, lawngreen, lemonchiffon, lightblue, lightcoral, lightcyan,
+lightgoldenrodyellow, lightgray, lightgreen, lightgrey, lightpink, lightsalmon, lightseagreen,
+lightskyblue, lightslategray, lightslategrey, lightsteelblue, lightyellow, lime, limegreen,
+linen</code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>M</td>
+                                <td>
+<pre><code>magenta, maroon, mediumaquamarine, mediumblue, mediumorchid, mediumpurple, mediumseagreen,
+mediumslateblue, mediumspringgreen, mediumturquoise, mediumvioletred, midnightblue, mintcream,
+mistyrose, moccasin</code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>N</td>
+                                <td><pre><code>navajowhite, navy</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td>O</td>
+                                <td><pre><code>oldlace, olive, olivedrab, orange, orangered, orchid</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td>P</td>
+                                <td>
+<pre><code>palegoldenrod, palegreen, paleturquoise, palevioletred, papayawhip, peachpuff, peru, pink,
+plum, powderblue, purple</code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>R</td>
+                                <td><pre><code>red, rosybrown, royalblue</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td>S</td>
+                                <td>
+<pre><code>saddlebrown, salmon, sandybrown, seagreen, seashell, sienna, silver, skyblue, slateblue,
+slategray, slategrey, snow, springgreen, steelblue</code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>T</td>
+                                <td><pre><code>tan, teal, thistle, tomato, transparent, turquoise</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td>V</td>
+                                <td><pre><code>violet</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td>W</td>
+                                <td><pre><code>wheat, white, whitesmoke</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td>Y</td>
+                                <td><pre><code>yellow, yellowgreen</code></pre></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#color-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#color-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#color-js-tab" data-toggle="tab">JS</a></li>
+                            <li><a href="#color-declarative-tab" data-toggle="tab">Declarative usage</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="color-form-tab">
+                            <form id="colorForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Color</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="color" />
+        </div>
+    </div>
+</form>
+                            </div>
+
+                            <div class="tab-pane" id="color-html-tab">
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">&quot;colorForm&quot;</span> <span class="na">class=</span><span class="s">&quot;form-horizontal&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;col-sm-3 control-label&quot;</span><span class="nt">&gt;</span>Color<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-6&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">name=</span><span class="s">&quot;color&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span></code></pre></div>
+                            </div>
+
+                            <div class="tab-pane" id="color-js-tab">
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#colorForm&#39;</span><span class="p">).</span><span class="nx">bootstrapValidator</span><span class="p">({</span>
+        <span class="nx">feedbackIcons</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">valid</span><span class="o">:</span> <span class="s1">&#39;glyphicon glyphicon-ok&#39;</span><span class="p">,</span>
+            <span class="nx">invalid</span><span class="o">:</span> <span class="s1">&#39;glyphicon glyphicon-remove&#39;</span><span class="p">,</span>
+            <span class="nx">validating</span><span class="o">:</span> <span class="s1">&#39;glyphicon glyphicon-refresh&#39;</span>
+        <span class="p">},</span>
+        <span class="nx">fields</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">color</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">validators</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">color</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">type</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;hex&#39;</span><span class="p">,</span> <span class="s1">&#39;hsl&#39;</span><span class="p">,</span> <span class="s1">&#39;hsla&#39;</span><span class="p">,</span> <span class="s1">&#39;keyword&#39;</span><span class="p">,</span> <span class="s1">&#39;rgb&#39;</span><span class="p">,</span> <span class="s1">&#39;rgba&#39;</span><span class="p">],</span>  <span class="c1">// The default value for type</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The value is not valid color&#39;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">});</span></code></pre></div>
+                            </div>
+
+                            <div class="tab-pane" id="color-declarative-tab">
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">&quot;colorForm&quot;</span> <span class="na">class=</span><span class="s">&quot;form-horizontal&quot;</span>
+    <span class="na">data-bv-feedbackicons-valid=</span><span class="s">&quot;glyphicon glyphicon-ok&quot;</span>
+    <span class="na">data-bv-feedbackicons-invalid=</span><span class="s">&quot;glyphicon glyphicon-remove&quot;</span>
+    <span class="na">data-bv-feedbackicons-validating=</span><span class="s">&quot;glyphicon glyphicon-refresh&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;col-sm-3 control-label&quot;</span><span class="nt">&gt;</span>Color<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-6&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">name=</span><span class="s">&quot;color&quot;</span>
+                <span class="na">data-bv-color=</span><span class="s">&quot;true&quot;</span>
+                <span class="na">data-bv-color-type=</span><span class="s">&quot;hex,hsl,hsla,keyword,rgb,rgba&quot;</span>
+                <span class="na">data-bv-color-message=</span><span class="s">&quot;The value is not valid color&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#colorForm&#39;</span><span class="p">).</span><span class="nx">bootstrapValidator</span><span class="p">();</span>
+<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span></code></pre></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                
+<section>
+    <h2>Related validators</h2>
+
+    <p>The following validators might be useful to you:</p>
+
+    <ul class="list-group">
+        
+        <li class="list-group-item"><a href="/validators/hexColor/">hexColor</a></li>
+        
+        <li class="list-group-item"><a href="/validators/regexp/">regexp</a></li>
+        
+    </ul>
+</section>
+
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('#colorForm').bootstrapValidator({
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            color: {
+                validators: {
+                    color: {
+                        type: ['hex', 'hsl', 'hsla', 'keyword', 'rgb', 'rgba'],  // The default value for type
+                        message: 'The value is not valid color'
+                    }
+                }
+            }
+        }
+    });
+});
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        $('#colorForm')
+            .find('input[name="color"]')
+                .val($(this).html())
+                .end()
+            .bootstrapValidator('revalidateField', 'color');
+
+        var isValid = $('#colorForm').data('bootstrapValidator').isValid();
+        $(this)
+            .parent()
+                .removeClass('doc-sample-error doc-sample-success')
+                .addClass(isValid ? 'doc-sample-success' : 'doc-sample-error')
+            .find('i')
+                .removeClass('fa-check fa-times')
+                .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>
+
+        <footer class="doc-footer">
+    <div class="container">
+        <p>
+            
+            <a class="btn" href="/download/">Download</a>
+            
+            <a class="btn" href="https://github.com/formvalidation/formvalidation/issues">Report bug</a>
+        </p>
+        <p>
+            &copy; 2013 - 2014 <a href="http://twitter.com/nghuuphuoc">Nguyen Huu Phuoc</a>. All rights reserved.<br/>
+            Handcrafted with <span class="doc-heart"><i class="fa fa-heart"></i></span> and a lot of <i class="fa fa-coffee"></i>
+        </p>
+        <ul>
+            <li><a href="/getting-started/">Getting started</a></li>
+            <li>&middot;</li>
+            <li><a href="/settings/">Settings</a></li>
+            <li>&middot;</li>
+            <li><a href="/validators/">Validators</a></li>
+            <li>&middot;</li>
+            <li><a href="/api/">API</a></li>
+            <li>&middot;</li>
+            <li><a href="/examples/">Examples</a></li>
+            <li>&middot;</li>
+            <li><a href="/developing/">Developing</a></li>
+            <li>&middot;</li>
+            <li><a href="/news/">News</a></li>
+            <li>&middot;</li>
+            <li><a href="/license/">License</a></li>
+        </ul>
+        <ul>
+            <li>
+                <a href="https://github.com/formvalidation/formvalidation" title="Fork me on Github">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-github-alt fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="http://twitter.com/formvalidation/" title="Follow me on Twitter">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/pages/FormValidation/1567908420106565/" title="Like me on Facebook">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://plus.google.com/u/0/communities/114931136856987817254" title="Join me on Google+">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    
+    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=bootstrapvalidatorcom" id="_carbonads_js"></script>
+    
+</footer>
+    </div>
+
+<script src="/vendor/tocjs/js/toc.min.js"></script>
+<script src="/vendor/share/share.min.js"></script>
+<script>
+$(function() {
+    // Create share button
+    new Share('#shareButton');
+
+    $('[data-toggle="tooltip"]').tooltip();
+
+    $('.doc-logo').on('click', function() {
+        $('body').toggleClass('doc-nav-shown');
+    });
+
+    $('form').each(function() {
+        $(this).on('success.form.bv', function(e) {
+            e.preventDefault();
+        });
+    });
+
+    // Create table of contents
+    if ($('#toc').length) {
+        $('#toc')
+            .css('max-width', $('#toc').width())
+            .toc({
+                selector: '#main h2, #main h3, #main h4, #main h5, #main h6',
+                elementClass: 'toc',
+                ulClass: 'nav',
+                indexingFormats: '______'
+            });
+
+        var $window = $(window),
+            $body   = $(document.body);
+        $body.scrollspy({
+            target: '#toc'
+        });
+
+        $window.on('load', function() {
+            $body.scrollspy('refresh');
+        });
+
+        setTimeout(function() {
+            var $sideBar = $('#toc');
+            $sideBar.affix({
+                offset: {
+                    top: function() {
+                        return (this.top = $sideBar.offset().top);
+                    }
+                }
+            });
+        }, 100);
+    }
+});
+</script>
+</body>
+</html>

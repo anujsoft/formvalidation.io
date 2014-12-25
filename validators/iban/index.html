@@ -1,0 +1,1091 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title>Validate an International Bank Account Number (IBAN) - FormValidation</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="BootstrapValidator, a jQuery plugin to validate form fields">
+<meta name="keywords" content="Bootstrap, jQuery, validate, plugin, validator, form">
+<meta name="author" content="Nguyen Huu Phuoc">
+<meta name="google-site-verification" content="uzi08FxE8yqb9q-PlBzFxZeuUGalNFp3gX2haopVWBc" />
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cardo:400,400italic,700">
+<link rel="stylesheet" href="/vendor/pygments/github.css">
+<link rel="stylesheet" href="/asset/css/style.css">
+
+<!--[if lt IE 9]>
+<script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<script src="//oss.maxcdn.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-44786951-2']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+</head>
+<body>
+    <nav class="doc-nav" tabindex="-1">
+    <ul>
+        <li><a href="/">Home</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/download/">Download</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/getting-started/">Getting Started</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/settings/">Settings</a></li>
+    
+        
+            
+        
+        <li class="doc-nav-active"><a href="/validators/">Validators</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/api/">API</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/examples/">Examples</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/developing/">Developing</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/news/">News</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/license/">License</a></li>
+    
+    </ul>
+
+    <div class="doc-hr"></div>
+
+    <ul>
+        <li><a href="https://github.com/formvalidation/formvalidation" title="Fork me on Github">Github <i class="fa fa-github"></i></a></li>
+        <li><a href="http://twitter.com/formvalidation/" title="Follow me on Twitter">formvalidation <i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://www.facebook.com/pages/FormValidation/1567908420106565/" title="Like me on Facebook">FormValidation <i class="fa fa-facebook"></i></a></li>
+        <li><a href="https://plus.google.com/u/0/communities/114931136856987817254" title="Join me on Google+">Google+ community <i class="fa fa-google-plus"></i></a></li>
+    </ul>
+
+    <div class="doc-hr"></div>
+
+    <div class="doc-creator">
+        <p>
+            Handcrafted with <span class="doc-heart"><i class="fa fa-heart"></i></span> and a lot of <i class="fa fa-coffee"></i><br />
+            by <a href="http://twitter.com/nghuuphuoc">@nghuuphuoc</a><br/>
+            <img src="http://github.com/nghuuphuoc.png" />
+        </p>
+        <p><a href="mailto: phuoc@huuphuoc.me" class="btn">Hire me</a></p>
+    </div>
+</nav>
+<button class="btn doc-logo" title="Toggle the navigation"><i class="fa fa-bars"></i></button>
+
+    <div id="main" class="doc-content-wrapper">
+        <div class="doc-notification">
+    <i class="fa fa-bell-o"></i> <a href="/news/v0.5.3-released/">v0.5.3</a> is released on 2014.11.05!
+</div>
+
+        <div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>iban validator</h1>
+        <p>Validate an International Bank Account Number (IBAN)</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        <a class="btn doc-edit-btn" href="https://github.com/formvalidation/formvalidation.io/edit/docs/validators/iban.html">Improve it on Github</a>
+        <div id="shareButton" class="doc-share-button"></div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>country</code></td>
+                                <td><code>data-bv-iban-country</code></td>
+                                <td>String</td>
+                                <td>An ISO-3166 country code.<br/>It's <a href="/settings/#dynamic-option">dynamic option</a></td>
+                            </tr>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-iban-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-iban="true".
+                    </div>
+
+                    <p>If the <code>country</code> is not defined, it will be parsed from the IBAN number.</p>
+                    <p>The validator supports the following countries (sorted by the country code in alphabetical order):</p>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Country</th>
+                                <th>Code</th>
+                                <th>Sample IBAN</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td>1</td>
+                                <td>Albania</td>
+                                <td>AL</td>
+                                <td><a href="javascript: void(0);" class="sample">AL47212110090000000235698741</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>2</td>
+                                <td>Algeria</td>
+                                <td>DZ</td>
+                                <td><a href="javascript: void(0);" class="sample">DZ4000400174401001050486</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>3</td>
+                                <td>Andorra</td>
+                                <td>AD</td>
+                                <td><a href="javascript: void(0);" class="sample">AD1200012030200359100100</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>4</td>
+                                <td>Angola</td>
+                                <td>AO</td>
+                                <td><a href="javascript: void(0);" class="sample">AO06000600000100037131174</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>5</td>
+                                <td>Austria</td>
+                                <td>AT</td>
+                                <td><a href="javascript: void(0);" class="sample">AT611904300234573201</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>6</td>
+                                <td>Azerbaijan</td>
+                                <td>AZ</td>
+                                <td><a href="javascript: void(0);" class="sample">AZ21NABZ00000000137010001944</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>7</td>
+                                <td>Bahrain</td>
+                                <td>BH</td>
+                                <td><a href="javascript: void(0);" class="sample">BH29BMAG1299123456BH00</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>8</td>
+                                <td>Bosnia and Herzegovina</td>
+                                <td>BA</td>
+                                <td><a href="javascript: void(0);" class="sample">BA391290079401028494</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>9</td>
+                                <td>Belgium</td>
+                                <td>BE</td>
+                                <td><a href="javascript: void(0);" class="sample">BE68539007547034</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>10</td>
+                                <td>Benin</td>
+                                <td>BJ</td>
+                                <td><a href="javascript: void(0);" class="sample">BJ11B00610100400271101192591</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>11</td>
+                                <td>Brazil</td>
+                                <td>BR</td>
+                                <td><a href="javascript: void(0);" class="sample">BR9700360305000010009795493P1</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>12</td>
+                                <td>Bulgaria</td>
+                                <td>BG</td>
+                                <td><a href="javascript: void(0);" class="sample">BG80BNBG96611020345678</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>13</td>
+                                <td>Burkina Faso</td>
+                                <td>BF</td>
+                                <td><a href="javascript: void(0);" class="sample">BF1030134020015400945000643</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>14</td>
+                                <td>Burundi</td>
+                                <td>BI</td>
+                                <td><a href="javascript: void(0);" class="sample">BI43201011067444</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>15</td>
+                                <td>Cameroon</td>
+                                <td>CM</td>
+                                <td><a href="javascript: void(0);" class="sample">CM2110003001000500000605306</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>16</td>
+                                <td>Cape Verde</td>
+                                <td>CV</td>
+                                <td><a href="javascript: void(0);" class="sample">CV64000300004547069110176</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>17</td>
+                                <td>Costa Rica</td>
+                                <td>CR</td>
+                                <td><a href="javascript: void(0);" class="sample">CR0515202001026284066</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>18</td>
+                                <td>Croatia</td>
+                                <td>HR</td>
+                                <td><a href="javascript: void(0);" class="sample">HR1210010051863000160</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>19</td>
+                                <td>Cyprus</td>
+                                <td>CY</td>
+                                <td><a href="javascript: void(0);" class="sample">CY17002001280000001200527600</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>20</td>
+                                <td>Czech Republic</td>
+                                <td>CZ</td>
+                                <td><a href="javascript: void(0);" class="sample">CZ6508000000192000145399</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>21</td>
+                                <td>Denmark</td>
+                                <td>DK</td>
+                                <td><a href="javascript: void(0);" class="sample">DK5000400440116243</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>22</td>
+                                <td>Dominican Republic</td>
+                                <td>DO</td>
+                                <td><a href="javascript: void(0);" class="sample">DO28BAGR00000001212453611324</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>23</td>
+                                <td>Estonia</td>
+                                <td>EE</td>
+                                <td><a href="javascript: void(0);" class="sample">EE382200221020145685</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>24</td>
+                                <td>Faroe Islands</td>
+                                <td>FO</td>
+                                <td><a href="javascript: void(0);" class="sample">FO1464600009692713</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>25</td>
+                                <td>Finland</td>
+                                <td>FI</td>
+                                <td><a href="javascript: void(0);" class="sample">FI2112345600000785</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>26</td>
+                                <td>France</td>
+                                <td>FR</td>
+                                <td><a href="javascript: void(0);" class="sample">FR1420041010050500013M02606</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>27</td>
+                                <td>Guatemala</td>
+                                <td>GT</td>
+                                <td><a href="javascript: void(0);" class="sample">GT82TRAJ01020000001210029690</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>28</td>
+                                <td>Georgia</td>
+                                <td>GE</td>
+                                <td><a href="javascript: void(0);" class="sample">GE29NB0000000101904917</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>29</td>
+                                <td>Germany</td>
+                                <td>DE</td>
+                                <td><a href="javascript: void(0);" class="sample">DE89370400440532013000</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>30</td>
+                                <td>Gibraltar</td>
+                                <td>GI</td>
+                                <td><a href="javascript: void(0);" class="sample">GI75NWBK000000007099453</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>31</td>
+                                <td>Greece</td>
+                                <td>GR</td>
+                                <td><a href="javascript: void(0);" class="sample">GR1601101250000000012300695</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>32</td>
+                                <td>Greenland</td>
+                                <td>GL</td>
+                                <td><a href="javascript: void(0);" class="sample">GL8964710001000206</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>33</td>
+                                <td>Hungary</td>
+                                <td>HU</td>
+                                <td><a href="javascript: void(0);" class="sample">HU42117730161111101800000000</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>34</td>
+                                <td>Iceland</td>
+                                <td>IS</td>
+                                <td><a href="javascript: void(0);" class="sample">IS140159260076545510730339</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>35</td>
+                                <td>Iran</td>
+                                <td>IR</td>
+                                <td><a href="javascript: void(0);" class="sample">IR580540105180021273113007</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>36</td>
+                                <td>Ireland</td>
+                                <td>IE</td>
+                                <td><a href="javascript: void(0);" class="sample">IE29AIBK93115212345678</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>37</td>
+                                <td>Israel</td>
+                                <td>IL</td>
+                                <td><a href="javascript: void(0);" class="sample">IL620108000000099999999</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>38</td>
+                                <td>Italy</td>
+                                <td>IT</td>
+                                <td><a href="javascript: void(0);" class="sample">IT60X0542811101000000123456</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>39</td>
+                                <td>Ivory Coast</td>
+                                <td>CI</td>
+                                <td><a href="javascript: void(0);" class="sample">CI05A00060174100178530011852</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>40</td>
+                                <td>Jordan</td>
+                                <td>JO</td>
+                                <td><a href="javascript: void(0);" class="sample">JO94CBJO0010000000000131000302</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>41</td>
+                                <td>Kazakhstan</td>
+                                <td>KZ</td>
+                                <td><a href="javascript: void(0);" class="sample">KZ176010251000042993</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>42</td>
+                                <td>Kuwait</td>
+                                <td>KW</td>
+                                <td><a href="javascript: void(0);" class="sample">KW74NBOK0000000000001000372151</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>43</td>
+                                <td>Latvia</td>
+                                <td>LV</td>
+                                <td><a href="javascript: void(0);" class="sample">LV80BANK0000435195001</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>44</td>
+                                <td>Lebanon</td>
+                                <td>LB</td>
+                                <td><a href="javascript: void(0);" class="sample">LB30099900000001001925579115</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>45</td>
+                                <td>Liechtenstein</td>
+                                <td>LI</td>
+                                <td><a href="javascript: void(0);" class="sample">LI21088100002324013AA</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>46</td>
+                                <td>Lithuania</td>
+                                <td>LT</td>
+                                <td><a href="javascript: void(0);" class="sample">LT121000011101001000</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>47</td>
+                                <td>Luxembourg</td>
+                                <td>LU</td>
+                                <td><a href="javascript: void(0);" class="sample">LU280019400644750000</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>48</td>
+                                <td>Macedonia</td>
+                                <td>MK</td>
+                                <td><a href="javascript: void(0);" class="sample">MK07300000000042425</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>49</td>
+                                <td>Madagascar</td>
+                                <td>MG</td>
+                                <td><a href="javascript: void(0);" class="sample">MG4600005030010101914016056</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>50</td>
+                                <td>Malta</td>
+                                <td>MT</td>
+                                <td><a href="javascript: void(0);" class="sample">MT84MALT011000012345MTLCAST001S</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>51</td>
+                                <td>Mauritania</td>
+                                <td>MR</td>
+                                <td><a href="javascript: void(0);" class="sample">MR1300012000010000002037372</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>52</td>
+                                <td>Mauritius</td>
+                                <td>MU</td>
+                                <td><a href="javascript: void(0);" class="sample">MU17BOMM0101101030300200000MUR</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>53</td>
+                                <td>Mali</td>
+                                <td>ML</td>
+                                <td><a href="javascript: void(0);" class="sample">ML03D00890170001002120000447</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>54</td>
+                                <td>Moldova</td>
+                                <td>MD</td>
+                                <td><a href="javascript: void(0);" class="sample">MD24AG000225100013104168</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>55</td>
+                                <td>Monaco</td>
+                                <td>MC</td>
+                                <td><a href="javascript: void(0);" class="sample">MC5813488000010051108001292</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>56</td>
+                                <td>Montenegro</td>
+                                <td>ME</td>
+                                <td><a href="javascript: void(0);" class="sample">ME25505000012345678951</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>57</td>
+                                <td>Mozambique</td>
+                                <td>MZ</td>
+                                <td><a href="javascript: void(0);" class="sample">MZ59000100000011834194157</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>58</td>
+                                <td>Netherlands</td>
+                                <td>NL</td>
+                                <td><a href="javascript: void(0);" class="sample">NL91ABNA0417164300</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>59</td>
+                                <td>Norway</td>
+                                <td>NO</td>
+                                <td><a href="javascript: void(0);" class="sample">NO9386011117947</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>60</td>
+                                <td>Pakistan</td>
+                                <td>PK</td>
+                                <td><a href="javascript: void(0);" class="sample">PK24SCBL0000001171495101</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>61</td>
+                                <td>Palestine</td>
+                                <td>PS</td>
+                                <td><a href="javascript: void(0);" class="sample">PS92PALS000000000400123456702</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>62</td>
+                                <td>Poland</td>
+                                <td>PL</td>
+                                <td><a href="javascript: void(0);" class="sample">PL27114020040000300201355387</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>63</td>
+                                <td>Portugal</td>
+                                <td>PT</td>
+                                <td><a href="javascript: void(0);" class="sample">PT50000201231234567890154</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>64</td>
+                                <td>Qatar</td>
+                                <td>QA</td>
+                                <td><a href="javascript: void(0);" class="sample">QA58DOHB00001234567890ABCDEFG</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>65</td>
+                                <td>Romania</td>
+                                <td>RO</td>
+                                <td><a href="javascript: void(0);" class="sample">RO49AAAA1B31007593840000</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>66</td>
+                                <td>San Marino</td>
+                                <td>SM</td>
+                                <td><a href="javascript: void(0);" class="sample">SM86U0322509800000000270100</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>67</td>
+                                <td>Saudi Arabia</td>
+                                <td>SA</td>
+                                <td><a href="javascript: void(0);" class="sample">SA0380000000608010167519</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>68</td>
+                                <td>Senegal</td>
+                                <td>SN</td>
+                                <td><a href="javascript: void(0);" class="sample">SN12K00100152000025690007542</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>69</td>
+                                <td>Serbia</td>
+                                <td>RS</td>
+                                <td><a href="javascript: void(0);" class="sample">RS35260005601001611379</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>70</td>
+                                <td>Slovakia</td>
+                                <td>SK</td>
+                                <td><a href="javascript: void(0);" class="sample">SK3112000000198742637541</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>71</td>
+                                <td>Slovenia</td>
+                                <td>SI</td>
+                                <td><a href="javascript: void(0);" class="sample">SI56191000000123438</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>72</td>
+                                <td>Spain</td>
+                                <td>ES</td>
+                                <td><a href="javascript: void(0);" class="sample">ES9121000418450200051332</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>73</td>
+                                <td>Sweden</td>
+                                <td>SE</td>
+                                <td><a href="javascript: void(0);" class="sample">SE3550000000054910000003</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>74</td>
+                                <td>Switzerland</td>
+                                <td>CH</td>
+                                <td><a href="javascript: void(0);" class="sample">CH9300762011623852957</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>75</td>
+                                <td>Tunisia</td>
+                                <td>TN</td>
+                                <td><a href="javascript: void(0);" class="sample">TN5914207207100707129648</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>76</td>
+                                <td>Turkey</td>
+                                <td>TR</td>
+                                <td><a href="javascript: void(0);" class="sample">TR330006100519786457841326</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>77</td>
+                                <td>United Arab Emirates</td>
+                                <td>AE</td>
+                                <td><a href="javascript: void(0);" class="sample">AE260211000000230064016</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>78</td>
+                                <td>United Kingdom</td>
+                                <td>GB</td>
+                                <td><a href="javascript: void(0);" class="sample">GB29NWBK60161331926819</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>79</td>
+                                <td>Virgin Islands, British</td>
+                                <td>VG</td>
+                                <td><a href="javascript: void(0);" class="sample">VG96VPVG0000012345678901</a></td>
+                                <td><i class="fa"></i></td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#iban-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#iban-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#iban-js-tab" data-toggle="tab">JS</a></li>
+                            <li><a href="#iban-declarative-tab" data-toggle="tab">Declarative usage</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="iban-form-tab">
+                            <form id="ibanForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">IBAN</label>
+        <div class="col-sm-5">
+            <input type="text" class="form-control" name="iban" />
+        </div>
+    </div>
+</form>
+                            </div>
+
+                            <div class="tab-pane" id="iban-html-tab">
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">&quot;ibanForm&quot;</span> <span class="na">class=</span><span class="s">&quot;form-horizontal&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;col-sm-3 control-label&quot;</span><span class="nt">&gt;</span>IBAN<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-5&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">name=</span><span class="s">&quot;iban&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span></code></pre></div>
+                            </div>
+
+                            <div class="tab-pane" id="iban-js-tab">
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#ibanForm&#39;</span><span class="p">).</span><span class="nx">bootstrapValidator</span><span class="p">({</span>
+        <span class="nx">feedbackIcons</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">valid</span><span class="o">:</span> <span class="s1">&#39;glyphicon glyphicon-ok&#39;</span><span class="p">,</span>
+            <span class="nx">invalid</span><span class="o">:</span> <span class="s1">&#39;glyphicon glyphicon-remove&#39;</span><span class="p">,</span>
+            <span class="nx">validating</span><span class="o">:</span> <span class="s1">&#39;glyphicon glyphicon-refresh&#39;</span>
+        <span class="p">},</span>
+        <span class="nx">fields</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">iban</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">validators</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">iban</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The value is not valid IBAN&#39;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">});</span></code></pre></div>
+                            </div>
+
+                            <div class="tab-pane" id="iban-declarative-tab">
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">&quot;ibanForm&quot;</span> <span class="na">class=</span><span class="s">&quot;form-horizontal&quot;</span>
+    <span class="na">data-bv-feedbackicons-valid=</span><span class="s">&quot;glyphicon glyphicon-ok&quot;</span>
+    <span class="na">data-bv-feedbackicons-invalid=</span><span class="s">&quot;glyphicon glyphicon-remove&quot;</span>
+    <span class="na">data-bv-feedbackicons-validating=</span><span class="s">&quot;glyphicon glyphicon-refresh&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;col-sm-3 control-label&quot;</span><span class="nt">&gt;</span>IBAN<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-5&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">name=</span><span class="s">&quot;iban&quot;</span>
+                <span class="na">data-bv-iban=</span><span class="s">&quot;true&quot;</span>
+                <span class="na">data-bv-iban-message=</span><span class="s">&quot;The value is not valid IBAN&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#ibanForm&#39;</span><span class="p">).</span><span class="nx">bootstrapValidator</span><span class="p">();</span>
+<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span></code></pre></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                
+<section>
+    <h2>Related validators</h2>
+
+    <p>The following validators might be useful to you:</p>
+
+    <ul class="list-group">
+        
+        <li class="list-group-item"><a href="/validators/creditCard/">creditCard</a></li>
+        
+        <li class="list-group-item"><a href="/validators/cvv/">cvv</a></li>
+        
+        <li class="list-group-item"><a href="/validators/rtn/">rtn</a></li>
+        
+    </ul>
+</section>
+
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('#ibanForm').bootstrapValidator({
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            iban: {
+                validators: {
+                    iban: {
+                        message: 'The value is not valid IBAN'
+                    }
+                }
+            }
+        }
+    });
+});
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        $('#ibanForm')
+            .find('input[name="iban"]')
+                .val($(this).html())
+                .end()
+            .bootstrapValidator('revalidateField', 'iban');
+
+        var isValid = $('#ibanForm').data('bootstrapValidator').isValid();
+        $(this)
+            .parents('tr').find('i')
+            .removeClass('fa-check fa-times')
+            .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>
+
+        <footer class="doc-footer">
+    <div class="container">
+        <p>
+            
+            <a class="btn" href="/download/">Download</a>
+            
+            <a class="btn" href="https://github.com/formvalidation/formvalidation/issues">Report bug</a>
+        </p>
+        <p>
+            &copy; 2013 - 2014 <a href="http://twitter.com/nghuuphuoc">Nguyen Huu Phuoc</a>. All rights reserved.<br/>
+            Handcrafted with <span class="doc-heart"><i class="fa fa-heart"></i></span> and a lot of <i class="fa fa-coffee"></i>
+        </p>
+        <ul>
+            <li><a href="/getting-started/">Getting started</a></li>
+            <li>&middot;</li>
+            <li><a href="/settings/">Settings</a></li>
+            <li>&middot;</li>
+            <li><a href="/validators/">Validators</a></li>
+            <li>&middot;</li>
+            <li><a href="/api/">API</a></li>
+            <li>&middot;</li>
+            <li><a href="/examples/">Examples</a></li>
+            <li>&middot;</li>
+            <li><a href="/developing/">Developing</a></li>
+            <li>&middot;</li>
+            <li><a href="/news/">News</a></li>
+            <li>&middot;</li>
+            <li><a href="/license/">License</a></li>
+        </ul>
+        <ul>
+            <li>
+                <a href="https://github.com/formvalidation/formvalidation" title="Fork me on Github">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-github-alt fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="http://twitter.com/formvalidation/" title="Follow me on Twitter">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/pages/FormValidation/1567908420106565/" title="Like me on Facebook">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://plus.google.com/u/0/communities/114931136856987817254" title="Join me on Google+">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    
+    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=bootstrapvalidatorcom" id="_carbonads_js"></script>
+    
+</footer>
+    </div>
+
+<script src="/vendor/tocjs/js/toc.min.js"></script>
+<script src="/vendor/share/share.min.js"></script>
+<script>
+$(function() {
+    // Create share button
+    new Share('#shareButton');
+
+    $('[data-toggle="tooltip"]').tooltip();
+
+    $('.doc-logo').on('click', function() {
+        $('body').toggleClass('doc-nav-shown');
+    });
+
+    $('form').each(function() {
+        $(this).on('success.form.bv', function(e) {
+            e.preventDefault();
+        });
+    });
+
+    // Create table of contents
+    if ($('#toc').length) {
+        $('#toc')
+            .css('max-width', $('#toc').width())
+            .toc({
+                selector: '#main h2, #main h3, #main h4, #main h5, #main h6',
+                elementClass: 'toc',
+                ulClass: 'nav',
+                indexingFormats: '______'
+            });
+
+        var $window = $(window),
+            $body   = $(document.body);
+        $body.scrollspy({
+            target: '#toc'
+        });
+
+        $window.on('load', function() {
+            $body.scrollspy('refresh');
+        });
+
+        setTimeout(function() {
+            var $sideBar = $('#toc');
+            $sideBar.affix({
+                offset: {
+                    top: function() {
+                        return (this.top = $sideBar.offset().top);
+                    }
+                }
+            });
+        }, 100);
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1213 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title>API - FormValidation</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="BootstrapValidator, a jQuery plugin to validate form fields">
+<meta name="keywords" content="Bootstrap, jQuery, validate, plugin, validator, form">
+<meta name="author" content="Nguyen Huu Phuoc">
+<meta name="google-site-verification" content="uzi08FxE8yqb9q-PlBzFxZeuUGalNFp3gX2haopVWBc" />
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cardo:400,400italic,700">
+<link rel="stylesheet" href="/vendor/pygments/github.css">
+<link rel="stylesheet" href="/asset/css/style.css">
+
+<!--[if lt IE 9]>
+<script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<script src="//oss.maxcdn.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-44786951-2']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+</head>
+<body>
+    <nav class="doc-nav" tabindex="-1">
+    <ul>
+        <li><a href="/">Home</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/download/">Download</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/getting-started/">Getting Started</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/settings/">Settings</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/validators/">Validators</a></li>
+    
+        
+            
+        
+        <li class="doc-nav-active"><a href="/api/">API</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/examples/">Examples</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/developing/">Developing</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/news/">News</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/license/">License</a></li>
+    
+    </ul>
+
+    <div class="doc-hr"></div>
+
+    <ul>
+        <li><a href="https://github.com/formvalidation/formvalidation" title="Fork me on Github">Github <i class="fa fa-github"></i></a></li>
+        <li><a href="http://twitter.com/formvalidation/" title="Follow me on Twitter">formvalidation <i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://www.facebook.com/pages/FormValidation/1567908420106565/" title="Like me on Facebook">FormValidation <i class="fa fa-facebook"></i></a></li>
+        <li><a href="https://plus.google.com/u/0/communities/114931136856987817254" title="Join me on Google+">Google+ community <i class="fa fa-google-plus"></i></a></li>
+    </ul>
+
+    <div class="doc-hr"></div>
+
+    <div class="doc-creator">
+        <p>
+            Handcrafted with <span class="doc-heart"><i class="fa fa-heart"></i></span> and a lot of <i class="fa fa-coffee"></i><br />
+            by <a href="http://twitter.com/nghuuphuoc">@nghuuphuoc</a><br/>
+            <img src="http://github.com/nghuuphuoc.png" />
+        </p>
+        <p><a href="mailto: phuoc@huuphuoc.me" class="btn">Hire me</a></p>
+    </div>
+</nav>
+<button class="btn doc-logo" title="Toggle the navigation"><i class="fa fa-bars"></i></button>
+
+    <div id="main" class="doc-content-wrapper">
+        <div class="doc-notification">
+    <i class="fa fa-bell-o"></i> <a href="/news/v0.5.3-released/">v0.5.3</a> is released on 2014.11.05!
+</div>
+
+        <div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>API</h1>
+        <p>Collection of public methods that help you do additional jobs</p>
+        <a class="btn doc-edit-btn" href="https://github.com/formvalidation/formvalidation.io/edit/docs/api.html">Improve it on Github</a>
+        <div id="shareButton" class="doc-share-button"></div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+    <h2>Usage</h2>
+
+    <p>After initializing the form with the plugin using <code>$(form).bootstrapValidator(options)</code>, there are two ways to call the plugin method:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Get plugin instance</span>
+<span class="kd">var</span> <span class="nx">bootstrapValidator</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">form</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;bootstrapValidator&#39;</span><span class="p">);</span>
+
+<span class="c1">// and then call method</span>
+<span class="nx">bootstrapValidator</span><span class="p">.</span><span class="nx">methodName</span><span class="p">(</span><span class="nx">parameters</span><span class="p">)</span></code></pre></div>
+
+    <p>or:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nx">form</span><span class="p">).</span><span class="nx">bootstrapValidator</span><span class="p">(</span><span class="nx">methodName</span><span class="p">,</span> <span class="nx">parameters</span><span class="p">);</span></code></pre></div>
+
+    <p>The first way mostly returns the <code>BootstrapValidator</code> instance, meanwhile the second one always returns the jQuery object representing the form.</p>
+    <p>So, it's possible to chain methods as below:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// The first way</span>
+<span class="nx">$</span><span class="p">(</span><span class="nx">form</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;bootstrapValidator&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">updateStatus</span><span class="p">(</span><span class="s1">&#39;birthday&#39;</span><span class="p">,</span> <span class="s1">&#39;NOT_VALIDATED&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">validateField</span><span class="p">(</span><span class="s1">&#39;birthday&#39;</span><span class="p">);</span>
+
+<span class="c1">// The second one</span>
+<span class="nx">$</span><span class="p">(</span><span class="nx">form</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">bootstrapValidator</span><span class="p">(</span><span class="s1">&#39;updateStatus&#39;</span><span class="p">,</span> <span class="s1">&#39;birthday&#39;</span><span class="p">,</span> <span class="s1">&#39;NOT_VALIDATED&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">bootstrapValidator</span><span class="p">(</span><span class="s1">&#39;validateField&#39;</span><span class="p">,</span> <span class="s1">&#39;birthday&#39;</span><span class="p">);</span></code></pre></div>
+</section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+    <h2>API</h2>
+
+    <p>Below is the list of public methods provided by the plugin.</p>
+
+    <p>The methods use the same format as following:</p>
+    <p><code>methodName()</code></p>
+    <p><code>methodName(requiredParameter<sup>*</sup>, optionalParameter, ...): Type of return value</code> &mdash; The purpose of method</p>
+
+    <section>
+    <h3 id="add-field">addField</h3>
+
+    <p><code>addField(field<sup>*</sup>, options): BootstrapValidator</code> &mdash; Add a new field.</p>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>field</code></td>
+                <td>String|jQuery</td>
+                <td>The field name or field element</td>
+            </tr>
+            <tr>
+                <td><code>options</code></td>
+                <td>Object</td>
+                <td>
+                    The field options.<br/>If it is not defined, the options are merged by:<br/>
+                    <ul class="doc-list">
+                        <li>Options which are parsed from HTML attributes of field</li>
+                        <li>The current options which are set when calling the plugin</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>If you want to do additional task after adding new field, then trigger the <a href="/settings/#event-form">added.field.bv</a> event:</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="nx">form</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">bootstrapValidator</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;added.field.bv&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// $(e.target)  --&gt; The form instance</span>
+            <span class="c1">// $(e.target).data(&#39;bootstrapValidator&#39;)</span>
+            <span class="c1">//              --&gt; The BootstrapValidator instance</span>
+
+            <span class="c1">// data.field   --&gt; The field name</span>
+            <span class="c1">// data.element --&gt; The new field element</span>
+            <span class="c1">// data.options --&gt; The new field options</span>
+
+            <span class="c1">// Do something ...</span>
+        <span class="p">});</span>
+<span class="p">});</span></code></pre></div>
+
+    <h4 id="add-field-examples">Example</h4>
+    <ul class="doc-list">
+        <li><a href="/examples/adding-dynamic-field/">Adding dynamic field</a></li>
+    </ul>
+</section>
+    <section>
+    <h3 id="default-submit">defaultSubmit</h3>
+
+    <p><code>defaultSubmit(): BootstrapValidator</code> &mdash; Submit the form using default submission.</p>
+    <p>It also does not perform any validations when submitting the form. It might be used when you want to submit the form right inside the <a href="/examples/ajax-submit/">custom submit handler</a>.</p>
+</section>
+    <section>
+    <h3 id="destroy">destroy</h3>
+
+    <p><code>destroy()</code> &mdash; Destroy the plugin.</p>
+    <p>It will remove all error messages, feedback icons as well as turning off the events created by the plugin.</p>
+</section>
+    <section>
+    <h3 id="disable-submit-buttons">disableSubmitButtons</h3>
+
+    <p><code>disableSubmitButtons(disabled): BootstrapValidator</code> &mdash; Disable or enable the submit buttons</p>
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>disabled</code></td>
+                <td>Boolean</td>
+                <td>Can be <code>true</code> or <code>false</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4 id="disable-submit-buttons-examples">Example</h4>
+    <ul class="doc-list">
+        <li><a href="/examples/enabling-submit-button/">Enabling the submit button all the time</a></li>
+    </ul>
+</section>
+    <section>
+    <h3 id="enable-field-validators">enableFieldValidators</h3>
+
+    <p><code>enableFieldValidators(field<sup>*</sup>, enabled<sup>*</sup>, validator): BootstrapValidator</code> &mdash; Enable, disable validators to given field</p>
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>field</code></td>
+                <td>String</td>
+                <td>The field name</td>
+            </tr>
+            <tr>
+                <td><code>enabled</code></td>
+                <td>Boolean</td>
+                <td>If <code>true</code>, enable field validators. If <code>false</code>, disable field validators</td>
+            </tr>
+            <tr>
+                <td><code>validator</code></td>
+                <td>String</td>
+                <td>The validator name. If it is not set, all field validators will be enabled or disabled</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4 id="enable-field-validators-examples">Example</h4>
+    <ul class="doc-list">
+        <li><a href="/examples/enable-validator/">Enable, disable validators</a></li>
+    </ul>
+</section>
+    <section>
+    <h3 id="get-dynamic-option">getDynamicOption</h3>
+
+    <p><code>getDynamicOption(field<sup>*</sup>, option<sup>*</sup>): String</code> &mdash; Returns the option value which can be set dynamically.</p>
+    <p>For example, the <a href="/validators/zipCode/">zipCode validator</a> has <code>country</code> option that can be changed dynamically a select element.</p>
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>field</code></td>
+                <td>String|jQuery</td>
+                <td>The field name or element</td>
+            </tr>
+            <tr>
+                <td><code>option</code></td>
+                <td>String</td>
+                <td>The <a href="/settings/#dynamic-option">dynamic option</a></td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    <h3 id="get-field-elements">getFieldElements</h3>
+
+    <p>
+        <code>getFieldElements(field): jQuery[]</code> &mdash; Retrieve the field elements by given name.<br/>
+        Returns array of jQuery element representing the field, or <code>null</code> if the fields are not found.
+    </p>
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>field</code></td>
+                <td>String</td>
+                <td>The field name</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    <h3 id="get-invalid-fields">getInvalidFields</h3>
+
+    <p><code>getInvalidFields(): jQuery[]</code> &mdash; Returns the list of invalid fields.</p>
+</section>
+    <section>
+    <h3 id="get-messages">getMessages</h3>
+
+    <p><code>getMessages(field, validator): String[]</code> &mdash; Get the error messages.</p>
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>field</code></td>
+                <td>String|jQuery</td>
+                <td>The field name or field element<br/>If the field is not defined, the method returns all error messages of all fields</td>
+            </tr>
+            <tr>
+                <td><code>validator</code></td>
+                <td>String</td>
+                <td>The name of validator<br/>If the validator is not defined, the method returns error messages of all validators.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4 id="get-messages-examples">Example</h4>
+    <ul class="doc-list">
+        <li><a href="/examples/showing-message-custom-area/#using-events">Showing messages in custom area</a></li>
+    </ul>
+</section>
+    <section>
+    <h3 id="get-options">getOptions</h3>
+
+    <p><code>getOptions(field, validator, option): String|Object</code> &mdash; Get the field options.</p>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>field</code></td>
+                <td>String|jQuery</td>
+                <td>The field name or field element<br/>If the field is not defined, the method returns the form options.</td>
+            </tr>
+            <tr>
+                <td><code>validator</code></td>
+                <td>String</td>
+                <td>The name of validator<br/>If the validator is not defined, the method returns all field options.</td>
+            </tr>
+            <tr>
+                <td><code>option</code></td>
+                <td>String</td>
+                <td>The option name<br/>If it is not defined, the method returns options of given validator</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    <h3 id="get-submit-button">getSubmitButton</h3>
+
+    <p><code>getSubmitButton(): jQuery</code> &mdash; Returns a jQuery element presenting the clicked submit button. Returns <code>null</code> if the submit button isn't clicked.</p>
+</section>
+    <section>
+    <h3 id="is-valid">isValid</h3>
+
+    <p><code>isValid(): Boolean</code> &mdash; Returns <code>true</code> if all form fields are valid. Otherwise, returns <code>false</code>.</p>
+    <p>Ensure that the <a href="#validate">validate</a> method is already called after calling this one.</p>
+</section>
+    <section>
+    <h3 id="is-valid-container">isValidContainer</h3>
+
+    <p><code>isValidContainer(container<sup>*</sup>): Boolean</code> &mdash; Returns <code>true</code> if all fields in the container are valid. Otherwise, returns <code>false</code>.</p>
+    <p>It's useful when working with a wizard-like such as tab, collapse.</p>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>container</code></td>
+                <td>String|jQuery</td>
+                <td>The container selector or container element</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    <h3 id="is-valid-field">isValidField</h3>
+
+    <p><code>isValidField(field<sup>*</sup>): Boolean</code> &mdash; Check whether the field is valid or not. Returns <code>true</code> if all validators of field pass. Otherwise, returns <code>false</code>.</p>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>field</code></td>
+                <td>String|jQuery</td>
+                <td>The field name or field element</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    <h3 id="remove-field">removeField</h3>
+
+    <p><code>removeField(field<sup>*</sup>): BootstrapValidator</code> &mdash; Remove given field</p>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>field</code></td>
+                <td>String|jQuery</td>
+                <td>The field name or field element</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>By triggering the <a href="/settings/#event-form">removed.field.bv</a> event, you can perform additional task after removing given field:</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="nx">form</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">bootstrapValidator</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;removed.field.bv&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// $(e.target)  --&gt; The form instance</span>
+            <span class="c1">// $(e.target).data(&#39;bootstrapValidator&#39;)</span>
+            <span class="c1">//              --&gt; The BootstrapValidator instance</span>
+
+            <span class="c1">// data.field   --&gt; The field name</span>
+            <span class="c1">// data.element --&gt; The new field element</span>
+
+            <span class="c1">// Do something ...</span>
+        <span class="p">});</span>
+<span class="p">});</span></code></pre></div>
+
+    <h4 id="remove-field-examples">Example</h4>
+    <ul class="doc-list">
+        <li><a href="/examples/adding-dynamic-field/">Adding dynamic field</a></li>
+    </ul>
+</section>
+    <section>
+    <h3 id="reset-field">resetField</h3>
+
+    <p><code>resetField(field<sup>*</sup>, resetValue): BootstrapValidator</code> &mdash; Reset given field. It hides the error messages and feedback icons.</p>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>field</code></td>
+                <td>String|jQuery</td>
+                <td>The field name or field element</td>
+            </tr>
+            <tr>
+                <td><code>resetValue</code></td>
+                <td>Boolean</td>
+                <td>If <code>true</code>, the method resets field value to empty or remove checked/selected attribute (for radio and checkbox).</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4 id="reset-field-examples">Example</h4>
+    <ul class="doc-list">
+        <li><a href="/examples/clearing-field-when-clicking-icon/">Clearing field when clicking the icon</a></li>
+    </ul>
+</section>
+    <section>
+    <h3 id="reset-form">resetForm</h3>
+
+    <p><code>resetForm(resetFormData): BootstrapValidator</code> &mdash; Reset form. It hides all error elements and feedback icons. All the fields are marked as not validated yet.</p>
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>resetFormData</code></td>
+                <td>Boolean</td>
+                <td>If <code>true</code>, the method resets the fields which have validator rules.</td>
+            </tr>
+        </tbody>
+    </table>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nx">form</span><span class="p">).</span><span class="nx">bootstrapValidator</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+<span class="nx">$</span><span class="p">(</span><span class="nx">form</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;bootstrapValidator&#39;</span><span class="p">).</span><span class="nx">resetForm</span><span class="p">();</span></code></pre></div>
+</section>
+    <section>
+    <h3 id="revalidate-field">revalidateField</h3>
+
+    <p><code>revalidateField(field<sup>*</sup>): BootstrapValidator</code> &mdash; Revalidate given field.</p>
+    <p>It's used when you need to revalidate the field which its value is updated by other plugin.</p>
+    <p>By default, the plugin doesn't re-validate a field once it is already validated and marked as a valid one.
+        When using with other plugins, the field value is changed and therefore need to be re-validated.</p>
+
+    <p>Behind the scenes, the method is equivalent to:</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nx">form</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;bootstrapValidator&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">updateStatus</span><span class="p">(</span><span class="nx">field</span><span class="p">,</span> <span class="s1">&#39;NOT_VALIDATED&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">validateField</span><span class="p">(</span><span class="nx">field</span><span class="p">);</span>
+
+<span class="c1">// Or</span>
+<span class="nx">$</span><span class="p">(</span><span class="nx">form</span><span class="p">).</span><span class="nx">bootstrapValidator</span><span class="p">(</span><span class="s1">&#39;updateStatus&#39;</span><span class="p">,</span> <span class="nx">field</span><span class="p">,</span> <span class="s1">&#39;NOT_VALIDATED&#39;</span><span class="p">)</span>
+       <span class="p">.</span><span class="nx">bootstrapValidator</span><span class="p">(</span><span class="s1">&#39;validateField&#39;</span><span class="p">,</span> <span class="nx">field</span><span class="p">);</span></code></pre></div>
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>field</code></td>
+                <td>String|jQuery</td>
+                <td>The field name or field element</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4 id="revalidate-field-examples">Examples</h4>
+    <p>The following example describes how to re-validate a field which uses with <a href="http://eonasdan.github.io/bootstrap-datetimepicker/">Boostrap Datetime Picker</a>:</p>
+
+    <div class="doc-demo">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#datepicker-form-tab" data-toggle="tab">Try it</a></li>
+            <li><a href="#datepicker-html-tab" data-toggle="tab">HTML</a></li>
+            <li><a href="#datepicker-js-tab" data-toggle="tab">JS</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="datepicker-form-tab">
+            <link href="/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+<style type="text/css">
+#datetimeForm .has-feedback .form-control-feedback {
+    top: 0;
+    right: -15px;
+}
+</style>
+
+<script src="//oss.maxcdn.com/momentjs/2.8.2/moment.min.js"></script>
+<script src="/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+
+<form id="datetimeForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">DateTime Picker</label>
+        <div class="col-sm-5">
+            <div class="input-group date" id="datetimePicker">
+                <input type="text" class="form-control" name="datetimePicker" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+</form>
+            </div>
+
+            <div class="tab-pane" id="datepicker-html-tab">
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;style </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+<span class="nf">#datetimeForm</span> <span class="nc">.has-feedback</span> <span class="nc">.form-control-feedback</span> <span class="p">{</span>
+    <span class="k">top</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">right</span><span class="o">:</span> <span class="m">-15px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">&lt;/style&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//oss.maxcdn.com/momentjs/2.8.2/moment.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">&quot;datetimeForm&quot;</span> <span class="na">class=</span><span class="s">&quot;form-horizontal&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;col-sm-3 control-label&quot;</span><span class="nt">&gt;</span>DateTime Picker<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-5&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;input-group date&quot;</span> <span class="na">id=</span><span class="s">&quot;datetimePicker&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">name=</span><span class="s">&quot;datetimePicker&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;input-group-addon&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;glyphicon glyphicon-calendar&quot;</span><span class="nt">&gt;&lt;/span&gt;</span>
+                <span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span></code></pre></div>
+            </div>
+
+            <div class="tab-pane" id="datepicker-js-tab">
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// updateStatus() example</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#datetimePicker&#39;</span><span class="p">).</span><span class="nx">datetimepicker</span><span class="p">();</span>
+
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#datetimeForm&#39;</span><span class="p">).</span><span class="nx">bootstrapValidator</span><span class="p">({</span>
+        <span class="nx">feedbackIcons</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">valid</span><span class="o">:</span> <span class="s1">&#39;glyphicon glyphicon-ok&#39;</span><span class="p">,</span>
+            <span class="nx">invalid</span><span class="o">:</span> <span class="s1">&#39;glyphicon glyphicon-remove&#39;</span><span class="p">,</span>
+            <span class="nx">validating</span><span class="o">:</span> <span class="s1">&#39;glyphicon glyphicon-refresh&#39;</span>
+        <span class="p">},</span>
+        <span class="nx">fields</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">datetimePicker</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">validators</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">notEmpty</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The date is required and cannot be empty&#39;</span>
+                    <span class="p">},</span>
+                    <span class="nx">date</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">format</span><span class="o">:</span> <span class="s1">&#39;MM/DD/YYYY h:m A&#39;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#datetimePicker&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;dp.change dp.show&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Revalidate the date when user change it</span>
+            <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#datetimeForm&#39;</span><span class="p">).</span><span class="nx">bootstrapValidator</span><span class="p">(</span><span class="s1">&#39;revalidateField&#39;</span><span class="p">,</span> <span class="s1">&#39;datetimePicker&#39;</span><span class="p">);</span>
+        <span class="p">});</span>
+<span class="p">});</span></code></pre></div>
+            </div>
+        </div>
+    </div>
+
+    <ul class="doc-list">
+        <li><a href="/examples/#compatibility">Play with other plugins</a></li>
+    </ul>
+</section>
+
+<script>
+$(document).ready(function() {
+    // updateStatus() example
+    $('#datetimePicker').datetimepicker();
+
+    $('#datetimeForm').bootstrapValidator({
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            datetimePicker: {
+                validators: {
+                    notEmpty: {
+                        message: 'The date is required and cannot be empty'
+                    },
+                    date: {
+                        format: 'MM/DD/YYYY h:m A'
+                    }
+                }
+            }
+        }
+    });
+
+    $('#datetimePicker')
+        .on('dp.change dp.show', function (e) {
+            // Revalidate the date when user change it
+            $('#datetimeForm').bootstrapValidator('revalidateField', 'datetimePicker');
+        });
+});
+</script>
+    <section>
+    <h3 id="update-message">updateMessage</h3>
+
+    <p><code>updateMessage(field<sup>*</sup>, validator<sup>*</sup>, message<sup>*</sup>): BootstrapValidator</code> &mdash; Update the error message.</p>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>field</code></td>
+                <td>String|jQuery</td>
+                <td>The field name or field element</td>
+            </tr>
+            <tr>
+                <td><code>validator</code></td>
+                <td>String</td>
+                <td>The validator name</td>
+            </tr>
+            <tr>
+                <td><code>message</code></td>
+                <td>String</td>
+                <td>The error message</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    <h3 id="update-option">updateOption</h3>
+
+    <p><code>updateOption(field<sup>*</sup>, validator<sup>*</sup>, option<sup>*</sup>, value<sup>*</sup>): BootstrapValidator</code> &mdash; Update the option of a specific validator.</p>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>field</code></td>
+                <td>String|jQuery</td>
+                <td>The field name or field element</td>
+            </tr>
+            <tr>
+                <td><code>validator</code></td>
+                <td>String</td>
+                <td>The validator name</td>
+            </tr>
+            <tr>
+                <td><code>option</code></td>
+                <td>String</td>
+                <td>The option name</td>
+            </tr>
+            <tr>
+                <td><code>value</code></td>
+                <td>String</td>
+                <td>The option value</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    <h3 id="update-status">updateStatus</h3>
+
+    <p><code>updateStatus(field<sup>*</sup>, status<sup>*</sup>, validator): BootstrapValidator</code> &mdash; Update validator result for given field</p>
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>field</code></td>
+                <td>String|jQuery</td>
+                <td>The field name or field element</td>
+            </tr>
+            <tr>
+                <td><code>status</code></td>
+                <td>String</td>
+                <td>Can be <code>NOT_VALIDATED</code>, <code>VALIDATING</code>, <code>INVALID</code> or <code>VALID</code></td>
+            </tr>
+            <tr>
+                <td><code>validator</code></td>
+                <td>String</td>
+                <td>The validator name. If <code>null</code>, the method updates validity result for all validators</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4 id="update-status-examples">Example</h4>
+    <p>The <code>updateStatus</code> method might be used when a field validity is effected by other filed.</p>
+    <p>For example, the form below asks user for credit card expiration. The expiration is valid if it is in the range of next month and next 10 year.</p>
+    <div class="doc-demo">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#cc-form-tab" data-toggle="tab">Try it</a></li>
+            <li><a href="#cc-html-tab" data-toggle="tab">HTML</a></li>
+            <li><a href="#cc-js-tab" data-toggle="tab">JS</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="cc-form-tab">
+            <form id="paymentForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Expiration</label>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" placeholder="Month" name="expMonth" />
+        </div>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" placeholder="Year" name="expYear" />
+        </div>
+    </div>
+</form>
+            </div>
+
+            <div class="tab-pane" id="cc-html-tab">
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">&quot;paymentForm&quot;</span> <span class="na">class=</span><span class="s">&quot;form-horizontal&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;col-sm-3 control-label&quot;</span><span class="nt">&gt;</span>Expiration<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-3&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;Month&quot;</span> <span class="na">name=</span><span class="s">&quot;expMonth&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-3&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;Year&quot;</span> <span class="na">name=</span><span class="s">&quot;expYear&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span></code></pre></div>
+            </div>
+
+            <div class="tab-pane" id="cc-js-tab">
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#paymentForm&#39;</span><span class="p">).</span><span class="nx">bootstrapValidator</span><span class="p">({</span>
+        <span class="nx">feedbackIcons</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">valid</span><span class="o">:</span> <span class="s1">&#39;glyphicon glyphicon-ok&#39;</span><span class="p">,</span>
+            <span class="nx">invalid</span><span class="o">:</span> <span class="s1">&#39;glyphicon glyphicon-remove&#39;</span><span class="p">,</span>
+            <span class="nx">validating</span><span class="o">:</span> <span class="s1">&#39;glyphicon glyphicon-refresh&#39;</span>
+        <span class="p">},</span>
+        <span class="nx">fields</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">expMonth</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">validators</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">notEmpty</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The expiration month is required&#39;</span>
+                    <span class="p">},</span>
+                    <span class="nx">digits</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The expiration month can contain digits only&#39;</span>
+                    <span class="p">},</span>
+                    <span class="nx">callback</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;Expired&#39;</span><span class="p">,</span>
+                        <span class="nx">callback</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">validator</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="nx">value</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+                            <span class="kd">var</span> <span class="nx">year</span>         <span class="o">=</span> <span class="nx">validator</span><span class="p">.</span><span class="nx">getFieldElements</span><span class="p">(</span><span class="s1">&#39;expYear&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">(),</span>
+                                <span class="nx">currentMonth</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getMonth</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+                                <span class="nx">currentYear</span>  <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getFullYear</span><span class="p">();</span>
+                            <span class="k">if</span> <span class="p">(</span><span class="nx">value</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">value</span> <span class="o">&gt;</span> <span class="mi">12</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+                            <span class="p">}</span>
+                            <span class="k">if</span> <span class="p">(</span><span class="nx">year</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+                            <span class="p">}</span>
+                            <span class="nx">year</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">year</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+                            <span class="k">if</span> <span class="p">(</span><span class="nx">year</span> <span class="o">&gt;</span> <span class="nx">currentYear</span> <span class="o">||</span> <span class="p">(</span><span class="nx">year</span> <span class="o">==</span> <span class="nx">currentYear</span> <span class="o">&amp;&amp;</span> <span class="nx">value</span> <span class="o">&gt;</span> <span class="nx">currentMonth</span><span class="p">))</span> <span class="p">{</span>
+                                <span class="nx">validator</span><span class="p">.</span><span class="nx">updateStatus</span><span class="p">(</span><span class="s1">&#39;expYear&#39;</span><span class="p">,</span> <span class="s1">&#39;VALID&#39;</span><span class="p">);</span>
+                                <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+                            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                                <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+                            <span class="p">}</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nx">expYear</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">validators</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">notEmpty</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The expiration year is required&#39;</span>
+                    <span class="p">},</span>
+                    <span class="nx">digits</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The expiration year can contain digits only&#39;</span>
+                    <span class="p">},</span>
+                    <span class="nx">callback</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;Expired&#39;</span><span class="p">,</span>
+                        <span class="nx">callback</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">validator</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="nx">value</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+                            <span class="kd">var</span> <span class="nx">month</span>        <span class="o">=</span> <span class="nx">validator</span><span class="p">.</span><span class="nx">getFieldElements</span><span class="p">(</span><span class="s1">&#39;expMonth&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">(),</span>
+                                <span class="nx">currentMonth</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getMonth</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+                                <span class="nx">currentYear</span>  <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getFullYear</span><span class="p">();</span>
+                            <span class="k">if</span> <span class="p">(</span><span class="nx">value</span> <span class="o">&lt;</span> <span class="nx">currentYear</span> <span class="o">||</span> <span class="nx">value</span> <span class="o">&gt;</span> <span class="nx">currentYear</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+                            <span class="p">}</span>
+                            <span class="k">if</span> <span class="p">(</span><span class="nx">month</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+                            <span class="p">}</span>
+                            <span class="nx">month</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">month</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+                            <span class="k">if</span> <span class="p">(</span><span class="nx">value</span> <span class="o">&gt;</span> <span class="nx">currentYear</span> <span class="o">||</span> <span class="p">(</span><span class="nx">value</span> <span class="o">==</span> <span class="nx">currentYear</span> <span class="o">&amp;&amp;</span> <span class="nx">month</span> <span class="o">&gt;</span> <span class="nx">currentMonth</span><span class="p">))</span> <span class="p">{</span>
+                                <span class="nx">validator</span><span class="p">.</span><span class="nx">updateStatus</span><span class="p">(</span><span class="s1">&#39;expMonth&#39;</span><span class="p">,</span> <span class="s1">&#39;VALID&#39;</span><span class="p">);</span>
+                                <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+                            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                                <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+                            <span class="p">}</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">});</span></code></pre></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+$(document).ready(function() {
+    $('#paymentForm').bootstrapValidator({
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            expMonth: {
+                validators: {
+                    notEmpty: {
+                        message: 'The expiration month is required'
+                    },
+                    digits: {
+                        message: 'The expiration month can contain digits only'
+                    },
+                    callback: {
+                        message: 'Expired',
+                        callback: function(value, validator) {
+                            value = parseInt(value, 10);
+                            var year         = validator.getFieldElements('expYear').val(),
+                                currentMonth = new Date().getMonth() + 1,
+                                currentYear  = new Date().getFullYear();
+                            if (value < 0 || value > 12) {
+                                return false;
+                            }
+                            if (year == '') {
+                                return true;
+                            }
+                            year = parseInt(year, 10);
+                            if (year > currentYear || (year == currentYear && value > currentMonth)) {
+                                validator.updateStatus('expYear', 'VALID');
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+                    }
+                }
+            },
+            expYear: {
+                validators: {
+                    notEmpty: {
+                        message: 'The expiration year is required'
+                    },
+                    digits: {
+                        message: 'The expiration year can contain digits only'
+                    },
+                    callback: {
+                        message: 'Expired',
+                        callback: function(value, validator) {
+                            value = parseInt(value, 10);
+                            var month        = validator.getFieldElements('expMonth').val(),
+                                currentMonth = new Date().getMonth() + 1,
+                                currentYear  = new Date().getFullYear();
+                            if (value < currentYear || value > currentYear + 10) {
+                                return false;
+                            }
+                            if (month == '') {
+                                return false;
+                            }
+                            month = parseInt(month, 10);
+                            if (value > currentYear || (value == currentYear && month > currentMonth)) {
+                                validator.updateStatus('expMonth', 'VALID');
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
+    <section>
+    <h3 id="validate">validate</h3>
+
+    <p><code>validate(): BootstrapValidator</code> &mdash; Validate form manually. It is useful when you want to validate form by clicking a button or a link instead of a submit buttons.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nx">form</span><span class="p">).</span><span class="nx">bootstrapValidator</span><span class="p">(</span><span class="nx">options</span><span class="p">).</span><span class="nx">bootstrapValidator</span><span class="p">(</span><span class="s1">&#39;validate&#39;</span><span class="p">);</span>
+
+<span class="c1">// or</span>
+<span class="nx">$</span><span class="p">(</span><span class="nx">form</span><span class="p">).</span><span class="nx">bootstrapValidator</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+<span class="nx">$</span><span class="p">(</span><span class="nx">form</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;bootstrapValidator&#39;</span><span class="p">).</span><span class="nx">validate</span><span class="p">();</span></code></pre></div>
+</section>
+    <section>
+    <h3 id="validate-field">validateField</h3>
+    <p><code>validateField(field<sup>*</sup>): BootstrapValidator</code> &mdash; Validate given field.</p>
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>field</code></td>
+                <td>String|jQuery</td>
+                <td>The field name or field element</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+</section>
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <footer class="doc-footer">
+    <div class="container">
+        <p>
+            
+            <a class="btn" href="/download/">Download</a>
+            
+            <a class="btn" href="https://github.com/formvalidation/formvalidation/issues">Report bug</a>
+        </p>
+        <p>
+            &copy; 2013 - 2014 <a href="http://twitter.com/nghuuphuoc">Nguyen Huu Phuoc</a>. All rights reserved.<br/>
+            Handcrafted with <span class="doc-heart"><i class="fa fa-heart"></i></span> and a lot of <i class="fa fa-coffee"></i>
+        </p>
+        <ul>
+            <li><a href="/getting-started/">Getting started</a></li>
+            <li>&middot;</li>
+            <li><a href="/settings/">Settings</a></li>
+            <li>&middot;</li>
+            <li><a href="/validators/">Validators</a></li>
+            <li>&middot;</li>
+            <li><a href="/api/">API</a></li>
+            <li>&middot;</li>
+            <li><a href="/examples/">Examples</a></li>
+            <li>&middot;</li>
+            <li><a href="/developing/">Developing</a></li>
+            <li>&middot;</li>
+            <li><a href="/news/">News</a></li>
+            <li>&middot;</li>
+            <li><a href="/license/">License</a></li>
+        </ul>
+        <ul>
+            <li>
+                <a href="https://github.com/formvalidation/formvalidation" title="Fork me on Github">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-github-alt fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="http://twitter.com/formvalidation/" title="Follow me on Twitter">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/pages/FormValidation/1567908420106565/" title="Like me on Facebook">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://plus.google.com/u/0/communities/114931136856987817254" title="Join me on Google+">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    
+    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=bootstrapvalidatorcom" id="_carbonads_js"></script>
+    
+</footer>
+    </div>
+
+<script src="/vendor/tocjs/js/toc.min.js"></script>
+<script src="/vendor/share/share.min.js"></script>
+<script>
+$(function() {
+    // Create share button
+    new Share('#shareButton');
+
+    $('[data-toggle="tooltip"]').tooltip();
+
+    $('.doc-logo').on('click', function() {
+        $('body').toggleClass('doc-nav-shown');
+    });
+
+    $('form').each(function() {
+        $(this).on('success.form.bv', function(e) {
+            e.preventDefault();
+        });
+    });
+
+    // Create table of contents
+    if ($('#toc').length) {
+        $('#toc')
+            .css('max-width', $('#toc').width())
+            .toc({
+                selector: '#main h2, #main h3, #main h4, #main h5, #main h6',
+                elementClass: 'toc',
+                ulClass: 'nav',
+                indexingFormats: '______'
+            });
+
+        var $window = $(window),
+            $body   = $(document.body);
+        $body.scrollspy({
+            target: '#toc'
+        });
+
+        $window.on('load', function() {
+            $body.scrollspy('refresh');
+        });
+
+        setTimeout(function() {
+            var $sideBar = $('#toc');
+            $sideBar.affix({
+                offset: {
+                    top: function() {
+                        return (this.top = $sideBar.offset().top);
+                    }
+                }
+            });
+        }, 100);
+    }
+});
+</script>
+</body>
+</html>

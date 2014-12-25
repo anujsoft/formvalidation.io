@@ -1,0 +1,1081 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title>Validate VAT number - FormValidation</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="BootstrapValidator, a jQuery plugin to validate form fields">
+<meta name="keywords" content="Bootstrap, jQuery, validate, plugin, validator, form">
+<meta name="author" content="Nguyen Huu Phuoc">
+<meta name="google-site-verification" content="uzi08FxE8yqb9q-PlBzFxZeuUGalNFp3gX2haopVWBc" />
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cardo:400,400italic,700">
+<link rel="stylesheet" href="/vendor/pygments/github.css">
+<link rel="stylesheet" href="/asset/css/style.css">
+
+<!--[if lt IE 9]>
+<script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<script src="//oss.maxcdn.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-44786951-2']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+</head>
+<body>
+    <nav class="doc-nav" tabindex="-1">
+    <ul>
+        <li><a href="/">Home</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/download/">Download</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/getting-started/">Getting Started</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/settings/">Settings</a></li>
+    
+        
+            
+        
+        <li class="doc-nav-active"><a href="/validators/">Validators</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/api/">API</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/examples/">Examples</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/developing/">Developing</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/news/">News</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/license/">License</a></li>
+    
+    </ul>
+
+    <div class="doc-hr"></div>
+
+    <ul>
+        <li><a href="https://github.com/formvalidation/formvalidation" title="Fork me on Github">Github <i class="fa fa-github"></i></a></li>
+        <li><a href="http://twitter.com/formvalidation/" title="Follow me on Twitter">formvalidation <i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://www.facebook.com/pages/FormValidation/1567908420106565/" title="Like me on Facebook">FormValidation <i class="fa fa-facebook"></i></a></li>
+        <li><a href="https://plus.google.com/u/0/communities/114931136856987817254" title="Join me on Google+">Google+ community <i class="fa fa-google-plus"></i></a></li>
+    </ul>
+
+    <div class="doc-hr"></div>
+
+    <div class="doc-creator">
+        <p>
+            Handcrafted with <span class="doc-heart"><i class="fa fa-heart"></i></span> and a lot of <i class="fa fa-coffee"></i><br />
+            by <a href="http://twitter.com/nghuuphuoc">@nghuuphuoc</a><br/>
+            <img src="http://github.com/nghuuphuoc.png" />
+        </p>
+        <p><a href="mailto: phuoc@huuphuoc.me" class="btn">Hire me</a></p>
+    </div>
+</nav>
+<button class="btn doc-logo" title="Toggle the navigation"><i class="fa fa-bars"></i></button>
+
+    <div id="main" class="doc-content-wrapper">
+        <div class="doc-notification">
+    <i class="fa fa-bell-o"></i> <a href="/news/v0.5.3-released/">v0.5.3</a> is released on 2014.11.05!
+</div>
+
+        <div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>vat validator</h1>
+        <p>Validate VAT number</p>
+        <p>&larr; <a href="/validators/">Validators</a></p>
+        <a class="btn doc-edit-btn" href="https://github.com/formvalidation/formvalidation.io/edit/docs/validators/vat.html">Improve it on Github</a>
+        <div id="shareButton" class="doc-share-button"></div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>HTML attribute</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>country</code></td>
+                                <td><code>data-bv-vat-country</code></td>
+                                <td>String</td>
+                                <td>An ISO-3166 country code.<br/>It's <a href="/settings/#dynamic-option">dynamic option</a>.<br/>If it is not defined, it will be parsed from the VAT number</td>
+                            </tr>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>data-bv-vat-message</code></td>
+                                <td>String</td>
+                                <td>The error message</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-bv-vat="true".
+                    </div>
+
+                    <p>The validator supports the following countries (click the example VAT number to validate it):</p>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Country</th>
+                                <th>Abbreviation VAT name</th>
+                                <th>Country code</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td>1</td>
+                                <td>Austria</td>
+                                <td>UID</td>
+                                <td>AT</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">ATU13585627</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">ATU13585626</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>2</td>
+                                <td>Belgium</td>
+                                <td>n° TVA / BTW-nr / Mwst-nr</td>
+                                <td>BE</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">BE0428759497</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">BE431150351</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>3</td>
+                                <td>Brazil</td>
+                                <td>CNPJ</td>
+                                <td>BR</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>4</td>
+                                <td>Bulgaria</td>
+                                <td>ДДС номер</td>
+                                <td>BG</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">BG175074752</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">BG7523169263</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">BG8032056031</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">BG7542011030</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">BG7111042925</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">BG175074753</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">BG7552A10004</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">BG7111042922</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>5</td>
+                                <td>Croatia</td>
+                                <td>PDV-ID; OIB</td>
+                                <td>HR</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">HR33392005961</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">HR33392005962</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>6</td>
+                                <td>Cyprus</td>
+                                <td>ΦΠΑ</td>
+                                <td>CY</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">CY10259033P</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">CY10259033Z</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>7</td>
+                                <td>Czech Republic</td>
+                                <td>DIČ</td>
+                                <td>CZ</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">CZ25123891</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">CZ7103192745</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">CZ991231123</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">CZ640903926</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">CZ25123890</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">CZ1103492745</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">CZ590312123</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>8</td>
+                                <td>Denmark</td>
+                                <td>CVR</td>
+                                <td>DK</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">DK13585628</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">DK13585627</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>9</td>
+                                <td>Estonia</td>
+                                <td>KMKR</td>
+                                <td>EE</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">EE100931558</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">EE100594102</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">EE100594103</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>10</td>
+                                <td>Finland</td>
+                                <td>ALV nro</td>
+                                <td>FI</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">FI20774740</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">FI20774741</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>11</td>
+                                <td>France</td>
+                                <td>n° TVA</td>
+                                <td>FR</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">FR40303265045</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">FR23334175221</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">FRK7399859412</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">FR4Z123456782</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">FR84323140391</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>12</td>
+                                <td>Germany</td>
+                                <td>USt-IdNr.</td>
+                                <td>DE</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">DE136695976</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">DE136695978</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>13</td>
+                                <td>Greece</td>
+                                <td>ΑΦΜ</td>
+                                <td>GR / EL</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">GR023456780</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">EL094259216</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">EL123456781</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>14</td>
+                                <td>Hungary</td>
+                                <td>ANUM</td>
+                                <td>HU</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">HU12892312</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">HU12892313</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>15</td>
+                                <td>Iceland</td>
+                                <td>VSK</td>
+                                <td>IS</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">IS12345</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">IS123456</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">IS1234567</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>16</td>
+                                <td>Ireland</td>
+                                <td>VAT no</td>
+                                <td>IE</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">IE6433435F</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">IE6433435OA</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">IE8D79739I</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">IE8D79738J</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>17</td>
+                                <td>Italy</td>
+                                <td>P.IVA</td>
+                                <td>IT</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">IT00743110157</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">IT00743110158</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>18</td>
+                                <td>Latvia</td>
+                                <td>PVN</td>
+                                <td>LV</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">LV40003521600</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">LV16117519997</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">LV40003521601</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">LV16137519997</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>19</td>
+                                <td>Lithuania</td>
+                                <td>PVM kodas</td>
+                                <td>LT</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">LT119511515</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">LT100001919017</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">LT100004801610</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">LT100001919018</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>20</td>
+                                <td>Luxembourg</td>
+                                <td>No. TVA</td>
+                                <td>LU</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">LU15027442</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">LU15027443</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>21</td>
+                                <td>Malta</td>
+                                <td>Vat No.</td>
+                                <td>MT</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">MT11679112</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">MT11679113</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>22</td>
+                                <td>Netherlands</td>
+                                <td>Btw-nr.</td>
+                                <td>NL</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">NL004495445B01</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">NL123456789B90</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>23</td>
+                                <td>Norway</td>
+                                <td>Orgnr</td>
+                                <td>NO</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>24</td>
+                                <td>Poland</td>
+                                <td>NIP</td>
+                                <td>PL</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">PL8567346215</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">PL8567346216</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>25</td>
+                                <td>Portugal</td>
+                                <td>NIF / NIPC</td>
+                                <td>PT</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">PT501964843</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">PT501964842</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>26</td>
+                                <td>Romania</td>
+                                <td>CIF</td>
+                                <td>RO</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">RO18547290</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">RO18547291</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>27</td>
+                                <td>Russia</td>
+                                <td>ИНН</td>
+                                <td>RU</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>28</td>
+                                <td>Serbia</td>
+                                <td>PIB</td>
+                                <td>RS</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>29</td>
+                                <td>Slovakia</td>
+                                <td>IČ DPH</td>
+                                <td>SK</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">SK2022749619</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">SK2022749618</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>30</td>
+                                <td>Slovenia</td>
+                                <td>ID za DDV</td>
+                                <td>SI</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">SI50223054</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">SI50223055</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>31</td>
+                                <td>South Africa</td>
+                                <td></td>
+                                <td>ZA</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">ZA4012345678</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">ZA40123456789</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">ZA3012345678</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>32</td>
+                                <td>Spain</td>
+                                <td>NIF / CIF</td>
+                                <td>ES</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">ES54362315K</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">ESX2482300W</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">ESX5253868R</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">ESM1234567L</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">ESJ99216582</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">ESB58378431</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">ESB64717838</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">ES54362315Z</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">ESX2482300A</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">ESJ99216583</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>33</td>
+                                <td>Sweden</td>
+                                <td>Momsnr.</td>
+                                <td>SE</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">SE123456789701</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">SE123456789101</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>34</td>
+                                <td>Switzerland</td>
+                                <td>MWST / TVA / IVA</td>
+                                <td>CH</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>35</td>
+                                <td>United Kingdom</td>
+                                <td>VAT Reg No</td>
+                                <td>GB</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">GB980780684</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">GB802311781</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>36</td>
+                                <td>Venezuela</td>
+                                <td>RIF</td>
+                                <td>VE</td>
+                                <td>
+                                    <ul class="doc-sample-list">
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">VEJ309272292</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">VEV242818101</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">VEJ000126518</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">VEJ309272293</a> <i class="fa"></i></li>
+                                        
+                                        <li><a href="javascript: void(0);" class="sample">J000458323</a> <i class="fa"></i></li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#vat-form-tab" data-toggle="tab">Try it</a></li>
+                            <li><a href="#vat-html-tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#vat-js-tab" data-toggle="tab">JS</a></li>
+                            <li><a href="#vat-declarative-tab" data-toggle="tab">Declarative usage</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="vat-form-tab">
+                            <form id="vatForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">VAT number</label>
+        <div class="col-sm-5">
+            <input type="text" class="form-control" name="vat" />
+        </div>
+    </div>
+</form>
+                            </div>
+
+                            <div class="tab-pane" id="vat-html-tab">
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">&quot;vatForm&quot;</span> <span class="na">class=</span><span class="s">&quot;form-horizontal&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;col-sm-3 control-label&quot;</span><span class="nt">&gt;</span>VAT number<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-5&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">name=</span><span class="s">&quot;vat&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span></code></pre></div>
+                            </div>
+
+                            <div class="tab-pane" id="vat-js-tab">
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#vatForm&#39;</span><span class="p">).</span><span class="nx">bootstrapValidator</span><span class="p">({</span>
+        <span class="nx">feedbackIcons</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">valid</span><span class="o">:</span> <span class="s1">&#39;glyphicon glyphicon-ok&#39;</span><span class="p">,</span>
+            <span class="nx">invalid</span><span class="o">:</span> <span class="s1">&#39;glyphicon glyphicon-remove&#39;</span><span class="p">,</span>
+            <span class="nx">validating</span><span class="o">:</span> <span class="s1">&#39;glyphicon glyphicon-refresh&#39;</span>
+        <span class="p">},</span>
+        <span class="nx">fields</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">vat</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">validators</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">vat</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;The VAT number is not valid&#39;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">});</span></code></pre></div>
+                            </div>
+
+                            <div class="tab-pane" id="vat-declarative-tab">
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">&quot;vatForm&quot;</span> <span class="na">class=</span><span class="s">&quot;form-horizontal&quot;</span>
+    <span class="na">data-bv-feedbackicons-valid=</span><span class="s">&quot;glyphicon glyphicon-ok&quot;</span>
+    <span class="na">data-bv-feedbackicons-invalid=</span><span class="s">&quot;glyphicon glyphicon-remove&quot;</span>
+    <span class="na">data-bv-feedbackicons-validating=</span><span class="s">&quot;glyphicon glyphicon-refresh&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;col-sm-3 control-label&quot;</span><span class="nt">&gt;</span>VAT number<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-5&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">name=</span><span class="s">&quot;vat&quot;</span>
+                <span class="na">data-bv-vat=</span><span class="s">&quot;true&quot;</span>
+                <span class="na">data-bv-vat-message=</span><span class="s">&quot;The VAT number is not valid&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#vatForm&#39;</span><span class="p">).</span><span class="nx">bootstrapValidator</span><span class="p">();</span>
+<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span></code></pre></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                
+<section>
+    <h2>Related validators</h2>
+
+    <p>The following validators might be useful to you:</p>
+
+    <ul class="list-group">
+        
+        <li class="list-group-item"><a href="/validators/id/">id</a></li>
+        
+    </ul>
+</section>
+
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('#vatForm').bootstrapValidator({
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            vat: {
+                validators: {
+                    vat: {
+                        message: 'The VAT number is not valid'
+                    }
+                }
+            }
+        }
+    });
+});
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        $('#vatForm').find('input[name="vat"]').val($(this).text());
+
+        $('#vatForm').bootstrapValidator('revalidateField', 'vat');
+
+        var isValid = $('#vatForm').data('bootstrapValidator').isValid();
+        $(this)
+            .parent()
+                .removeClass('doc-sample-error doc-sample-success')
+                .addClass(isValid ? 'doc-sample-success' : 'doc-sample-error')
+            .find('i')
+                .removeClass('fa-check fa-times')
+                .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>
+
+        <footer class="doc-footer">
+    <div class="container">
+        <p>
+            
+            <a class="btn" href="/download/">Download</a>
+            
+            <a class="btn" href="https://github.com/formvalidation/formvalidation/issues">Report bug</a>
+        </p>
+        <p>
+            &copy; 2013 - 2014 <a href="http://twitter.com/nghuuphuoc">Nguyen Huu Phuoc</a>. All rights reserved.<br/>
+            Handcrafted with <span class="doc-heart"><i class="fa fa-heart"></i></span> and a lot of <i class="fa fa-coffee"></i>
+        </p>
+        <ul>
+            <li><a href="/getting-started/">Getting started</a></li>
+            <li>&middot;</li>
+            <li><a href="/settings/">Settings</a></li>
+            <li>&middot;</li>
+            <li><a href="/validators/">Validators</a></li>
+            <li>&middot;</li>
+            <li><a href="/api/">API</a></li>
+            <li>&middot;</li>
+            <li><a href="/examples/">Examples</a></li>
+            <li>&middot;</li>
+            <li><a href="/developing/">Developing</a></li>
+            <li>&middot;</li>
+            <li><a href="/news/">News</a></li>
+            <li>&middot;</li>
+            <li><a href="/license/">License</a></li>
+        </ul>
+        <ul>
+            <li>
+                <a href="https://github.com/formvalidation/formvalidation" title="Fork me on Github">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-github-alt fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="http://twitter.com/formvalidation/" title="Follow me on Twitter">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/pages/FormValidation/1567908420106565/" title="Like me on Facebook">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://plus.google.com/u/0/communities/114931136856987817254" title="Join me on Google+">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    
+    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=bootstrapvalidatorcom" id="_carbonads_js"></script>
+    
+</footer>
+    </div>
+
+<script src="/vendor/tocjs/js/toc.min.js"></script>
+<script src="/vendor/share/share.min.js"></script>
+<script>
+$(function() {
+    // Create share button
+    new Share('#shareButton');
+
+    $('[data-toggle="tooltip"]').tooltip();
+
+    $('.doc-logo').on('click', function() {
+        $('body').toggleClass('doc-nav-shown');
+    });
+
+    $('form').each(function() {
+        $(this).on('success.form.bv', function(e) {
+            e.preventDefault();
+        });
+    });
+
+    // Create table of contents
+    if ($('#toc').length) {
+        $('#toc')
+            .css('max-width', $('#toc').width())
+            .toc({
+                selector: '#main h2, #main h3, #main h4, #main h5, #main h6',
+                elementClass: 'toc',
+                ulClass: 'nav',
+                indexingFormats: '______'
+            });
+
+        var $window = $(window),
+            $body   = $(document.body);
+        $body.scrollspy({
+            target: '#toc'
+        });
+
+        $window.on('load', function() {
+            $body.scrollspy('refresh');
+        });
+
+        setTimeout(function() {
+            var $sideBar = $('#toc');
+            $sideBar.affix({
+                offset: {
+                    top: function() {
+                        return (this.top = $sideBar.offset().top);
+                    }
+                }
+            });
+        }, 100);
+    }
+});
+</script>
+</body>
+</html>

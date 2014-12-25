@@ -1,0 +1,388 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title>Examples - FormValidation</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="BootstrapValidator, a jQuery plugin to validate form fields">
+<meta name="keywords" content="Bootstrap, jQuery, validate, plugin, validator, form">
+<meta name="author" content="Nguyen Huu Phuoc">
+<meta name="google-site-verification" content="uzi08FxE8yqb9q-PlBzFxZeuUGalNFp3gX2haopVWBc" />
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cardo:400,400italic,700">
+<link rel="stylesheet" href="/vendor/pygments/github.css">
+<link rel="stylesheet" href="/asset/css/style.css">
+
+<!--[if lt IE 9]>
+<script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<script src="//oss.maxcdn.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-44786951-2']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+</head>
+<body>
+    <nav class="doc-nav" tabindex="-1">
+    <ul>
+        <li><a href="/">Home</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/download/">Download</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/getting-started/">Getting Started</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/settings/">Settings</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/validators/">Validators</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/api/">API</a></li>
+    
+        
+            
+        
+        <li class="doc-nav-active"><a href="/examples/">Examples</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/developing/">Developing</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/news/">News</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/license/">License</a></li>
+    
+    </ul>
+
+    <div class="doc-hr"></div>
+
+    <ul>
+        <li><a href="https://github.com/formvalidation/formvalidation" title="Fork me on Github">Github <i class="fa fa-github"></i></a></li>
+        <li><a href="http://twitter.com/formvalidation/" title="Follow me on Twitter">formvalidation <i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://www.facebook.com/pages/FormValidation/1567908420106565/" title="Like me on Facebook">FormValidation <i class="fa fa-facebook"></i></a></li>
+        <li><a href="https://plus.google.com/u/0/communities/114931136856987817254" title="Join me on Google+">Google+ community <i class="fa fa-google-plus"></i></a></li>
+    </ul>
+
+    <div class="doc-hr"></div>
+
+    <div class="doc-creator">
+        <p>
+            Handcrafted with <span class="doc-heart"><i class="fa fa-heart"></i></span> and a lot of <i class="fa fa-coffee"></i><br />
+            by <a href="http://twitter.com/nghuuphuoc">@nghuuphuoc</a><br/>
+            <img src="http://github.com/nghuuphuoc.png" />
+        </p>
+        <p><a href="mailto: phuoc@huuphuoc.me" class="btn">Hire me</a></p>
+    </div>
+</nav>
+<button class="btn doc-logo" title="Toggle the navigation"><i class="fa fa-bars"></i></button>
+
+    <div id="main" class="doc-content-wrapper">
+        <div class="doc-notification">
+    <i class="fa fa-bell-o"></i> <a href="/news/v0.5.3-released/">v0.5.3</a> is released on 2014.11.05!
+</div>
+
+        <div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Examples</h1>
+        <p>A collection of usage examples you can play with</p>
+        <a class="btn doc-edit-btn" href="https://github.com/formvalidation/formvalidation.io/edit/docs/examples.html">Improve it on Github</a>
+        <div id="shareButton" class="doc-share-button"></div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+    <h2>Most asked questions</h2>
+
+    <ul class="doc-list">
+        <li><a href="/examples/adjusting-feedback-icon-position/">Adjusting feedback icon position</a></li>
+        <li><a href="/examples/form-submit-twice/">Form is submitted twice</a> <span class="label label-success">NEW</span></li>
+    </ul>
+</section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+    <h2>Basic</h2>
+
+    <ul class="doc-list">
+        <li><a href="/examples/clearing-field-when-clicking-icon/">Clearing field when clicking the icon</a> <span class="label label-success">NEW</span></li>
+        <li><a href="/examples/html5/">Playing with HTML 5 input types and attributes</a></li>
+        <li><a href="/examples/requiring-at-least-one-field/">Requiring at least one field</a> <span class="label label-success">NEW</span></li>
+        <li><a href="/examples/attribute/">Setting validator options via HTML 5 attributes</a></li>
+        <li><a href="/examples/toggle/">Toggling field</a></li>
+        <li><a href="/examples/using-language-package/">Using language package</a></li>
+        <li><a href="/examples/multiple/">Using multiple elements with the same name</a></li>
+        <li><a href="/examples/modal/">Validating a form placed inside a Bootstrap modal</a></li>
+    </ul>
+</section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+    <h2>Advance</h2>
+
+    <ul class="doc-list">
+        <li><a href="/examples/adding-dynamic-field/">Adding dynamic field</a></li>
+        <li><a href="/examples/changing-tooltip-position/">Changing tooltip position</a></li>
+        <li><a href="/examples/complex-form/">Complex form</a></li>
+        <li><a href="/examples/enabling-submit-button/">Enabling the submit button all the time <span class="label label-info">UPDATED</span></a></li>
+        <li><a href="/examples/enable-validator/">Enabling validator</a></li>
+        <li><a href="/examples/hiding-message/">Hiding messages</a></li>
+        <li><a href="/examples/hiding-success-class/">Hiding success class</a></li>
+        <li><a href="/examples/overriding-default-options/">Overriding default options</a></li>
+        <li><a href="/examples/showing-icon-custom-area/">Showing icons in custom area</a></li>
+        <li><a href="/examples/showing-one-message/">Showing only one message each time</a></li>
+        <li><a href="/examples/showing-message-custom-area/">Showing messages in custom area</a></li>
+        <li><a href="/examples/showing-required-icon/">Showing required icon for the mandatory fields </a></li>
+        <li><a href="/examples/showing-valid-message/">Showing valid message</a></li>
+        <li><a href="/examples/ajax-submit/">Using Ajax to submit the form</a></li>
+        <li><a href="/examples/validating-google-recaptcha/">Validating Google reCAPTCHA</a> <span class="label label-success">NEW</span></li>
+    </ul>
+</section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+    <h2>Integrating with server side</h2>
+
+    <p>These examples shows how to integrate BootstrapValidator with the server side:</p>
+
+    <ul class="doc-list">
+        <li><a href="/examples/integrating-asp-net/">ASP.Net</a></li>
+        <li><a href="/examples/integrating-rails/">Rails</a></li>
+    </ul>
+</section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+    <h2>Compatibility</h2>
+
+    <p>In order to make BootstrapValidator work together with other plugin, you should follow two rules below:</p>
+
+    <ol>
+        <li>
+            <p><strong>Don't exclude the field if the plugin changes the field visibility</strong></p>
+            <p>Some plugins hide your field and create new elements to change how the field looks like. By default, the hidden, invisible fields will not be validated. Therefore, you need to set <code>excluded: ':disabled'</code>. See the <a href="/settings/#form-excluded">excluded</a> option for more information.</p>
+            <p>Example: <a href="/examples/bootstrap-button/">Bootstrap Button</a></p>
+        </li>
+
+        <li>
+            <p><strong>Revalidate the field if the plugin changes its value dynamically:</strong></p>
+            <p>Most plugins trigger an event after changing the field value. By using this kind of event handler, you need to ask BootstrapValidator to revalidate the field.</p>
+        </li>
+    </ol>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nx">field</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">nameOfPlugin</span><span class="p">(</span><span class="nx">pluginOptions</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">pluginChangedEvent</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="nx">form</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;bootstrapValidator&#39;</span><span class="p">)</span>             <span class="c1">// Get the validator instance</span>
+            <span class="p">.</span><span class="nx">revalidateField</span><span class="p">(</span><span class="nx">field</span><span class="p">);</span>                <span class="c1">// Revalidate it</span>
+
+        <span class="c1">// It is equivalent to use</span>
+        <span class="nx">$</span><span class="p">(</span><span class="nx">form</span><span class="p">).</span><span class="nx">bootstrapValidator</span><span class="p">(</span><span class="s1">&#39;revalidateField&#39;</span><span class="p">,</span> <span class="nx">field</span><span class="p">);</span>
+    <span class="p">});</span></code></pre></div>
+
+    <p>Look at the <a href="/api/#revalidate-field"><code>revalidateField()</code></a> method for more details.</p>
+    <p>Example: <a href="/examples/chosen/">Chosen</a></p>
+
+    <p>These examples show how you can use BootstrapValidator with other Javascript plugins.</p>
+
+    <ul class="doc-list">
+        <li><a href="/examples/bootbox/">Bootbox</a></li>
+        <li><a href="/examples/bootstrap-button/">Bootstrap Button</a></li>
+        <li><a href="/examples/bootstrap-datepicker/">Bootstrap Datepicker</a> <span class="label label-success">NEW</span></li>
+        <li><a href="/validators/date/#datetime-picker-example">Bootstrap Datetime Picker</a></li>
+        <li><a href="/examples/bootstrap-multiselect/">Bootstrap Multiselect</a></li>
+        <li><a href="/examples/bootstrap-select/">Bootstrap Select</a></li>
+        <li><a href="/examples/bootstrap-tab/">Bootstrap Tabs</a></li>
+        <li><a href="/examples/bootstrap-tagsinput/">Bootstrap Tags Input</a></li>
+        <li><a href="/examples/chosen/">Chosen</a></li>
+        <li><a href="/examples/ckeditor/">CKEditor</a></li>
+        <li><a href="/examples/icheck/">iCheck</a></li>
+        <li><a href="/examples/mask/">Mask</a></li>
+        <li><a href="/examples/pickadate/">Pickadate</a> <span class="label label-success">NEW</span></li>
+        <li><a href="/examples/raty/">Raty</a></li>
+        <li><a href="/examples/select2/">Select2</a></li>
+        <li><a href="/examples/summernote/">Summernote</a></li>
+        <li><a href="/examples/tinymce/">TinyMCE</a></li>
+    </ul>
+</section>
+            </div>
+
+            <div class="col-md-3">
+                <div id="toc" class="doc-toc hidden-print hidden-xs hidden-sm"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <footer class="doc-footer">
+    <div class="container">
+        <p>
+            
+            <a class="btn" href="/download/">Download</a>
+            
+            <a class="btn" href="https://github.com/formvalidation/formvalidation/issues">Report bug</a>
+        </p>
+        <p>
+            &copy; 2013 - 2014 <a href="http://twitter.com/nghuuphuoc">Nguyen Huu Phuoc</a>. All rights reserved.<br/>
+            Handcrafted with <span class="doc-heart"><i class="fa fa-heart"></i></span> and a lot of <i class="fa fa-coffee"></i>
+        </p>
+        <ul>
+            <li><a href="/getting-started/">Getting started</a></li>
+            <li>&middot;</li>
+            <li><a href="/settings/">Settings</a></li>
+            <li>&middot;</li>
+            <li><a href="/validators/">Validators</a></li>
+            <li>&middot;</li>
+            <li><a href="/api/">API</a></li>
+            <li>&middot;</li>
+            <li><a href="/examples/">Examples</a></li>
+            <li>&middot;</li>
+            <li><a href="/developing/">Developing</a></li>
+            <li>&middot;</li>
+            <li><a href="/news/">News</a></li>
+            <li>&middot;</li>
+            <li><a href="/license/">License</a></li>
+        </ul>
+        <ul>
+            <li>
+                <a href="https://github.com/formvalidation/formvalidation" title="Fork me on Github">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-github-alt fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="http://twitter.com/formvalidation/" title="Follow me on Twitter">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/pages/FormValidation/1567908420106565/" title="Like me on Facebook">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://plus.google.com/u/0/communities/114931136856987817254" title="Join me on Google+">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    
+    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=bootstrapvalidatorcom" id="_carbonads_js"></script>
+    
+</footer>
+    </div>
+
+<script src="/vendor/tocjs/js/toc.min.js"></script>
+<script src="/vendor/share/share.min.js"></script>
+<script>
+$(function() {
+    // Create share button
+    new Share('#shareButton');
+
+    $('[data-toggle="tooltip"]').tooltip();
+
+    $('.doc-logo').on('click', function() {
+        $('body').toggleClass('doc-nav-shown');
+    });
+
+    $('form').each(function() {
+        $(this).on('success.form.bv', function(e) {
+            e.preventDefault();
+        });
+    });
+
+    // Create table of contents
+    if ($('#toc').length) {
+        $('#toc')
+            .css('max-width', $('#toc').width())
+            .toc({
+                selector: '#main h2, #main h3, #main h4, #main h5, #main h6',
+                elementClass: 'toc',
+                ulClass: 'nav',
+                indexingFormats: '______'
+            });
+
+        var $window = $(window),
+            $body   = $(document.body);
+        $body.scrollspy({
+            target: '#toc'
+        });
+
+        $window.on('load', function() {
+            $body.scrollspy('refresh');
+        });
+
+        setTimeout(function() {
+            var $sideBar = $('#toc');
+            $sideBar.affix({
+                offset: {
+                    top: function() {
+                        return (this.top = $sideBar.offset().top);
+                    }
+                }
+            });
+        }, 100);
+    }
+});
+</script>
+</body>
+</html>

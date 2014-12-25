@@ -1,0 +1,362 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title>The best jQuery plugin to validate form fields. Designed to use with Bootstrap 3+ - FormValidation</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="BootstrapValidator, a jQuery plugin to validate form fields">
+<meta name="keywords" content="Bootstrap, jQuery, validate, plugin, validator, form">
+<meta name="author" content="Nguyen Huu Phuoc">
+<meta name="google-site-verification" content="uzi08FxE8yqb9q-PlBzFxZeuUGalNFp3gX2haopVWBc" />
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cardo:400,400italic,700">
+<link rel="stylesheet" href="/vendor/pygments/github.css">
+<link rel="stylesheet" href="/asset/css/style.css">
+
+<!--[if lt IE 9]>
+<script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<script src="//oss.maxcdn.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-44786951-2']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+    <link rel="stylesheet" href="/vendor/onepage-scroll/onepage-scroll.css">
+</head>
+<body>
+    <nav class="doc-nav" tabindex="-1">
+    <ul>
+        <li class="doc-nav-active"><a href="/">Home</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/download/">Download</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/getting-started/">Getting Started</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/settings/">Settings</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/validators/">Validators</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/api/">API</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/examples/">Examples</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/developing/">Developing</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/news/">News</a></li>
+    
+        
+            
+        
+        <li class=""><a href="/license/">License</a></li>
+    
+    </ul>
+
+    <div class="doc-hr"></div>
+
+    <ul>
+        <li><a href="https://github.com/formvalidation/formvalidation" title="Fork me on Github">Github <i class="fa fa-github"></i></a></li>
+        <li><a href="http://twitter.com/formvalidation/" title="Follow me on Twitter">formvalidation <i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://www.facebook.com/pages/FormValidation/1567908420106565/" title="Like me on Facebook">FormValidation <i class="fa fa-facebook"></i></a></li>
+        <li><a href="https://plus.google.com/u/0/communities/114931136856987817254" title="Join me on Google+">Google+ community <i class="fa fa-google-plus"></i></a></li>
+    </ul>
+
+    <div class="doc-hr"></div>
+
+    <div class="doc-creator">
+        <p>
+            Handcrafted with <span class="doc-heart"><i class="fa fa-heart"></i></span> and a lot of <i class="fa fa-coffee"></i><br />
+            by <a href="http://twitter.com/nghuuphuoc">@nghuuphuoc</a><br/>
+            <img src="http://github.com/nghuuphuoc.png" />
+        </p>
+        <p><a href="mailto: phuoc@huuphuoc.me" class="btn">Hire me</a></p>
+    </div>
+</nav>
+<button class="btn doc-logo" title="Toggle the navigation"><i class="fa fa-bars"></i></button>
+
+    <div id="main" class="doc-content-wrapper">
+        <!-- intro -->
+        <section id="intro" class="doc-center-wrapper doc-home-intro">
+            <div class="container doc-center-container">
+                <h1>
+                    Best <a href="http://jquery.com">jQuery</a> plugin to validate form fields<br/>
+                    <span class="hidden-xs hidden-sm">Designed to use with <a href="http://getbootstrap.com">Bootstrap 3+</a></span>
+                </h1>
+                <p>
+                    <a class="btn" href="/download/">Download</a>
+                </p>
+                <span>v0.5.3 &middot; 2014.11.05 &middot; by <a href="http://twitter.com/nghuuphuoc">@nghuuphuoc</a></span>
+            </div>
+            <h3 class="hide"><span id="downloads" class="doc-home-counter"></span> downloads so far</h3>
+        </section>
+
+        <!-- features -->
+        <section id="features" class="doc-center-wrapper doc-home-feature">
+            <div class="container doc-center-container">
+                <h2>Features</h2>
+                <div class="doc-hr"></div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <i class="fa fa-code"></i>
+                        <h4>Code</h4>
+                        <p>written from scratch &middot; <a href="http://jshint.com">JSHint</a> free &middot; well tested with <a href="http://jasmine.github.io">Jasmine</a></p>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <i class="fa fa-html5"></i>
+                        <h4>HTML 5</h4>
+                        <p>support declarative settings &middot; HTML 5 attributes &middot; HTML 5 input types</p>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <i class="fa fa-flask"></i>
+                        <h4>Validators</h4>
+                        <p>49 <a href="/validators/">validators</a> &middot; Easy to write a new one &middot; 37 language packs</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <i class="fa fa-heart"></i>
+                        <h4>Friendly</h4>
+                        <p>feedback icons &middot; threshold option &middot; <a href="/settings/#form-container">tooltip/popover</a> error</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <i class="fa fa-magic"></i>
+                        <h4>Flexible</h4>
+                        <p>dynamic <a href="/settings/#dynamic-option">option</a> &middot; dynamic field &middot; dynamic <a href="/settings/#dynamic-message">messages</a></p>
+                    </div>
+                    <div class="col-sm-4">
+                        <i class="fa fa-puzzle-piece"></i>
+                        <h4>Compatibility</h4>
+                        <p><a href="/examples/#compatibility">play nice</a> with other</p>
+                    </div>
+                </div>
+
+                <p><a href="/examples/" class="btn">Examples</a></p>
+            </div>
+        </section>
+
+        <!-- contributors -->
+        <section id="contributors" class="doc-center-wrapper doc-home-contributor">
+            <div class="container doc-center-container">
+                <h2>Made better by <span class="doc-home-counter">121</span> contributors</h2>
+                <div class="doc-hr"></div>
+
+                <p>
+                    <a href="https://github.com/formvalidation/formvalidation/stargazers"><i class="fa fa-github"></i> <span id="ghStars" class="doc-home-counter"></span> stars</a>
+                    <a href="https://github.com/formvalidation/formvalidation/network/members"><i class="fa fa-code-fork"></i> <span id="ghForks" class="doc-home-counter"></span> forks</a>
+                </p>
+
+                <ul id="contributorList">
+                    <li><a href="https://github.com/abuzer" title="@abuzer"><img src="https://github.com/abuzer.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/aca02djr" title="@aca02djr"><img src="https://github.com/aca02djr.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/adgrafik" title="@adgrafik"><img src="https://github.com/adgrafik.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/adrian-dks" title="@adrian-dks"><img src="https://github.com/adrian-dks.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/AdwinTrave" title="@AdwinTrave"><img src="https://github.com/AdwinTrave.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/alavers" title="@alavers"><img src="https://github.com/alavers.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/AlaskanShade" title="@AlaskanShade"><img src="https://github.com/AlaskanShade.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/Arkni" title="@Arkni"><img src="https://github.com/Arkni.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/ArnauAregall" title="@ArnauAregall"><img src="https://github.com/ArnauAregall.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/Azuka" title="@Azuka"><img src="https://github.com/Azuka.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/bcamarneiro" title="@bcamarneiro"><img src="https://github.com/bcamarneiro.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/beeglebug" title="@beeglebug"><img src="https://github.com/beeglebug.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/bermo" title="@bermo"><img src="https://github.com/bermo.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/blackfyre" title="@blackfyre"><img src="https://github.com/blackfyre.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/budik21" title="@budik21"><img src="https://github.com/budik21.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/caijh" title="@caijh"><img src="https://github.com/caijh.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/CeRBeR666" title="@CeRBeR666"><img src="https://github.com/CeRBeR666.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/cuchac" title="@cuchac"><img src="https://github.com/cuchac.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/cylon-v" title="@cylon-v"><img src="https://github.com/cylon-v.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/desaretiuss" title="@desaretiuss"><img src="https://github.com/desaretiuss.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/dgmike" title="@dgmike"><img src="https://github.com/dgmike.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/Djarnis" title="@Djarnis"><img src="https://github.com/Djarnis.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/dlcrush" title="@dlcrush"><img src="https://github.com/dlcrush.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/dlucazeau" title="@dlucazeau"><img src="https://github.com/dlucazeau.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/dokterpasta" title="@dokterpasta"><img src="https://github.com/dokterpasta.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/drebrez" title="@drebrez"><img src="https://github.com/drebrez.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/easonhan007" title="@easonhan007"><img src="https://github.com/easonhan007.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/egig" title="@egig"><img src="https://github.com/egig.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/emilchristensen" title="@emilchristensen"><img src="https://github.com/emilchristensen.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/ericnakagawa" title="@ericnakagawa"><img src="https://github.com/ericnakagawa.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/ethernet-zero" title="@ethernet-zero"><img src="https://github.com/ethernet-zero.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/etorres" title="@etorres"><img src="https://github.com/etorres.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/evilchili" title="@evilchili"><img src="https://github.com/evilchili.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/fhferreira" title="@fhferreira"><img src="https://github.com/fhferreira.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/figgaro" title="@figgaro"><img src="https://github.com/figgaro.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/filipac" title="@filipac"><img src="https://github.com/filipac.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/Francismori7" title="@Francismori7"><img src="https://github.com/Francismori7.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/gercheq" title="@gercheq"><img src="https://github.com/gercheq.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/gladiatorAsh" title="@gladiatorAsh"><img src="https://github.com/gladiatorAsh.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/Glavic" title="@Glavic"><img src="https://github.com/Glavic.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/grzesiek" title="@grzesiek"><img src="https://github.com/grzesiek.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/henningda" title="@henningda"><img src="https://github.com/henningda.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/i0" title="@i0"><img src="https://github.com/i0.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/igorescobar" title="@igorescobar"><img src="https://github.com/igorescobar.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/ikanedo" title="@ikanedo"><img src="https://github.com/ikanedo.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/iplus" title="@iplus"><img src="https://github.com/iplus.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/jasonblalock" title="@jasonblalock"><img src="https://github.com/jasonblalock.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/jazzzz" title="@jazzzz"><img src="https://github.com/jazzzz.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/jcnmulio" title="@jcnmulio"><img src="https://github.com/jcnmulio.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/jhadenfeldt" title="@jhadenfeldt"><img src="https://github.com/jhadenfeldt.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/jjshoe" title="@jjshoe"><img src="https://github.com/jjshoe.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/johanronn77" title="@johanronn77"><img src="https://github.com/johanronn77.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/jonasesteves" title="@jonasesteves"><img src="https://github.com/jonasesteves.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/joshuachestang" title="@joshuachestang"><img src="https://github.com/joshuachestang.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/jswale" title="@jswale"><img src="https://github.com/jswale.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/JvanderHeide" title="@JvanderHeide"><img src="https://github.com/JvanderHeide.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/jzhang6" title="@jzhang6"><img src="https://github.com/jzhang6.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/kenny-evitt" title="@kenny-evitt"><img src="https://github.com/kenny-evitt.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/khangvm53" title="@khangvm53"><img src="https://github.com/khangvm53.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/krecik" title="@krecik"><img src="https://github.com/krecik.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/kristian-puccio" title="@kristian-puccio"><img src="https://github.com/kristian-puccio.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/kromit" title="@kromit"><img src="https://github.com/kromit.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/leedorian" title="@leedorian"><img src="https://github.com/leedorian.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/leegtang" title="@leegtang"><img src="https://github.com/leegtang.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/lloydde" title="@lloydde"><img src="https://github.com/lloydde.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/logemann" title="@logemann"><img src="https://github.com/logemann.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/lukaszbanasiak" title="@lukaszbanasiak"><img src="https://github.com/lukaszbanasiak.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/manish-in-java" title="@manish-in-java"><img src="https://github.com/manish-in-java.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/maramazza" title="@maramazza"><img src="https://github.com/maramazza.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/marceloampuerop6" title="@marceloampuerop6"><img src="https://github.com/marceloampuerop6.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/marcuscarvalho6" title="@marcuscarvalho6"><img src="https://github.com/marcuscarvalho6.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/markocrni" title="@markocrni"><img src="https://github.com/markocrni.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/MartinDevillers" title="@MartinDevillers"><img src="https://github.com/MartinDevillers.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/mattrick" title="@mattrick"><img src="https://github.com/mattrick.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/mbezhanov" title="@mbezhanov"><img src="https://github.com/mbezhanov.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/mchrapka" title="@mchrapka"><img src="https://github.com/mchrapka.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/mgibas" title="@mgibas"><img src="https://github.com/mgibas.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/mike1e" title="@mike1e"><img src="https://github.com/mike1e.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/morrizon" title="@morrizon"><img src="https://github.com/morrizon.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/mraiur" title="@mraiur"><img src="https://github.com/mraiur.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/MrC0mm0n" title="@MrC0mm0n"><img src="https://github.com/MrC0mm0n.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/mrpollo" title="@mrpollo"><img src="https://github.com/mrpollo.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/narutosanjiv" title="@narutosanjiv"><img src="https://github.com/narutosanjiv.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/nathanrosspowell" title="@nathanrosspowell"><img src="https://github.com/nathanrosspowell.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/neilime" title="@neilime"><img src="https://github.com/neilime.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/oleg-voloshyn" title="@oleg-voloshyn"><img src="https://github.com/oleg-voloshyn.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/paquitodev" title="@paquitodev"><img src="https://github.com/paquitodev.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/patmoore" title="@patmoore"><img src="https://github.com/patmoore.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/phillprice" title="@phillprice"><img src="https://github.com/phillprice.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/pRieStaKos" title="@pRieStaKos"><img src="https://github.com/pRieStaKos.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/q-state" title="@q-state"><img src="https://github.com/q-state.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/rbnvrw" title="@rbnvrw"><img src="https://github.com/rbnvrw.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/Relequestual" title="@Relequestual"><img src="https://github.com/Relequestual.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/roryprimrose" title="@roryprimrose"><img src="https://github.com/roryprimrose.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/rtbfreitas" title="@rtbfreitas"><img src="https://github.com/rtbfreitas.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/ryan2049" title="@ryan2049"><img src="https://github.com/ryan2049.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/s-a-y" title="@s-a-y"><img src="https://github.com/s-a-y.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/shamiao" title="@shamiao"><img src="https://github.com/shamiao.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/shineability" title="@shineability"><img src="https://github.com/shineability.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/smeagol74" title="@smeagol74"><img src="https://github.com/smeagol74.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/stephengreentree" title="@stephengreentree"><img src="https://github.com/stephengreentree.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/stepin" title="@stepin"><img src="https://github.com/stepin.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/sventech" title="@sventech"><img src="https://github.com/sventech.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/talberti" title="@talberti"><img src="https://github.com/talberti.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/tmaly1980" title="@tmaly1980"><img src="https://github.com/tmaly1980.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/thisisclement" title="@thisisclement"><img src="https://github.com/thisisclement.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/thomaslhotta" title="@thomaslhotta"><img src="https://github.com/thomaslhotta.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/thx2001r" title="@thx2001r"><img src="https://github.com/thx2001r.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/tiagofontella" title="@tiagofontella"><img src="https://github.com/tiagofontella.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/tomByrer" title="@tomByrer"><img src="https://github.com/tomByrer.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/traone" title="@traone"><img src="https://github.com/traone.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/trondulseth" title="@trondulseth"><img src="https://github.com/trondulseth.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/troymccabe" title="@troymccabe"><img src="https://github.com/troymccabe.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/tsuyoshifujii" title="@tsuyoshifujii"><img src="https://github.com/tsuyoshifujii.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/tureki" title="@tureki"><img src="https://github.com/tureki.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/ulsa" title="@ulsa"><img src="https://github.com/ulsa.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/vadail" title="@vadail"><img src="https://github.com/vadail.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/vaz" title="@vaz"><img src="https://github.com/vaz.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/yakidahan" title="@yakidahan"><img src="https://github.com/yakidahan.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/zmira" title="@zmira"><img src="https://github.com/zmira.png" width="60px" height="60px" /></a></li><li><a href="https://github.com/waveking" title="@waveking"><img src="https://github.com/waveking.png" width="60px" height="60px" /></a></li>
+                </ul>
+
+                <a href="https://github.com/formvalidation/formvalidation/network/members" class="btn">Fork and Contribute</a>
+            </div>
+        </section>
+
+        <!-- what people say -->
+        <section id="tweet" class="doc-center-wrapper doc-home-tweet">
+            <div class="container doc-center-container">
+                <h2>What people say</h2>
+                <div class="doc-hr"></div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img src="https://pbs.twimg.com/profile_images/486400018396368896/gjhMYZEX_normal.jpeg" />
+                        <blockquote>this is really cool stuff and it works! <a href="https://twitter.com/bsvalidator">@bsvalidator</a> great work</blockquote>
+                        <span>&mdash; <a href="https://twitter.com/samlinux/status/508324990014717952">@samlinux</a></span>
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="https://pbs.twimg.com/profile_images/428888773468762112/0ajZwXXW_normal.jpeg" />
+                        <blockquote>such a lifesaver, thanks! <a href="https://twitter.com/nghuuphuoc">@nghuuphuoc</a> now I can validate my HTML form in no time, and beautifully! :D</blockquote>
+                        <span>&mdash; <a href="https://twitter.com/andikamri/statuses/502011686086123520">@andikamri</a></span>
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="https://pbs.twimg.com/profile_images/473566833488830464/bgHodkxx_normal.jpeg" />
+                        <blockquote><a href="https://twitter.com/formvalidation">@formvalidation</a> Great work! BootstrapValidator is exactly what I needed.</blockquote>
+                        <span>&mdash; <a href="https://twitter.com/butchewing/statuses/492733411400744961">@butchewing</a></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img src="https://pbs.twimg.com/profile_images/508086259307134976/ahrh4FBp_normal.jpeg" />
+                        <blockquote><a href="https://twitter.com/formvalidation">@formvalidation</a> been searching and looking high and low, now the search is over, sticking to this :D</blockquote>
+                        <span>&mdash; <a href="https://twitter.com/tomexsans/statuses/491985972767113217">@tomexsans</a></span>
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="https://pbs.twimg.com/profile_images/436179968347734017/BcB3ZBgK_normal.png" />
+                        <blockquote>Validation plugin for Bootstrap: <a href="http://t.co/q4JQ6vfzMp">http://t.co/q4JQ6vfzMp</a> from <a href="https://twitter.com/formvalidation">@formvalidation</a>. Give it a try, looks great!</blockquote>
+                        <span>&mdash; <a href="https://twitter.com/CreativeTim/statuses/491460220120743936">@CreativeTim</a></span>
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="https://pbs.twimg.com/profile_images/490575346329079811/Uk-LiXQK_normal.jpeg" />
+                        <blockquote><a href="https://twitter.com/formvalidation">@formvalidation</a> great lib - thx for the work <a href="https://twitter.com/tipdoge">@tipdoge</a> tip 1000</blockquote>
+                        <span>&mdash; <a href="https://twitter.com/Kim_Jong_Skill/statuses/489041056479346688">@Kim_Jong_Skill</a></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img src="https://pbs.twimg.com/profile_images/540142586686484480/bjksXKel_normal.jpeg" />
+                        <blockquote>Great combination of web toolkits making frontend easy... <a href="https://twitter.com/twbootstrap">@twbootstrap</a> <a href="https://twitter.com/formvalidation">@formvalidation</a> <a href="https://twitter.com/jquery">@jquery</a> <a href="https://twitter.com/fontawesome">@fontawesome</a> <a href="https://twitter.com/gulpjs">@gulpjs</a> if you can use them all!</blockquote>
+                        <span>&mdash; <a href="https://twitter.com/aandrewdixon/statuses/485521144142123008">@aandrewdixon</a></span>
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="https://pbs.twimg.com/profile_images/1089022619/yoo_normal.png" />
+                        <blockquote>i love <a href="https://twitter.com/formvalidation">@formvalidation</a> … the jquery plugin… not the guy behind the code ;-)</blockquote>
+                        <span>&mdash; <a href="https://twitter.com/logemann/statuses/484266215050080256">@logemann</a></span>
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="https://pbs.twimg.com/profile_images/431221224727793666/Uuq7N79-_normal.jpeg" />
+                        <blockquote><a href="https://twitter.com/formvalidation">@formvalidation</a> Thank you, Thank you, Thank you for this amazing script!!!!!</blockquote>
+                        <span>&mdash; <a href="https://twitter.com/Arelowo/statuses/483417620993941505">@Arelowo</a></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img src="https://pbs.twimg.com/profile_images/459864257182449664/uLHuUQoI_normal.jpeg" />
+                        <blockquote>You saved my day <a href="https://twitter.com/formvalidation">@formvalidation</a></blockquote>
+                        <span>&mdash; <a href="https://twitter.com/scokmen/statuses/475145281412288512">@scokmen</a></span>
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="https://pbs.twimg.com/profile_images/476492598253592578/ssYSap9L_normal.jpeg" />
+                        <blockquote><a href="https://twitter.com/formvalidation">@formvalidation</a> haha thanks for the plugin you rock.</blockquote>
+                        <span>&mdash; <a href="https://twitter.com/mrpollo/statuses/472018708076838912">@mrpollo</a></span>
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="https://pbs.twimg.com/profile_images/478563131413643264/VCb27D1k_normal.jpeg" />
+                        <blockquote>Thanks again to <a href="https://twitter.com/formvalidation">@formvalidation</a> for the quick reply. Be sure to check out Bootstrap Validator. It's the best I've found.</blockquote>
+                        <span>&mdash; <a href="https://twitter.com/CurtStaubach/statuses/466937857652064256">@CurtStaubach</a></span>
+                    </div>
+                </div>
+
+                <p>
+                    <a href="http://twitter.com/nghuuphuoc" class="btn" title="Follow @nghuuphuoc">Follow @nghuuphuoc</a>
+                    <a href="http://twitter.com/formvalidation" class="btn" title="Follow @formvalidation">Follow @formvalidation</a>
+                </p>
+            </div>
+        </section>
+    </div>
+
+<script src="/vendor/onepage-scroll/jquery.onepage-scroll.min.js"></script>
+<script>
+$(function() {
+    $('.doc-logo').on('click', function() {
+        $('body').toggleClass('doc-nav-shown');
+    });
+
+    $('#main').onepage_scroll({
+        animationTime: 1000,
+        responsiveFallback: 767
+    });
+
+    // Show the number of Github stars/forks
+    $.ajax({
+        dataType: 'jsonp',
+        url: 'https://api.github.com/repos/formvalidation/formvalidation',
+        success: function(response) {
+            $('#ghStars').html((response && response.data.watchers_count ? parseInt(response.data.watchers_count) : '1580').toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+            $('#ghForks').html((response && response.data.forks_count    ? parseInt(response.data.forks_count)    : '1070').toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+        }
+    });
+
+    $(window).on('load', function() {
+        var $contributors   = $('#contributorList').find('li'),
+            numContributors = $contributors.length,
+            random          = function(a, b) {
+                return Math.floor(Math.random() * (b - a + 1) + a);
+            },
+            swapContributor = function(i, j) {
+                var $tmp = $('<span>').hide(),
+                    $a   = $contributors.eq(i),
+                    $b   = $contributors.eq(j);
+                $a.before($tmp);
+                $b.before($a);
+                $tmp.replaceWith($b);
+            };
+
+        setInterval(function() {
+            var i = random(0, numContributors / 2),
+                j = random(numContributors / 2, numContributors);
+            swapContributor(i, j);
+        }, 300);
+    });
+
+    // Show the total of downloads
+    $.ajax({
+        dataType: 'jsonp',
+        url: 'https://api.github.com/repos/formvalidation/formvalidation/releases',
+        success: function(response) {
+            var total = 0;
+            if (response.data) {
+                for (var i in response.data) {
+                    for (var j in response.data[i].assets) {
+                        total += (response.data[i].assets[j].download_count || 0);
+                    }
+                }
+            }
+            var count = Math.floor(total / 1000 - 1) * 1000;
+            $('#downloads').html(count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')).parent().removeClass('hide');
+
+            var counter = setInterval(function() {
+                count++;
+                if (count > total) {
+                    clearInterval(counter);
+                } else {
+                    $('#downloads').html(count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+                }
+            }, 0.5);
+        }
+    });
+});
+</script>
+</body>
+</html>
