@@ -39,7 +39,7 @@ download:
 repository:
   source:             https://github.com/formvalidation/formvalidation
   docs:               https://github.com/formvalidation/formvalidation.io/gh-pages
-  docs_edit:          https://github.com/formvalidation/formvalidation.io/edit/docs
+  docs_edit:          https://github.com/formvalidation/formvalidation.io/edit/master
 ga_code:              UA-44786951-2
 jquery_plugin_url:    http://plugins.jquery.com/bootstrapValidator
 disqus:               bootstrapvalidator
