@@ -1,4 +1,4 @@
 formvalidation.io
 =================
 
-Official website
+This repository contains the source of [formvalidation.io](http://formvalidation.io)
